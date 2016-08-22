@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="3rendering.css" />
+		<link rel="stylesheet" media="screen and (max-width: 1127px) and (min-width: 850px)" type="text/css" href="1about_media1.css"/>
+		<link rel="stylesheet" media="screen and (max-width: 849px) and (min-width: 640px)" type="text/css" href="1about_media2.css"/>
+		<title></title>
+	</head>
+	<body>
+		<div id="wrap">
+			<!--头部-->
+			<div id="head_wrap">
+				<div class="top_all">
+					<div class="head_left">
+						<img src="img2/shininglogo.png"/>
+					</div>
+					<div class="head_right">
+						<a class="btn" href="1home.html">Home</a>
+						<a class="btn" href="2about.html">About</a>
+						<a class="btn" href="3rendering.html">Rendering</a>
+						<a class="btn" href="43Danimation.html">3D Animation</a>
+						<a class="btn" href="5Bim.html">Bim</a>
+						<a class="btn" href="6contact.html">Contact</a>
+						<a href="###"><img id="nav" src="img1/nav.png"/></a>
+					</div>
+				</div>
+			</div>
+			<!--中间-->
+			<!--大图滚动-->
+			<div id="content">
+			    <div id="c_wrap">
+					<img id="c_wrap_img1" src="img3/Banner (1).jpg"/>
+					<img id="c_wrap_img2" src="img3/Banner (2).jpg"/>
+					<img id="c_wrap_img3" src="img3/Banner (3).jpg"/>
+				    <div id="btnWrap">
+					   <span></span>
+					   <span></span>
+					   <span></span>
+					</div>
+				</div>
+			</div>
+			
+			<!--瀑布流-->
+			<div class="wrap">
+				<ul></ul>
+				<ul></ul>
+				<ul></ul>
+				<ul></ul>
+            </div>
+            <div class="maskDiv"></div>
+            	<img class="maskimg" src="img3/1-150Z1103942428.jpg"/>
+	        <!--尾部-->
+			<div class="bottom">
+				<div class="bottom_logo">
+					<div class="bottom_logo1">
+						<a  href="###"><img class="btn1" src="img2/mail.jpg"/></a>
+					</div>
+					<div class="bottom_logo2">
+						<a  href="###"><img class="btn2" src="img2/facebook.jpg"/></a>
+						<a  href="###"><img class="btn2" src="img2/youtube.jpg"/></a>
+						<a  href="###"><img class="btn2" src="img2/linkedln.jpg"/></a>
+						<a  href="###"><img class="btn2" src="img2/twitter.jpg"/></a>
+					</div>
+					<div class="bottom_logo3">
+						<span>Copyright © 1998-2015 shining Group</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="tween.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+		    //头部
+			var btn=document.getElementsByClassName("btn");
+			
+			
+			//中间
+			//获取大图滚动
+			var cwrap=document.querySelector("c_wrap");
+            var cwrapimgs=document.querySelectorAll("#c_wrap img")
+            var spans=document.querySelectorAll("#btnWrap span");
+//          大图滚动
+            var timer=null;
+            var timer2=null;
+            var timer3=null;
+            var index=0;
+//      tween动画函数里主要有4个参数：t、b、c、d
+//		1.t——time:当前时间
+//		2.b——beginning value:初始的位置
+//		3.c——change in value:变化量
+//		4.d——duration:持续的时间（终点的时间）
+            function change1(sei){
+            	   var t=0;
+            	   var b=1;
+            	   //c=end-b;
+            	   var c=-1;
+            	   var d=100;
+            	   clearInterval(timer);
+            	   var timer=setInterval(function(){
+            	   	t++;
+            	   	if(t>d){
+            	   		clearInterval(timer);
+            	   	}else{
+cwrapimgs[sei].style.opacity=Tween.Back.easeInOut(t,b,c,d);
+            	   	}
+            	   },20)
+            };
+            
+            function change2(sei){
+            	var t=0;
+            	var b=0;
+            	var c=1;
+            	var d=100;
+            	clearInterval(timer2);
+            	var timer1=setInterval(function(){
+            		t++;
+            		if(t>d){
+            			clearInterval(timer2);
+            		}else{
+cwrapimgs[sei+1].style.opacity=Tween.Back.easeInOut(t,b,c,d);            			
+            		}
+            	},20)
+            }
+            
+            function bianhua() {
+				if(index < cwrapimgs.length - 1) {
+//					console.log(index);
+					change1(index);
+					change2(index);
+					index++;
+				} else {
+//					console.log(index);
+					change1(index);
+					change2(-1);
+					index = 0;
+				}
+			}
+
+			function autochange() {
+				clearInterval(timer3)
+				timer3 = setInterval(function() {
+					bianhua();
+				}, 2000)
+			}
+			autochange();
+    
+      //获取瀑布流
+        var imgs=["img3/1-150Z110411A47.jpg","img3/SHINING (44).jpg","img3/SHINING (46).jpg","img3/1-150Z11341353I.jpg","img3/SHINING (18).jpg","img3/1-150Z110342W02.jpg","img3/1-150Z114125a24.jpg","img3/1-150Z114095NC.jpg","img3/SHINING (16).jpg","img3/SHINING (15).jpg","img3/1-150Z1103942428.jpg","img3/SHINING (54).jpg","img3/SHINING (5).jpg","img3/SHINING (8).jpg","img3/1-150Z110411A47.jpg","img3/1-150Z1141634519.jpg","img3/1-150Z1134JM27.jpg","img3/1-150Z114055W60.jpg","img3/1-150Z114095NC.jpg","img3/SHINING (20).jpg","img3/SHINING (35).jpg","img3/SHINING (46).jpg","img3/SHINING (42).jpg","img3/SHINING (16).jpg","img3/SHINING (17).jpg"];
+        var uls=document.getElementsByTagName("ul");
+            //每循环一次imgs就创建一个li和一个img,让li的src等于img的下标
+            for(var i=0;i<imgs.length;i++){
+				var li=document.createElement("li");
+				var img=document.createElement("img");
+				img.setAttribute("class","lifallimg")
+				img.src=imgs[i];
+				li.appendChild(img);
+                        //后创建div，图片上面的黑色背景，让它跟img同级，然后进行定位
+	                    var div1=document.createElement("div");
+	                    li.appendChild(div1);
+	                    //创建一个放大镜的img，把它放到div1里
+		                var imgF=document.createElement("img");
+		                imgF.setAttribute("class","imgfs");
+		                imgF.src="img3/fangda.png";
+		                div1.appendChild(imgF);
+				//默认最短的是第0位，第0位的高度也是最短的
+				var minIndex =0;
+				var minHeight=uls[0].offsetHeight;
+				
+				//寻找ul里最短的列里
+				//每循环一次ul,就用最短的高度跟每个ul的高度进行比较
+				for(var j=0; j<uls.length; j++){
+					if(minHeight>uls[j].offsetHeight){
+						minIndex=j;
+						minHeight=uls[j].offsetHeight;
+					}
+				}
+			//把最短的一列，然后添加到ul里
+				uls[minIndex].appendChild(li);
+			}
+            
+            //for循环创建鼠标移入每个div上，div会出现放大镜
+		var div1=document.querySelectorAll(".wrap div");
+		var maskDiv=document.getElementsByClassName("maskDiv")[0];
+		var maskimg=document.getElementsByClassName("maskimg")[0];
+		var lifallimg=document.getElementsByClassName("lifallimg");
+        var li=document.querySelectorAll(".wrap li");
+//		console.log(li);
+		for (i=0;i<div1.length;i++){
+			div1[i].onmouseover=function(){
+			    this.style.opacity=0.6;
+//				imgF.style.opacity=1;
+            }
+			 div1[i].onmouseout=function(){
+			    this.style.opacity=0;
+		   }
+          li[i].index=i;
+			 li[i].onclick=function(){
+			 	maskDiv.style.display="block";
+			maskimg.style.display="block";
+	    	   maskimg.src=lifallimg[this.index].src;
+	    	   console.log(li_src);
+	    	  
+	    }
+        }
+		
+	    maskDiv.onclick=function(){
+			maskDiv.style.display="";
+			maskimg.style.display="";
+		}
+	    maskimg.onclick=function(){
+	    	 this.style.display="";
+	    	  maskDiv.style.display="";
+	    }
+	    
+	    
+	//底部
+			var btn1=document.querySelector(".btn1");
+			var btn2=document.getElementsByClassName("btn2");
+			var caitu=["img2/facebook_h.jpg","img2/youtube_h.jpg","img2/linkedln_h.jpg","img2/twitter_h.jpg"];
+			var antu=["img2/facebook.jpg","img2/youtube.jpg","img2/linkedln.jpg","img2/twitter.jpg"];
+
+			//给每个a标签 设置同一个class的名字，for循环给每个a标签设置鼠标移入和移开事件
+			for(i=0;i<btn.length;i++){
+					btn[i].onmouseover=function(){
+					this.style.border="1px solid gray";
+				}
+					btn[i].onmouseout=function(){
+					this.style.border="";
+				}
+			}
+			
+			
+			//底部图片
+			btn1.onmouseover=function(){
+				btn1.src="img2/mail_h.jpg";
+			  btn1.onmouseout=function(){
+				btn1.src="img2/mail.jpg";
+			   }
+			}
+			
+			//存彩图.src到数组里，当鼠标移入到img上，把暗图的src变到彩图的下标上
+			for (i=0;i<btn2.length;i++) {
+				btn2[i].index=i;
+				btn2[i].onmouseover=function(){
+					this.src=caitu[this.index];
+				}
+				btn2[i].onmouseout=function(){
+					this.src=antu[this.index];
+				}
+			}
+
+
+			
+		</script>
+	</body>
+</html>
