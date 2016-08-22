@@ -1,0 +1,255 @@
+/* 中间*/
+.content{
+	width: 100%;
+	height: 3300px;
+}
+/*center1*/
+.center1{
+	width: 100%;
+	height: 650px;
+	background-color: #E5E5E5;
+	overflow: hidden;
+	position: relative;
+}
+.cen1_tu1{
+	width: 910px;
+	height: 580px;
+	margin: 0 auto;
+	padding-top: 60px;
+}
+.cen1_zi{
+	width: 400px;
+}
+h2,h1{
+	display: inline-block;
+	color: dimgray;
+	padding: 0px 5px;
+}
+h1{
+	border: 1px solid dimgray;
+    border-radius: 6px;
+}
+span{
+	display: block;
+	line-height: 1.5em;
+	/*word-break: break-word;*/
+    font-family: arial;
+    font-weight: 200px;
+    }
+.tu1 img{
+	display: inline-block;
+	float: left;
+	margin-top: 20px;
+}
+/*！！！用子级选择器的话，要把自己元素的标签类型写出来*/
+.tu1 img:nth-child(1){
+	width: 120px;
+	height: 220px;
+}
+.tu1 img:nth-child(2){
+	width: 120px;
+	height: 230px;
+}
+.tu1 img:nth-child(3){
+	width: 120px;
+	height: 235px;
+}
+.cen1_tu2 img{
+	width: 350px;
+	height: 488px;
+	position: absolute;
+	right: 150px;
+	bottom:0;
+}
+/*第二块*/
+.center2{
+	width: 100%;
+	height: 650px;
+	background-color: white;
+	position: relative;
+}
+.cen2_tu1{
+	width: 910px;
+	height: 580px;
+	margin: 0 auto;
+	padding-top: 60px;
+	
+}
+.cen2_zi{
+	width: 400px;
+}
+h2,h3{
+	display: inline-block;
+	color: dimgray;
+	padding: 0px 5px;
+}
+h2{
+	border: 1px solid dimgray;
+    border-radius: 6px;
+}
+span{
+	display: block;
+	line-height: 1.5em;
+	/*word-break: break-word;*/
+    font-family: arial;
+    font-weight: 200px;
+    }
+.tu2 img{
+	width: 210px;
+	height: 127px;
+	/*float: left;*/
+	margin-top: 20px;
+	margin-right: 10px;
+}
+.cen2_tu2 img{
+	width: 350px;
+	height: 488px;
+	position: absolute;
+	top: 0;
+	right: 195px;
+}
+/*第三块*/
+.center3{
+	width: 100%;
+	height: 650px;
+	background-color: #E5E5E5;
+}
+.cen3_tu2{
+	width: 910px;
+	height: 650px;
+	margin: 0 auto;
+	position: relative;
+}
+.cen3_tu1 img{
+	width: 400px;
+	height: 600px;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+.cen3_zi{
+	width: 250px;
+	margin-left: 360px;
+	padding-top: 150px;
+}
+h2,h3{
+	display: inline-block;
+	color: dimgray;
+	padding: 0px 5px;
+}
+h2{
+	border: 1px solid dimgray;
+    border-radius: 6px;
+}
+span{
+	display: block;
+	line-height: 1.5em;
+	/*word-break: break-word;*/
+    font-family: arial;
+    font-weight: 200px;
+    }
+.tu3 img{
+	width: 267px;
+	height: 154px;
+}
+.tu3{
+	margin: 20px 0px 0px 360px;
+}
+/*第四块*/
+.center4{
+	width: 100%;
+	height: 650px;
+ /* background-color: yellow;*/
+}
+.cen4_tu2{
+	width: 910px;
+	height: 650px;
+	margin: 0 auto;
+	position: relative;
+}
+.cen4_tu1 img{
+	width: 400px;
+	height: 600px;
+	position: absolute;
+	top: 0;
+	left: 52px;
+	z-index: -2;
+}
+.cen4{
+	z-index: 2;
+}
+.cen4_zi{
+	width: 300px;
+	margin-left: 220px;
+	padding-top: 150px;
+}
+h2,h3{
+	display: inline-block;
+	color: dimgray;
+	padding: 0px 5px;
+}
+h2{
+	border: 1px solid dimgray;
+    border-radius: 6px;
+}
+span{
+	display: block;
+	line-height: 1.5em;
+	/*word-break: break-word;*/
+    font-family: arial;
+    font-weight: 200px;
+    }
+.tu4 img{
+	width: 215px;
+	height: 100px;
+	margin-top: 10px;
+	display: block;
+	margin-left: 220px;
+}
+.cen4_tu3 img{
+	width: 400px;
+	height: 570px;
+	position: absolute;
+	bottom: 0px;
+	right: -150px;
+}
+/*第五块*/
+.center5{
+	width: 100%;
+	height: 650px;
+	background-color: #E5E5E5;
+}
+.cen5_tu1{
+	width: 910px;
+	height: 580px;
+	margin: 0 auto;
+	padding-top: 60px;
+	position: relative;
+}
+.cen5_zi{
+	width: 350px;
+	margin-top: 250px;
+}
+h2,h3{
+	display: inline-block;
+	color: dimgray;
+	padding: 0px 5px;
+}
+h2{
+	border: 1px solid dimgray;
+    border-radius: 6px;
+}
+span{
+	display: block;
+	line-height: 1.5em;
+	/*word-break: break-word;*/
+    font-family: arial;
+    font-weight: 200px;
+    }
+.cen5_tu2 img{
+	width: 400px;
+	height: 488px;
+	position: absolute;
+	top: 0;
+	right: -93px;
+}

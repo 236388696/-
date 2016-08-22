@@ -1,0 +1,64 @@
+/* 中间*/
+.content{
+	width: 100%;
+	height: 589px;
+}
+.content_bg{
+	background-image: url(img6/contact_point_bg.png);
+	background-repeat:no-repeat;
+	width: 100%;
+	background-color: #F5F5F5;
+	/*background-position: center 69px;*/	
+}
+.contentWrap{
+	text-align: center;
+	width: 100%;
+	height: 600px;
+	/*background-color: red;*/
+}
+.contactsWrap{
+padding-top: 50px;
+}
+.contactsWrap h2{
+	display: inline;
+	font-weight: bolder;
+}
+.contactsWrap span{
+	font-size: 20px;
+	font-weight: bolder;
+}
+.emailWrap{
+	display: inline-block;
+	margin-top: 20px;
+}
+.emailWrap h2{
+	display: inline;
+}
+.add1 div{
+	display: inline-block;
+}
+
+/*!!!!  逗号后一定记得写上p标签的父级*/
+.add2 img,.add2 p{
+	display: inline-block;
+	margin-top: 20px;
+}
+.add3 img,.add3_1p{
+	display: inline-block;
+}
+.add1,.add2,.add3{
+	display: inline-block;
+	margin-left: 5%;
+	margin-top: 70px;
+}
+.contentWrap p{
+	font-size: 13px;
+}
+.content_bottom img{
+	width: 100%;
+	position: absolute;
+	bottom:20%;
+	left: 0;
+	
+}
+
