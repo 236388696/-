@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		
+		    //面向过程编程：代表语言：C语言，注重的计算机的思维，你需要编写每一步指令，调用函数
+			//面向对象编程：代表语言：Java,C++,OC等；注重的是现实生活的思维，万物皆对象
+			
+			//面向对象编程 －> 类，对象
+              //类:具有相同特征和行为的事物的抽象
+              //对象:由类创建的具体实例
+              
+            //一、系统的类
+              //String, Number, boolean, null, Array, Date
+                 
+            //二、自定义类：（实例对象的原始模版 －>来体现）
+             var person={
+             	name:"王俊",
+             	age:98,
+             	sex:"?"
+             };
+            //大括号里面key:value用逗号隔开，最后一个不需要加符号
+            person.name="小君君";
+            console.log(person);
+            //效率不高，创建多个对象特别麻烦（只需要一个对象的时候使用它）
+            
+            //三、原始模型（函数版）
+            function Person(pname,page,psex){
+            	    return{
+            	    	    name:pname,
+            	    	    age:page,
+            	    	    sex:psex
+            	    }
+            }
+            var per=Person("小李",29,"男");
+             console.log(per);
+            //函数版：多个对象之间，没有内在的联系
+            
+            
+            //四、构造函数***
+            //定义一个类叫Student,属性name,age,方法play
+            function Student(sName,sAge){
+            	    this.name=sName;
+            	    this.age=sAge;
+            	    this.play=function(){
+            	    	     console.log("我是学生，我会玩");
+            	    }
+            }
+            //其实构造函数就是普通的函数，只不过内部使用this关键字
+            //this代表这个构造函数创建的实例对象
+            //构造函数里面，必须使用this关键字
+            
+            //用student类实例化（创建）一个对象叫s
+            var s=new Student("孙超",18);
+            //调用属性
+              console.log(s.age);
+            //调用方法
+              s.play();
+              
+            //不好的地方
+            var s2=new Student("成龙",38)
+        	    console.log(s.play===s2.play);
+        	    //s和s2的对象的play方法指针地址不同，你创建的对象越多，占用的内存空间越大
+        	    //所以我们的方法，不能写在构造函数内部，而是要放在原型属性上
+           
+      //练习:  
+            function Teacher2(name,sex){
+                this.aname=name;
+            	    this.asex=sex;
+            	    this.eat=function(){
+            	    	    console.log("我爱吃");
+            	    };
+            	    this.sleep=function(){
+            	    	    console.log("我喜欢睡觉");
+            	    };
+            	    this.teach=function(){
+            	    	    console.log("我会上课");
+            	    };
+
+            }
+            var cc = new Teacher2("李东","男");
+            console.log(cc.aname);
+            console.log(cc.asex);
+            cc.teach();
+            cc.sleep();
+
+            
+            
+          
+            	//五.构造函数(完全体)*****
+            	function Teacher(name,age){
+            		this.name=name;
+            		this.age=age;
+            	}
+            	//以后的方法都要加在类的prototype属性
+            	Teacher.prototype.run=function(){
+            		console.log("我能跑800米");
+            	}
+            	var t=new Teacher("王俊",39);
+            	console.log(t.name);
+            	t.run();
+            	var t2=new Teacher("黄鑫",38);
+            	console.log(t.run===t2.run);
+            	
+            	
+	        
+            	
+            	
+            	六.(了解)构造函数(安全版)
+            	function Dog(name,sex){
+            		this.name=name;
+            		this.sex=sex;
+            		//有的时候，有些属性我不想让外面直接使用
+            		var age;
+            		//setter方法：为私有变量赋值
+            		this.setAge=function(obj){
+            			age=obj;
+            		};
+            		//get方法：取出私有变量的值
+            		this.getAge=function(){
+            			return age;
+            		}
+            		
+            	}
+            	var smallDog=new Dog("格格","母");
+            	smallDog.setAge(4);
+            	console.log(smallDog.name);
+            	console.log(smallDog.getAge());
+            	
+        
+            
+//          七.类方法,实例方法,原型方法
+             //类方法
+             function Cat(){
+             	
+             }
+             //类.方法名=function(){};
+             Cat.run=function(){
+             	console.log("类方法:play")
+             }
+            //调用类方法
+            Cat.run();
+            
+            
+            
+            //实例方法
+            function Bird(){
+            	    this.eat=function(){
+            	    	     console.log("实例方法:吃")
+            	    }
+            }
+            //创建实例对象
+            var sB=new Bird();
+            //调用实例方法
+            sB.eat();
+             
+             
+             
+             
+            //原型方法
+            function House(){
+             	
+            }
+            House.prototype.zhu=function(){
+             	console.log("原型方法：我能住人");
+            }
+            //创建原型对象
+            var h=new House();
+            //调用原型方法
+            h.zhu();
+            
+         
+        
+           
+		</script>
+	</body>
+</html>

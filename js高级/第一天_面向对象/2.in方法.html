@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+	    function animal(name="lalala",color="黑色"){
+        	  this.name=name;
+        	  this.color=color;
+        }
+        animal.prototype.play=function(){
+        	  console.log("我能跑");
+        }
+        //声明狗的类
+        function Dog(age,sex){
+        	  this.age=age;
+        	  this.sex=sex;
+        }
+        Dog.prototype.run=function(){
+        	  console.log("我能陪你玩");
+        }
+        Dog.prototype=new animal();
+        var dog2=new Dog(2,"母");
+        console.log(dog2.age);
+         
+//      二.一些方法 
+       //1.hasOwnProperty() 判断有没有这个属性，是自己的就是false/不是就是true
+        console.log(Dog.hasOwnProperty("sex"));
+        
+       //2.属性名 in 对象
+       //检查对象dog2里面有没有name这个属性（包含从父类继承过来的属性）
+       console.log("name" in dog2);
+       
+       //3. for in 
+       //直接遍历dog2对象里面的所有的属性以及方法
+       for (var prop in dog2) {
+       	 console.log("属性+方法："+prop);
+       }
+        
+		</script>
+	</body>
+</html>

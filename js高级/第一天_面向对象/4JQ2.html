@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="myDiv"></div>
+		<script type="text/javascript">
+//			$("#myDiv") = document.getElementById("myDiv");
+
+    //1.定义一个JQQ类
+    function JQQ(obj){
+    	  this.sign=document.getElementById(obj.replace("#",""));//replace("要删除的对象"，“替换成什么元素)
+    }
+    JQQ.prototype.css=function(obj){
+    	    this.sign.style.width=obj.width+"px";
+    	    console.log(obj);
+    	    this.sign.style.height=obj.height+"px";
+    	    this.sign.style.backgroundColor=obj.color;
+    }
+    // str是绑定的事件名字，fn代表是触发的函数
+    JQQ.prototype.on=function(str,fn){
+    	this.sign.addEventListener(str,fn);
+    	}
+     
+     function $(obj){
+     	//new JQQ(obj)根据obj(id字符串)获取标签，标签在对象的sign
+     	return new JQQ(obj);
+  	
+     }
+     $("#myDiv").css({
+     	width:300,
+     	height:500,
+     	color:"red"
+     });
+     
+     $("#myDiv").on("click",function(){
+     	console.log("nihao");
+     });
+     
+		</script>
+	</body>
+</html>

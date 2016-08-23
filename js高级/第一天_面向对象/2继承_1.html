@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//每一个构造函数，都有一个prototype属性
+			//每一个实例对象的属性和方法来自于：
+			  //(1)构造函数里的 属性和方法
+			  //(2) prototype 属性和方法
+			 
+			 
+			 
+			//继承
+			function Die(name="DADDY",money){
+				this.name=name;
+				this.money=money;
+			}
+			Die.prototype.buy= function(){
+				console.log("爹爹会买东西");
+			}
+			//子类
+			function Son(house,grade){
+				this.house=house;
+				this.grade=grade;
+			}
+			//继承（如果没有下面这行代码，则没有继承关系）
+			//Son类继承与Die类
+			//继承就是把父类的所有属性和方法都克隆一份给自己
+			Son.prototype=new Die();
+			
+			var s=new Son();
+			//当子类调用了一个不存在的属性的时候,那么会去父类的属性中查找，
+			//找到则输出，未找到则输出undefined；
+			console.log(s.name);
+			
+		</script>
+	</body>
+</html>

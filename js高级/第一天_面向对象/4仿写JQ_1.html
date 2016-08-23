@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="myDiv"></div>
+		<script type="text/javascript">
+//			$("#myDiv") = document.getElementById("myDiv");
+     
+     function $(obj){
+     	console.log(obj);
+     	//obj是外面传进来的，#myDiv
+     	//真正内部实现的时候，还是DOM利用id获取标签，但是多了一个＃ ,想办法把＃干掉
+     	var sign=document.getElementById(obj.replace("#",""));
+     	sign.style.width="300px";
+     	sign.style.height="300px";
+     	sign.style.backgroundColor="red";
+     	
+     	
+     }
+     $("#myDiv");
+		</script>
+	</body>
+</html>

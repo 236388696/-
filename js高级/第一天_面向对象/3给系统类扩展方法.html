@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			//prototype 系统的类，也有这么一个属性，通过它，我们可以给任何一个类添加属性和方法
+		
+		//封装函数
+		function solvStr(str,num){
+			var newStr = "";
+				for(var i = 0; i < str.length; i++) {
+					var s = str[i].charCodeAt();
+				    s += num;
+					var newS = String.fromCharCode(s);
+					newStr += newS;
+				}
+				return newStr;
+		}
+		String.prototype.addKey=function(){
+			return solvStr(this,10);
+		}
+		String.prototype.kkKey=function(){
+			return solvStr(this,-10);
+		}
+		var str="今天还是很凉快的";
+		var acc=str.addKey();
+		console.log(acc);
+		var bcc=acc.kkKey();
+		console.log(bcc);
+			
+			
+
+			//1. 给string类添加一个方法
+			String.prototype.addKey = function() {
+				var newStr = "";
+				for(var i = 0; i < this.length; i++) {
+					//charCodeAt():获取某个字符的ASCII码
+					var s = this[i].charCodeAt();
+					//模拟加密，把每个字符的ASCII码+10
+					s += 10;
+					//fromCharCode(s) 根据s这个值，转化成字符
+					var newS = String.fromCharCode(s);
+					//把每一个新的字符拼接成新的zifuchuan
+					newStr += newS;
+				}
+				//把for循环加密好的字符串 返回到调用这个方法的地方
+				return newStr;
+			}
+
+			var str = "那谁，今天别忘了看电影哈";
+			var nStr = str.addKey();
+			console.log(nStr);
+
+
+            // 给string类添加一个解密方法
+			String.prototype.kkKey = function() {
+				var newStr = "";
+				for(var i = 0; i < this.length; i++) {
+					var s = this[i].charCodeAt();
+					s -= 10;
+					var newS = String.fromCharCode(s);
+					newStr +=newS;
+				}
+				return newStr;
+			}
+			var cc = nStr.kkKey();
+			console.log(cc);
+			
+			
+			
+			
+			//2.数组
+//			Array.prototype.sumAll=function(){
+//				this
+//			}
+//			var arr=[10,20]
+//			arr.sumAll();
+
+
+            //把数组里每个元素进行相加
+            Array.prototype.sumAll=function(){
+            	var sum=0;
+				for (var i=0;i<this.length;i++ ) {
+					//取出数组里每一个元素
+					var everyOne = this[i];
+					//把每一个元素累加起来
+					sum +=everyOne;
+				}
+				return sum;
+			}
+			var arr=[1,5,8,10,20]
+			console.log(arr.sumAll());
+			
+			
+			//计算数组里最大的元素
+			Array.prototype.big=function(){
+				var maxsum=0;
+				for(var i=0;i<this.length;i++){
+					var every = this[i];
+					if(maxsum<every){
+						maxsum=every;
+					}
+				}
+				return maxsum;
+			}
+			var arr2=[1,5,8,10,20,801,2];
+			console.log(arr2.big());
+			
+			
+			
+			
+			//删除数组里某一个元素
+			Array.prototype.removeObject=function(obj){
+				//找到我们要删除元素的位置
+				var index=this.indexOf(obj);
+				if(index>-1){
+					//传要删除的元素的位置
+					this.splice(index,1);//从index开始，删除一个元素；如果把1改成3，就是删除三个元素）
+				}
+			}
+			var arr3=[1,5,7,6,8];
+			arr3.removeObject(5); //5就是obj
+			console.log(arr3);
+			
+			
+		</script>
+	</body>
+
+</html>
