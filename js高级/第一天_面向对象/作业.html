@@ -5,5 +5,90 @@
 		<title></title>
 	</head>
 	<body>
+		<script type="text/javascript">
+		// 1. 请用构造函数方式, 创建Person类(属性:hobby, address, phone 方法:sayHello, sing), 并且实例化一个对象, 然后调用属性和方法
+
+            function Person(hobby,address,phone){
+            	   this.hobby=hobby;
+            	   this.address=address;
+            	   this.phone=phone;
+            	  }
+            Person.prototype.sing=function(){
+            	    console.log("say Hello");
+            }
+            Person.prototype.sayHello=function(){
+            	    console.log("say Goodbye");
+            }
+            var s=new Person("hobby","address","phone");
+             console.log(s.hobby);
+             console.log(s.address);
+             console.log(s.phone);
+             s.sing();
+             s.sayHello();
+
+
+// 2. 请用构造函数方式, 创建Animal类(属性:color, owner, friend 方法:eat, sleep), 并且实例化一个对象, 然后调用属性和方法
+           function Animal(color,owner,friend){
+           	  this.color=color;
+           	  this.owner=owner;
+           	  this.friend=friend;
+           }
+           Animal.prototype.eat=function(){
+           	console.log("我能吃");
+           }
+           Animal.prototype.sleep=function(){
+           	console.log("我爱睡觉");
+           }
+           var d=new Animal("color","owner","friend");
+           	console.log(d.color+","+d.owner+","+d.friend);
+           	d.eat();
+           	d.sleep();
+           
+           
+           
+
+// 3. 请用构造函数方式, 创建Car类(属性:carType, carPrice, color 方法:run, drive), 并且实例化一个对象, 然后调用属性和方法
+      function Car(carType,carPrice,color){
+      	this.carType=carType;
+      	this.carPrice=carPrice;
+      	this.color=color;
+      }
+      Car.prototype.run=function(){
+      	console.log("跑的快");
+      }
+      Car.prototype.drive=function(){
+      	console.log("很快");
+      }
+      var e=new Car("carType","carPrice","color");
+      	console.log(e.carType+","+e.carPrice+","+e.color);
+      	e.run();
+      	e.drive();
+      
+
+
+
+// 4. 请用构造函数方式, 创建Family类(属性:address, person_num, house 方法:open, close), 并且实例化一个对象, 然后调用属性和方法
+   function Family(address, person_num, house ){
+   	this.address=address;
+   	this.person_num=person_num;
+   	this.house=house;
+   }
+   Family.prototype.open=function(){
+   	console.log("打开");
+   }
+   Family.prototype.close=function(){
+   	console.log("关闭");
+   }
+   var f=new Family("address", "person_num", "hhh" );
+    console.log(f.address+","+ f.person_num+","+f. house );
+
+// 5. 请用构造函数方式, 创建Friend类(属性:name, sex, hobby 方法:party, drink), 并且实例化一个对象, 然后调用属性和方法
+
+// 6. 创建Student类(属性:name, keep(boolean类型的), grade(0-100的随机整数)) // (方法: loveGirl, loveBoy) // 创建Boy类(属性:hobby, 方法:playLOL) 继承于Student类, 实例化一个对象调用所有属性方法 // 创建Girl类(属性:name, hobby, 方法:buyThing) 继承于Student类, 实例化一个对象调用属性方法 // 创建SmallGirl类 继承于Girl类, 调用name属性
+
+// 7. 给数组扩展一个方法, 给数组里所有元素从小到大排序(冒泡)
+
+// 8. 给数组扩展一个方法, 找出一个数组里第一次重复的数字 // 例如: var arr = [1, 5, 8, 1, 4, 9, 6, 5]; // 最后输出的结果就是1
+		</script>
 	</body>
 </html>
