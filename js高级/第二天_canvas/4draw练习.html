@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="myCanVas" width="800" height="600"></canvas>
+		<script type="text/javascript">
+			var canvas=document.getElementById("myCanVas");
+			var can=canvas.getContext("2d");
+			
+			//绘制左半边
+			can.beginPath();
+			can.strokeStyle="gold";
+			can.lineWidth=10;
+			can.moveTo(100,50);
+			can.lineTo(50,50);
+			can.lineTo(50,250);
+			can.lineTo(100,250);
+			can.stroke();
+			//先绘制，再关闭路径（防止最后一个点链接到起点）
+			can.closePath();
+			
+			can.beginPath();
+			can.strokeStyle="deepskyblue";
+			can.lineWidth=10;
+			can.moveTo(300,50);
+			can.lineTo(350,50);
+			can.lineTo(350,350);
+			can.lineTo(300,250);
+			can.stroke();
+			can.closePath();
+			
+		</script>
+		
+		
+	</body>
+</html>

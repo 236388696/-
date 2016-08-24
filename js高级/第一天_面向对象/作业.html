@@ -1,94 +1,214 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
 	</head>
+
 	<body>
 		<script type="text/javascript">
-		// 1. 请用构造函数方式, 创建Person类(属性:hobby, address, phone 方法:sayHello, sing), 并且实例化一个对象, 然后调用属性和方法
+			// 1. 请用构造函数方式, 创建Person类(属性:hobby, address, phone 方法:sayHello, sing), 并且实例化一个对象, 然后调用属性和方法
 
-            function Person(hobby,address,phone){
-            	   this.hobby=hobby;
-            	   this.address=address;
-            	   this.phone=phone;
-            	  }
-            Person.prototype.sing=function(){
-            	    console.log("say Hello");
-            }
-            Person.prototype.sayHello=function(){
-            	    console.log("say Goodbye");
-            }
-            var s=new Person("hobby","address","phone");
-             console.log(s.hobby);
-             console.log(s.address);
-             console.log(s.phone);
-             s.sing();
-             s.sayHello();
+			function Person(hobby, address, phone) {
+				this.hobby = hobby;
+				this.address = address;
+				this.phone = phone;
+			}
+			Person.prototype.sing = function() {
+				console.log("say Hello");
+			}
+			Person.prototype.sayHello = function() {
+				console.log("say Goodbye");
+			}
+			var s = new Person("hobby", "address", "phone");
+			console.log(s.hobby);
+			console.log(s.address);
+			console.log(s.phone);
+			s.sing();
+			s.sayHello();
 
+			// 2. 请用构造函数方式, 创建Animal类(属性:color, owner, friend 方法:eat, sleep), 并且实例化一个对象, 然后调用属性和方法
+			function Animal(color, owner, friend) {
+				this.color = color;
+				this.owner = owner;
+				this.friend = friend;
+			}
+			Animal.prototype.eat = function() {
+				console.log("我能吃");
+			}
+			Animal.prototype.sleep = function() {
+				console.log("我爱睡觉");
+			}
+			var d = new Animal("color", "owner", "friend");
+			console.log(d.color + "," + d.owner + "," + d.friend);
+			d.eat();
+			d.sleep();
 
-// 2. 请用构造函数方式, 创建Animal类(属性:color, owner, friend 方法:eat, sleep), 并且实例化一个对象, 然后调用属性和方法
-           function Animal(color,owner,friend){
-           	  this.color=color;
-           	  this.owner=owner;
-           	  this.friend=friend;
-           }
-           Animal.prototype.eat=function(){
-           	console.log("我能吃");
-           }
-           Animal.prototype.sleep=function(){
-           	console.log("我爱睡觉");
-           }
-           var d=new Animal("color","owner","friend");
-           	console.log(d.color+","+d.owner+","+d.friend);
-           	d.eat();
-           	d.sleep();
-           
-           
-           
+			// 3. 请用构造函数方式, 创建Car类(属性:carType, carPrice, color 方法:run, drive), 并且实例化一个对象, 然后调用属性和方法
+			function Car(carType, carPrice, color) {
+				this.carType = carType;
+				this.carPrice = carPrice;
+				this.color = color;
+			}
+			Car.prototype.run = function() {
+				console.log("跑的快");
+			}
+			Car.prototype.drive = function() {
+				console.log("很快");
+			}
+			var e = new Car("carType", "carPrice", "color");
+			console.log(e.carType + "," + e.carPrice + "," + e.color);
+			e.run();
+			e.drive();
 
-// 3. 请用构造函数方式, 创建Car类(属性:carType, carPrice, color 方法:run, drive), 并且实例化一个对象, 然后调用属性和方法
-      function Car(carType,carPrice,color){
-      	this.carType=carType;
-      	this.carPrice=carPrice;
-      	this.color=color;
-      }
-      Car.prototype.run=function(){
-      	console.log("跑的快");
-      }
-      Car.prototype.drive=function(){
-      	console.log("很快");
-      }
-      var e=new Car("carType","carPrice","color");
-      	console.log(e.carType+","+e.carPrice+","+e.color);
-      	e.run();
-      	e.drive();
-      
+			// 4. 请用构造函数方式, 创建Family类(属性:address, person_num, house 方法:open, close), 并且实例化一个对象, 然后调用属性和方法
+			function Family(address, person_num, house) {
+				this.address = address;
+				this.person_num = person_num;
+				this.house = house;
+			}
+			Family.prototype.open = function() {
+				console.log("打开");
+			}
+			Family.prototype.close = function() {
+				console.log("关闭");
+			}
+			var f = new Family("address", "person_num", "hhh");
+			console.log(f.address + "," + f.person_num + "," + f.house);
+			f.open();
+			f.close();
 
+			// 5. 请用构造函数方式, 创建Friend类(属性:name, sex, hobby 方法:party, drink), 并且实例化一个对象, 然后调用属性和方法
+			function Friend(name, sex, hobby) {
+				this.name = name;
+				this.sex = sex;
+				this.hobby = hobby;
+			}
+			Friend.prototype.party = function() {
+				console.log("聚餐宴会");
+			}
+			Friend.prototype.drink = function() {
+				console.log("可以胡吃海喝");
+			}
+			var g = new Friend("name", "sex", "hobby");
+			console.log(g.name + "," + g.sex + "," + g.hobby);
+			g.party();
+			g.drink();
 
+			// 6. 创建Student类(属性:name, keep(boolean类型的), grade(0-100的随机整数)) // (方法: loveGirl, loveBoy) // 创建Boy类(属性:hobby, 方法:playLOL) 继承于Student类, 实例化一个对象调用所有属性方法 // 创建Girl类(属性:name, hobby, 方法:buyThing) 继承于Student类, 实例化一个对象调用属性方法 // 创建SmallGirl类 继承于Girl类, 调用name属性
+			function rand() {
+				return Math.floor(Math.random() * 101);
+			}
 
-// 4. 请用构造函数方式, 创建Family类(属性:address, person_num, house 方法:open, close), 并且实例化一个对象, 然后调用属性和方法
-   function Family(address, person_num, house ){
-   	this.address=address;
-   	this.person_num=person_num;
-   	this.house=house;
-   }
-   Family.prototype.open=function(){
-   	console.log("打开");
-   }
-   Family.prototype.close=function(){
-   	console.log("关闭");
-   }
-   var f=new Family("address", "person_num", "hhh" );
-    console.log(f.address+","+ f.person_num+","+f. house );
+			//括号里的是参数
+			function Student(name, keep, grade) {
+				// .name是属性
+				this.name = name;
+				this.keep = keep;
+				this.grade = grade;
+			}
+			Student.prototype.loveGirl = function() {
+				console.log("你是女生");
+			}
+			Student.prototype.loveBoy = function() {
+				console.log("你是男生");
+			}
 
-// 5. 请用构造函数方式, 创建Friend类(属性:name, sex, hobby 方法:party, drink), 并且实例化一个对象, 然后调用属性和方法
+			function Boy(hobby) {
+				this.hobby = hobby;
+			}
+			Boy.prototype.playLOL = function() {
+				console.log("我喜欢玩游戏");
+			}
+			Boy.prototype = new Student();
+			var bb = new Boy("hobby");
+			//给bb增加了一个name是属性
+			bb.name = "bbbb";
+			console.log(bb.name);
+			console.log(bb.hobby);
+			bb.loveGirl();
+			bb.loveBoy();
 
-// 6. 创建Student类(属性:name, keep(boolean类型的), grade(0-100的随机整数)) // (方法: loveGirl, loveBoy) // 创建Boy类(属性:hobby, 方法:playLOL) 继承于Student类, 实例化一个对象调用所有属性方法 // 创建Girl类(属性:name, hobby, 方法:buyThing) 继承于Student类, 实例化一个对象调用属性方法 // 创建SmallGirl类 继承于Girl类, 调用name属性
+			function Gril(name, hobby) {
+				this.hobby = hobby;
+				this.name = name;
+			}
+			Gril.prototype.buyThing = function() {
+				console.log("我喜欢购物");
+			}
+			Gril.prototype = new Student();
+			var cc = new Gril("我不爱加班");
+			cc.loveBoy();
+			cc.loveGirl();
 
-// 7. 给数组扩展一个方法, 给数组里所有元素从小到大排序(冒泡)
+			function Smallgril() {}
+			Smallgril.prototype = new Gril();
+			console.log(Smallgril.name);
 
-// 8. 给数组扩展一个方法, 找出一个数组里第一次重复的数字 // 例如: var arr = [1, 5, 8, 1, 4, 9, 6, 5]; // 最后输出的结果就是1
+			// 7. 给数组扩展一个方法, 给数组里所有元素从小到大排序(冒泡)
+			var arr = [3, 1, 4, 2, 5, 21, 6, 15, 63];
+
+			function sortA(arr) {
+				for(var i = 0; i < arr.length - 1; i++) {
+					for(var j = i + 1; j < arr.length; j++) {
+						//获取第一个值和后一个值比较
+						var cur = arr[i];
+						if(cur > arr[j]) {
+							// 因为需要交换值，所以会把后一个值替换，我们要先保存下来
+							var index = arr[j];
+							// 交换值
+							arr[j] = cur;
+							arr[i] = index;
+						}
+					}
+				}
+				return arr;
+			}
+
+			// 8. 给数组扩展一个方法, 找出一个数组里第一次重复的数字 // 例如: var arr = [1, 5, 8, 1, 4, 9, 6, 5]; // 最后输出的结果就是1
+			//   arr[0];
+			var arr = [1, 5, 8, 1, 4, 9, 6, 5];
+			Array.prototype.findE = function() {
+				//var sameE=0;
+				for(var i = 0; i <= this.length - 1; i++) {
+					var num = this[i];
+					for(var j = 0; j <= this.length - 1; j++) {
+						if(num == this[j] && i !== j) {
+							console.log(this[i]);
+
+							return;
+						}
+
+					}
+				}
+			}
+			
+			var arr = [1, 5, 8, 1, 4, 9, 6, 5];
+			
+			Array.prototype.findsame = function(){
+			//创建arr2数组，用于保存比较过的数字，但是没有重复的数值
+			var arr2=[];
+			    //取出arr里每一个数
+				for (var i=0;i<arr.length;i++) {
+					//取出arr里每一个数
+					var num=arr[i];
+					//利用num 跟arr2里面比较过的数字 挨个比对
+					for (var j=0;j<arr2.length;j++) {
+						var num2=arr2[j];
+						//找到相同的返回相同的那个数值
+						//return的话，就返回出去了，下面的代码不会继续执行
+						if(num==num2){
+							//找到相同的返回相同的那个数值
+							return num;
+						}
+					}
+					//如果上面==没有成功（没有找到相同的数值），则会走到这行代码，把比较过了的num，添加到数组arr2里面
+					arr2.push(num);
+				}
+			}
+			console.log(arr.findsame());
 		</script>
 	</body>
+
 </html>
