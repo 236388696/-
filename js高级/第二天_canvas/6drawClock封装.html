@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<canvas id="myCanVas" width="800" height="600"></canvas>
+		<script type="text/javascript">
+			var myCan = document.getElementById("myCanVas");
+			var can = myCan.getContext("2d");
+
+			//大框
+			function clockBianArc() {
+				can.beginPath();
+				can.arc(200, 200, 150, 0, 2 * Math.PI, false);
+				can.strokeStyle = "red";
+				can.lineWidth = 3;
+				can.stroke();
+				can.closePath();
+			}
+
+			//分钟12个大刻度
+			function drawKe() {
+				var deg = 0;
+				for(var i = 0; i < 12; i++) {
+					can.beginPath();
+
+					deg += Math.PI * 2 / 12;
+					can.moveTo(200 - 110 * Math.cos(deg), 200 - 110 * Math.sin(deg));
+					can.lineTo(200 - 150 * Math.cos(deg), 200 - 150 * Math.sin(deg));
+					can.strokeStyle = "blue";
+					can.lineWidth = 3;
+					can.stroke();
+					can.closePath();
+				}
+			}
+
+			//秒钟 60-12个小刻度
+			function drawxiaoke() {
+				var deg = 0;
+				for(var i = 1; i <= 60; i++) {
+					can.beginPath();
+
+					deg += Math.PI * 2 / 60;
+					if(i % 5 == 0) {
+						continue;
+					}
+					can.moveTo(200 - 130 * Math.cos(deg), 200 - 130 * Math.sin(deg));
+					can.lineTo(200 - 150 * Math.cos(deg), 200 - 150 * Math.sin(deg));
+					can.strokeStyle = "aqua";
+					can.lineWidth = 2;
+					can.stroke();
+					can.closePath();
+				}
+			}
+
+			//封装函数
+			function drawClockLine(deg, color, lineWidth, lineLength) {
+                    var da = new Date();
+                    can.beginPath();
+					can.strokeStyle = color;
+					can.lineWidth = lineWidth;
+					can.moveTo(200, 200);
+					// 圆的0点在右边，而钟表的0点在垂直的顶上；
+					can.lineTo(200 + lineLength * Math.sin(deg), 200 - lineLength * Math.cos(deg));
+					can.stroke();
+					can.closePath();
+
+			}
+
+
+			//绘制秒针
+			function drawLine() {
+				var da = new Date();
+				var secDeg = da.getSeconds() * (Math.PI * 2 / 60);
+				drawClockLine(secDeg, "gray", 3, 130);
+
+			}
+
+			//绘制分针
+			function drawfen() {
+				var da = new Date();
+				var secDeg = da.getMinutes() * (Math.PI * 2 / 60) + da.getSeconds() * ((Math.PI * 2 / 60) / 60);
+				drawClockLine(secDeg, "aquamarine", 3, 80);
+
+			}
+
+			//绘制时针
+			function drawshi() {
+				var da = new Date();
+				var secDeg = da.getHours() * (Math.PI * 2 / 12) + (da.getMinutes() * (Math.PI * 2 / 12) / 60);
+				drawClockLine(secDeg, "blueviolet", 1, 60);
+
+			}
+
+			setInterval(function() {
+				//clearRect 清除一片指定区域的东西，
+				//参数：矩形的x坐标，y坐标，要清除范围的宽度，高度
+				can.clearRect(0, 0, myCan.width, myCan.height);
+				drawxiaoke();
+				drawKe();
+				clockBianArc();
+				drawfen();
+				drawshi();
+				drawLine();
+			}, 1000);
+		
+		</script>
+
+	</body>
+
+</html>

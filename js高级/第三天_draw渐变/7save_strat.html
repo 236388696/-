@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="myCanVas" width="1000" height="1000"></canvas>
+		<script type="text/javascript">
+			var myCan=document.getElementById("myCanVas");
+			var can=myCan.getContext("2d");
+			
+			can.beginPath();
+			can.fillStyle="aqua";
+			
+			can.save();
+			can.fillStyle="yellow";
+			can.fillRect(0,300,200,200);
+			can.restore();
+			
+			can.fillRect(0,0,200,200);
+			can.fillRect(0,520,200,200);
+			
+			
+			can.closePath();
+		</script>
+	</body>
+</html>

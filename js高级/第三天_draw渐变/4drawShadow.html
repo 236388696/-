@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="myCanVas" width="800" height="800"></canvas>
+		<script type="text/javascript">
+			var myCan=document.getElementById("myCanVas");
+			var can=myCan.getContext("2d");
+			
+			can.beginPath();
+            can.arc(100,100,50,0,2*Math.PI,true)
+//			can.fillRect(50,50,100,100);
+			can.fillStyle="thistle";
+			can.shadowColor="black";
+			//阴影横向偏移
+			can.shadowOffsetX=-10;
+			//阴影纵向偏移
+			can.shadowOffsetY=20;
+			//阴影模糊的程度
+			can.shadowBlur=7;
+			
+            can.fill();
+			can.closePath();
+		</script>
+	</body>
+</html>

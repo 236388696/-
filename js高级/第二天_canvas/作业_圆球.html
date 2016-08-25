@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<style type="text/css">
+		*{
+			margin:0;
+			padding: 0;
+		}
+			#myCanVas {
+				border: 1px solid black;
+			}
+		</style>
+		<title></title>
+	</head>
+
+	<body>
+		<canvas id="myCanVas" width="1500" height="800"></canvas>
+		<script type="text/javascript">
+			var myCan = document.getElementById("myCanVas");
+			var can = myCan.getContext("2d");
+			
+			function drawCircle (x,y) {
+				can.beginPath();
+				can.arc(x, y, 50, 0, 2 * Math.PI, true);
+				can.fillStyle = "aqua";
+				can.fill();
+				can.strokeStyle = "aliceblue";
+				can.closePath();
+				can.stroke();
+				
+			}
+
+			
+			var xspeed = 2;
+			var yspeed = 3;
+			
+			var nowX = 100;
+			var nowY = 100;
+			
+            var timer = setInterval(function() {
+				
+				can.clearRect(0,0,myCan.width,myCan.height);
+
+				if(nowX < 50 || nowX > myCan.width - 50) {
+					xspeed *= -1;
+				}
+
+				if(nowY < 50 || nowY > myCan.height - 50) {
+					yspeed *= -1;
+				}
+				
+				nowX += xspeed;
+				nowY += yspeed;
+				
+				drawCircle(nowX,nowY);
+
+
+			}, 10);
+			
+
+		</script>
+	</body>
+
+</html>

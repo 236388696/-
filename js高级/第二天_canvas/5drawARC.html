@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="myCanVas" width="800" height="600"></canvas>
+		<script type="text/javascript">
+			var myCanVas=document.getElementById("myCanVas");
+			var can=myCanVas.getContext("2d");
+			
+			can.beginPath();
+			//参数：圆心x轴坐标，y轴坐标，半径，起始角，终止角
+			//true:逆时针   false：顺时针
+			can.arc(200,200,50,0,Math.PI,false);
+			
+			can.stroke();
+			can.closePath();
+			
+			
+			
+			can.beginPath();
+			can.arc(350,350,50,0,Math.PI*2,false);
+			can.fillStyle="gold";
+			can.fill();
+			can.closePath();
+			
+			
+			
+		</script>
+	</body>
+</html>

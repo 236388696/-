@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="myCanVas" width="1000" height="1000"></canvas>
+		<script type="text/javascript">
+			var myCan=document.getElementById("myCanVas");
+			var can=myCan.getContext("2d");
+			
+
+			
+			can.beginPath();
+			can.arc(150,150,151,0,2*Math.PI,false);
+			can.fillStyle="black";
+			can.fill();
+			can.closePath();
+			
+			can.beginPath();
+			can.arc(150,150,150,3/2*Math.PI,Math.PI*1/2,false);
+			can.fillStyle="white";
+			can.fill();
+			can.closePath();
+			
+			can.beginPath();
+			can.arc(150,150,150,Math.PI*1/2,3/2*Math.PI,false);
+			can.fillStyle="black";
+			can.fill();
+			can.closePath();
+			
+			can.beginPath();
+			can.arc(150,75,75,0,2*Math.PI,false);
+			can.fillStyle="white";
+			can.fill();
+			can.closePath();
+			
+			can.beginPath();
+			can.arc(150,225,75,0,2*Math.PI,false);
+			can.fillStyle="black";
+			can.fill();
+			can.closePath();
+			
+			
+			
+			
+			can.beginPath();
+			can.arc(150,200,20,0,2*Math.PI,true);
+			can.fillStyle="black";
+			can.fill();
+			can.closePath();
+			
+			
+			can.beginPath();
+			can.arc(150,80,20,0,2*Math.PI,true);
+			can.fillStyle="black";
+			can.fill();
+			can.closePath();
+			
+			
+			
+			can.beginPath();
+			can.arc(150,200,20,0,2*Math.PI,true);
+			can.fillStyle="white";
+			can.fill();
+			can.closePath();
+			
+			
+        setInterval(function(){
+        		can.clearRect(0,0,700,700);
+			can.translate(150,150);
+			can.rotate(-Math.PI / 180);
+			can.translate(-150,-150);
+			
+			
+			can.beginPath();
+			can.arc(150,150,151,0,2*Math.PI,false);
+			can.fillStyle="black";
+			can.fill();
+			can.closePath();
+			
+			can.beginPath();
+			can.arc(150,150,150,3/2*Math.PI,Math.PI*1/2,false);
+			can.fillStyle="white";
+			can.fill();
+			can.closePath();
+			
+			can.beginPath();
+			can.arc(150,150,150,Math.PI*1/2,3/2*Math.PI,false);
+			can.fillStyle="black";
+			can.fill();
+			can.closePath();
+			
+			can.beginPath();
+			can.arc(150,75,75,0,2*Math.PI,false);
+			can.fillStyle="white";
+			can.fill();
+			can.closePath();
+			
+			can.beginPath();
+			can.arc(150,225,75,0,2*Math.PI,false);
+			can.fillStyle="black";
+			can.fill();
+			can.closePath();
+			
+			
+			
+			
+			can.beginPath();
+			can.arc(150,200,20,0,2*Math.PI,true);
+			can.fillStyle="black";
+			can.fill();
+			can.closePath();
+			
+			
+			can.beginPath();
+			can.arc(150,80,20,0,2*Math.PI,true);
+			can.fillStyle="black";
+			can.fill();
+			can.closePath();
+			
+			
+			
+			can.beginPath();
+			can.arc(150,200,20,0,2*Math.PI,true);
+			can.fillStyle="white";
+			can.fill();
+			can.closePath();
+			
+		},10)			
+
+		</script>
+	</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			#myCanVas {
+				/*background-image: url(ht.jpg);
+				background-size: 100% 100%;
+				background-repeat: no-repeat;*/
+				background-color: black;
+			}
+		</style>
+	</head>
+
+	<body>
+		<canvas id="myCanVas" width="" height=""></canvas>
+		<script type="text/javascript">
+			var myCan = document.getElementById("myCanVas");
+			var can = myCan.getContext("2d");
+
+			//1.设置canvas标签的宽度和高度和屏幕一样
+			myCan.width = document.documentElement.clientWidth;
+			myCan.height = document.documentElement.clientHeight;
+
+			//取随机数的方法
+			function rand(min, max) {
+				return Math.floor(Math.random() * (max - min + 1) + min);
+			}
+
+			//2.声明一个球的类
+			function Qiu() {
+				this.r = rand(10, 30);
+				//圆心的x坐标
+				this.x = rand(this.r, (myCan.width - this.r));
+				//圆心的y坐标（范围是this.r 到高度-r,(如果最小是0，会有一半的身子跑到屏幕外面)
+				this.y = rand(this.r, (myCan.height - this.r));
+				// 字符串拼接注意不要写乱  "rgba("+ +")"; 
+				// .toFixed(2)取小数点后两位
+				this.color = "rgba(" + rand(0, 255) + "," + rand(0, 255) + "," + rand(0, 255) + "," + Math.random().toFixed(2) + ")";
+				//小球不是透明的
+//              this.color = "rgba(" + rand(0, 255) + "," + rand(0, 255) + "," + rand(0, 255) + "," + 1+ ")";
+				this.speedX = rand(1, 6);
+				this.speedY = rand(1, 6);
+				//因为我的速度上来可以是正的或者负的（取1和2 两种可能，也就是模拟了50%的概率）
+				this.speedX = rand(1, 2) == 1 ? -this.speedX : this.speedX;
+				this.speedY = rand(2, 3) == 3 ? -this.speedY : this.speedY;
+
+			}
+
+			Qiu.prototype.draw = function() {
+				can.beginPath();
+				can.arc(this.x, this.y, this.r, 0, 2 * Math.PI, true);
+				can.fillStyle = this.color;
+				can.fill();
+				can.closePath();
+			}
+			Qiu.prototype.move = function() {
+				//判断左右边界
+				if(this.x <= this.r || this.x >= myCan.width - this.r) {
+					//改变符号 就是改变方向
+					this.speedX *= -1;
+				}
+				//判断上下边界
+				if(this.y <= this.r || this.y >= myCan.height - this.r) {
+					this.speedY *= -1;
+				}
+
+				this.x += this.speedX;
+				this.y += this.speedY;
+			}
+
+			//3.创建多个球
+			function createballs() {
+				//声明一个数组，放球的
+				var arr = [];
+				//创建多个球
+				var num = 100;
+				//for循环创建球，让后放到数组里
+				for(var i = 0; i < num; i++) {
+					var q = new Qiu();
+					arr.push(q);
+				}
+				return arr;
+			}
+
+			//接收一下createballs方法创建的球对象的数组
+			function begin() {
+
+				var qiuArr = createballs();
+				//	console.log(qiuArr);
+               //4. 定义计时器
+				setInterval(function() {
+					can.clearRect(0, 0, myCan.width, myCan.height);
+					for(var i = 0; i < qiuArr.length; i++) {
+						var q = qiuArr[i];
+						q.move();
+						q.draw();
+					}
+				}, 10);
+			}
+			begin();
+		</script>
+	</body>
+
+</html>

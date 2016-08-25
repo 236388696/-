@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="myCanVas" width="800" height="600"></canvas>
+		<script type="text/javascript">
+			var myCan=document.getElementById("myCanVas");
+			var can=myCan.getContext("2d");
+			
+			can.beginPath();
+			var gra=can.createLinearGradient(0,0,300,300);
+			//设置起始点到终点之间的每个刻度的颜色
+			gra.addColorStop(0,"gray");
+			gra.addColorStop(0.2,"blue");
+			gra.addColorStop(0.6,"red");
+			gra.addColorStop(0.8,"pink");
+		
+		    //fillStyle的颜色，指向的渐变色的对象gra
+			can.fillStyle=gra;
+			can.fillRect(0,0,300,300);
+			can.closePath();
+		</script>
+	</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<canvas id="myCanVas" width="1000" height="1000"></canvas>
+		<script type="text/javascript">
+			var myCan = document.getElementById("myCanVas");
+			var can = myCan.getContext("2d");
+
+			function draWArc(x, y, r, star, end, arc, color) {
+				can.beginPath();
+				can.arc(x, y, r, star, end, arc, false);
+				can.fillStyle = color;
+				can.fill();
+				can.closePath();
+			}
+
+			function add() {
+				draWArc(150, 150, 151, 0, 2 * Math.PI, "black")
+				draWArc(150, 150, 150, 3 / 2 * Math.PI, Math.PI * 1 / 2, "white")
+				draWArc(150, 150, 150, 1 / 2*Math.PI  ,  Math.PI*3 / 2 , "black")
+//				draWArc(150, 75, 75, 0, 2 * Math.PI, "white")
+//				draWArc(150, 225, 75, 0, 2 * Math.PI, "black")
+//				draWArc(150, 200, 20, 0, 2 * Math.PI, "black")
+//				draWArc(150, 80, 20, 0, 2 * Math.PI, "black")
+//				can.arc(150, 200, 20, 0, 2 * Math.PI, "white");
+			}
+			
+			add();
+			//3.当浏览器刷新时的调用，FPS(代表浏览器每秒刷新多少帧)
+			
+//			function move(){
+//				window.requestAnimationFrame(move);
+//				can.clearRect(0, 0, 1000, 1000);
+//				can.translate(150, 150);
+//				can.rotate(Math.PI / 180);
+//				can.translate(-150, -150);
+//				add();
+//
+//			}
+//			move();
+			
+//			setInterval(function() {
+//				//
+//				
+//
+//			}, 10)
+		</script>
+	</body>
+
+</html>
