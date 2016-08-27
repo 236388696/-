@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="myCanVas" width="1200" height="2100"></canvas>
+		<script type="text/javascript">
+			var myCan=document.getElementById("myCanVas");
+			var can=myCan.getContext("2d");
+			
+			can.beginPath();
+			var img=new Image();
+			img.src="img/2.jpg";
+			
+				
+			
+//			img.onload=function(){
+//				
+//			}
+			
+				myCan.onmousemove=function(ev){
+					can.clearRect(0,0,myCan.width,myCan.height);
+					can.drawImage(img,0,0);
+					var evobj=ev||window.event;
+					var x=evobj.clientX;
+					var y=evobj.clientY;
+					can.drawImage(img,x-25,y-25,50,50,x-50,y-50,100,100);
+				}
+				
+			
+			
+			can.closePath();
+		</script>
+	</body>
+</html>

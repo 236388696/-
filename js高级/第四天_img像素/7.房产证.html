@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<canvas id="myCanVas" width="1000" height="1000"></canvas>
+		<script type="text/javascript">
+			var myCan = document.getElementById("myCanVas");
+			var can = myCan.getContext("2d");
+			can.beginPath();
+			var img = new Image();
+			img.src = "img/fang.jpg";
+
+			img.onload = function() {
+				can.drawImage(img, 0, 0);
+				var str = "盼盼";
+				can.font = "10px 微软雅黑";
+				can.fillStyle = "grey";
+				can.fillText(str, 160, 150);
+
+			}
+			can.closePath();
+    
+			myCan.onclick = function() {
+
+				var a = document.createElement("a");
+				a.href = myCan.toDataURL("image/jpg");
+				a.download = "fangchan";
+				a.click();
+			}
+		</script>
+	</body>
+
+</html>

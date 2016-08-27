@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		   #myCanvas{
+		   	position: relative;
+		   
+		   }
+			#str{
+				position: absolute;
+				top: 200px;
+				left: 100px;
+				z-index: -1;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="str">500万</div>
+		<canvas id="myCanVas" width="1000" height="1000"></canvas>
+		<script type="text/javascript">
+			var myCan=document.getElementById("myCanVas");
+			var can=myCan.getContext("2d");
+//			var str=document.getElementById("str");
+            
+			console.log(str);
+			can.beginPath();
+			
+//			var str="500万";
+//			can.font="45px 微软雅黑";
+//			can.fillText(str,50,50);
+			
+			
+			can.fillStyle="gray";
+			can.fillRect(0,0,300,300);
+            can.closePath();
+			
+			
+			myCan.onmousemove=function(ev){
+				var evobj=ev||window.event;
+				var x=evobj.clientX;
+				var y=evobj.clientY;
+				can.globalCompositeOperation="destination-out";
+				
+			can.beginPath();
+			can.fillStyle="lightgreen";
+			can.arc(x-10,y-10,20,0,2*Math.PI,true);
+			can.fill();
+			can.closePath();
+			}
+				
+			
+			
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

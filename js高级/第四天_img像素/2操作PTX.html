@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="myCanVas" width="1200" height="1000"></canvas>
+		<script type="text/javascript">
+			var myCan=document.getElementById("myCanVas");
+			var can=myCan.getContext("2d");
+			can.beginPath();
+			
+			var img=new Image();
+			img.src="img/1.jpg";
+			//加载完成
+			img.onload=function(){
+				//把图片画在画布上
+				can.drawImage(img,0,0);
+				//获取图片大小对应的像素点
+				var imageData=can.getImageData(0,0,400,250);
+				//像素点rgba是一个数组
+				var ptxArr=imageData.data;
+				
+				for (var i=0;i<ptxArr.length;i+=4) {
+					//每个像素点的rgba(占领元素4个位置)
+					//0，1，2，3....对应r,g,b,a的值，每四个元素对应一个点的信息
+					var r=ptxArr[i];
+					var g=ptxArr[i+1];
+					var b=ptxArr[i+2];
+					var a=ptxArr[i+3];
+					
+					//1.设置透明度(对最后a的值进行设置)
+					//0-256
+//					ptxArr[i+3]=100;
+ 
+                    
+                    // 2.把原先图片变成底片颜色
+                    ptxArr[i]=256-r;
+                    ptxArr[i+1]=256-g;
+                    ptxArr[i+2]=256-b;
+
+
+
+					
+				}
+				//最重要的一步（把新的图片绘制出来）；参数:1.图片的数据， 2.x坐标，3.y坐标
+				can.putImageData(imageData,0,0);
+				
+			}
+			can.closePath();
+		</script>
+	</body>
+</html>

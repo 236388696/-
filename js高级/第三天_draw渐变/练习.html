@@ -5,131 +5,42 @@
 		<title></title>
 	</head>
 	<body>
-		<canvas id="myCanVas" width="1000" height="1000"></canvas>
+		<canvas id="myCanvas" width="1000" height="800"></canvas>
 		<script type="text/javascript">
-			var myCan=document.getElementById("myCanVas");
-			var can=myCan.getContext("2d");
-			
+			var myCanvas=document.getElementById("myCanvas");
+			var can=myCanvas.getContext("2d");
+			    
+            function draw(x,y,r,s,end,color){
+                can.beginPath();
+				can.arc(x,y,r,s,end,false);
+				can.fillStyle=color;
+				can.fill();
+				can.closePath();
+            }
 
-			
-			can.beginPath();
-			can.arc(150,150,151,0,2*Math.PI,false);
-			can.fillStyle="black";
-			can.fill();
-			can.closePath();
-			
-			can.beginPath();
-			can.arc(150,150,150,3/2*Math.PI,Math.PI*1/2,false);
-			can.fillStyle="white";
-			can.fill();
-			can.closePath();
-			
-			can.beginPath();
-			can.arc(150,150,150,Math.PI*1/2,3/2*Math.PI,false);
-			can.fillStyle="black";
-			can.fill();
-			can.closePath();
-			
-			can.beginPath();
-			can.arc(150,75,75,0,2*Math.PI,false);
-			can.fillStyle="white";
-			can.fill();
-			can.closePath();
-			
-			can.beginPath();
-			can.arc(150,225,75,0,2*Math.PI,false);
-			can.fillStyle="black";
-			can.fill();
-			can.closePath();
-			
-			
-			
-			
-			can.beginPath();
-			can.arc(150,200,20,0,2*Math.PI,true);
-			can.fillStyle="black";
-			can.fill();
-			can.closePath();
-			
-			
-			can.beginPath();
-			can.arc(150,80,20,0,2*Math.PI,true);
-			can.fillStyle="black";
-			can.fill();
-			can.closePath();
-			
-			
-			
-			can.beginPath();
-			can.arc(150,200,20,0,2*Math.PI,true);
-			can.fillStyle="white";
-			can.fill();
-			can.closePath();
-			
-			
-        setInterval(function(){
-        		can.clearRect(0,0,700,700);
-			can.translate(150,150);
-			can.rotate(-Math.PI / 180);
-			can.translate(-150,-150);
-			
-			
-			can.beginPath();
-			can.arc(150,150,151,0,2*Math.PI,false);
-			can.fillStyle="black";
-			can.fill();
-			can.closePath();
-			
-			can.beginPath();
-			can.arc(150,150,150,3/2*Math.PI,Math.PI*1/2,false);
-			can.fillStyle="white";
-			can.fill();
-			can.closePath();
-			
-			can.beginPath();
-			can.arc(150,150,150,Math.PI*1/2,3/2*Math.PI,false);
-			can.fillStyle="black";
-			can.fill();
-			can.closePath();
-			
-			can.beginPath();
-			can.arc(150,75,75,0,2*Math.PI,false);
-			can.fillStyle="white";
-			can.fill();
-			can.closePath();
-			
-			can.beginPath();
-			can.arc(150,225,75,0,2*Math.PI,false);
-			can.fillStyle="black";
-			can.fill();
-			can.closePath();
-			
-			
-			
-			
-			can.beginPath();
-			can.arc(150,200,20,0,2*Math.PI,true);
-			can.fillStyle="black";
-			can.fill();
-			can.closePath();
-			
-			
-			can.beginPath();
-			can.arc(150,80,20,0,2*Math.PI,true);
-			can.fillStyle="black";
-			can.fill();
-			can.closePath();
-			
-			
-			
-			can.beginPath();
-			can.arc(150,200,20,0,2*Math.PI,true);
-			can.fillStyle="white";
-			can.fill();
-			can.closePath();
-			
-		},10)			
+           function add(){
+           	draw(300,300,201,0,Math.PI*2,"black");
+           	draw(300,300,200,Math.PI/2,Math.PI*3/2,"black");
+           	draw(300,300,200,Math.PI*3/2,Math.PI/2,"white");
+           	draw(300,200,100,0,Math.PI*2,"white");
+           	draw(300,400,100,0,Math.PI*2,"black");
+           	draw(300,200,25,0,Math.PI*2,"black");
+           	draw(300,400,25,0,Math.PI*2,"white");
+           }
 
+            setInterval(function(){
+				can.clearRect(0,0,myCanvas.width,myCanvas.height);
+				can.translate(300,300);
+				can.rotate(-Math.PI/180);
+				can.translate(-300,-300);
+				add();
+			},10)
+          
+				
+
+
+
+				
 		</script>
 	</body>
 </html>

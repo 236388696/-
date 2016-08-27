@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="myCanVas" width="1200" height="1000"></canvas>
+		<script type="text/javascript">
+			var myCan=document.getElementById("myCanVas");
+			var can=myCan.getContext("2d");
+			can.beginPath();
+			can.fillStyle="blueviolet";
+			can.fillRect(0,0,300,200);
+			can.closePath();
+			
+			//http://www.runoob.com/jsref/prop-canvas-globalcompositeoperation.html
+			//注意，如果你想让这个效果生效，一定要注意这句代码放置的位置，矩形上有重叠的东西的时候，生效
+			can.globalCompositeOperation="lighter";
+			
+			can.beginPath();
+			can.fillStyle="cornflowerblue";
+			can.arc(300,200,50,0,2*Math.PI,false);
+			can.fill();
+			can.closePath();
+		</script>
+	</body>
+</html>

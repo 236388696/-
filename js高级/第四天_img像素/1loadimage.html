@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="myCanVas" width="1200" height="1000"></canvas>
+		<script type="text/javascript">
+			var myCan=document.getElementById("myCanVas");
+			var can=myCan.getContext("2d");
+			
+			can.beginPath();
+			//创建一个对象
+			 var img=new Image();
+			 img.src="../第二天_canvas/ht.jpg";
+			 //图片加载到内存完成时调用
+			 img.onload=function(){
+			 	//第一种方式：
+			 	//参数：绘制图片的对象，图片x坐标，图片y坐标（如果不加宽高，则由图片原始宽高决定）
+			   can.drawImage(img,0,0);
+
+               //第二种方式：
+               //参数：绘制图片的类型，，图片x坐标，图片y坐标，设置宽，设置高
+//             can.drawImage(img,0,0,50,50);
+
+
+               //第三种方式：
+               //参数：1.图片对象 
+               //2.要截图的位置的x坐标  
+               //3.要截图的位置y坐标 
+               //4.要截的图的宽度 
+               //5.要截的图的高度  
+               //6.绘制到canvas上的位置的x坐标 
+               //7.绘制到canvas上的位置的y坐标 
+               //8.绘制到canvas上的宽度
+               //9.绘制到canvas上的高度
+               can.drawImage(img,110,30,180,140,200,200,180,140);
+              
+      
+       
+			 }
+			 
+			can.closePath();
+		</script>
+	</body>
+</html>

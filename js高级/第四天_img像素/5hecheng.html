@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="myCanVas" width="1200" height="1200"></canvas>
+		<script type="text/javascript">
+			var myCan=document.getElementById("myCanVas");
+			var can=myCan.getContext("2d");
+			can.beginPath();
+			
+			var img1=new Image();
+			img1.src="img/jun.jpg";
+			
+			var img2=new Image();
+			img2.src="img/gougou.jpg";
+			img1.onload=function(){
+				can.drawImage(img2,0,0);
+
+			     can.drawImage(img1,90,40,200,200,250,10,270,200);
+			
+			}
+			can.closePath();
+			
+			
+		myCan.onclick=function(){
+			
+		
+		//把canvas标签转化为图片
+		var a=document.createElement("a");
+		a.href=myCan.toDataURL("image/png");
+		a.download="俊哥靓照";
+		a.click();
+		}
+		
+			
+		</script>
+	</body>
+</html>
