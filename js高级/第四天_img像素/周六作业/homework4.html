@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="myCanVas" width="800" height="600"></canvas>
+		<script type="text/javascript">
+			var myCan = document.getElementById("myCanVas");
+			var can = myCan.getContext("2d");
+			can.beginPath();
+			var img = new Image();
+			var str = "HELLO Dog";
+			img.src = "img/xiaohuang.jpg";
+			//图片加载完成时调用
+			img.onload = function(){
+				can.drawImage(img,0,0);
+				can.font = "40px 微软雅黑";
+				can.strokeText(str,100,100);
+				can.strokeText(str,200,200);
+				can.strokeText(str,100,300);
+			}
+			can.closePath();
+		</script>
+	</body>
+</html>

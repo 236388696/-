@@ -141,6 +141,7 @@
 			
 			//存彩图.src到数组里，当鼠标移入到img上，把暗图的src变到彩图的下标上
 			for (i=0;i<btn2.length;i++) {
+				//从角标开始：从0开始
 				btn2[i].index=i;
 				btn2[i].onmouseover=function(){
 					this.src=caitu[this.index];

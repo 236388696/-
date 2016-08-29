@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="myCanvas" width="1200" height="1000"></canvas>
+		<script type="text/javascript">
+			var myCan=document.getElementById("myCanvas");
+			var can=myCan.getContext("2d");
+			
+			var isDraw=false;
+			function draw(x,y){
+			can.beginPath();
+			can.fillStyle="thistle";
+			can.rect(200,200,100,100);
+			if(isDraw!=true){
+				can.fill();
+			}
+		
+	        can.closePath();
+	        if(can.isPointInPath(x,y)){
+	        	    console.log("紫色");}
+	        	 can.beginPath();
+	        can.fillStyle="aquamarine";
+	        can.rect(350,350,50,50);
+	        if(isDraw!=true){
+	        	   can.fill();
+	        }
+	        can.closePath();
+	        if(can.isPointInPath(x,y)){
+	        	    console.log("青色");
+	        }
+	        }
+			
+	        myCan.onclick=function(ev){
+	        	  draw(ev.offsetX,ev.offsetY);
+	        	}
+	         draw();
+			
+			
+			
+//	        can.beginPath();
+//			can.fillStyle="thistle";
+//			can.rect(200,200,100,100);
+//			can.fill();
+//			 can.closePath();
+//			 console.log(can.isPointInPath(200,230))
+//			 
+//			 can.beginPath();
+//	        can.fillStyle="aquamarine";
+//	        can.rect(350,350,50,50);
+//	        can.fill();
+//	         can.closePath();
+//	        console.log(can.isPointInPath(200,230));
+//	        
+//	        
+//	       
+//	        
+//	       document.onclick=function(ev){
+//	       	var evobj=ev||window.event;
+//	       	var x=evobj.clientX;
+//	       	var y=evobj.clientY;
+//	       	if(x>200&&y>200&&x<300&&y<300){
+//	       		console.log("在区域里");
+//	       	}else{
+//	       		console.log("不在区域里");
+//	       		
+//	       	}
+//	       	
+//	       }
+//	       
+//	       
+//	       document.onclick=function(ev){
+//	       	var evobj=ev||window.event;
+//	       	var x=evobj.clientX;
+//	       	var y=evobj.clientY;
+//	       	if(x>350&&y>350&&x<400&&y<400){
+//	       		console.log("在区域里");
+//	       	}else{
+//	       		console.log("不在");
+//	       	}
+//	       }
+		</script>
+	</body>
+</html>

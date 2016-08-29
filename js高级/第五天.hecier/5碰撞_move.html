@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="myCanvas" width="1200" height="1000"></canvas>
+		<script type="text/javascript">
+			var myCan=document.getElementById("myCanvas");
+			var can=myCan.getContext("2d");
+			
+			//定义一个矩形
+			function Juxing(x,y,w,h,color){
+				//默认值是0
+				this.x=x;
+				this.y=y;
+				this.w=w;
+				this.h=h;
+				this.color=color;
+			}
+			
+			//创建两个矩形
+			var rect1=new Juxing(200,200,100,100,"red");
+			var rect2=new Juxing(400,400,50,50,"black");
+			
+			
+			var arr=[rect1,rect2]
+			
+			
+			//如果你点的是第一个矩形，当i=0时，直接return的话，那么第二个矩形就没有机会去绘制了，所以我需要设置一个变量来保存用户点击的哪个矩形
+			
+			function drawMyRect(){
+		    	//等于－1是为了判断当用户没点击到矩形时候，index是－1
+		    	  var index=-1; 
+		   	   for (var i=0;i<arr.length;i++) {
+		   	   	//取出每个矩形对象
+		   	   	var rectobj=arr[i];
+		   	   	can.beginPath();
+		   	   	can.fillStyle=rectobj.color;
+		   	   	
+		   	   	//如果用isPointInPath判断的话，
+		   	   	//就用can.rect(rectobj.x,rectobj.y,rectobj.w,rectobj.h)来画矩形 和can.fill()来代替can.fillRect()画矩形
+		   	   	
+		   	   	//如果用can.fillRect()画矩形，那么下面can.isPointInPath判断不到鼠标在没在矩形上
+		   	   	can.rect(rectobj.x,rectobj.y,rectobj.w,rectobj.h);
+		   	   	can.fill();
+		   	   	can.closePath();
+		   	   	
+		   	   	//每for循环一次，绘制一个区域，我都要用ispointinpath来判断下
+		   	   	//arguments获取所有参数：如果往里面传参数，就有参数；不往里面传参数，就没有参数
+		   	   	//如果有参数再走小面代码，没有参数则跳过
+		   	   	if(arguments.length){
+		   	   		if(can.isPointInPath(arguments[0],arguments[1])){
+		   	   			//i=0时，代表绘制的第一个对象的区域
+		   	   			//i=1时，代表绘制的第二个区域
+		   	   			//以上来判断我点击的是哪个矩形
+		   	   			index=i;
+		   	   		}
+		   	   	}
+		   	   	}
+		   	   //当你for循环都执行完了，return你点击的矩形的下角标或者－1(没点着)
+		   	   return index;
+		   }
+			
+	        myCan.onmousedown=function(ev){
+	        
+//	        	 console.log(drawMyRect(ev.offsetX,ev.offsetY));
+            // index保存你点击的矩形在数组里的下角标
+            var index=drawMyRect(ev.offsetX,ev.offsetY);
+            var rectobj=arr[index];
+            //获取用户点击的位置和矩形左上角的x,y的差
+            var chaX=ev.offsetX-rectobj.x;
+            console.log(rectobj.x);
+            var chaY=ev.offsetY-rectobj.y;
+            myCan.onmousemove=function(moveEv){
+            	  
+            		can.clearRect(0,0,myCan.width,myCan.height);
+            	//newX和newY是你移动之后矩形的新位置
+            	  var newX=moveEv.offsetX-chaX;
+            	  var newY=moveEv.offsetY-chaY;
+            	  rectobj.x=newX;
+            	  rectobj.y=newY;
+            	   drawMyRect();
+            }
+	        }
+	         drawMyRect();
+	       
+	        
+			
+		
+	        
+	        
+	       
+	        
+
+		</script>
+	</body>
+</html>
+

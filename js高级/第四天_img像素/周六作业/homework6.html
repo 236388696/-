@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<canvas id="myCanVas" width="800" height="600"></canvas>
+		<script type="text/javascript">
+			var myCan = document.getElementById("myCanVas");
+			var can = myCan.getContext("2d");
+
+			var arr = ["img/3.png", "img/laohuang.jpg", "img/xiaohuang.jpg"];
+			var img = new Image();
+			var i = 0;
+
+			setInterval(function() {
+				can.clearRect(0, 0, 800, 600);
+				if(i >= 3) {
+					i = 0;
+				}
+				img.src = arr[i];
+				i++;
+				img.onload = function() {
+					can.drawImage(img, 0, 0);
+					var imageData = can.getImageData(300, 0, 400, 600);
+				}
+			}, 1000)
+		</script>
+	</body>
+
+</html>

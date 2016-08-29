@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			img{
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 640px;
+			}
+			canvas{
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<img src="img/3.png" alt="" />
+		<canvas id="myCanVas" width="640" height="459"></canvas>
+		<script type="text/javascript">
+			var canvas = document.getElementById("myCanVas");
+			var can = canvas.getContext("2d");
+			
+			var img = document.querySelector("img");
+			
+			// 鼠标移动的时候开始画
+			function drawBigImage(x, y){
+				can.drawImage(img, x - 25, y - 25, 50, 50, x - 50, y - 50, 100, 100);
+			
+				// 2. 开始画圆
+				// destination-atop 留下重叠的部分(留下主要图片)
+				can.globalCompositeOperation = "destination-atop";
+				can.fillStyle = "red";
+				can.beginPath();
+				can.arc(x, y, 50, 0, Math.PI * 2, false);
+				can.fill();
+			
+			}
+//				canvas.onmousedown = function(){
+					canvas.onmousemove = function(ev){
+//						var ev = 0 || window.event;
+						can.clearRect(0, 0, canvas.width, canvas.height);
+						drawBigImage(ev.clientX, ev.clientY);
+//				}
+			}
+			
+		</script>
+	</body>
+</html>

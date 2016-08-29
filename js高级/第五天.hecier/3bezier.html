@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="myCanvas" width="1200" height="1000"></canvas>
+		<script type="text/javascript">
+			var myCan=document.getElementById("myCanvas");
+			var can=myCan.getContext("2d");
+			
+			can.beginPath();
+			can.moveTo(20,100);
+			//参数：设置控制点x,y； 终点的x,y
+			can.quadraticCurveTo(110,200,200,100);
+			can.stroke();
+			
+			can.closePath();
+		</script>
+	</body>
+</html>

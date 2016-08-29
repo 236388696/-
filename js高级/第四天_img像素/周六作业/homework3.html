@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="myCanVas" width="800" height="800"></canvas>
+		<script type="text/javascript">
+			var myCan = document.getElementById("myCanVas");
+			var can = myCan.getContext("2d");
+			//头
+			can.beginPath();
+			can.arc(200,200,150,0,Math.PI*2,true);
+			can.fillStyle = "rgb(48,131,248)";
+			can.fill();
+			can.stroke();
+			can.closePath();
+			//脸
+			can.beginPath();
+			can.arc(200,240,100,0,Math.PI*2,true);
+			can.fillStyle = "white";
+			can.fill();
+			can.stroke();
+			can.closePath();
+			//眼睛
+			can.beginPath();
+			can.arc(160,150,40,0,Math.PI*2,true);
+			can.fillStyle = "white";
+			can.fill();
+			can.stroke();
+			can.closePath();
+			can.beginPath();
+			can.arc(240,150,40,0,Math.PI*2,true);
+			can.fillStyle = "white";
+			can.fill();
+			can.stroke();
+			can.closePath();
+			//眼珠
+			can.beginPath();
+			can.arc(230,155,5,0,Math.PI*2,true);
+			can.arc(230,158,5,0,Math.PI*2,true);
+			can.arc(230,161,5,0,Math.PI*2,true);
+			can.fillStyle = "black";
+			can.fill();
+			can.stroke();
+			can.closePath();
+			can.beginPath();
+			can.arc(170,155,5,0,Math.PI*2,true);
+			can.arc(170,158,5,0,Math.PI*2,true);
+			can.arc(170,161,5,0,Math.PI*2,true);
+			can.fillStyle = "black";
+			can.fill();
+			can.stroke();
+			can.closePath();
+			//鼻子
+			can.beginPath();
+			can.arc(200,190,15,0,Math.PI*2,true);
+			can.fillStyle = "red";
+			can.fill();
+			can.stroke();
+			can.closePath();
+			can.beginPath();
+			can.arc(205,185,7,0,Math.PI*2,true);
+			can.fillStyle = "white";
+			can.fill();
+			can.closePath();
+			//嘴
+			can.beginPath();
+			can.moveTo(200,205);
+			can.lineTo(200,280);
+			can.stroke();
+			can.closePath();
+			can.beginPath();
+			can.arc(200,130,150,Math.PI*2/3,Math.PI/3,true);
+			can.stroke();
+			can.closePath();
+			//胡子
+			can.beginPath();
+			can.moveTo(120,205);
+			can.lineTo(160,215);
+			can.stroke();
+			can.closePath();
+			can.beginPath();
+			can.moveTo(110,220);
+			can.lineTo(160,220);
+			can.stroke();
+			can.closePath();
+			can.beginPath();
+			can.moveTo(120,235);
+			can.lineTo(160,225);
+			can.stroke();
+			can.closePath();
+			can.beginPath();
+			can.moveTo(280,205);
+			can.lineTo(240,215);
+			can.stroke();
+			can.closePath();
+			can.beginPath();
+			can.moveTo(280,220);
+			can.lineTo(240,220);
+			can.stroke();
+			can.closePath();
+			can.beginPath();
+			can.moveTo(280,235);
+			can.lineTo(240,225);
+			can.stroke();
+			can.closePath();
+			//胳膊
+			can.beginPath();
+			can.save();
+			can.rotate(Math.PI/6);
+			can.rect(200,250,70,30);
+			can.fillStyle ="rgb(48,131,248)";
+			can.fill();
+			can.stroke();
+			can.closePath();
+			can.beginPath();
+			can.rect(445,150,70,30);
+			can.fillStyle ="rgb(48,131,248)";
+			can.fill();
+			can.stroke();
+			can.restore();
+			can.closePath();
+			//身体
+			can.beginPath();
+			can.rect(90,330,220,190);
+			can.fillStyle = "rgb(48,131,248)";
+			can.fill();
+			can.stroke();
+			can.closePath();
+			//肚子
+			can.beginPath();
+			can.arc(200,400,80,0,Math.PI*2,true);
+			can.fillStyle = "white";
+			can.fill();
+			can.stroke();
+			can.closePath();
+			can.beginPath();
+			can.arc(200,410,50,-Math.PI,0,true);
+			can.fillStyle = "white";
+			can.fill();
+			can.closePath();
+			can.stroke();
+			//手
+			can.beginPath();
+			can.arc(30,325,20,0,Math.PI*2,true);
+			can.fillStyle = "white";
+			can.fill();
+			can.stroke();
+			can.closePath();
+			can.beginPath();
+			can.arc(375,405,20,0,Math.PI*2,true);
+			can.fillStyle = "white";
+			can.fill();
+			can.stroke();
+			can.closePath();
+			//裆部
+			can.beginPath();
+			can.arc(200,532,15,-Math.PI/4,-Math.PI*3/4,true);
+			can.fillStyle = "white";
+			can.fill();
+			can.stroke();
+			can.closePath();
+			//脚
+//			can.beginPath();
+//			can.arc(140,592,90,-Math.PI/4,-Math.PI*3/4,true);
+//			can.fillStyle = "white";
+//			can.fill();
+//			can.stroke();
+//			can.closePath();
+//			can.beginPath();
+//			can.arc(140,464,90,Math.PI/4,Math.PI*3/4,false);
+//			can.fillStyle = "white";
+//			can.fill();
+//			can.stroke();
+//			can.closePath();
+//			can.beginPath();
+//			can.arc(265,592,90,-Math.PI/4,-Math.PI*3/4,true);
+//			can.fillStyle = "white";
+//			can.fill();
+//			can.stroke();
+//			can.closePath();
+//			can.beginPath();
+//			can.arc(265,464,90,Math.PI/4,Math.PI*3/4,false);
+//			can.fillStyle = "white";
+//			can.fill();
+//			can.stroke();
+//			can.closePath();
+			//铃铛
+			can.beginPath();
+			can.rect(90,310,220,25);
+			can.fillStyle = "red";
+			can.stroke();
+			can.fill();
+			can.closePath();
+			can.beginPath();
+			can.arc(90,322,12,-Math.PI/2,-Math.PI*3/2,true);
+			can.fillStyle = "red";
+			can.fill();
+			can.stroke();
+			can.closePath();
+			can.beginPath();
+			can.arc(310,322,12,-Math.PI/2,-Math.PI*3/2,false);
+			can.fillStyle = "red";
+			can.fill();
+			can.stroke();
+			can.closePath();
+			can.beginPath();
+			can.arc(200,340,20,0,Math.PI*2,true);
+			can.fillStyle = "rgb(218,213,56)";
+			can.fill();
+			can.stroke();
+			can.closePath();
+			can.beginPath();
+			can.arc(200,350,5,0,Math.PI*2,true);
+			can.fillStyle = "black";
+			can.fill();
+			can.stroke();
+			can.closePath();
+			can.beginPath();
+			can.moveTo(185,328);
+			can.lineTo(215,328);
+			can.stroke();
+			can.closePath();
+			can.beginPath();
+			can.moveTo(182,333);
+			can.lineTo(218,333);
+			can.stroke();
+			can.closePath();
+			can.beginPath();
+			can.moveTo(200,355);
+			can.lineTo(200,360);
+			can.stroke();
+			can.closePath();
+		</script>
+	</body>
+</html>

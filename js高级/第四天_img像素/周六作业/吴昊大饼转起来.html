@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#myCanvas {
+				transition: all 1s;
+			}
+		</style>
+	</head>
+
+	<body>
+		<canvas id="myCanvas" width="800" height="800"></canvas>
+		<script type="text/javascript">
+			var myCan = document.getElementById("myCanvas");
+			var can = myCan.getContext("2d");
+
+			function randNum(min, max) {
+				return parseInt(Math.random() * (max - min + 1) + min);
+			}
+
+			function pizza(x, y) {
+				can.beginPath();
+				can.moveTo(300, 300);
+				can.arc(300, 300, 300, Math.PI / x, (Math.PI / y), false);
+				var gra = can.createRadialGradient(300, 300, 0, 300, 300, 300);
+				gra.addColorStop(0, "rgba(" + randNum(0, 255) + "," + randNum(0, 255) + "," + randNum(0, 255) + "," + Math.random().toFixed(2) + ")");
+				gra.addColorStop(0.25, "rgba(" + randNum(0, 255) + "," + randNum(0, 255) + "," + randNum(0, 255) + "," + Math.random().toFixed(2) + ")");
+				gra.addColorStop(0.5, "rgba(" + randNum(0, 255) + "," + randNum(0, 255) + "," + randNum(0, 255) + "," + Math.random().toFixed(2) + ")");
+				gra.addColorStop(0.75, "rgba(" + randNum(0, 255) + "," + randNum(0, 255) + "," + randNum(0, 255) + "," + Math.random().toFixed(2) + ")");
+				gra.addColorStop(1, "rgba(" + randNum(0, 255) + "," + randNum(0, 255) + "," + randNum(0, 255) + "," + Math.random().toFixed(2) + ")");
+				can.fillStyle = gra;
+				can.fill();
+				can.closePath();
+				can.stroke();
+			}
+			setInterval(function() {
+				can.clearRect(0, 0, 800, 800);
+				pizza(12, 6);
+				pizza(6, 5);
+				pizza(5, 4.5);
+				pizza(4.5, 2);
+				pizza(2, 1.65);
+				pizza(1.65, 1.55);
+				pizza(1.55, 1.4);
+				pizza(1.4, 1.25);
+				pizza(1.25, 1);
+				pizza(1, 0.95);
+				pizza(0.95, 0.75);
+				pizza(0.75, 0.7);
+				pizza(0.7, 0.6);
+				pizza(0.6, 0.55);
+				pizza(0.55, 0.5);
+				pizza(0.5, 0.45);
+				can.translate(300, 300);
+				can.rotate(Math.PI / 180);
+				can.translate(-300, -300);
+			}, 50)
+		</script>
+	</body>
+
+</html>

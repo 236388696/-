@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="myCanvas" width="1000" height="1000"></canvas>
+		<script src="1椭圆.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var myCan=document.getElementById("myCanvas");
+			var can=myCan.getContext("2d");
+			
+			//http://www.runoob.com/jsref/prop-canvas-globalcompositeoperation.html
+			//http://www.w3school.com.cn/tags/canvas_beziercurveto.asp
+			can.beginPath();
+			can.moveTo(20,100);
+			can.bezierCurveTo(20,-50,220,-10,200,100);
+			can.stroke();
+			can.closePath();
+			
+			
+			can.beginPath();
+			can.moveTo(20,100);
+			//前两个参数代表前两个控制点
+			//第三第四个参数代表第二个控制点
+			can.bezierCurveTo(50,200,180,200,200,100);
+			can.stroke();
+			can.closePath();
+			
+			
+			can.beginPath();
+			can.fillStyle="aquamarine";
+			BezierEllipse1(can,300,300,100,50);
+			can.fill();
+			can.closePath();
+			
+			
+			
+		</script>
+	</body>
+</html>

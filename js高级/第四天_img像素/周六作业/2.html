@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			canvas {
+				border: 1px solid black;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div>分数：
+			<span id="fen">0</span>
+		</div>
+
+		<canvas id="myCanvas" width="1000" height="600">测试</canvas><br>
+		<script type="text/javascript">
+			var canvas = document.getElementById('myCanvas');
+			var can = canvas.getContext('2d');
+			var fen = document.getElementById("fen");
+			var num = 0;
+			/*－－－－－－－－－－－－－－－－－－－－－－－－－－－*/
+			//创建一个蛇的对象,并且设置蛇的属性
+			var snake = {
+				w: 40,
+				h: 40,
+				x: -40,
+				y: 0,
+				//保存蛇的路径
+				bodyPosition: [],
+				//保存蛇当前前进的方向，默认向右
+				left: false,
+				right: true,
+				top: false,
+				bottom: false,
+				headColor: "pink",
+				bodyColor: "red",
+				//当前是否碰撞
+				reBol: true
+			};
+			/*－－－－－－－－－－－－－－－－－－－－－－－－－－－*/
+			//创建第一个方法:判断蛇的移动
+			snake.move = function() {
+					//this.left,表示向左走
+					//如果向左走，x每次向左走40
+					if (this.left) {
+						this.x -= this.w;
+					} else if (this.right) {
+						this.x += this.w;
+					} else if (this.top) {
+						this.y -= this.h;
+					} else if (this.bottom) {
+						this.y += this.h;
+					}
+					//调用画蛇头的方法
+					this.drawHead();
+					//调用画蛇身体的方法
+					this.drawBody();
+					//调用保存经过的路径的方法
+					this.savePosition();
+				}
+				/*－－－－－－－－－－－－－－－－－－－－－－－－－－－*/
+				//创建第二个方法：画蛇头的方法
+			snake.drawHead = function() {
+					can.fillStyle = this.headColor;
+					can.fillRect(this.x, this.y, this.w, this.h);
+				}
+				/*－－－－－－－－－－－－－－－－－－－－－－－－－－－*/
+				//创建第三种方法：保存经过的路径
+			snake.savePosition = function() {
+					//路径对象
+					this.bodyPosition.push({
+						x: snake.x,
+						y: snake.y
+					});
+					if (this.bodyPosition.length > 3 && this.reBol) {
+						//每次出现一个格子，就将最前面的格子删掉，保持它的长度为3
+						this.bodyPosition.shift();
+					} else {
+						this.reBol = true;
+					}
+				}
+				/*－－－－－－－－－－－－－－－－－－－－－－－－－－－*/
+				//创建第四种方法：绘制蛇的身体
+			snake.drawBody = function() {
+					can.beginPath();
+					can.fillStyle = this.bodyColor;
+					for (var i = 0; i < this.bodyPosition.length; i++) {
+						var pathObj = this.bodyPosition[this.bodyPosition.length - 1 - i];
+						can.fillRect(pathObj.x, pathObj.y, 40, 40);
+					}
+				}
+				/*－－－－－－－－－－－－－－－－－－－－－－－－－－－*/
+				//设置定时器，控制蛇的移动
+			var timer = setInterval(function() {
+					can.clearRect(0, 0, canvas.width, canvas.height);
+					snake.move();
+					food.drawFood();
+					if (collide(snake, food)) {
+						food.setPosition();
+						fen.innerHTML = num += 1;
+						snake.reBol = false;
+					}
+					if (snake.x < 0 || snake.x > 1000) {
+						clearInterval(timer);
+						alert("Game Over");
+					}
+					if (snake.y < 0 || snake.y > 600) {
+						clearInterval(timer);
+						alert("Game Over");
+					}
+				}, 200)
+				//碰撞的方法
+			function collide(obj1, obj2) {
+				//对象1
+				var left1 = obj1.x;
+				var right1 = obj1.w + left1;
+				var top1 = obj1.y;
+				var bottom1 = obj1.h + top1;
+				//对象2
+				var left2 = obj2.x;
+				var right2 = obj2.w + left2;
+				var top2 = obj2.y;
+				var bottom2 = obj2.h + top2;
+
+				if (right1 > left2 && left1 < right2 && bottom1 > top2 && top1 < bottom2) {
+					return true;
+				} else {
+					return false;
+				}
+			}
+			/*－－－－－－－－－－－－－－－－－－－－－－－－－－－*/
+			//添加键盘事件
+			//canvas里面不能添加键盘事件，可以添加点击等事件
+			document.onkeydown = function(ev) {
+					var ev = ev || window.event;
+					switch (ev.keyCode) {
+						case 37:
+							if (!snake.right) {
+								snake.left = true;
+								snake.right = false;
+								snake.top = false;
+								snake.bottom = false;
+							}
+							break;
+						case 38:
+							if (!snake.bottom) {
+								snake.left = false;
+								snake.right = false;
+								snake.top = true;
+								snake.bottom = false;
+							}
+							break;
+						case 39:
+							if (!snake.left) {
+								snake.left = false;
+								snake.right = true;
+								snake.top = false;
+								snake.bottom = false;
+							}
+							break;
+						case 40:
+							if (!snake.top) {
+								snake.left = false;
+								snake.right = false;
+								snake.top = false;
+								snake.bottom = true;
+							}
+							break;
+						default:
+							break;
+					}
+					//阻止默认事件
+					ev.preventDefault();
+				}
+				//食物对象
+			var food = {
+				w: 40,
+				h: 40,
+				x: 0,
+				y: 0,
+				color: "pink"
+			}
+
+			function rand(min, max) {
+				return parseInt(Math.random() * (max - min)) + min;
+			}
+			food.setPosition = function() {
+				while (true) {
+					var x = rand(0, canvas.width - 40);
+					x = parseInt(x / 40) * 40;
+					var y = rand(0, canvas.height - 40);
+					y = parseInt(y / 40) * 40;
+					//判断当前这个点是否在蛇的路径对象里
+					var isIn = false;
+					for (var i = 0; i < snake.bodyPosition.length; i++) {
+						if (snake.bodyPosition[i].x == x && snake.bodyPosition[i].y == y) {
+							isIn = true;
+						}
+					}
+					if (!isIn) {
+						food.x = x;
+						food.y = y;
+						break;
+					}
+				}
+			}
+			food.setPosition();
+			food.drawFood = function() {
+				can.fillStyle = food.color;
+				can.fillRect(food.x, food.y, 40, 40);
+			}
+		</script>
+	</body>
+
+</html>

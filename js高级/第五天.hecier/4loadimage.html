@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="myCanvas" width="1200" height="1000"></canvas>
+		<script type="text/javascript">
+		//此方法，保证所有图片加载完成之后，我们再干其他的事
+		
+		//（图片名的数组，方法）
+		function loadImage (imgArr,fn) {
+			//接收图片加载完成的数量
+			var imgCount = 0;
+			
+			for (var i = 0; i < imgArr.length; i++) {
+				var img = new Image();
+				img.src = imgArr[i];
+				
+				//图片加载完成
+				img.onload = function () {
+					if (imgCount == imgArr.length) {
+						fn(imgCount/imgArr.length*100);
+					} else {
+						imgCount ++;
+						fn(imgCount/imgArr.length*100);
+					}
+				};
+			};
+			
+		}
+		
+	
+		var arr = ["img/1.jpg","img/2.jpg","img/3.jpg","img/4.jpg"];
+//		console.log(loadImage(arr));
+        loadImage(arr,function(a){
+        	   console.log(a+"%");
+        });
+			
+			
+			
+		
+		
+			
+			
+		</script>
+	</body>
+</html>
+
+
+		
+		
+		
+		
+		
+		
+		

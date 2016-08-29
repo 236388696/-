@@ -18,21 +18,22 @@
 		</style>
 	</head>
 	<body>
-		<div id="str">500万</div>
+		<div id="str"></div>
+		
+		
 		<canvas id="myCanVas" width="1000" height="1000"></canvas>
 		<script type="text/javascript">
 			var myCan=document.getElementById("myCanVas");
 			var can=myCan.getContext("2d");
-//			var str=document.getElementById("str");
+            var str=document.getElementById("str");
+			
+			var strArr = ["200万","100万","继续努力","200万","100万","继续努力","继续努力"];
+			var index = Math.floor(Math.random() * strArr.length);
+			str.innerHTML = strArr[index];
             
 			console.log(str);
+			
 			can.beginPath();
-			
-//			var str="500万";
-//			can.font="45px 微软雅黑";
-//			can.fillText(str,50,50);
-			
-			
 			can.fillStyle="gray";
 			can.fillRect(0,0,300,300);
             can.closePath();
@@ -49,7 +50,25 @@
 			can.arc(x-10,y-10,20,0,2*Math.PI,true);
 			can.fill();
 			can.closePath();
+			checkDian();
 			}
+
+           
+           //刮到一定程度全出来
+           function checkDian(){
+           	//灰色区域的宽高
+           	var pxs=can.getImageData(0,0,300,300).data;
+           	var count=0;
+           	for (var i=0;i<pxs.length;i+=4) {
+           		if(pxs[i+3]==0){
+           			count++;
+           		}
+           		if(count>=(pxs.length/4)/3){
+           			can.clearRect(0,0,myCan.width,myCan.height);
+           		}
+           	}
+           }
+           
 				
 			
 			

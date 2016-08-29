@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			 String.prototype.huiwen=function(){
+			 	for (var i=0;i<this.length/2;i++) {
+			 		if(this[i]!==this[this.length-1-i]){
+			 			//如果判断两个字符不一样，后面就不用判断了（效率高）
+			 			return false;
+			 		}
+			 	}
+			 	//如果上面for循环都走完了，代表所有字符匹配对比结果
+			 	//如果没有走false，代表都匹配上了，则for循环下面的代码会继续执行
+			 	
+			 	//注：如果上面if成立了（代表有不一样的），则直接跳出方法
+			 	//返回false，则for循环下面的代码不会执行
+			 	return true;
+			 }
+			
+			var str = "abccba";
+//			var str = "abcba";
+			console.log(str.huiwen());
+			 
+			 
+			
+			//用递归方法做回文
+		    var i=0;
+			function ishuiwen(str){
+			 	var half=str.length/2;
+			 	if(str[i]!==str[str.length-1-i]){
+			 		return false;
+			 	}
+			 	else{
+			 		i++;
+			 		
+			 		if(i<half){
+			 			//在哪调用的方法，return回去就在哪
+			 			return ishuiwen(str);
+			 		}else{
+			 			return true;
+			 		}
+			 	}
+			 }
+			 
+			var str="abghgba";
+			console.log(ishuiwen(str));
+		</script>
+	</body>
+</html>

@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>贪食蛇～～～～～～～</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body,html{
+			height: 100%;
+			background-color: black;
+			overflow: hidden;
+		}
+		canvas{
+			position: absolute;
+			left:50%;
+			margin-left: -900px;
+			border:3px solid #CCCCCC;
+			box-sizing: border-box;
+			background-color: white;
+		}
+		div{
+			color:white;
+			text-align: center;
+			font-size: 20px;
+		}
+	</style>
+</head>
+<body>
+	<div>你的分数为：<span id="span1"></span></div>
+	<canvas id="myCanVas" width="" height=""></canvas>
+	<script type="text/javascript">
+		var Canvas=document.getElementById("myCanVas");
+		var can=Canvas.getContext("2d");
+		var x=0,y=0;
+		var timer=null;
+		var foodX=0, foodY=0;
+		var sMap=
+		Canvas.width=1800;
+		Canvas.height=900;
+		function creatDian(x,y){
+			can.beginPath();
+			can.fillRect(x,y,20,20);
+			can.closePath();
+		}								//生成 色块   
+		function randNum(min,max){
+			return parseInt(Math.random()*(max-min+1)+min);
+		}
+		function moveHoldX(zx){
+			clearInterval(timer);
+			timer=setInterval(function(){
+					can.clearRect(x,y,20,20);
+					x+=zx;
+					creatDian(x,y);
+				},100)
+		}									//x轴左右移动 的方法
+		function moveHoldY(zx){
+			clearInterval(timer);
+			timer=setInterval(function(){
+					can.clearRect(x,y,20,20);
+					y+=zx;
+					creatDian(x,y);
+				},100)	
+		}									//y轴上下移动的方法；
+		function move(up,down,left,right){
+			if(up){
+				moveHoldY(-20);
+			}else if(down){
+				moveHoldY(20);
+			}else if(left){
+				moveHoldX(-20);
+			}else if(right){
+				moveHoldX(20);
+			}
+		}									//通过blur值判断移动方式；
+		document.onkeydown=function(ev){
+			var ev=ev||window.event;
+			var a=ev.keyCode;
+			if(a==37){
+				move(false,false,true,false);
+			}else if(a==38){
+				move(true,false,false,false);
+			}else if(a==39){
+				move(false,false,false,true);
+			}else if(a==40){
+				move(false,true,false,false);
+			}
+		}									//通过键盘keycode 传入布尔值；
+		function creatFood(){
+			foodX=randNum(0,90)*20;
+			foodY=randNum(0,45)*20;
+			creatDian(foodX,foodY);	
+		}									//生成食物的方法；
+		creatFood();
+		creatDian(0,0);
+		move(false,false,false,true);
+		setInterval(function(){
+			if(x==foodX&&y==foodY){
+				creatFood();
+			}
+
+		},100)
+		
+		
+		
+		
+	</script>
+</body>
+</html>

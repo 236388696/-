@@ -77,75 +77,109 @@
 			
 			
 			//中间
-			//获取大图滚动
 			var cwrap=document.querySelector("c_wrap");
             var cwrapimgs=document.querySelectorAll("#c_wrap img")
+            var btnWrap = document.querySelector("#btnWrap");
             var spans=document.querySelectorAll("#btnWrap span");
-//          大图滚动
-            var timer=null;
-            var timer2=null;
-            var timer3=null;
-            var index=0;
+            
+   //          var cwrap = document.querySelector(".c_wrap");
+   //          var cwrapimgs = document.querySelectorAll(".c_wrap img");
+			// var pointWrap = document.querySelector(".points");
+			// var points = document.querySelectorAll(".points span");
+			
+			
+			var timer = null;
+			var timer2 = null;
+			var timer3 = null;
+			var index = 0;
+  
 //      tween动画函数里主要有4个参数：t、b、c、d
 //		1.t——time:当前时间
 //		2.b——beginning value:初始的位置
 //		3.c——change in value:变化量
 //		4.d——duration:持续的时间（终点的时间）
-            function change1(sei){
-            	   var t=0;
-            	   var b=1;
-            	   //c=end-b;
-            	   var c=-1;
-            	   var d=100;
-            	   clearInterval(timer);
-            	   var timer=setInterval(function(){
-            	   	t++;
-            	   	if(t>d){
-            	   		clearInterval(timer);
-            	   	}else{
-cwrapimgs[sei].style.opacity=Tween.Back.easeInOut(t,b,c,d);
-            	   	}
-            	   },20)
-            };
-            
-            function change2(sei){
-            	var t=0;
-            	var b=0;
-            	var c=1;
-            	var d=100;
-            	clearInterval(timer2);
-            	var timer1=setInterval(function(){
-            		t++;
-            		if(t>d){
-            			clearInterval(timer2);
-            		}else{
-cwrapimgs[sei+1].style.opacity=Tween.Back.easeInOut(t,b,c,d);            			
-            		}
-            	},20)
-            }
-            
-            function bianhua() {
+			function change1(sei) {
+				var t = 0;
+				var b = 1;
+				var c = -1;
+				var d = 100;
+				clearInterval(timer);
+				timer = setInterval(function() {
+					t++;
+					if(t > d) {
+						clearInterval(timer)
+					} else {
+						cwrapimgs[sei].style.opacity = Tween.Linear(t, b, c, d);
+					}
+				}, 10)
+			}
+
+			function change2(sei) {
+				var t = 0;
+				var b = 0;
+				var c = 1;
+				var d = 100;
+				clearInterval(timer2);
+				timer2 = setInterval(function() {
+					t++;
+					if(t > d) {
+						clearInterval(timer2);
+					} else {
+						cwrapimgs[sei + 1].style.opacity = Tween.Linear(t, b, c, d);
+					}
+				}, 10)
+			}
+
+			function bianhua() {
 				if(index < cwrapimgs.length - 1) {
-//					console.log(index);
+					//					console.log(index);
 					change1(index);
 					change2(index);
 					index++;
 				} else {
-//					console.log(index);
+					//					console.log(index);
 					change1(index);
 					change2(-1);
 					index = 0;
 				}
+				//				console.log(index);
+				for(var i = 0; i < 3; i++) {
+					spans[i].style.backgroundColor = "";
+				}
+				spans[index].style.backgroundColor = "blue";
 			}
 
 			function autochange() {
+
 				clearInterval(timer3)
 				timer3 = setInterval(function() {
 					bianhua();
+					//				
 				}, 2000)
 			}
 			autochange();
-    
+			//小点
+
+			for(var i = 0; i < spans.length; i++) {
+				spans[i].spansNum = i;
+				spans[i].onclick = function() {
+					//					console.log(index);
+					clearInterval(timer3);
+					for(var j = 0; j < cwrapimgs.length; j++) {
+						cwrapimgs[j].style.opacity = 0;
+						spans[j].style.backgroundColor = "";
+					}
+					this.style.backgroundColor = "blue";
+					cwrapimgs[this.spansNum].style.opacity = 1;
+				}
+			}
+			for(var i = 0; i < spans.length; i++) {
+				spans[i].onmouseout = function() {
+					autochange();
+				}
+			}
+        
+
       //获取瀑布流
         var imgs=["img3/1-150Z110411A47.jpg","img3/SHINING (44).jpg","img3/SHINING (46).jpg","img3/1-150Z11341353I.jpg","img3/SHINING (18).jpg","img3/1-150Z110342W02.jpg","img3/1-150Z114125a24.jpg","img3/1-150Z114095NC.jpg","img3/SHINING (16).jpg","img3/SHINING (15).jpg","img3/1-150Z1103942428.jpg","img3/SHINING (54).jpg","img3/SHINING (5).jpg","img3/SHINING (8).jpg","img3/1-150Z110411A47.jpg","img3/1-150Z1141634519.jpg","img3/1-150Z1134JM27.jpg","img3/1-150Z114055W60.jpg","img3/1-150Z114095NC.jpg","img3/SHINING (20).jpg","img3/SHINING (35).jpg","img3/SHINING (46).jpg","img3/SHINING (42).jpg","img3/SHINING (16).jpg","img3/SHINING (17).jpg"];
         var uls=document.getElementsByTagName("ul");

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var rand = Math.floor(Math.random()*101)
+			var bool = Math.floor(Math.random()*2)
+			function Animal(name,keep=bool,grade=rand){
+				this.name=name;
+				this.keep = keep;
+				this.grade = grade;
+			}
+			Animal.prototype.Love = function(){
+				console.log("loveMeat, run");
+			}
+			//boy
+			function Boy(hobby){
+				this.hobby=hobby;
+			}
+			Boy.prototype=new Animal();
+			Boy.prototype.play = function(){
+				console.log("playLol");
+			}
+			var boy = new Boy("play");
+			console.log(boy);
+			console.log(boy.keep);
+			console.log(boy.grade);
+			boy.play();
+			//girl
+			function Cat(name,hobby){
+				this.name=name;
+				this.hobby=hobby;
+			}
+			Girl.prototype=new Animal();
+			Girl.prototype.play = function(){
+				console.log("buyThing");
+			}
+			var girl = new Girl("a","buy");
+			console.log(girl);
+			console.log(girl.keep);
+			console.log(girl.grade);
+			girl.play();
+			//smallgirl
+			function Bird(name,hobby){
+				this.name=name;
+				this.hobby=hobby;
+			}
+			SmallGirl.prototype=new Cat();
+			SmallGirl.prototype.play = function(){
+				console.log("buyThing");
+			}
+			var smallgirl = new SmallGirl("a","buy");
+			console.log(smallgirl.name);
+			console.log(smallgirl.keep);
+			console.log(smallgirl.grade);
+			smallgirl.play();
+			
+		</script>
+	</body>
+</html>
