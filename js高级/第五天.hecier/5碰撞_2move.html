@@ -69,9 +69,13 @@
             // index保存你点击的矩形在数组里的下角标
             var index=drawMyRect(ev.offsetX,ev.offsetY);
             var rectobj=arr[index];
+            //如果点击空白区域，drawRect返回的是－1(因为你没点击到任何人身上)；如果是－1则跳出整个方法，不继续走下面的代码
+            if(index==-1){
+            	    return;
+            }
             //获取用户点击的位置和矩形左上角的x,y的差
             var chaX=ev.offsetX-rectobj.x;
-            console.log(rectobj.x);
+//          console.log(rectobj.x);
             var chaY=ev.offsetY-rectobj.y;
             myCan.onmousemove=function(moveEv){
             	  
@@ -81,14 +85,46 @@
             	  var newY=moveEv.offsetY-chaY;
             	  rectobj.x=newX;
             	  rectobj.y=newY;
+            	  //检测碰撞
+            	  if (checkPeng(arr[0],arr[1])){
+            	  	 alert("碰上了")
+            	  }
+            	  
             	   drawMyRect();
             }
 	        }
-	         drawMyRect();
+	        
 	       
+	        //抬起来
+	        myCan.onmouseup=function(){
+	        	    myCan.onmousemove=null;
+	        }
+	        //检测碰撞的方法
+	        //方法使用说明：传递2个待检测的对象
+	        //说明：矩形对象 必须使用x,y,w,h属性(否则无法使用)
+	        function checkPeng(obj1,obj2){
+	        	    //先算临界值
+	        	    //横向临界值
+	        	    var disX=obj1.w/2+(obj2.w/2)
+	        	    //纵向临界值
+	        	    var disY=obj1.h/2+(obj2.h/2)
+	        	    //计算两个矩形对象中心的距离
+	        	    var centerX=Math.abs(obj2.x+(obj2.w/2)-(obj1.x+(obj1.w/2)));
+	        	    var centerY=Math.abs(obj2.y+(obj2.h/2)-(obj1.y+(obj1.h/2)));
+	        	    //判断
+	        	    if(centerX<disX&&centerY<disY){
+	        	    	    return true;
+	        	    }
+	        	    else{
+	        	    	    return false;
+	        	    }
+	        	    
+	        	    
+	        	    
+	        }
 	        
 			
-		
+		 drawMyRect();
 	        
 	        
 	       

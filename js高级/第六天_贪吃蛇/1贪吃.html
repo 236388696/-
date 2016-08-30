@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#myCanVas{
+				box-shadow: 0 0 30px black;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="myCanVas" width="800" height="600"></canvas>
+		<script type="text/javascript">
+			var myCan=document.getElementById("myCanVas");
+			var can=myCan.getContext("2d");
+			
+			function Snake(x,y,w,h,color){
+				this.x=40;
+				this.y=40;
+				this.w=20;
+				this.h=20;
+				this.color="gray";
+				this.speed=20;
+				//方向
+				this.left=false;
+				this.top=false;
+				//默认往右
+				this.right=true;
+				this.bottom=false;
+			}
+			Snake.prototype.drawSnake=function(){
+				can.beginPath();
+			    can.fillStyle=this.color;
+			    can.fillRect(this.x,this.y,this.w,this.h);
+				can.fill();
+				can.closePath();
+			}
+			
+			Snake.prototype.move=function(){
+				//根据四个属性的布尔值，来判断当前蛇应该往哪个方向移动
+				if(this.top){
+					this.y-=this.speed;
+				}else if(this.right){
+					this.x+=this.speed;
+				}else if(this.bottom){
+					this.y+=this.speed;
+				}else if(this.left){
+					this.x-=this.speed;
+				}
+				
+				
+			}
+			var sna=new Snake();
+			
+			setInterval(function(){
+				can.clearRect(0,0,myCan.width,myCan.height);
+				sna.drawSnake();
+				sna.move();
+			},1000)
+
+        document.onkeydown=function(ev){
+        	 switch(ev.keyCode){
+        	 	//左
+        	 	case 37:
+        	 	sna.top=false;
+        	 	sna.right=false;
+        	 	sna.bottom=false;
+        	 	sna.left=true;
+        	 	break;
+        	 	//上
+        	 	case 38:
+        	 	sna.top=true;
+        	 	sna.right=false;
+        	 	sna.bottom=false;
+        	 	sna.left=false;
+        	 	break;
+        	 	//右
+        	 	case 39:
+        	 	sna.top=false;
+        	 	sna.right=true;
+        	 	sna.bottom=false;
+        	 	sna.left=false;
+        	 	break;
+        	 	//下
+        	 	case 40:
+        	 	sna.top=false;
+        	 	sna.right=false;
+        	 	sna.bottom=true;
+        	 	sna.left=false;
+        	 	break;
+        	 	default:
+        	 	break;
+        	 }
+        }
+			
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

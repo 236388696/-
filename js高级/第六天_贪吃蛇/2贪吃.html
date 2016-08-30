@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#myCanVas{
+				box-shadow: 0 0 30px black;
+			}
+			#de{
+				position: absolute;
+				top: 50px;
+				left: 1000px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="de">的</div>
+		<canvas id="myCanVas" width="800" height="600"></canvas>
+		<script src="../第五天.hecier/check碰.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var myCan=document.getElementById("myCanVas");
+			var can=myCan.getContext("2d");
+			var de=document.getElementById("de");
+			//变量保存当前蛇的身体应该多长（有多少个小矩形)，默认5个
+			var snakeLength=5;
+			
+			function rand(min, max) {
+				return Math.floor(Math.random() * (max - min + 1) + min);
+			}
+			
+			function Snake(x,y,w,h,color){
+				this.x=-40;
+				this.y=40;
+				this.w=20;
+				this.h=20;
+				this.color="gray";
+				this.speed=20;
+				//方向
+				this.left=false;
+				this.top=false;
+				//默认往右
+				this.right=true;
+				this.bottom=false;
+				
+			//用于装蛇的每个矩形块的信息（包括头部的）
+        	 	this.bodys=[];
+			}
+			
+			Snake.prototype.drawSnake=function(){
+				for (var i=0;i<this.bodys.length;i++) {                       
+				var myRect=this.bodys[i];
+				can.beginPath();
+			    can.fillStyle=this.color;
+			    can.fillRect(myRect.x,myRect.y,myRect.w,myRect.h);
+				can.fill();
+			    can.closePath();
+				}
+				
+				
+			}
+			
+			Snake.prototype.move=function(){
+				//根据四个属性的布尔值，来判断当前蛇应该往哪个方向移动
+				if(this.top){
+					this.y-=this.speed;
+				}else if(this.right){
+					this.x+=this.speed;
+				}else if(this.bottom){
+					this.y+=this.speed;
+				}else if(this.left){
+					this.x-=this.speed;
+				}
+			}
+			
+			
+			//用于保存蛇新移动的矩形的信息
+			Snake.prototype.savePosition=function(){
+				//把新移动的这个矩形的位置以及大小信息装到bodys数组里
+				var posi={
+					x:this.x,
+					y:this.y,
+					w:this.w,
+					h:this.h
+				}
+				if(this.bodys.length>=snakeLength){
+				 this.bodys.shift();
+				}
+				this.bodys.push(posi);
+				
+			}
+			
+				
+
+        document.onkeydown=function(ev){
+        	 switch(ev.keyCode){
+        	 	//左
+        	 	case 37:
+        	 	//当你蛇在往右边走的时候，sna.right这个属性是true的，那么原理上我们不能让蛇往左(反方向)走，所以在设置left属性为true之前，我们要看一下sna.right的值是不是true；如果是true，则不走这四行代码
+        	 	if(!sna.right){
+        	 	sna.top=false;
+        	 	sna.right=false;
+        	 	sna.bottom=false;
+        	 	sna.left=true;
+        	 	}
+        	 	break;
+        	 	
+        	 	//上
+        	 	case 38:
+        	 	if(!sna.bottom){
+        	 	sna.top=true;
+        	 	sna.right=false;
+        	 	sna.bottom=false;
+        	 	sna.left=false;
+        	 	}
+        	 	break;
+        	 	//右
+        	 	case 39:
+        	 	if(!sna.left){
+        	 	sna.top=false;
+        	 	sna.right=true;
+        	 	sna.bottom=false;
+        	 	sna.left=false;	
+        	 	}
+        	 	break;
+        	 	//下
+        	 	case 40:
+        	 	if(!sna.top){
+        	 	sna.top=false;
+        	 	sna.right=false;
+        	 	sna.bottom=true;
+        	 	sna.left=false;	
+        	 	}
+        	 	break;
+        	 	default:
+        	 	break;
+        	 	
+        	 
+        	 }
+        }
+        
+        //下面的代码是食物
+        function Food(){
+        	     this.x=0;
+        	     this.y=0;
+        	     this.w=20;
+        	     this.h=20;
+        	     this.color="yellow";
+			}
+        Food.prototype.draw=function(){
+          	can.beginPath();
+		    can.fillStyle=this.color;
+			can.fillRect(this.x,this.y,this.w,this.h);
+			can.fill();
+			can.closePath();
+        }
+        
+        //给食物添加方法，用于设置位置
+        Food.prototype.setPosition=function(){
+        	 //注意画布的大小最好是20的倍数，不然容易造成食物半个身子在画布外面
+        //把画布宽度按照40宽度分成等比例多少份，然后假设是10份，那么在10份里取随机数，假设取到5那么第五个的x位置歹*20
+        this.x=rand(0,(myCan.width-food.w)/20)*20 ;
+        this.y=rand(0,(myCan.height-food.h)/20)*20 ;
+        }
+        var food=new Food();
+        food.setPosition();
+        
+        var num=0;
+        var sna=new Snake();
+			setInterval(function(){
+				can.clearRect(0,0,myCan.width,myCan.height);
+				sna.move();
+				sna.savePosition();
+				food.draw();
+				sna.drawSnake();
+				
+				//sna的x，y的值，跟bodys数组里最后一个元素x,y值一样
+				var a=checkBoom(sna,food);
+				if(a){
+					//碰到之后2个动作，食物重新生成，蛇的长度＋1；
+					food.setPosition();
+					snakeLength++;
+				
+				num++;
+				de.innerHTML="等分是:"+num;	
+				
+				}
+			},100);
+			
+			
+		</script>
+	</body>
+</html>

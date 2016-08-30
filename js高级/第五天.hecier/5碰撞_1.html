@@ -39,9 +39,7 @@
 		   	   	can.beginPath();
 		   	   	can.fillStyle=rectobj.color;
 		   	   	
-		   	   	//如果用isPointInPath判断的话，
-		   	   	//就用can.rect(rectobj.x,rectobj.y,rectobj.w,rectobj.h)来画矩形 和can.fill()来代替can.fillRect()画矩形
-		   	   	
+		   	   	//如果用isPointInPath判断的话，就用can.rect(rectobj.x,rectobj.y,rectobj.w,rectobj.h)来画矩形 和can.fill()来代替can.fillRect()画矩形
 		   	   	//如果用can.fillRect()画矩形，那么下面can.isPointInPath判断不到鼠标在没在矩形上
 		   	   	can.rect(rectobj.x,rectobj.y,rectobj.w,rectobj.h);
 		   	   	can.fill();
@@ -49,7 +47,7 @@
 		   	   	
 		   	   	//每for循环一次，绘制一个区域，我都要用ispointinpath来判断下
 		   	   	//arguments获取所有参数：如果往里面传参数，就有参数；不往里面传参数，就没有参数
-		   	   	//如果有参数再走小面代码，没有参数则跳过
+		   	   	//如果有参数再走下面代码，没有参数则跳过
 		   	   	if(arguments.length){
 		   	   		if(can.isPointInPath(arguments[0],arguments[1])){
 		   	   			//i=0时，代表绘制的第一个对象的区域
@@ -66,7 +64,7 @@
 	        		can.clearRect(0,0,myCan.width,myCan.height);
 	        	 console.log(drawMyRect(ev.offsetX,ev.offsetY));
 	        }
-	        drawMyRect()
+	        drawMyRect();
 	        
 			
 		
