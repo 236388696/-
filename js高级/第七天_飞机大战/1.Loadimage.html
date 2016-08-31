@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="myCanVas" width="" height=""></canvas>
+		<script type="text/javascript">
+			var myCan=document.getElementById("myCanVas");
+			var can=myCan.getContext("2d");
+			myCan.width=document.documentElement.clientWidth;
+			myCan.height=document.documentElement.clientHeight;
+			
+			function loadImage(imgObj,handle){
+			 	//1.定义一个变量(记录加载完成几张进度)
+			 	var scaleCount=0;
+			 	//2.获取一共需要加载的图片数量
+			    //获取一个对象里所有属性 用for in
+			 	var imgCount=0; //记录图片数量
+			 	
+			 	//3.声明一个空的对象
+			 	var imgS={};//用于保存加载完成的img对象(类型是Image())
+			 	for (var pro in imgObj) {
+			 		imgCount++;
+			 	}
+			 	for (var pro in imgObj) {
+			 		var img=new Image();
+			 		//根据获取的每个属性，然后在对象里取出value值
+			 		//设置img的src路径
+			 		img.src=imgObj[pro];
+			 		//for循环执行快，而onload需要更长的时间，当onload执行完的时候，for循环早就完事了，所以pro一直是最后一个属性，利用闭包解决这个问题
+			 		img.onload=(function(thePro){
+			 			console.log(thePro);
+			 			return function(){
+			 				//代表一张图片加载完成
+			 				scaleCount++;
+			 				//计算一下加载的百分比进度
+			 				var scale=scaleCount/imgCount*100;
+			 			    //对象[属性]＝加载完的img对象
+			 			    imgS[thePro]=this;
+			 			    
+			 			    handle.progress(scale);
+			 			    if(scale==100){
+			 			    	handle.complete(imgS);
+			 			    }
+			 			}
+			 		})(pro);
+			 	}
+			 	
+			}
+			
+			//把本项目用到的图片资源，单独写成一个对象(key:value)格式
+			var myImgObj={
+				background_2:"img/background_2.png",
+				bomb:"img/bomb.png",
+				hero1:"img/hero_blowup_1.png",
+				plane:"img/hero_fly_1.png"
+				
+			}
+			//把图片对象传到loadimage方法里进行一些操作
+			loadImage(myImgObj,{
+				progress:function(progressCount){
+					console.log(progressCount);
+				},
+				complete:main
+			});
+			//图片全部加载完成触发的方法
+			function main(objS){
+//				console.log("加载完成");
+            //默认滚动值为0
+            var scrollY=0;
+            
+            var planeImg=objS.plane;
+            var plane={
+            	  x:100,
+            	  y:100,
+            	  w:60,
+            	  h:60,
+            	  img:objS.plane
+            }
+                //绘制背景滚动
+                 function drawBackGround(){
+                 	can.clearRect(0,0,myCan.width,myCan.height);
+                 	can.beginPath();
+                 	can.drawImage(obj.background_2,0,-myCan.height+scrollY,myCan.width,myCan.height);
+                 	can.drawImage(obj.background_2,0,scrollY,myCan.width,myCan.height);
+                 	can.closePath();
+                 	scrollY+=1;
+                 	
+                 	if(scrollY>=myCan.height){
+                 		 scrollY=0;
+                 	}
+                 	
+                 
+                 	//根据浏览器刷新一次，就调用()里的方法一次；
+//               	window.requestAnimationFrame(drawBackGround);
+                } 
+                function drawplane(){
+                		can.beginPath();
+                		can.drawImage(obj.hero1,100,250);
+                		can.closePath();
+                }
+                
+                 drawBackGround();
+                 drawplane();
+                
+			}
+			
+			
+		</script>
+	</body>
+</html>

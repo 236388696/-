@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>回调函数</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function maiCai(money,fn){
+				if(money>100){
+					//买个兰博基尼
+					var lan="兰博基尼";
+					fn(lan);
+				}
+				else{
+					//买个西瓜
+				}
+			}
+			var mo=200;
+			maiCai(mo,function(theChe){
+				console.log(theChe);
+			})
+		</script>
+		
+		
+		
+		
+		<script type="text/javascript">
+		  function mai(money,fn){
+		  	if(money>100){
+		  		//mai che
+		  		var dd="shiwu";
+		  		fn(dd);
+		  	}else{
+		  		//mai gua
+		  	}
+		  }
+		  mai(200,function(huo){
+		  	console.log(huo);
+		  });
+		</script>
+		
+		
+	</body>
+</html>

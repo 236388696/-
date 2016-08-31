@@ -19,7 +19,7 @@
 		</style>
 	</head>
 	<body>
-		<div id="de">得分是：</div>
+		<div id="de">得分是:0</div>
 		<canvas id="myCanVas" width="800" height="600"></canvas>
 		<script src="../第五天.hecier/check碰.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
@@ -29,12 +29,14 @@
 			//变量保存当前蛇的身体应该多长（有多少个小矩形)，默认5个
 			var snakeLength=5;
 			
+			var time=0;
+			
 			function rand(min, max) {
 				return Math.floor(Math.random() * (max - min + 1) + min);
 			}
 			
 			function Snake(x,y,w,h,color){
-				this.x=-40;
+				this.x=0;
 				this.y=40;
 				this.w=20;
 				this.h=20;
@@ -55,8 +57,15 @@
 				for (var i=0;i<this.bodys.length;i++) {                       
 				var myRect=this.bodys[i];
 				can.beginPath();
-			    can.fillStyle=this.color;
-			    can.fillRect(myRect.x,myRect.y,myRect.w,myRect.h);
+				
+				//头部起始就是bodys数组里最后一个元素
+				if (i==this.bodys.length-1){
+					can.fillStyle="turquoise";
+				}else{
+					can.fillStyle=this.color;
+				}
+				
+                can.fillRect(myRect.x,myRect.y,myRect.w,myRect.h);
 				can.fill();
 			    can.closePath();
 				}
@@ -74,6 +83,18 @@
 					this.y+=this.speed;
 				}else if(this.left){
 					this.x-=this.speed;
+				}
+				//如果蛇将要移动的矩形位置是自己的身体的矩形，那么则代表碰到自己的身体了，game over
+				for (var i=0;i<this.bodys.length;i++) {
+					var myRect=this.bodys[i];
+					if(myRect.x==this.x&&myRect.y==this.y){
+						 clearInterval(time);
+					       alert("game over");	
+					} 
+				}
+				//this.x和this.y是蛇要移动的下一个位置，我判断一下如果在屏幕外面则代表gameover
+				if(this.x<0||this.x>myCan.width||this.y<0||this.y>myCan.height){
+					alert("game over");
 				}
 			}
 			
@@ -143,6 +164,7 @@
         	 }
         }
         
+         var sna=new Snake();
         //下面的代码是食物
         function Food(){
         	     this.x=0;
@@ -165,13 +187,23 @@
         //把画布宽度按照40宽度分成等比例多少份，然后假设是10份，那么在10份里取随机数，假设取到5那么第五个的x位置歹*20
         this.x=rand(0,(myCan.width-food.w)/20)*20 ;
         this.y=rand(0,(myCan.height-food.h)/20)*20 ;
+        
+        
+        for (var i=0;i<sna.bodys.length;i++) {
+        	    //取出蛇身体组成的每个矩形
+        	    var myRect=sna.bodys[i];
+        	    if(myRect.x==this.x&&myRect.y==this.y){
+        	    	break;
+        	    	this.setPosition();
+        	    }
         }
+        }
+        
         var food=new Food();
         food.setPosition();
         
         var num=0;
-        var sna=new Snake();
-			setInterval(function(){
+            time=setInterval(function(){
 				can.clearRect(0,0,myCan.width,myCan.height);
 				sna.move();
 				sna.savePosition();

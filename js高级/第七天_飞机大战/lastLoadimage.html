@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<!--<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">-->
+		<title></title>
+		<style type="text/css">
+		</style>
+	</head>
+	<body>
+		
+		<canvas id="myCanVas" width="1200" height="1000"></canvas>
+		<script type="text/javascript">
+			var myCan=document.getElementById("myCanVas");
+			var can=myCan.getContext("2d");
+		
+		//以前用数组来存放所有图片，但是当你想使用某一张的时候，我需要找到图片所在的下角标
+		//注意：上面这种不灵活，而且不方便
+		
+		//把所有图片资源写成一对对key:value格式(key随便起名字，value则是对应的图片所在路径名字)
+	    var imgObj={
+	    	    background:"img/background_2.png",
+	    	    bomb:"img/bomb.png",
+	    	    bullet:"img/bullet1.png"
+	    }
+	    //而且以后，再有新的图片需要加载的时候，我只需要在上面的大括号内，新添加一对key：value就可以了
+	    
+	    //重点：定义一个专门来加载图片的方法
+	    
+	    /*  
+	        var img=new Image();
+	    	    img.src="../第五天.hecier/img/1.jpg";
+	    	    img.onload=function(){
+	    	    	 can.drawImage(img,0,0);
+	    	    }
+	    	    以前我们在加载一张图片的时候，用的上面这个方式，但是当你每秒加载图片的时候，如果把上面代码放到计时器里，那么每秒都会重新创建img对象，并且加载这个图片资源，很浪费内存； 于是：我们要让图片只加载一次，然后把img对象传出去九可以了，因为外面drawimage只需要这个img对象
+	    	    
+	    */
+	    
+	    //4.声明一个imgs的对象，用于保存onload加载图片完成的img对象，因为我们一会drawimage只需要img对象，这个imgs是一会全部图片加载完成，要返回外面的对象
+	    /*格式：  imgs={
+	    	            tupian1:img,
+	    	            tupian2:img,
+	    	            background:img,
+	    }
+	        img是对象，以后外面使用的时候：drawImage（imgs.background,0,0）;
+	    */
+	   var imgS={};
+	   
+	   
+	    //5.声明一个变量，用于记录我现在加载完成了几张图片
+	    //img.onload方法走一次代表加载完成一张
+	    var loadedImageCount=0;
+	   
+	    //6.声明一个变量，拿到图片的总数量
+	    var allImageCount=0;
+	    function LoadImage(imgObj,fn){
+	    	 //6.1有几个属性九代表有几张图片
+	    	 for (var tt in imgObj) {
+	    	 	allImageCount++;
+	    	 }
+	    	 
+        //1.拿出图片资源总对象里每个图片路径（利用for in）
+	    	  for(var prop in imgObj){//循环一次，拿一个属性
+	    	  	var imgPath=imgObj[prop];
+	    	  	//2.新建图片对象，准备进行加载
+	    	  	var img=new Image();
+	    	  	img.src=imgPath;
+	    	  	//3.图片加载完成
+	    	  	img.onload=(function(theprop){
+	    	  		//因为for循环执行的快，图片加载的慢，所以for循环执行完了，prop变量里存的是最后一个属性，然后，图片加载完成调用本方法的时候，prop就不对了，于是我们要用闭包，来处理这个问题，让每一个prop都传进来
+	    	  		//为什么要获取外面传进来的imgobj的属性来设置，因为：保证key的值是一样的，方便使用 
+	    	  		return function(){//因为我现在是个闭包里面，但是img.onload是一个方法体，那么我们必须返回一个方法题function(){}
+	    	  			imgS[theprop]=this;
+	    	  		console.log(theprop);
+	    	  		loadedImageCount++;
+	    	  		//7.
+	    	  		if(loadedImageCount==allImageCount){
+	    	  			fn(imgS);
+	    	  		}
+	    	  		}
+	    	  	})(prop)
+	    	  }
+	    }
+	    LoadImage(imgObj,function(imgS){
+	    	    console.log(imgS)
+	    	    can.drawImage(imgS.background,0,0);
+	    });
+		    
+		    
+		</script>
+	</body>
+</html>
