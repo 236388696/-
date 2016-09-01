@@ -62,7 +62,8 @@
 				background_2:"img/background_2.png",
 				bomb:"img/bomb.png",
 				hero1:"img/hero_blowup_1.png",
-				plane:"img/hero_fly_1.png"
+				plane:"img/hero_fly_1.png",
+				bullet:"img/bullet1.png"
 				
 			}
 			//把图片对象传到loadimage方法里进行一些操作
@@ -79,14 +80,34 @@
             var img=objS.background_2;
             var scrollY=0;
             //声明一个飞机对象(objs里存放的所有加载好的图片对象)
-           
             var plane={
-            	  x:myCan.width/2-33,
-            	  y:myCan.height/2-100,
-            	  w:66,
-            	  h:82,
-            	  img:objS.plane
+	            	x:myCan.width/2-33,
+	            y:myCan.height-100,
+	            w:66,
+	         	h:82,
+	            img:objS.plane
             }
+            
+            //声明子弹类
+            function Bullet(){
+            	  this.x=plane.x+plane.w/2-3;
+            	  this.y=plane.y;
+            	  this.w=6;
+            	  this.h=14;
+            	  this.img=objS.bullet;
+            }
+            Bullet.prototype.drawBullet=function(){
+            	 can.beginPath();
+            	 can.drawImage(this.img, this.x, this.y, this.w, this.h);
+            	 can.closePath();
+            }
+            Bullet.prototype.moveBullet=function(){
+            	  this.y-=10;
+            }
+            
+            //用来存放所有子弹的对象
+            var bulletArr=[];
+            
                 //绘制背景滚动
                  function drawBackGround(){
 					can.clearRect(0, 0, myCan.width, myCan.height);
@@ -100,7 +121,27 @@
 					
 					// 注意要放在背景图片后面
 					can.drawImage(plane.img, plane.x, plane.y, plane.w, plane.h);
-					can.closePath();
+					
+					//每隔一段时间创建一个子弹对象
+					if(scrollY%10==0){
+					//每隔一段时间创建一个子弹对象
+					var bulletObj=new Bullet();
+					bulletArr.push(bulletObj);
+					}
+					
+					//for循环拿出每个独立的个体(子弹的对象)，自己调用自己的move和draw方法
+					for (var i=0;i<bulletArr.length;i++) {
+						var bullet=bulletArr[i];
+						bullet.moveBullet();
+					bullet.drawBullet();
+					
+					// 判断 如果子弹超出边界，则把它删除掉
+					if(bullet.y<-bullet.h){
+						bulletArr.splice(i,1)
+					}
+					}
+					
+				    can.closePath();
 					window.requestAnimationFrame(drawBackGround)
 				}
                  
@@ -152,7 +193,7 @@
                 	  myCan.removeEventListener("touchmove",planeMove);
                 })
                  drawBackGround();
-               
+                 
                 
 			}
 			

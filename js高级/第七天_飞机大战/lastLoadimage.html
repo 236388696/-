@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<!--<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 		<title></title>
 		<style type="text/css">
 		</style>
@@ -33,7 +33,7 @@
 	    	    img.onload=function(){
 	    	    	 can.drawImage(img,0,0);
 	    	    }
-	    	    以前我们在加载一张图片的时候，用的上面这个方式，但是当你每秒加载图片的时候，如果把上面代码放到计时器里，那么每秒都会重新创建img对象，并且加载这个图片资源，很浪费内存； 于是：我们要让图片只加载一次，然后把img对象传出去九可以了，因为外面drawimage只需要这个img对象
+	    	    以前我们在加载一张图片的时候，用的上面这个方式，但是当你每秒加载图片的时候，如果把上面代码放到计时器里，那么每秒都会重新创建img对象，并且加载这个图片资源，很浪费内存； 于是：我们要让图片只加载一次，然后把img对象传出去就可以了，因为外面drawimage只需要这个img对象
 	    	    
 	    */
 	    
@@ -41,7 +41,7 @@
 	    /*格式：  imgs={
 	    	            tupian1:img,
 	    	            tupian2:img,
-	    	            background:img,
+	    	            background:img
 	    }
 	        img是对象，以后外面使用的时候：drawImage（imgs.background,0,0）;
 	    */
@@ -61,6 +61,7 @@
 	    	 }
 	    	 
         //1.拿出图片资源总对象里每个图片路径（利用for in）
+        //for in 取得是imgObj里的属性，imgPath是imgObj里的属性对应的值，也就是路径
 	    	  for(var prop in imgObj){//循环一次，拿一个属性
 	    	  	var imgPath=imgObj[prop];
 	    	  	//2.新建图片对象，准备进行加载
