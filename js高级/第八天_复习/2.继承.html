@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//当我有很多类，共有一些属性的时候，我可以考虑都提取出来单独封装一个父类并继承
+			function Person(){
+				this.name=name;
+				this.sex=sex;
+				this.age=age;
+			}
+			Person.prototype.eat=function(){
+				console.log('我会吃');
+			}
+			Person.prototype.say=function(){
+				console.log('我会说');
+			}
+			function student(grade,classRoom){
+				this.grade=0;
+				this.classRoom="";
+			}
+			student.prototype=new Person();
+			
+			function Boy(){
+				
+			}
+			Boy.prototype=new student;
+			Boy.prototype.play=function(){
+				console.log("LOL");
+			}
+			Girl.prototype=new student;
+			Girl.prototype.shopping=function(){
+				console.log("购物");
+			}
+			
+				
+			
+			
+		</script>
+	</body>
+</html>

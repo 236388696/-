@@ -16,6 +16,7 @@
 			can.save();
 			can.fillStyle="yellow";
 			can.fillRect(0,300,200,200);
+			//不论你前面到save之前修改了什么，只要restore全部恢复到save之前的状态
 			can.restore();
 			
 			can.fillRect(0,0,200,200);

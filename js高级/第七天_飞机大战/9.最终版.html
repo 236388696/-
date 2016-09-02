@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<canvas id="myCanVas" width="" height=""></canvas>
+		<script src="js/check碰.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var myCan = document.getElementById("myCanVas");
+			var can = myCan.getContext("2d");
+			var isOver = false; //如果为true代表游戏结束；
+			myCan.width = document.documentElement.clientWidth;
+			myCan.height = document.documentElement.clientHeight;
+
+			function rand(min, max) {
+				return Math.floor(Math.random() * (max - min + 1) + min);
+			}
+
+			function loadImage(imgObj, handle) {
+				//1.定义一个变量(记录加载完成几张进度)
+				var scaleCount = 0;
+				//2.获取一共需要加载的图片数量
+				//获取一个对象里所有属性 用for in
+				var imgCount = 0; //记录图片数量
+
+				//3.声明一个空的对象
+				var imgS = {}; //用于保存加载完成的img对象(类型是Image())
+				for(var pro in imgObj) {
+					imgCount++;
+				}
+				for(var pro in imgObj) {
+					var img = new Image();
+					//根据获取的每个属性，然后在对象里取出value值
+					//设置img的src路径
+					img.src = imgObj[pro];
+					//for循环执行快，而onload需要更长的时间，当onload执行完的时候，for循环早就完事了，所以pro一直是最后一个属性，利用闭包解决这个问题
+					img.onload = (function(thePro) {
+						console.log(thePro);
+						return function() {
+							//代表一张图片加载完成
+							scaleCount++;
+							//计算一下加载的百分比进度
+							var scale = scaleCount / imgCount * 100;
+							//对象[属性]＝加载完的img对象
+							imgS[thePro] = this;
+
+							handle.progress(scale);
+							if(scale == 100) {
+								handle.complete(imgS);
+							}
+						}
+					})(pro);
+				}
+
+			}
+
+			//把本项目用到的图片资源，单独写成一个对象(key:value)格式
+			var myImgObj = {
+					background_2: "img/background_2.png",
+					bomb: "img/bomb.png",
+					hero1: "img/hero_blowup_1.png",
+					plane: "img/hero_fly_1.png",
+					bullet: "img/bullet1.png",
+					enemy1: "img/enemy1_fly_1.png",
+					enemy1_bomb1: "img/enemy1_blowup_1.png",
+					enemy1_bomb2: "img/enemy1_blowup_2.png",
+					enemy1_bomb3: "img/enemy1_blowup_3.png",
+					enemy1_bomb4: "img/enemy1_blowup_4.png",
+					enemy2: "img/enemy3_fly_1.png",
+					enemy2_bomb1: "img/enemy3_blowup_1.png",
+					enemy2_bomb2: "img/enemy3_blowup_2.png",
+					enemy2_bomb3: "img/enemy3_blowup_3.png",
+					enemy2_bomb4: "img/enemy3_blowup_4.png",
+					enemy3: "img/enemy2_fly_1.png",
+					enemy3_bomb1: "img/enemy2_blowup_1.png",
+					enemy3_bomb2: "img/enemy2_blowup_2.png",
+					enemy3_bomb3: "img/enemy2_blowup_3.png",
+					enemy3_bomb4: "img/enemy2_blowup_4.png",
+					enemy3_bomb5: "img/enemy2_blowup_5.png",
+					enemy3_bomb6: "img/enemy2_blowup_6.png",
+					enemy3_bomb7: "img/enemy2_blowup_7.png"
+
+				}
+				//把图片对象传到loadimage方法里进行一些操作
+			loadImage(myImgObj, {
+				progress: function(progressCount) {
+					console.log(progressCount);
+				},
+				complete: main
+			});
+			//图片全部加载完成触发的方法
+			function main(objS) {
+				//				console.log("加载完成");
+				//默认滚动值为0
+				var img = objS.background_2;
+				var scrollY = 0;
+				//声明一个飞机对象(objs里存放的所有加载好的图片对象)
+				var plane = {
+					x: myCan.width / 2 - 33,
+					y: myCan.height - 100,
+					w: 66,
+					h: 82,
+					img: objS.plane
+				}
+
+				//声明子弹类
+				function Bullet() {
+					this.x = plane.x + plane.w / 2 - 3;
+					this.y = plane.y;
+					this.w = 6;
+					this.h = 14;
+					this.img = objS.bullet;
+				}
+				Bullet.prototype.drawBullet = function() {
+					can.beginPath();
+					can.drawImage(this.img, this.x, this.y, this.w, this.h);
+					can.closePath();
+				}
+				Bullet.prototype.moveBullet = function() {
+					this.y -= 10;
+				}
+
+				//定义敌机类
+				function EnemyPlane() {
+
+					var typeNum = rand(0, 2);
+					switch(typeNum) {
+						case 0:
+							this.x = rand(0, myCan.width - objS.enemy1.width);
+							this.y = -objS.enemy1.height;
+							this.w = objS.enemy1.width;
+							this.h = objS.enemy1.height;
+							this.img = objS.enemy1;
+							this.hp = 3; //代表5滴血
+							this.type = 0; //到表敌人的小型飞机
+							this.playIndex = 0; //记录敌人炸弹播放的图片的序号
+							this.imgageCount = 4; //记录敌人爆炸切换的图片总个数
+							break;
+						case 1:
+							this.x = rand(0, myCan.width - objS.enemy1.width);
+							this.y = -objS.enemy2.height;
+							this.w = objS.enemy2.width;
+							this.h = objS.enemy2.height;
+							this.img = objS.enemy2;
+							this.hp = 6; //代表5滴血
+							this.type = 1; //到表敌人的中型飞机
+							this.playIndex = 0;
+							this.imgageCount = 4;
+							break;
+						case 2:
+							this.x = rand(0, myCan.width - objS.enemy1.width);
+							this.y = -objS.enemy3.height;
+							this.w = objS.enemy3.width;
+							this.h = objS.enemy3.height;
+							this.img = objS.enemy3;
+							this.hp = 10; //代表5滴血
+							this.type = 2; //到表敌人的大型飞机
+							this.playIndex = 0;
+							this.imgageCount = 7;
+							break;
+						default:
+							break;
+					}
+
+				}
+				//当飞机死亡的时候，用于切换图片
+				EnemyPlane.prototype.changeBombImage = function() {
+					//每一个飞机对象都有一个playindex的属性，用于激励当前敌机对象播放到了第几张爆炸的图片
+					//因为我图片资源定义的key值是enemy3_bomb1，enemy3_bomb2，enemy3_bomb3,我在这里想分别拿到这7个爆炸图片的img对象，那么我就需要拼接这个key值
+					var thekey = "enemy" + (this.type + 1) + "_bomb" + this.playIndex;
+					this.img = objS[thekey];
+
+				}
+
+				EnemyPlane.prototype.drawEnemy = function() {
+					can.beginPath();
+					can.drawImage(this.img, this.x, this.y, this.w, this.h);
+					can.closePath();
+				}
+				EnemyPlane.prototype.moveEnemy = function() {
+					this.y += 2;
+				}
+
+				//用来存放所有子弹的对象
+				var bulletArr = [];
+				//用于存放所有的敌人的飞机对象
+				var enemyArr = [];
+				//用于存放已经死亡的飞机对象
+				var overEnemyArr = [];
+				//绘制背景滚动
+				function drawBackGround() {
+					can.clearRect(0, 0, myCan.width, myCan.height);
+					scrollY++;
+					if(scrollY == myCan.height) {
+						scrollY = 0;
+					}
+					can.beginPath();
+					can.drawImage(img, 0, scrollY, myCan.width, myCan.height);
+					can.drawImage(img, 0, scrollY - myCan.height, myCan.width, myCan.height);
+
+					// 注意要放在背景图片后面
+					can.drawImage(plane.img, plane.x, plane.y, plane.w, plane.h);
+
+					//每隔一段时间创建一个子弹对象
+					if(scrollY % 10 == 0) {
+						//每隔一段时间创建一个子弹对象
+						var bulletObj = new Bullet();
+						bulletArr.push(bulletObj);
+					}
+
+					if(scrollY % 50 == 0) {
+						//每隔一段时间创建一个子弹对象
+						var enemyObj = new EnemyPlane();
+						enemyArr.push(enemyObj);
+					}
+
+					//for循环拿出每个独立的个体(子弹的对象)，自己调用自己的move和draw方法
+					for(var i = 0; i < bulletArr.length; i++) {
+						var bullet = bulletArr[i];
+						bullet.moveBullet();
+						bullet.drawBullet();
+
+						// 判断 如果子弹超出边界，则把它删除掉
+						if(bullet.y < -bullet.h) {
+							bulletArr.splice(i, 1)
+						}
+					}
+					for(var i = 0; i < enemyArr.length; i++) {
+						var enemyObj = enemyArr[i];
+						//拿每个敌机和所有的子弹进行检测碰撞
+						for(var j = 0; j < bulletArr.length; j++) {
+							var bulletObj = bulletArr[j];
+							if(checkBoom(enemyObj, bulletObj)) {
+								//如果子弹和敌机发生碰撞，删除掉那个飞机和子弹
+								bulletArr.splice(j, 1);
+								enemyObj.hp--;
+								if(enemyObj.hp <= 0) {
+									//把死亡的飞机扔到死亡的数组里
+									overEnemyArr.push(enemyObj);
+								}
+
+							}
+						}
+						enemyObj.moveEnemy();
+						enemyObj.drawEnemy();
+
+						//检测自己是否和敌机碰撞
+						if(checkBoom(plane, enemyObj)) {
+							console.log("Game over");
+							isOver = true;
+						}
+					}
+
+					//拿出已经死亡的每个飞机，然后让每个飞机切换自己爆炸的图片
+					for(var i = 0; i < overEnemyArr.length; i++) {
+						var overEnemyObj = overEnemyArr[i];
+						//当爆炸图片序号小于爆炸图片总个数时，正常切换；当等于时，就不能
+						if(overEnemyObj.playIndex == overEnemyObj.imgageCount) {
+                        //播放完切换爆炸的图片的敌机，要从数组里删掉
+                        for (var k=0;k<enemyArr.length;k++) {
+                        	    var enemyObj=enemyArr[k];
+                        	    if(enemyObj===overEnemyObj)
+                            enemyArr.splice(k,1);
+                        }
+                        overEnemyArr.splice(i,1);
+						} else {
+							if(scrollY%10==0){
+//							console.log(overEnemyObj.playIndex);
+							overEnemyObj.playIndex++;
+							overEnemyObj.changeBombImage();
+							}
+							
+						}
+
+					}
+					can.closePath();
+					if(!isOver) {
+						window.requestAnimationFrame(drawBackGround);
+					}
+
+				}
+
+				var planeMove;
+				myCan.addEventListener("touchstart", function() {
+					//先判断手指是否点到了飞机身上
+					//获取用户点击位置
+					var touchX = event.touches[0].clientX;
+					var touchY = event.touches[0].clientY;
+
+					//首先获取飞机矩形区域的范围
+					var pLeftX = plane.x;
+					var pRightX = plane.x + plane.w;
+					var pTopY = plane.y;
+					var pBottomY = plane.y + plane.h;
+
+					//判断手指点击的x,y是否在飞机的范围内
+					if(touchX > pLeftX && touchX < pRightX && touchY > pTopY && touchY < pBottomY) {
+						//获取点击飞机上的位置和飞机原点的差
+						var chaX = touchX - plane.x;
+						var chaY = touchY - plane.y;
+
+						//飞机移动的方法
+						planeMove = function() {
+							event.preventDefault();
+							//              			console.log("diandaola");
+							//获取手指移动的点
+							var touchMoveX = event.touches[0].clientX;
+							var touchMoveY = event.touches[0].clientY;
+
+							//根据移动的点，然后减去差的就是飞机x,y应该在的位置
+							var newX = touchMoveX - chaX;
+							var newy = touchMoveY - chaY;
+
+							//赋值回飞机对象
+							plane.x = newX;
+							plane.y = newy;
+
+						}
+						myCan.addEventListener("touchmove", planeMove);
+						//else 如果你没点到飞机，则移除touchmove触发的方法
+					} else {
+						myCan.removeEventListener("touchmove", planeMove);
+					}
+				});
+				//在手指抬起的时候，把touchmove事件移除掉
+				myCan.addEventListener("touchend", function() {
+					myCan.removeEventListener("touchmove", planeMove);
+				})
+				drawBackGround();
+
+			}
+		</script>
+	</body>
+
+</html>

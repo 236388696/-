@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#myCanVas{
+				border-left: 1px solid red;
+				border-bottom: 1px solid red;
+				margin-left: 100px;
+				margin-top: 100px;
+				/*background-color: greenyellow;*/
+				border: 1px solid red;
+			}
+			span{
+				border: 1px solid gray;
+				background-color: white;
+				width: 20px;
+				height: 20px;
+				border-radius: 10px;
+				display: inline-block;
+				position: absolute;
+			}
+			#start{
+				left: 93px;
+				top: 585px;
+			}
+			#end{
+				left: 587px;
+				top: 92px;
+			}
+			div{
+				width: 20px;
+				height: 20px;
+				border-radius: 10px;
+				border: 1px solid gray;
+				position: absolute;
+				cursor: pointer;
+			}
+			#startBtn{
+				background-color: greenyellow;
+				left: 455px;
+				top: 510px;
+			}
+			#endBtn{
+				background-color: cornflowerblue;
+				left: 200px;
+				top: 130px;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="myCanVas" width="500" height="500"></canvas>
+		<span id="start"></span>
+		<span id="end"></span>
+		<div id="startBtn"></div>
+		<div id="endBtn"></div>
+		<script type="text/javascript">
+			var myCanvas=document.getElementById("myCanVas");
+			var can=myCanvas.getContext("2d");
+			var startBtn=document.getElementById("startBtn");
+			var endBtn=document.getElementById("endBtn");
+			
+			function draw(x1,y1,x2,y2){
+				can.beginPath();
+				can.strokeStyle="rgba(0,0,0,0.1)"
+				can.lineWidth="1";
+				can.moveTo(0,500);
+				can.lineTo(500,0);
+				can.stroke();
+				can.closePath();
+				can.beginPath();
+				can.strokeStyle="black";
+				can.moveTo(0,500);
+				can.bezierCurveTo(x1,y1,x2,y2,500,0);
+				can.stroke();
+				can.closePath();
+				
+				can.beginPath();
+				can.lineWidth="1";
+				can.strokeStyle="gold";
+				can.moveTo(0,500);
+				can.lineTo(x1,y1);
+				can.stroke();
+				can.closePath();
+				
+				can.beginPath();
+				can.strokeStyle="cornflowerblue";
+				can.moveTo(500,0);
+				can.lineTo(x2,y2);
+				can.stroke();
+				can.closePath();
+			}
+			var x1=startBtn.offsetLeft;
+			var y1=startBtn.offsetTop;
+			var x2=endBtn.offsetLeft;
+			var y2=endBtn.offsetTop;
+			draw(x1-90,y1-90,x2-90,y2-90);
+			startBtn.onmousedown=function(ev1){
+				var chaX1=ev1.clientX-startBtn.offsetLeft;
+				var chaY1=ev1.clientY-startBtn.offsetTop;
+				document.onmousemove=function(moveEv1){
+					var newX1=moveEv1.clientX-chaX1;
+					var newY1=moveEv1.clientY-chaY1;
+					startBtn.style.left=newX1+"px";
+					startBtn.style.top=newY1+"px";
+					x1=newX1;
+					y1=newY1;
+					can.clearRect(0,0,myCanvas.width,myCanvas.height);
+					draw(x1-90,y1-90,x2-90,y2-90);
+				}
+			}
+			startBtn.onmouseup=function(){
+				document.onmousemove="";
+			}
+			endBtn.onmousedown=function(ev2){
+				var chaX2=ev2.clientX-endBtn.offsetLeft;
+				var chaY2=ev2.clientY-endBtn.offsetTop;
+				document.onmousemove=function(moveEv2){
+					var newX2=moveEv2.clientX-chaX2;
+					var newY2=moveEv2.clientY-chaY2;
+					endBtn.style.left=newX2+"px";
+					endBtn.style.top=newY2+"px";
+					x2=newX2;
+					y2=newY2;
+					can.clearRect(0,0,myCanvas.width,myCanvas.height);
+					draw(x1-90,y1-90,x2-90,y2-90);
+				}
+			}
+			endBtn.onmouseup=function(){
+				document.onmousemove="";
+			}
+		</script>
+	</body>
+</html>

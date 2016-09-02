@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="myCanVas" width="1200" height="1000"></canvas>
+		<script type="text/javascript">
+		var myCan=document.getElementById("myCanVas");
+		var can=myCan.getContext("2d");
+			//1.首先绘制一个红色矩形
+			//2.旋转之后再绘制一个矩形
+			//3.注意：在不设置fillstyle前提下 绘制一个不旋转的红色矩形
+			can.beginPath();
+			can.fillStyle="tomato";
+			can.fillRect(200,200,100,100);
+			can.fill()
+			can.closePath();
+			
+			can.save();
+			can.rotate(Math.PI/6);
+			can.translate(200,200);
+			can.fillStyle="aquamarine";
+			can.fillRect(200,200,100,100);
+			can.fill();
+			//不论你前面到save之前修改了什么，只要restore全部恢复到save之前的状态
+			can.restore();
+			
+			can.beginPath();
+		    can.fillRect(350,300,100,100);
+			can.closePath();
+		</script>
+	</body>
+</html>

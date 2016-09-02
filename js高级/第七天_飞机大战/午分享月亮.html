@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#myCanVas{
+				background-color: #000000;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="myCanVas" width="600" height="600"></canvas>
+		<script type="text/javascript">
+			var myCan=document.getElementById("myCanVas");
+			var can=myCan.getContext("2d");
+			var time=0;
+			function draw(){
+				can.clearRect(0,0,600,600);
+				//sun
+				can.beginPath();
+				can.fillStyle="yellow";
+				can.arc(300,300,20,0,Math.PI*2,true);
+				can.fill();
+				can.closePath();
+				
+				//earth-run
+				can.beginPath();
+				can.strokeStyle="white";
+				can.arc(300,300,200,0,Math.PI*2,true);
+				can.stroke();
+				can.closePath();
+				
+				//earth
+				can.save();
+				can.translate(300,300);
+				can.rotate(time*Math.PI*2/365);
+				
+				
+				can.beginPath();
+				can.fillStyle="blue";
+				can.arc(200,0,15,0,Math.PI*2,true);
+				can.fill();
+				can.closePath();
+				
+				//moon-run
+				can.save();
+				can.translate(200,0);
+				can.beginPath();
+				can.strokeStyle="wheat";
+				can.arc(0,0,80,0,Math.PI*2,true);
+				can.stroke();
+				can.closePath();
+				
+				//moon
+				can.rotate(time*Math.PI*2/27);
+				can.beginPath();
+				can.fillStyle="wheat";
+				can.arc(80,0,10,0,Math.PI*2,true);
+				can.fill();
+				can.closePath();
+				can.restore();
+				can.restore();
+				time++;
+				
+			}
+			draw();
+			setInterval(draw,50);
+			
+		</script>
+	</body>
+</html>

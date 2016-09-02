@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+		
+		//原生方法： 只创建一个对象
+		//1. 原生模板创建小狗对象(属性: name, color, 方法: play, run) 
+		// TODO 注意：值和反斜杠之间有空格
+		  var dog={
+		  	name:"格格",
+		  	color:"黑色",
+		  	run:function(){
+		  		console.log("我会跑");
+		  	},
+		  	play:function(){
+		  		console.log("我会玩");
+		  	}
+		  }
+		  //调用属性
+		  var s=dog.color;
+		  //调用方法
+		  dog.run();
+		  
+		  
+		  
+		  //2.创建类 使用的构造函数：构造函数相当于一个模版
+		  function Dog(col){
+		  	//初始值可以直接给 或者从参数获取
+		  	this.name="小蓝";
+		  	this.color=col;
+		  }
+		  Dog.prototype.play=function(){
+		  	console.log("我是原型方法+“我会玩")
+		  }
+		  //使用
+		  var dog1=new Dog("red");
+		  //调用方法
+		  dog1.play();
+		  
+		</script>
+	</body>
+</html>

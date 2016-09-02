@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#qiu1{
+				width: 20px;
+				height: 20px;
+				border-radius: 10px;
+				border:1px solid aquamarine;
+				background-color: aquamarine;
+				position: absolute;
+				top: 190px;
+				left: 240px;
+			}
+			#qiu2{
+				width: 20px;
+				height: 20px;
+				border-radius: 10px;
+				border:1px solid yellow;
+				background-color: yellow;
+				position: absolute;
+				top: 435px;
+				left: 350px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="qiu1"></div>
+		<div id="qiu2"></div>
+		<canvas id="myCanVas" width="1000" height="1000"></canvas>
+		<script type="text/javascript">
+			var myCan=document.getElementById("myCanVas");
+			var can=myCan.getContext("2d");
+			var qiu1=document.getElementById("qiu1");
+			var qiu2=document.getElementById("qiu2");
+			
+			function draw(x1,y1,x2,y2){
+			//画四个边
+			can.beginPath();
+			can.strokeStyle="orangered";
+			can.lineWidth=5;
+			can.moveTo(100,100);
+			can.lineTo(100,500);
+			can.stroke();
+			can.closePath();
+			
+		
+			
+			
+			can.beginPath();
+			can.strokeStyle="orangered";
+			can.lineWidth=5;
+			can.moveTo(100,500);
+			can.lineTo(500,500);
+			can.stroke();
+			can.closePath();
+			
+			can.beginPath();
+			can.strokeStyle="orangered";
+			can.lineWidth=5;
+			can.moveTo(500,500);
+			can.lineTo(500,100);
+			can.stroke();
+			can.closePath();
+			
+			can.beginPath();
+			can.strokeStyle="orangered";
+			can.lineWidth=5;
+			can.moveTo(500,100);
+			can.lineTo(100,100);
+			can.stroke();
+			can.closePath();
+			
+	    //中间的线
+	        can.beginPath();
+			can.strokeStyle="gray";
+			can.lineWidth=1;
+			can.moveTo(100,500);
+			can.lineTo(500,100);
+			can.stroke();
+			can.closePath();
+	     
+	    //两个球
+	        can.beginPath();
+			can.fillStyle="black";
+			can.arc(100,500,5,0,Math.PI*2,true);
+			can.fill();
+			can.closePath();
+			
+			can.beginPath();
+			can.fillStyle="black";
+			can.arc(500,100,5,0,Math.PI*2,true);
+			can.fill();
+			can.closePath();
+			
+		//bezier
+		can.beginPath();
+		can.strokeStyle="#ADFF2F";
+		can.lineWidth=3;
+		can.moveTo(100,500);
+		can.bezierCurveTo(x1,y1,x2,y2,500,100);
+		can.stroke();
+		can.closePath();
+		
+		//上面的线	
+			can.beginPath();
+			can.strokeStyle="#000000";
+			can.moveTo(x1,y1);
+			can.lineTo(500,100);
+			can.stroke();
+			can.closePath();
+			
+			
+		//下面的线	
+			can.beginPath();
+			can.strokeStyle="#000000";
+			can.moveTo(x2,y2);
+			can.lineTo(100,500);
+			can.stroke();
+			can.closePath();
+			
+		}	
+		var x1=qiu1.offsetLeft;
+		var y1=qiu1.offsetTop;
+		var x2=qiu2.offsetLeft;
+		var y2=qiu2.offsetTop;
+		draw(x1,y1,x2,y2);
+		qiu1.onmousedown=function(ev1){
+			var cha1X=ev1.clientX-qiu1.offsetLeft;
+			var cha1Y=ev1.clientY-qiu1.offsetTop;
+			document.onmousemove=function(moveev1){
+				var new1X=moveev1.clientX-cha1X;
+				var new1Y=moveev1.clientY-cha1Y; 
+				qiu1.style.left=new1X+"px";
+				qiu1.style.top=new1Y+"px";
+				x1=new1X;
+				y1=new1Y;
+				can.clearRect(0,0,myCan.clientWidth,myCan.clientHeight);
+			draw(x1,y1,x2,y2);
+			}
+			
+		}
+		qiu1.onmouseup=function(){
+			document.onmousemove="";
+		}
+		qiu2.onmousedown=function(ev2){
+			var cha2X=ev2.clientX-qiu2.offsetLeft;
+			var cha2Y=ev2.clientY-qiu2.offsetTop;
+			document.onmousemove=function(moveev2){
+				var new2X=moveev2.clientX-cha2X;
+				var new2Y=moveev2.clientY-cha2Y; 
+				qiu2.style.left=new2X+"px";
+				qiu2.style.top=new2Y+"px";
+				x2=new2X;
+				y2=new2Y;
+				can.clearRect(0,0,myCan.clientWidth,myCan.clientHeight);
+			draw(x1,y1,x2,y2);
+			}
+			
+			
+		}
+		qiu2.onmouseup=function(){
+			document.onmousemove="";
+		}
+//		
+//		top: 190px;
+//				left: 240px;
+//			
+//			
+//				top: 435px;
+//				left: 350px;
+	    
+		</script>
+	</body>
+</html>

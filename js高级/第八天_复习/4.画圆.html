@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="myCanVas" width="1000" height="1000"></canvas>
+		<script type="text/javascript">
+			var myCan=document.getElementById("myCanVas");
+			var can=myCan.getContext("2d");
+			
+			//1.扇形
+			can.beginPath();
+			can.lineWidth=3;
+			can.fillStyle="black";
+			can.moveTo(50,50);
+			can.arc(50,50,50,Math.PI*4/3,(Math.PI*5/3),false);
+			can.fill();
+			can.closePath();
+		
+			//2.弧形
+			can.beginPath();
+			can.strokeStyle="tomato";
+			can.arc(100,100,80,Math.PI*2,true);
+			can.stroke();
+			can.closePath();
+			
+			
+			//3.圆形
+			can.beginPath();
+			can.strokeStyle="tomato";
+			can.arc(300,300,80,0,Math.PI*2,true);
+			can.fill();
+			can.closePath();
+			
+			//4.线性渐变的文字
+			can.beginPath();
+			var str="我是渐变文字";
+			var gra=can.createLinearGradient(300,300,20,40,50,50);
+			gra.addColorStop(0,"blue");
+			gra.addColorStop(0.5,"yellow");
+			gra.addColorStop(1,"gray");
+			can.fillStyle=gra;
+			can.fillText(str,100,300);
+			can.fill();
+			can.closePath();
+			
+			
+			
+			//线性渐变的圆形
+			can.beginPath();
+			var gra=can.createRadialGradient(500,500,50,600,600,50);
+			gra.addColorStop(0,"blue");
+			gra.addColorStop(0.5,"yellow");
+			gra.addColorStop(1,"gray");
+			can.fillStyle=gra;
+			can.fillRect(450,450,500,500);
+			can.closePath();
+			
+		</script>
+	</body>
+</html>
