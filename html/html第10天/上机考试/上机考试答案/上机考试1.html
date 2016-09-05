@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			background-color: #f8f8f8;
+		}
+		.all{
+			width:400px;
+			margin: 20px auto;
+			padding: 20px;
+			border: 1px solid #eeeeee;
+			background-color: white;
+		}
+		.h_img{
+			width: 100%;
+			height: 400px;
+			position: relative;
+		}
+		.h_img img{
+			width: 100%;
+			height: 100%;
+		}
+		.h_pos{
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			background-color: black;
+			opacity: 0.8;
+			color: white;
+			padding: 2px;
+			font-size: 14px;
+		}
+		.h_text{
+			margin-top: 30px;
+			padding-bottom: 40px;
+			text-align: center;
+			color: #666687;
+			border-bottom: 1px solid #f0f0f0;
+			position: relative;
+		}
+		.money{
+			width: 160px;
+			position: absolute;
+			bottom: -16px;
+			left: 120px;
+			background-color: white;
+		}
+		.p1{
+			color: red;
+		}
+		.p2{
+			color:#878787;
+			text-decoration: line-through;
+		}
+		/*footer*/
+		.footer{
+			position: relative;
+			text-align: center;
+			line-height: 18px;
+			margin: 30px 0;
+		}
+		.f_img{
+			position: absolute;
+			left:110px;
+			top:-4px;
+		}
+		.f_text{
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<div class="all">
+		<div class="header">
+			<div class="h_img">
+				<img src="img/1.jpg" alt="">
+				<div class="h_pos">
+				11225人已买
+				</div>
+			</div>
+			<div class="h_text">
+				女装春装2016新款条纹连衣裙春秋款...
+				<div class="money">
+					<p class="p1">¥108</p>
+					<p class="p2">¥278</p>
+				</div>
+			</div>
+		</div>
+		<div class="footer">
+			<img class="f_img" src="img/icon.png" alt="">
+			<span class="f_text">优惠商品</span>
+		</div>
+	</div>
+</body>
+</html>

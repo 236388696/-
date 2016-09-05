@@ -1,0 +1,80 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>transform_3D</title>
+	<style>
+	  html,body{
+	  	height:100%;
+	  }
+	  body{
+	  	 /*开3D,需要在3d变幻元素父级进行*/
+	  	 -webkit-transform-style:preserve-3d ;
+	  	 -ms-transform-style:preserve-3d ;
+	  	 -o-transform-style:preserve-3d ;
+	  	 transform-style:preserve-3d ;
+
+	  	 /*透视点（腾地方）：需要加给最上一个3d变幻元素的父级；*/
+	  	 -webkit-perspective: 1000px;
+	  	 -moz-perspective: 1000px;
+	  	 -ms-perspective: 1000px;
+	  	 perspective: 1000px;
+
+
+	  	/* 修改基准点：
+	  	    1.(top、left、right、bottom）
+	  		2.百分比
+	  		3.像素值*/
+	  	  -webkit-perspective-origin: left top;
+	  	  	-moz-perspective-origin: left top;
+	  	  	-ms-perspective-origin: left top;
+	  	  	perspective-origin: left top;	
+	  }
+      div{
+      	width: 100px;
+      	height: 100px;
+      	background-color: red;
+
+      	/*过渡*/
+      	-webkit-transition: all 1s;
+      	-o-transition: all 1s;
+      	transition: all 1s;
+
+        /*居中
+        position: absolute;
+        left: 50%;
+        top:50%;
+        margin-left:-50px;
+        margin-top:-50px; */
+
+      }
+
+      div:hover{
+      	/*rotateY:Y轴正方向，顺时针旋转;*/
+       /*  -webkit-transform: rotateY(60deg);
+         -ms-transform: rotateY(60deg);
+         -o-transform: rotateY(60deg);
+         transform: rotateY(60deg);*/
+
+      /*  rotateX:X轴正方向，逆时针旋转;
+         -webkit-transform: rotateX(60deg);
+         -ms-transform: rotateX(60deg);
+         -o-transform: rotateX(60deg);
+         transform: rotateX(60deg);*/
+
+      /*   
+          translateZ沿着z轴正方向进行移动（往里面是负值，往我们方向跑是正值）*/
+         -webkit-transform: translateZ(1000px);
+         -ms-transform: translateZ(1000px);
+         -o-transform: translateZ(1000px);
+         transform: translateZ(1000px);
+
+
+      }
+	</style>
+</head>
+<body>
+	<div>我是div</div>
+
+</body>
+</html>

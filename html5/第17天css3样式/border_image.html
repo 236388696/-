@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>border-image</title>
+		<style type="text/css">
+			div{
+				width: 200px;
+				height: 200px;
+				background-color: red;
+				margin: 100px;
+				
+	
+				/*border-image边框图片*/
+				 /*-webkit-border-image:url(img/123.jpg)33% 33% round ;
+				-moz-border-image:url(img/123.jpg)33% 33% round ;
+				-o-border-image:url(img/123.jpg)33% 33% round ;
+				border-image:url(img/123.jpg)33% 33% round;*/
+				
+				
+				/*边框图片资源路径*/
+				border-image-source:url(img/123.jpg) ;
+				
+				
+				/* border-image-slice:边框切割
+				 1.百分比
+				 2.像素值（后面不写单位px) */
+				border-image-slice: 54 54;
+				
+				
+				/* border-image-repeat:边框图片呈现方式
+				 1.stretch拉伸（默认）
+				 2.repeat平铺
+				 3.round 铺满*/
+				border-image-repeat: round;
+				
+				
+				/* border-image-width:边框图片宽度：
+				 （默认边框宽度为3px，自带box-sizing:border-box;）
+				 1.倍数
+				 2.px像素值
+				 3.百分比（上下文是自己本身） */
+				border-image-width: 50%;
+			}
+		</style>
+	</head>
+	<body>
+		<div></div>
+	</body>
+</html>

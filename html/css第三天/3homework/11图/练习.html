@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>lianxi</title>
+	<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	.top{
+		border-left:5px solid #3388FF;
+        width: 200px;
+        height: 50px;
+        font-size: 20px;
+	}
+	.top p{
+		padding: 15px 0 0 10px; 
+
+	}
+	.top_bottom{
+		border-top:1px solid #818586; 
+    }
+    .center{
+    	width: 700px;
+    	height: 1000px;
+    	margin-left:50px;
+    }
+    .c_left,.c_right{
+    	display: inline-block;
+    }
+    /*.c_left{
+    	width: 200px;
+    	height: 30px;
+    }*/
+    .center input{
+    	margin-top: 5px;
+    }
+    .c_left input{
+    	width: 200px;
+    	height: 25px;
+    	/*padding-top:10px; */
+    }
+    .c_right p {
+    	font-size: 13px;
+    	color: gray;
+    	padding-top:10px; 
+    }
+    .center a,span{
+    	text-decoration: none;
+    	font-size: 12px;
+    	color: skyblue;
+    }
+    .c_right{
+    	/*padding:10px 0 0 10px; */
+    }
+    .center_2 input,.center_3 input, .center_4 input{
+    	width: 200px;
+    	height: 25px;
+    }
+    .center_5 input{
+    	margin-left:20px; 
+    }
+  
+
+
+	</style>
+</head>
+<body>
+	<div class="top">
+		<div class="top_left">
+			<p>注册邮箱帐号</p>
+		</div>
+	</div>	
+		<div class="top_bottom"></div>
+	
+	<div class="center">
+		<div class="center_1">
+			<div class="c_left">邮箱帐号<input type="text"></div>
+			<div class="c_right"><p>请输入您常用的电子邮箱</p>
+				<a href="" >创建邮箱</a><span>或</span>
+				<a href="" >注册普通qq号</a></div>
+		</div>
+		
+		<div class="center_2">昵称<input type="text"></div>
+		<div class="center_3">密码<input type="password"></div>
+		<div class="center_4">确认密码<input type="password"></div>
+		<div class="center_5">性别<input type="radio" name="sex" id="nan"><label for="nan">男</label> <input type="radio" name="sex" id="na"><label for="na">女</label></div>
+		<div class="center_6">生日<input type="text"></div>
+		<div class="center_7">所在地<input type="text"></div>
+		<div class="center_8">验证码<input type="text"></div>
+		<div class="center_9"><input type="text"></div>
+	</div>
+	<div class="bottom"></div>
+</body>
+</html>

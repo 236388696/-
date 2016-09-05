@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>盒模型</title>
+	<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+     div,.ppp span{
+     	width: 100px;
+     	height: 100px;
+     	background-color: red;
+     	
+    }
+    .top,.middle,.bottom{
+    	margin-top:5px; 
+    	margin-bottom:5px;
+
+    }
+    /*.top{
+      margin-left: 20px;
+      margin-right: 20px;
+      margin-bottom: 30px;
+      margin-top: 40px;
+     */
+
+    /* margin 写法:
+     1.4个值：顺时针的方向：上右下左 
+      margin:top right bottom left；
+      margin:40px 20px 30px 10px; */
+ 
+     
+    /* 2.三个值：上 、 左右、 下
+     margin: top left&right bottom
+     margin: 40px   20px     30px;*/
+
+     /*3.两个值：上下      左右
+     margin:top&botton  left&right*/
+
+     /*4.一个值：上下左右
+     margin:top& bottom& left&r ight
+     margin: 40px;*/
+
+     /*5.auto:一般用来给块标签做居中
+      margin:0 auto;上下为0，左右自动；
+      注意：必须设置固定宽度，width:120px; */
+
+
+      /*margin叠加情况：
+                  设置margin的时候，
+                  横向margin相加，
+                  纵向margin叠加,
+                  当纵向margin为负值时，不适用叠加规则，*/
+    }
+	</style>
+</head>
+<body>
+	<div class="top"></div>
+	<div class="bottom"></div>
+	<p class="ppp">
+		<span></span>
+		<span></span>
+		<span></span>
+	</p>
+</body>
+</html>

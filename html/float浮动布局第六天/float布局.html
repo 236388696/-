@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	div{
+		/*display: inline-block;*/
+
+       /*float: right;*/
+      /* 浮动元素特点：1.会在一行显示 
+                   2.可以清除默认空隙
+                   3.不占文本流*/
+   
+
+     /* 浮动元素对行标签和块标签的影响：
+      （1)行标签：可以设置宽高和纵向的margin、padding.
+      （2）块标签：在没设置宽高的情况下，内容撑开宽高
+       可以让块标签在一行显示*/
+	}
+	.div1{
+		width: 200px;
+		height: 200px;
+		background-color: red;
+	}
+	.div2{
+		width: 300px;
+		height: 300px;
+		background-color: green;
+	}
+	.div3{
+		width: 100px;
+		height: 100px;
+		background-color: blue;
+	}
+	.div1,.div2,.div3{
+		/*display: inline-block;*/
+	}
+	p{
+		height: 10px;
+		background-color: black;
+
+	}
+	span{
+		background-color: orange;
+		/*float: left;*/
+		width: 100px;
+		height: 100px;
+		padding-top:30px; 
+	}
+	.div4{
+		/*浮动元素对块标签的影响*/
+		width: 100px;
+		height: 100px;
+		background-color:yellow;
+		float: left;
+	}
+     
+		</style>
+</head>
+<body>
+	<!-- <div class="div1"></div><div class="div2"></div><div class="div3"></div>
+	<p></p>
+	<span>我是span</span> -->
+	<div class="div4">div4</div>	
+
+</body>
+</html>

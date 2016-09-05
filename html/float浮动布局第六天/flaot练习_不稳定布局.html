@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>不稳定布局</title>
+	<style>
+	p{
+		background-color: red;
+	}
+	.all{
+      width: 500px;
+      height: 600px;
+      border: 1px solid black;
+    }
+    .div1,.div2,.div3,.div4,.div5{
+    	width: 100px;
+    	height: 100px;
+    	background-color: green;
+    	float: left;
+    }
+    .div6{
+    	width: 350px;
+    	height: 150px;
+    	background-color: red;
+    	float: left;
+
+    }
+    .div7{
+    	width: 150px;
+    	height: 200px;
+    	background-color: blue;
+    	float: right;
+    }
+    .div8{
+    	width: 100px;
+    	height: 150px;
+    	background-color: pink;
+    	float: left;
+    }
+    .div9{
+    	width: 250px;
+    	height: 150px;
+    	background-color: skyblue;
+    	float: left;
+    }
+    .div10{
+    	width: 150px;
+    	height: 200px;
+    	background-color: orange;
+    	float: right;
+    }
+    .div11{
+    	width: 350px;
+    	height: 100px;
+    	background-color: yellow;
+    	float: left;
+
+    }
+    .c{
+    	overflow: hidden;
+    }
+    .div12{
+    	width: 500px;
+    	height: 100px;
+    	background-color: gray;
+    	/*float: left;*/
+
+    }
+	</style>
+</head>
+<body>
+	<div class="all">
+		<div class="c">
+			<div class="div1">div1</div>
+			<div class="div2">div2</div>
+			<div class="div3">div3</div>
+			<div class="div4">div4</div>
+			<div class="div5">div5</div>
+			<div class="div6">div6</div>
+			<div class="div7">div7</div>
+			<div class="div8">div8</div>
+			<div class="div9">div9</div>
+			<div class="div10">div10</div>
+			<div class="div11">div11</div>
+		</div>
+		<div class="div12">div12</div>
+	</div>
+	<p>你是p</p>
+</body>
+</html>

@@ -1,0 +1,70 @@
+.bg,.content{
+	min-width: 320px;
+}
+.top{
+	width: 65.5%;
+	/*height: 50px;*/
+	height: 5.8343%;
+	padding-top:11.66861% ;
+}
+.top img:nth-child(1){
+	width: 17.75%;
+	display: block;
+	height: 50%;
+    -webkit-animation: bounceIn 1s;
+    -o-animation: bounceIn 1s;
+    animation: bounceIn 1s;
+}
+.top img:nth-child(2){
+	width: 35.25%;
+	display: block;
+	height: 50%;
+}
+.middle{
+	width: 65.5%;
+	height: 71.5%;
+	/*background-color: red;*/
+}
+.left{
+	width: 100%;
+	height: 50%;
+	
+}
+.left .col1{
+	width: 61.51%;
+	height: 100%;
+}
+.left .col2{
+	width: 36.5999%;
+	height: 100%;
+	margin-left: 0.251%;
+	
+}
+.middle a{
+	width: 100%;
+	height: 32.5%;
+	margin:2px 1px ;
+}
+.right{
+  width: 100%;
+  height: 50%;	
+	
+}
+.right .col1{
+	width: 36.599%;
+	height: 100%;
+}
+.right .col2{
+	width: 61.51%;
+	height: 100%;
+	margin-left: 0.251%;
+}
+.bottom  {
+	padding-top: 50px;
+	height: 1.05%;
+	
+}
+.bottom img{
+	width: 65.39%;
+	height: 100%;
+}

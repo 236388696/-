@@ -1,0 +1,50 @@
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>font</title>
+	<style>
+	.div1{
+		font-size: 32px;
+	}
+	.span1{
+		/*字体设置，先来后到的顺序选取字体*/
+		font-family: /*"Times New Roman",*/
+		             /*Georgia,*/
+		             Serif;
+
+		 /*字体大小， 网页默认字体大小16px， 网页最小字体12px, 单位：px像素和em字符的字体大小默认会根据父级字体大小的变化而变化 */
+		 font-size: 16px;
+		 font-size: 2em;
+		 
+		 
+          /*字体风格：normal正常；italic斜体；oblique倾斜；*/
+		 font-style: /*normal;*/
+		             /*italic;*/
+		             /*oblique；*/
+         
+         /* 字体加粗，font-weight:100-900的范围；
+          normal正常
+          bold加粗相当于700 
+          bolder更粗
+          lighter变细 */
+		 font-weight: 800;  
+         
+         /*字体颜色：1.英文单词red、green、yellow..
+                    2.16进制,用＃来使用
+                    3.三原色rgb(255,255,255),取值范围0－255
+                    4. rgba字体透明 (212,0,0,0.6) 最后一位取值范围0～1之间*/
+		 color: rgba(212,0,0,0.6);   
+		     
+		 
+
+		               
+	}
+	</style>
+</head>
+<body>
+	<div class="div1">
+		<span class="span1">hello world</span>
+    </div>	
+</body>
+</html>

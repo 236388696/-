@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>同级元素选择器</title>
+	<style>
+      .div1~.div2{
+      	color: red;
+      }
+	</style>
+</head>
+<body>
+	同级元素选择器：
+	写法：1～2
+	选择1后面的所有同级的2
+	（有相同父级）
+	2不需要紧挨着1
+	 <div class="all">
+	 	<div class="div1">div1</div>
+	 	<div class="div3">div3</div>
+	    <div class="div2">div2</div>
+	 </div>
+	 <div class="div2">div2</div>
+</body>
+</html>

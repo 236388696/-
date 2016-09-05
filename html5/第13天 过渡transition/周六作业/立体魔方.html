@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>立体魔方</title>
+	<style>
+     html,body{
+     	height: 100%;
+     }
+     .all img{
+     	width: 400px;
+     	height: 400px;
+     }
+     body{
+	 	-webkit-transform-style: preserve-3d;
+          -moz-transform-style: perserve-3d;
+          -ms-transform-style: perserve-3d;
+          transform-style: perserve-3d;
+
+           -webkit-perspective: 10000px;
+	  	 -moz-perspective: 10000px;
+	  	 -ms-perspective: 10000px;
+	  	 perspective: 10000px;
+
+	 }
+	 .all {
+	 	
+	 	-webkit-transform-style: preserve-3d;
+		-moz-transform-style: preserve-3d;
+		-ms-transform-style: preserve-3d;
+		transform-style: preserve-3d;
+         -webkit-transition: all 10s;
+         -o-transition: all 10s;
+         transition: all 10s;
+         height: 400px;
+         width: 400px;
+         position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-left:-200px;
+        margin-top: -200px;
+
+        
+
+         -webkit-transform: rotateY(0deg) rotateZ(45deg) rotateX(45deg);
+         -ms-transform: rotateY(0deg) rotateZ(45deg) rotateX(45deg);
+         -o-transform: rotateY(0deg) rotateZ(45deg) rotateX(45deg);
+         transform: rotateY(0deg) rotateZ(45deg) rotateX(45deg);
+
+         -webkit-transition: all 10s linear 0s;
+        -o-transition: all 10s linear 0s;
+        transition: all 10s linear 0s;
+
+       
+    }
+    .all div{
+	 	width: 400px;
+       	height: 400px;
+       	position: absolute;
+       	left: 0;
+       	top: 0;
+	 }
+	 .all img{
+	 	width: 400px;
+	 	height: 400px;
+	 }
+	 .all:hover{
+	 	-webkit-transform: rotateY(3000deg) rotateZ(45deg) rotateX(45deg); 
+         -ms-transform: rotateY(3000deg) rotateZ(45deg) rotateX(45deg);
+         -o-transform: rotateY(3000deg) rotateZ(45deg) rotateX(45deg);
+         transform: rotateY(3000deg) rotateZ(45deg) rotateX(45deg);
+
+
+	 }
+    
+     .all div:nth-child(1){
+	 -webkit-transform: translateZ(200px) ;
+         -ms-transform: translateZ(200px);
+         -o-transform: translateZ(200px);
+         transform: translateZ(200px));
+         }
+     .all div:nth-child(2){
+	 -webkit-transform: rotateX(90deg)translateZ(200px);
+         -ms-transform:rotateX(90deg)translateZ(200px);
+         -o-transform: rotateX(90deg)translateZ(200px);
+         transform: rotateX(90deg)translateZ(200px);
+         }
+      .all div:nth-child(3){
+	 -webkit-transform: rotateX(180deg)translateZ(200px);
+         -ms-transform: rotateX(180deg)translateZ(200px);
+         -o-transform: rotateX(180deg)translateZ(200px);
+         transform: rotateX(180deg)translateZ(200px);
+         }
+         
+      .all div:nth-child(4){
+	 -webkit-transform: rotateX(270deg)translateZ(200px);
+         -ms-transform: rotateX(270deg)translateZ(200px);
+         -o-transform: rotateX(270deg)translateZ(200px);
+         transform: rotateX(270deg)translateZ(200px);
+         }
+         
+         .all div:nth-child(5){
+	 -webkit-transform: rotateY(90deg)translateZ(200px);
+         -ms-transform: rotateY(90deg)translateZ(200px);
+         -o-transform: rotateY(90deg)translateZ(200px);
+         transform: rotateY(90deg)translateZ(200px);
+         }
+         
+         .all div:nth-child(6){
+	 -webkit-transform: rotateY(270deg)translateZ(200px);
+         -ms-transform: rotateY(270deg)translateZ(200px);
+         -o-transform: rotateY(270deg)translateZ(200px);
+         transform: rotateY(270deg)translateZ(200px)
+         }
+         
+
+
+	</style>
+</head>
+<body>
+	<div class="all">
+		<div><img src="sj1.jpg" alt=""></div>
+		<div><img src="sj2.jpg" alt=""></div>
+		<div><img src="sj3.jpg" alt=""></div>
+		<div><img src="sj4.jpg" alt=""></div>
+		<div><img src="sj5.jpg" alt=""></div>
+		<div><img src="sj6.jpg" alt=""></div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>注册邮箱</title>
+	<style>
+         *{
+         	margin: 0;
+         	padding: 0;
+         }
+         .top_img{
+         	line-height: 35px;
+         	vertical-align: middle;
+         }
+         .top_text{
+         	font-size: 18px;
+         	vertical-align: middle;
+         	margin-left: 10px;
+         }
+         .b_left,.b_center,.b_right{
+         	display: inline-block;
+         	vertical-align: top;
+            
+         }
+         .b_left{
+         	width: 100px;
+         	text-align: right;
+         	font-size: 14px;
+         }
+         .b_center{
+         	width: 300px;
+
+         }
+         .b_right{
+         	width: 230px;
+         }
+         .input1 input{
+            width: 280px;
+            height: 18px;
+         }
+         .prove{
+          width: 285px;
+
+         }
+         .labell{
+         	font-size: 13px;
+         }
+         .submit1{
+         	background-color: green;
+         	width: 285px;
+         	height: 47px;
+         	border: none;
+         	color: white;
+         	font-size: 20px;
+         	border-radius: 5px;
+         }
+         .b_right{
+         	font-size: 13px;
+         }
+         .p1{
+         	
+         	color: #999;
+         }
+         .p2 a {
+         	text-decoration: none;
+         	color: skyblue;
+
+         }
+         .huo{
+         	margin: 5px;
+         }
+         .b_center div{
+         	 margin: 15px 0;
+         }
+         .b_left p{
+         	margin: 22px 0;
+         }
+         .b_left .overp1{
+         	margin-top: -8px;
+         }
+         .b_center .overp3{
+            margin-top:32px; 
+
+         }
+         .br_top{
+         	margin-top: 15px;
+         }
+         .br_bottom{
+         	margin-top:235px; 
+         }
+	</style>
+</head>
+<body>
+	<div class="all">
+		<div class"top">
+			<img class="top_img"src="email-bg.jpg" alt="">
+			<span class="top_text">注册邮箱帐号</span>
+		</div>
+		<hr>
+		<div class="bottom">
+			<div class="b_left">
+				<p>邮箱账号</p>
+				<p>昵称</p>
+				<p>密码</p>
+				<p>确认密码</p>
+				<p>性别</p>
+				<p class="overp1">生日</p>
+				<p class="overp2">所在地</p>
+				<p class="overp3">验证码</p>
+			</div>
+			<form class="b_center">
+				<div class="input1"><input type="text"></div>
+				<div class="input1"><input type="text"></div>
+				<div><input type="password"></div>
+				<div><input type="password"></div>
+				<div> 
+					<!-- label：给input标签定义标注点击label文字也会选中所代表的input标签
+					注意：label的for属性一定要和input的id属性相同 -->
+                    <input type="radio" name="sex" id="radio1"><label for="radio1">男</label>
+					<input type="radio" name="sex" id="radio2"><label for="radio2">女</label>
+				</div>
+				<div>
+					<!-- select下拉列表
+					option下来列表相 -->
+					<select name="" id="">
+						<option value="">公历</option>
+						<option value="">农历</option>
+						<option value=""></option>
+						<option value=""></option>
+					</select>
+				</div>
+				<div>
+					<select name="contr" id="">
+						<option value="china">中国</option>
+					</select>
+				</div>
+				<div >
+					<a href="##">
+					<img class="prove" src="../yz.png" alt="" title=""></a>
+				</div>
+				<div>
+					<input type="checkbox" id="agree"><label class="labell"for="agree">我已经阅读条款并同意相关服务条款和隐私条款</label>
+				</div>
+				<div>
+					<input class="submit1"type="submit" value="提交注册">
+				</div>
+			</form>
+			<div class="b_right">
+				<div class="br_top">
+					<p class="p1">请输入您常用的电子邮箱</p>
+					<p class="p2"><a href=""> 创建邮箱</a>
+						<span class="p1 huo">或</span>
+						<a href="">注册普通qq号</a>
+					</p>
+				</div>
+				<div class="br_bottom">
+					<a class="p1"href="">请先进行安全认证</a>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</body>
+</html>

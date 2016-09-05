@@ -130,7 +130,7 @@
 		var y1=qiu1.offsetTop;
 		var x2=qiu2.offsetLeft;
 		var y2=qiu2.offsetTop;
-		draw(x1,y1,x2,y2);
+		draw(x1+10,y1+10,x2+10,y2+10);
 		qiu1.onmousedown=function(ev1){
 			var cha1X=ev1.clientX-qiu1.offsetLeft;
 			var cha1Y=ev1.clientY-qiu1.offsetTop;
@@ -142,7 +142,7 @@
 				x1=new1X;
 				y1=new1Y;
 				can.clearRect(0,0,myCan.clientWidth,myCan.clientHeight);
-			draw(x1,y1,x2,y2);
+			draw(x1+10,y1+10,x2+10,y2+10);
 			}
 			
 		}
@@ -160,7 +160,7 @@
 				x2=new2X;
 				y2=new2Y;
 				can.clearRect(0,0,myCan.clientWidth,myCan.clientHeight);
-			draw(x1,y1,x2,y2);
+			draw(x1+10,y1+10,x2+10,y2+10);
 			}
 			
 			
@@ -168,13 +168,7 @@
 		qiu2.onmouseup=function(){
 			document.onmousemove="";
 		}
-//		
-//		top: 190px;
-//				left: 240px;
-//			
-//			
-//				top: 435px;
-//				left: 350px;
+
 	    
 		</script>
 	</body>

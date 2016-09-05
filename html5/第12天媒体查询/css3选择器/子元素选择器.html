@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>子元素选择器</title>
+	<style>
+
+	/*子元素选择器1:
+	匹配属于其父级第n个该子元素，如果匹配到的不是该类型元素，则不发生改变;*/
+      div:nth-child(2n+1){
+      	/*color: red;*/
+      }
+
+
+    /*子元素选择器2:
+	匹配属于其父级第n个该子元素，如果匹配到的不是该类型元素，则不发生改变;*/
+      .all div:nth-last-child(2){
+      	 /*color: blue;*/
+      }
+    
+
+    /*子元素选择器3：匹配属于其父元素的第1个子元素，如果匹配到的不是该类型元素，则不发生改变；*/
+      .all div:first-child{
+      	/*color: yellow;*/
+      }
+
+    /*子元素选择器4：匹配属于其父元素的最后1个子元素，如果匹配到的不是该类型元素，则不发生改变；*/
+      .all div:last-child{
+      	/*color: green;*/
+      }
+
+    /*子元素选择器5:匹配属于其父元素的第一个该类型元素;  */
+      .all div:first-of-type{
+          /*color: orange;*/
+      }
+
+      /*子元素选择器6:匹配属于其父元素的最后一个该类型元素;  */
+      .all div:last-of-type{
+      	   /*color: yellow;*/
+      }
+
+
+     /*子元素选择器7:匹配属于其父元素的第n个该类型的元素（n是从0递增的变量，可以为表达式。如：2n＋1）*/
+      .all div:nth-of-type(n){
+      	   /*color: red;*/
+      }
+
+      /*子元素选择器8:匹配属于其父元素的倒数该类型的元素（n是从0递增的变量，可以为表达式。如：2n＋1）*/
+      .all div:nth-last-of-type(4){
+      	/*color: skyblue;*/
+      }
+
+     /* 子元素选择器9:匹配属于其父元素唯一的子元素;*/
+      .all div:only-child{
+      	/*color: #ccc;*/
+      }
+    
+      /*子元素选择器10:匹配属于其父元素唯一该类型的子元素;*/
+      .all div:only-of-type{
+      	 /*color: brown;*/
+      }
+	</style>
+</head>
+<body>
+	<div class="all">
+		<p>p1</p>
+		<div>div1</div>
+		<div>div2</div>
+		<div>div3</div>
+		<p>p2</p>
+		<div>div4</div>
+		<div>div5</div>
+	</div>
+	<div class="all">
+		<div>divaaa</div>
+	</div>
+	<div class="all">
+		<div>divbbb</div>
+		<p>ppppp</p>
+	</div>
+</body>
+</html>

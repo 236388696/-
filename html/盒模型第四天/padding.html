@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>内边距</title>
+	<style>
+    *{
+    	margin: 0;
+    	padding: 0
+    }
+    .all{
+    	width: 500px;
+    	height: 500px;
+    	border: 1px solid red;
+    	padding: 10px;
+
+    	/*padding: 内边距；
+    	写法四种，与margin前四种相同*/
+    	/*父子关系用padding内边距，兄弟关系用margin外边距；*/
+
+
+    	/*盒模型的计算方式：(margin+padding+border)*2+content;
+    	怪异盒模型计算方式：margin+content ;*/
+    }
+    .div1{
+    	width: 100px;
+    	height: 100px;
+    	background-color: blue;
+    }
+	</style>
+</head>
+<body>
+	<div class="all">
+		<div class="div1"></div>
+	</div>
+</body>
+</html>

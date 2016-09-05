@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>animation</title>
+	<style>
+       div{
+       	width: 100px;
+       	height: 100px;
+       	background-color: red;
+
+      /* 	-webkit-animation: move 1s;
+      	-o-animation: move 1s;
+      	animation: move 1s;*/
+
+
+       /*animation-name:引用动画的名称;*/
+      	-webkit-animation-name: move;
+      	-o-animation-name: move;
+      	animation-name: move;
+
+      	/*animation-duration:动画运行一次，需要的时间*/
+      	-webkit-animation-duration: 2s;
+      	-o-animation-duration: 2s;
+      	animation-duration: 2s;
+
+
+        /*animation-timing-function:动画运行时间曲线（默认ease）;*/
+      	-webkit-animation-timing-function: ease;
+      	-o-animation-timing-function: ease;
+      	animation-timing-function: ease;
+
+   
+        /*animation-delay:动画播放延迟时间*/
+      	-webkit-animation-delay: 1s;
+      	-o-animation-delay: 1s;
+      	animation-delay: 1s;
+
+    
+        /*animation-interation-count:动画运行次数
+        infinite为无限次运行*/
+        /*-webkit-animation-iteration-count: 4;
+      	-o-animation-iteration-count: 4;
+      	animation-iteration-count: 4;*/
+
+       
+       /*animation-direction动画反复播放
+       animation-direction:样式之后，来回各算一次;*/
+      	-webkit-animation-direction: alternate;
+      	-o-animation-direction: alternate;
+      	animation-direction: alternate;
+       
+
+       /*animation-play-state:动画播放状态
+       （1）paused：暂停
+       （2）running：播放
+       配合js来使用，用于控制动画的暂停和播放*/
+      /*	-webkit-animation-play-state: paused;
+      	  -o-animation-play-state: paused;
+      	  animation-play-state: paused;*/
+
+
+    /*animation-fill-mode:forwards;保持最后一帧的状态
+    ps:在设置了animation-iteration-count:infinite;样式之后，forwards样式失效*/
+      	-webkit-animation-fill-mode: forwards;
+      	-o-animation-fill-mode: forwards;
+      	animation-fill-mode: forwards;
+
+
+      	-webkit-animation: none 0s ease 0s 0 normal forwards;
+      	-o-animation: none 0s ease 0s 0 normal forwards;
+      	animation: none 0s ease 0s 0 normal forwards;
+      	
+      }
+     /*  
+       div:hover{
+       	-webkit-animation-play-state: running;
+       	-o-animation-play-state: running;
+       	animation-play-state: running;
+       }*/
+       @-webkit-keyframes move{
+       	from{
+       	-webkit-transform: translate(0,0);
+       	 -ms-transform: translate(0,0);
+       	 -o-transform: translate(0,0);
+       	 transform: translate(0,0); 
+       	 }
+       	 to{
+       	 	-webkit-transform: translate(300px,400px);
+       	 	-ms-transform: translate(300px,400px);
+       	 	-o-transform: translate(300px,400px);
+       	 	transform: translate(300px,400px);
+       	 }
+       }
+	</style>
+</head>
+<body>
+	<div></div>
+</body>
+</html>

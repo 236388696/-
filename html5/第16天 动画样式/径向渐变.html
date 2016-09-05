@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>径向渐变</title>
+	<style>
+		div{
+			width: 300px;
+			height: 300px;
+			border-radius: 150px;
+			
+		    /*radial-gradient径向渐变
+		    加webkit,第一个值是中心点位置、第二个值是直径;
+		    不加webkit,第一个值是直径.*/
+			/*background: -webkit-radial-gradient(red,yellow,blue);*/
+			
+			background:-webkit-radial-gradient(33% 33%,#fff 10%,#9f9f9f 55%,#fff) ;
+		}
+	</style>
+</head>
+<body>
+  <div></div>
+</body>
+</html>

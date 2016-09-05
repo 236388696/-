@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>渐变</title>
+		<style>
+			div{
+				width: 100px;
+				height: 100px;
+				
+				/*linear-gradient线性渐变
+				括号里的值为颜色,颜色数量必需大于等于2;
+				to＋方向来控制渐变方向（left、right、top、bottom）;
+				加了-webkit-就不加to,方向相反*/
+				
+				/*background: linear-gradient(to right,red 33%,yellow 33%,yellow 66% ,blue 66%);*/
+				background: -webkit-linear-gradient(right,red 50%,yellow 50%);
+			}
+		</style>
+	</head>
+	<body>
+		<div></div>
+	</body>
+</html>

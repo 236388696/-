@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>方法2</title>
+	<style>
+	.all{
+		border: 1px solid black;
+		/*overflow: hidden;*/
+
+	}
+    .all .div1{
+      	width: 100px;
+      	height: 100px;
+      	background-color: red;
+      	float: left;
+     }
+     .all .div2{
+     	width: 100px;
+     	height: 100px;
+     	background-color: yellow;
+     }
+     p{
+     	width:200px;
+     	height: 200px;
+     	background-color: green;
+
+     }
+     .all .clear{
+     	/*清除浮动
+     	在浮动元素后一个兄弟元素身上加clear:both,如果后面没有兄弟元素，则加一个空的div作为兄弟元素
+     	注意：清除之前的浮动元素，浮动元素必须是连续的*/
+     	clear: both;
+     }
+	</style>
+</head>
+<body>
+	<div class="all">
+		<div class="div1"></div>
+		<div class="div2"></div>
+		<div class="div1"></div>
+		<div class="clear"></div>
+	    <p></p>
+	</div>
+</body>
+</html>

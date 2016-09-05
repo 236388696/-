@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	.all{
+       border: 1px solid black;
+       overflow: hidden;
+	}
+	.all div{
+		width: 100px;
+		height: 100px;
+		background-color: red;
+		float: left;
+		}
+	p{
+		width: 100px;
+		height: 100px;
+		background-color: green;
+		float: left;
+		margin: 0;
+	}
+		/*清除浮动的方法：（一）*/
+		/*bfc:把页面进行单个封装处理，让元素回归文本流. 
+		 让浮动元素父级称为bfc的方法：
+		 （1）让父级也成为浮动元素，父级也需要清楚浮动。
+		 （2）overflow不为visible默认值
+		  (3) display的值为table-cell单元格、table-caption标题、inline-block行块
+		  (4) position不为static、relative
+		  这些加给父级，都可以成为bfc */
+
+		
+	</style>
+</head>
+<body>
+	<div class="all">
+		<div>1</div>
+		<div>2</div>
+		<div>3</div>
+    </div>
+	<p>123</p>
+</body>
+</html>

@@ -1,0 +1,178 @@
+*{
+   margin:0;
+   padding: 0;
+}
+.all{
+  	width: 1000px;
+  	height: 900px;
+  	border: 1px solid pink;
+  	margin: 0 auto;
+}
+.top{
+  	width: 1000px;
+  	height: 30px;
+  	background-color: #F9F9F9;
+}
+.top .t_left {
+     font-size: 12px;
+     padding-left: 15px;
+     padding-top: 10px;
+     float: left;
+}
+  
+.top .t_left a{
+     border: 1px solid #6F7277;
+     padding: 3px;
+     text-decoration: none;
+     border-radius: 5px;
+}
+.t_left a:hover{
+     color: red;
+}
+.t_right {
+	float: right;
+	font-size: 13px;
+	padding-top: 10px;
+	padding-right: 30px;
+}
+
+.t_right .a1{
+	border-right:1px solid gray; 
+	padding-right: 10px;
+}
+.top2{
+  width: 1000px;
+  height: 60px;
+  text-align: center;
+}
+
+.top2 a{
+  display: inline-block;
+  text-decoration: none;
+  font-size: 13px;
+}
+.tu1,.tu2,.tu3,.tu4,.tu5,.tu6,.tu7,.tu8,.tu9,.tu10{
+  width: 47px;
+  height: 47px;
+  
+}
+.tu1{
+  background-image: url("zhu1.png");
+}
+
+.tu1:hover{
+   background-image: url("zhu2.png");
+}
+.tu2 {
+ 
+  background-image: url("ye1.png");
+}
+.tu2:hover{
+ background-image: url("ye2.png");
+}
+.tu3 {
+ 
+  background-image: url("gou1.png");
+}
+.tu3:hover{
+ background-image: url("gou2.png");
+}
+.tu4 {
+ 
+  background-image: url("wen1.png");
+}
+.tu4:hover{
+ background-image: url("wen2.png");
+}
+.tu5 {
+ 
+  background-image: url("xiu1.png");
+}
+.tu5:hover{
+ background-image: url("xiu2.png");
+}
+.logo{
+  background-image: url("logo.png");
+  width: 230px;
+  height: 56px;
+  margin:0px 5px 0px 5px; 
+  background-repeat:no-repeat;
+}
+.tu6 {
+ 
+  background-image: url("shao1.png");
+}
+.tu6:hover{
+ background-image: url("shao22.png");
+}
+.tu7{
+ 
+  background-image: url("zhi1.png");
+}
+.tu7:hover{
+ background-image: url("zhi2.png");
+}
+.tu8 {
+ 
+  background-image: url("bai1.png");
+}
+.tu8:hover{
+ background-image: url("bai2.png");
+}
+.tu9 {
+ 
+  background-image: url("lun1.png");
+}
+.tu9:hover{
+ background-image: url("lun2.png");
+}
+.tu10 {
+ 
+  background-image: url("qi1.png");
+}
+.tu10:hover{
+ background-image: url("qi2.png");
+}
+.top3{
+	width: 100%;
+	height:120px;
+	border:1px solid grey;
+	margin-top: 10px;
+	background-color: white;
+	border-radius:10px ;
+}
+.top4{
+	width: 100%;
+	height: 70px;
+	background-color: red;
+	margin-top: 20px;
+	border-radius: 5px;
+}
+.top_c1 a{
+	border: 1px solid red;
+	text-decoration: none;
+	font-size: 15px;
+	border-radius: 2px;
+	color:white;
+	padding: 5px;
+	
+}
+.top_c1{
+	position: absolute;
+	top:105px;
+	left:205px;
+	background-color: red;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

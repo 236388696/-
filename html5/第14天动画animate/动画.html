@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>animate</title>
+	<style>
+      div{
+      	width: 100px;
+      	height: 100px;
+      	background-color: red;
+       
+
+       position: absolute;
+       top:0;
+       left: 0;
+
+       /*animation引用动画move,运行时间为1s*/
+      	-webkit-animation: move2 1s;
+      	-o-animation: move2 1s;
+      	animation: move2 1s;
+      }
+
+      /*声明一个动画“move”，起始点为00，	沿x轴移动300像素*/
+      @-webkit-keyframes move{
+      	from{
+             -webkit-transform: translate(0,0);
+             -ms-transform: translate(0,0);
+             -o-transform: translate(0,0);
+             transform: translate(0,0);
+             background-color: red;
+      	}
+      	to{
+        -webkit-transform: translate(300px, 0px);
+        -ms-transform: translate(300px, 0px);
+        -o-transform: translate(300px, 0px);
+        transform: translate(300px, 0px);
+        background-color: green;
+      	}
+      }
+
+      @-webkit-keyframes move2{
+      	form{
+            top:0;
+      	}
+      	to{
+            top:200px;
+      	}
+      }
+	</style>
+</head>
+<body>
+	<div></div>
+</body>
+</html>

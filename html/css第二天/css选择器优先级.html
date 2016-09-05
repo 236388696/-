@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS选择器优先级</title>
+	<style>
+     .a{
+     	width: 100px;
+     	height: 100px;
+     	background-color: red;
+     }
+     #b{
+     	width: 150px;
+     	height: 150px;
+     	background-color: blue;
+     }
+     .div2son{
+     	background-color: red;
+     }
+     .div2 .div2son{
+     	background-color: pink;
+     }
+
+	</style>
+</head>
+<body>
+	<!-- 标签内引入样式>id选择器>类选择器>标签名选择器 -->
+	<!--  id=100    #
+	     class=10  .
+	     标签名＝1  <> 
+	  先计算大小，使用大的选择器（瘦死的骆驼比马大），如果大小相等，则后面覆盖前面的。 -->
+	<div class="a"  id="b"></div>
+	<div class="div2">
+		<div class="div2son">div2son</div>
+	</div>
+	
+</body>
+</html>

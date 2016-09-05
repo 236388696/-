@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>relative</title>
+	<style>
+        .div1{
+        	width: 100px;
+        	height: 100px;
+        	background-color: red;
+
+           /* relative:相对定位（相对自身进行定位）
+            特点：
+            （1）在文本流，但是样式会发生重叠;
+            （2）行标签和块标签特点默认不变
+            （3）在不设置left、top、right、bottom的时候，与没设置定位无区别
+
+            应用场景：
+            （1）用于微调
+            （2）放在定位元素祖辈级，作为absolute的定位基准*/
+         
+            /*relative在设置left、top、right、bottom的时候，基于自身进行偏移。
+            fixed和absolute在设置left、top、right、bottom的时候，基于定位基准进行对齐。*/
+
+            
+        	position: relative;
+        	left:10px;
+        	top:20px;
+        }
+        .div2{
+        	width: 200px;
+        	height: 200px;
+        	background-color: blue;
+
+        }
+        span{
+         	position:relative;
+            top: 30px;
+            margin-top:50px;
+         	border: 1px solid black; 
+         }
+    </style>
+
+
+</head>
+<body>
+	<span>123</span>
+	<div class="div1"></div>
+	<div class="div2"></div>
+    
+</body>
+</html>

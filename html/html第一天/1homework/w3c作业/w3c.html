@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>W3HTML语法</title>
+</head>
+<body>
+	<h2>XHTML语法</h2>
+	<hr>
+	<input type="button" value="上一节">&nbsp; &nbsp;&nbsp;<input type="button" value="下一节">
+	<hr>
+	<h5>编写 XHTML 代码需要纯净的 HTML 语法。</h5>
+	<hr>
+	<h5>更多的 XHTML 语法规则：</h5>
+	<ul>
+		<li>属性名称必须小写</li>
+		<li>属性值必须加引号</li>
+		<li>属性不能简写</li>
+		<li>用 Id 属性代替 name 属性</li>
+		<li>XHTML DTD 定义了强制使用的 HTML 元素</li>
+	</ul>
+	<hr>
+	<h5>属性名称必须小写</h5>
+	<div>
+	  <p>这是错误的：</p>
+	    <div style="width:100%;height:30px;background-color:#EFEFEF;border:1px dotted black;">&lt;table <span style="color:#4127DD";>WIDTH</span>="100%"&gt;</div>
+	  <p>这是正确的：</p>
+	    <div style="width:100%;height:30px;background-color:#EFEFEF;border:1px dotted black;">&lt;table <span style="color:#4127DD";>width</span>="100%"&gt;</div>
+	</div>
+	<hr>
+	<div>
+	 <h5>属性值必须加引号</h5>
+	 <p>这是错误的：</p>
+	  <div style="width:100%;height:170px; background-color: #EFEFEF;border:1px dotted black;">
+	  	<p>&lt;input checked&gt;</p>
+	  	<p>&lt;input readonly&gt;</p>
+	  	<p>&lt;input disabled&gt;</p>
+	  	<p>&lt;option selected&gt;</p>
+	  	<p>&lt;frame noresize&gt;</p>
+      </div>
+      <p>这是正确的：</p>
+      <div style="width:100%;height:170px; background-color: #EFEFEF;border:1px dotted black;">
+    <p>&lt;input checked="checked" /&gt;</p>
+    <p>&lt;input readonly="readonly"/&gt;</p>
+    <p>&lt;input disabled="disabled"/&gt; </p>
+    <p>&lt;option selected="selected" /&gt;</p>
+    <p>&lt;frame noresize="noresize"/ &gt;</p>
+	 
+	 </div>
+	 <p>下面是一个 HTML 的简写属性列表，以及在 XHTML 中的改写：</p>
+	 <table  border="1" width="1000"; hight="1400"; cellspacing="0">
+	 	<tr>
+	 		<th style="background-color:#D6D4D3">THML</th>
+	 		<th style="background-color:#D6D4D3">XTHML</th>
+        </tr>
+	 	<tr>
+	 		<td style="background-color:#EFEFEF">compact</td>
+	 		<td style="background-color:#EFEFEF">compact="compact"</td>
+	 	</tr>
+	 	<tr>
+	 		<td style="background-color:#EFEFEF">checked	</td>
+	 		<td style="background-color:#EFEFEF">checked="checked"</td>
+	 	</tr>
+	 	<tr>
+	 		<td style="background-color:#EFEFEF">declare</td>
+	 		<td style="background-color:#EFEFEF">declare="declare"</td>
+	 	</tr>
+	 	<tr>
+	 		<td style="background-color:#EFEFEF">declare	</td>
+	 		<td style="background-color:#EFEFEF">declare="declare"</td>
+	 	</tr>
+	 	<tr>
+	 		<td style="background-color:#EFEFEF">readonly</td>
+	 		<td style="background-color:#EFEFEF">readonly="readonly"</td>
+	 	</tr>
+	 	<tr>
+	 		<td style="background-color:#EFEFEF">disabled</td>
+	 		<td style="background-color:#EFEFEF">disabled="disabled"</td>
+	 	</tr>
+	 	<tr>
+	 		<td style="background-color:#EFEFEF">selected</td>
+	 		<td style="background-color:#EFEFEF">selected="selected"</td>
+	 	</tr>
+	 	<tr>
+	 		<td style="background-color:#EFEFEF">defer</td>
+	 		<td style="background-color:#EFEFEF">defer="defer"</td>
+	 	</tr>
+	 	<tr>
+	 		<td style="background-color:#EFEFEF">ismap</td>
+	 		<td style="background-color:#EFEFEF">ismap="ismap"</td>
+	 	</tr>
+	 	<tr>
+	 		<td style="background-color:#EFEFEF">nohref</td>
+	 		<td style="background-color:#EFEFEF">nohref="nohref"</td>
+	 	</tr>
+	 	<tr>
+	 		<td style="background-color:#EFEFEF">noshade</td>
+	 		<td style="background-color:#EFEFEF">noshade="noshade"</td>
+	 	</tr>
+	 	<tr>
+	 		<td style="background-color:#EFEFEF">nowrap</td>
+	 		<td style="background-color:#EFEFEF">nowrap="nowrap"</td>
+	 	</tr>
+	 	<tr>
+	 		<td style="background-color:#EFEFEF">multiple</td>
+	 		<td style="background-color:#EFEFEF">multiple="multiple"</td>
+	 	</tr>
+	 	<tr>
+	 		<td style="background-color:#EFEFEF">noresize</td>
+	 		<td style="background-color:#EFEFEF">noresize="noresize"</td>
+	 	</tr>
+	 	
+	 </table>
+	 <br>	
+	 <hr>
+	 <h5>用 id 属性代替 name 属性</h5>
+	 <h6>HTML 4.01 针对下列元素定义 name 属性：a, applet, frame, iframe, img, 和map。</h6>
+	 <h6>在 XHTML 中不鼓励使用 name 属性，应该使用 id 取而代之。</h6>
+	 <p>这是错误的:</p>
+	    <div style="width:100%;height:30px;background-color:#EFEFEF;border:1px dotted black;">
+	  <p>&lt;img src="picture.gif" <span style="color:#4127DD">name</span>="picture1" &gt;</p>
+	    </div>
+	 <p>这是正确的:</p>
+	    <div style="width:100%;height:30px;background-color:#EFEFEF;border:1px dotted black;">
+	  <p>&lt;img src="picture.gif" <span style="color:#4127DD">id</span>="picture1" &gt;</p>
+	    </div>
+	 <h6>重要的兼容性提示：</h6>
+	 <p>你应该在 "/" 符号前添加一个额外的空格，以使你的 XHTML 与当今的浏览器相兼容。</p>
+	 <br>
+	 <hr>
+	 <h5>语言属性（lang）</h5>
+	 <p>lang 属性应用于几乎所有的 XHTML 元素。它定义元素内部的内容的所用语言的类型。</p>
+	 <p>如果在某元素中使用 lang 属性，就必须添加额外的 xml:lang，像这样：</p>
+        <div style="width:100%;height:30px;background-color:#EFEFEF;border:1px dotted black;">
+	  <p>&lt;div <span style="color:#4127DD">lang="no" xml:lang="no"></span>Heia Norge!&lt;div&gt; </p>
+	    </div>
+	 <hr>
+	 <h5>强制使用的 XHTML 元素</h5>
+	 <p>所有 XHTML 文档必须进行文件类型声明（DOCTYPE declaration）。在 XHTML 文档中必须存在html、head、body元素，而 title 元素必须位于在 head 元素中。</p>
+	 <p>下面是一个最小化的 XHTML 文件模板：</p>
+	    <div style="width:100%; height:200px;background-color: #EFEFEF;border:1px dotted black;">
+	  <p><span style="color:#4127DD">&lt;!DOCTYPE Doctype goes here&gt;</span><br>
+      &lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;<br>
+      &lt;head&gt;<br>
+      &lt;title&gt;Title goes here&lt;title&gt;<br>
+      &lt;/head&gt;<br><br>
+
+      &lt;body&gt;<br>
+      &lt;/body&gt;<br><br>
+
+      &lt;/html&gt; </p>   	
+	    	
+	 </div>
+	 <p><span style="color:#FF9955">提示：</span>文件类型声明并非 XHTML 文档自身的组成部分。它并不是 XHTML 元素，也没有关闭标签。</p>
+     <p><span style="color:#FF9955">提示：</span>在 XHTML 中，&lt;html&gt; 标签内的 xmlns 属性是必需的。然而，即使当 XHTML 文档中没有这个属性时，w3.org 的验证工具也不会提示错误。这是因为，"xmlns=http://www.w3.org/1999/xhtml" 是一个固定的值，即使你没有把它包含在代码中，这个值也会被添加到 &lt;html&gt; 标签中。</p>
+     <p>你会在下一章学习更多关于 XHTML 文档类型声明的知识。</p>
+     <br>
+     <hr>
+     <input type="button" value="上一节"></input>
+     <input type="button" value="下一节"></input>
+     <br>
+     <hr>
+     <div style="width=100%;height:40px;background-color: gray;border:1px ">
+     <h5>W3School 提供的内容仅用于培训。我们不保证内容的正确性。通过使用本站内容随之而来的风险与本站无关。W3School 简体中文版的所有内容仅供测试，对任何法律问题及风险不承担任何责任。
+     当使用本站时，代表您已接受了本站的使用条款和隐私条款。版权所有，保留一切权利。 赞助商：上海赢科投资有限公司。 蒙ICP备06004630号</h5></div>	
+</body>
+</html>

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>圆桶</title>
+	<style>
+        html,body{
+        	height: 100%;
+        }
+        body{
+        	-webkit-transform-style:preserve-3d ;
+	  	 -ms-transform-style:preserve-3d ;
+	  	 -o-transform-style:preserve-3d ;
+	  	 transform-style:preserve-3d ;
+
+	     -webkit-perspective: 1000px;
+	  	 -moz-perspective: 1000px;
+	  	 -ms-perspective: 1000px;
+	  	 perspective: 1000px;
+        }
+        .all{
+          -webkit-transform-style:preserve-3d ;
+	  	 -ms-transform-style:preserve-3d ;
+	  	 -o-transform-style:preserve-3d ;
+	  	 transform-style:preserve-3d ;
+         
+       
+	  	 width: 80px;
+	  	 height: 80px;
+	  	 position: absolute;
+	  	 left: 50%;
+	  	 top: 25%;
+	  	 margin-top:-40px;
+	  	 margin-left:-40px;  
+
+        -webkit-transition: all 15s linear 0s;
+        -o-transition: all 15s linear 0s;
+        transition: all 15s linear 0s;
+   
+
+        }
+        .all:hover{
+        -webkit-transform: rotateY(1712deg);
+        -ms-transform: rotateY(1712deg);
+        -o-transform: rotateY(1712deg);
+        transform: rotateY(1712deg);
+        }
+
+        .all div{
+           width: 80px;
+           height: 80px;
+           background-color: #FE007A;
+           position: absolute;
+           top:0;
+           left: 0;
+           opacity: 0.6;
+           
+
+
+        }
+        .all div:nth-child(1){
+          -webkit-transform: rotateY(30deg) translateZ(500px) translateY(30px);
+         -ms-transform:rotateY(30deg) translateZ(500px) translateY(30px);
+         -o-transform: rotateY(30deg) translateZ(500px) translateY(30px);
+         transform: rotateY(30deg) translateZ(500px) translateY(30px);
+         } 
+         .all div:nth-child(2){
+          -webkit-transform: rotateY(60deg) translateZ(500px) translateY(40px);
+         -ms-transform:rotateY(60deg) translateZ(500px) translateY(40px);
+         -o-transform: rotateY(60deg) translateZ(500px) translateY(40px);
+         transform: rotateY(60deg) translateZ(500px) translateY(40px);
+         } 
+         .all div:nth-child(3){
+          -webkit-transform: rotateY(90deg) translateZ(500px) translateY(50px);
+         -ms-transform:rotateY(90deg) translateZ(500px) translateY(50px);
+         -o-transform: rotateY(90deg) translateZ(500px) translateY(50px);
+         transform: rotateY(90deg) translateZ(500px) translateY(50px);
+         } 
+         .all div:nth-child(4){
+          -webkit-transform: rotateY(120deg) translateZ(500px) translateY(60px);
+         -ms-transform:rotateY(120deg) translateZ(500px) translateY(60px);
+         -o-transform: rotateY(120deg) translateZ(500px) translateY(60px);
+         transform: rotateY(120deg) translateZ(500px) translateY(60px);
+         } 
+         .all div:nth-child(5){
+          -webkit-transform: rotateY(150deg) translateZ(500px) translateY(70px);
+         -ms-transform:rotateY(150deg) translateZ(500px) translateY(70px);
+         -o-transform: rotateY(150deg) translateZ(500px) translateY(70px);
+         transform: rotateY(150deg) translateZ(500px) translateY(70px);
+         } 
+         .all div:nth-child(6){
+          -webkit-transform: rotateY(180deg) translateZ(500px) translateY(80px);
+         -ms-transform:rotateY(180deg) translateZ(500px) translateY(80px);
+         -o-transform: rotateY(180deg) translateZ(500px) translateY(80px);
+         transform: rotateY(180deg) translateZ(500px) translateY(80px);
+         } 
+         
+         .all div:nth-child(7){
+          -webkit-transform: rotateY(210deg) translateZ(500px) translateY(90px);
+         -ms-transform:rotateY(210deg) translateZ(500px) translateY(90px);
+         -o-transform: rotateY(210deg) translateZ(500px) translateY(90px);
+         transform: rotateY(210deg) translateZ(500px) translateY(90px);
+         } 
+         .all div:nth-child(8){
+          -webkit-transform: rotateY(240deg) translateZ(500px) translateY(100px);
+         -ms-transform:rotateY(240deg) translateZ(500px) translateY(100px);
+         -o-transform: rotateY(240deg) translateZ(500px) translateY(100px);
+         transform: rotateY(240deg) translateZ(500px) translateY(100px);
+         } 
+         .all div:nth-child(9){
+          -webkit-transform: rotateY(270deg) translateZ(500px) translateY(110px);
+         -ms-transform:rotateY(270deg) translateZ(500px) translateY(110px);
+         -o-transform: rotateY(270deg) translateZ(500px) translateY(110px);
+         transform: rotateY(270deg) translateZ(500px) translateY(110px);
+         } 
+         .all div:nth-child(10){
+          -webkit-transform: rotateY(300deg) translateZ(500px) translateY(120px);
+         -ms-transform:rotateY(300deg) translateZ(500px) translateY(120px);
+         -o-transform: rotateY(300deg) translateZ(500px) translateY(120px);
+         transform: rotateY(300deg) translateZ(500px) translateY(120px);
+         } 
+         .all div:nth-child(11){
+          -webkit-transform: rotateY(330deg) translateZ(500px) translateY(130px);
+         -ms-transform:rotateY(330deg) translateZ(500px) translateY(130px);
+         -o-transform: rotateY(330deg) translateZ(500px) translateY(130px);
+         transform: rotateY(330deg) translateZ(500px) translateY(130px);
+         } 
+         .all div:nth-child(12){
+          -webkit-transform: rotateY(360deg) translateZ(500px) translateY(140px);
+         -ms-transform:rotateY(360deg) translateZ(500px) translateY(140px);
+         -o-transform:rotateY(360deg) translateZ(500px) translateY(140px);
+         transform: rotateY(360deg) translateZ(500px) translateY(140px);
+         } 
+         .all div:nth-child(13){
+          -webkit-transform: rotateY(30deg) translateZ(500px) translateY(150px);
+         -ms-transform:rotateY(30deg) translateZ(500px) translateY(150px);
+         -o-transform: rotateY(30deg) translateZ(500px) translateY(150px);
+         transform: rotateY(30deg) translateZ(500px) translateY(150px);
+         } 
+         .all div:nth-child(14){
+          -webkit-transform: rotateY(60deg) translateZ(500px) translateY(160px);
+         -ms-transform:rotateY(60deg) translateZ(500px) translateY(160px);
+         -o-transform: rotateY(60deg) translateZ(500px) translateY(160px);
+         transform: rotateY(60deg) translateZ(500px) translateY(160px);
+         } 
+         .all div:nth-child(15){
+          -webkit-transform: rotateY(90deg) translateZ(500px) translateY(170px);
+         -ms-transform:rotateY(90deg) translateZ(500px) translateY(170px);
+         -o-transform: rotateY(90deg) translateZ(500px) translateY(170px);
+         transform: rotateY(90deg) translateZ(500px) translateY(170px);
+         } 
+         .all div:nth-child(16){
+          -webkit-transform: rotateY(120deg) translateZ(500px) translateY(180px);
+         -ms-transform:rotateY(120deg) translateZ(500px) translateY(180px);
+         -o-transform:  rotateY(120deg) translateZ(500px) translateY(180px);
+         transform: rotateY(120deg) translateZ(500px) translateY(180px);
+         } 
+         .all div:nth-child(17){
+          -webkit-transform: rotateY(150deg) translateZ(500px) translateY(190px);
+         -ms-transform:rotateY(150deg) translateZ(500px) translateY(190px);
+         -o-transform: rotateY(150deg) translateZ(500px) translateY(190px);
+         transform: rotateY(150deg) translateZ(500px) translateY(190px);
+         } 
+         .all div:nth-child(18){
+          -webkit-transform: rotateY(180deg) translateZ(500px) translateY(200px);
+         -ms-transform:rotateY(180deg) translateZ(500px) translateY(200px);
+         -o-transform: rotateY(180deg) translateZ(500px) translateY(200px);
+         transform: rotateY(180deg) translateZ(500px) translateY(200px);
+         } 
+         .all div:nth-child(19){
+          -webkit-transform: rotateY(210deg) translateZ(500px) translateY(210px);
+         -ms-transform:rotateY(210deg) translateZ(500px) translateY(210px);
+         -o-transform:rotateY(210deg) translateZ(500px) translateY(210px);
+         transform: rotateY(210deg) translateZ(500px) translateY(210px);
+         } 
+         .all div:nth-child(20){
+          -webkit-transform: rotateY(240deg) translateZ(500px) translateY(220px);
+         -ms-transform:rotateY(240deg) translateZ(500px) translateY(220px);
+         -o-transform: rotateY(240deg) translateZ(500px) translateY(220px);
+         transform: rotateY(240deg) translateZ(500px) translateY(220px);
+         } 
+         .all div:nth-child(21){
+          -webkit-transform: rotateY(270deg) translateZ(500px) translateY(230px);
+         -ms-transform: rotateY(270deg) translateZ(500px) translateY(230px);
+         -o-transform:  rotateY(270deg) translateZ(500px) translateY(230px);
+         transform:  rotateY(270deg) translateZ(500px) translateY(230px);
+         } 
+         .all div:nth-child(22){
+          -webkit-transform: rotateY(300deg) translateZ(500px) translateY(240px);
+         -ms-transform:rotateY(300deg) translateZ(500px) translateY(240px);
+         -o-transform: rotateY(300deg) translateZ(500px) translateY(240px);
+         transform: rotateY(300deg) translateZ(500px) translateY(240px);
+         } 
+         .all div:nth-child(23){
+          -webkit-transform: rotateY(330deg) translateZ(500px) translateY(250px);
+         -ms-transform:rotateY(330deg) translateZ(500px) translateY(250px);
+         -o-transform: rotateY(330deg) translateZ(500px) translateY(250px);
+         transform: rotateY(330deg) translateZ(500px) translateY(250px);
+         } 
+         .all div:nth-child(24){
+          -webkit-transform: rotateY(360deg) translateZ(500px) translateY(260px);
+         -ms-transform:rotateY(360deg) translateZ(500px) translateY(260px);
+         -o-transform: rotateY(360deg) translateZ(500px) translateY(260px);
+         transform: rotateY(360deg) translateZ(500px) translateY(260px);
+         } 
+         .all div:nth-child(25){
+          -webkit-transform: rotateY(30deg) translateZ(500px) translateY(270px);
+         -ms-transform:rotateY(30deg) translateZ(500px) translateY(270px);
+         -o-transform: rotateY(30deg) translateZ(500px) translateY(270px);
+         transform: rotateY(30deg) translateZ(500px) translateY(270px);
+         } 
+         .all div:nth-child(26){
+          -webkit-transform: rotateY(60deg) translateZ(500px) translateY(280px);
+         -ms-transform:rotateY(60deg) translateZ(500px) translateY(280px);
+         -o-transform: rotateY(60deg) translateZ(500px) translateY(280px);
+         transform: rotateY(60deg) translateZ(500px) translateY(280px);
+         } 
+         .all div:nth-child(27){
+          -webkit-transform: rotateY(90deg) translateZ(500px) translateY(290px);
+         -ms-transform:rotateY(90deg) translateZ(500px) translateY(290px);
+         -o-transform: rotateY(90deg) translateZ(500px) translateY(290px);
+         transform: rotateY(90deg) translateZ(500px) translateY(290px);
+         } 
+         .all div:nth-child(28){
+          -webkit-transform: rotateY(120deg) translateZ(500px) translateY(300px);
+         -ms-transform:rotateY(120deg) translateZ(500px) translateY(300px);
+         -o-transform: rotateY(120deg) translateZ(500px) translateY(300px);
+         transform: rotateY(120deg) translateZ(500px) translateY(300px);
+         } 
+         .all div:nth-child(29){
+          -webkit-transform: rotateY(150deg) translateZ(500px) translateY(310px);
+         -ms-transform:rotateY(150deg) translateZ(500px) translateY(310px);
+         -o-transform: rotateY(150deg) translateZ(500px) translateY(310px);
+         transform: rotateY(150deg) translateZ(500px) translateY(310px);
+         } 
+         .all div:nth-child(30){
+          -webkit-transform: rotateY(180deg) translateZ(500px) translateY(320px);
+         -ms-transform:rotateY(180deg) translateZ(500px) translateY(320px);
+         -o-transform: rotateY(180deg) translateZ(500px) translateY(320px);
+         transform: rotateY(180deg) translateZ(500px) translateY(320px);
+         } 
+         .all div:nth-child(31){
+          -webkit-transform: rotateY(210deg) translateZ(500px) translateY(330px);
+         -ms-transform:rotateY(210deg) translateZ(500px) translateY(330px);
+         -o-transform: rotateY(210deg) translateZ(500px) translateY(330px);
+         transform: rotateY(210deg) translateZ(500px) translateY(330px);
+         } 
+         .all div:nth-child(32){
+          -webkit-transform: rotateY(240deg) translateZ(500px) translateY(340px);
+         -ms-transform:rotateY(240deg) translateZ(500px) translateY(340px);
+         -o-transform: rotateY(240deg) translateZ(500px) translateY(340px);
+         transform: rotateY(240deg) translateZ(500px) translateY(340px);
+         } 
+         .all div:nth-child(33){
+          -webkit-transform: rotateY(270deg) translateZ(500px) translateY(350px);
+         -ms-transform:rotateY(270deg) translateZ(500px) translateY(350px);
+         -o-transform: rotateY(270deg) translateZ(500px) translateY(350px);
+         transform: rotateY(270deg) translateZ(500px) translateY(350px);
+         } 
+         .all div:nth-child(34){
+          -webkit-transform: rotateY(300deg) translateZ(500px) translateY(360px);
+         -ms-transform:rotateY(300deg) translateZ(500px) translateY(360px);
+         -o-transform: rotateY(300deg) translateZ(500px) translateY(360px);
+         transform: rotateY(300deg) translateZ(500px) translateY(360px);
+         } 
+         .all div:nth-child(35){
+          -webkit-transform: rotateY(330deg) translateZ(500px) translateY(370px);
+         -ms-transform:rotateY(330deg) translateZ(500px) translateY(370px);
+         -o-transform: rotateY(330deg) translateZ(500px) translateY(370px);
+         transform: rotateY(330deg) translateZ(500px) translateY(370px);
+         } 
+         .all div:nth-child(36){
+          -webkit-transform: rotateY(360deg) translateZ(500px) translateY(380px);
+         -ms-transform: rotateY(360deg) translateZ(500px) translateY(380px);
+         -o-transform:  rotateY(360deg) translateZ(500px) translateY(380px);
+         transform:  rotateY(360deg) translateZ(500px) translateY(380px);
+         } 
+    </style>
+</head>
+<body>
+	<div class="all">
+		<div>a</div>
+		<div>b</div>
+		<div>c</div>
+		<div>d</div>
+		<div>e</div>
+		<div>f</div>
+		<div>g</div>
+		<div>h</div>
+		<div>i</div>
+		<div>j</div>
+		<div>k</div>
+		<div>l</div>
+		<div>m</div>
+		<div>n</div>
+		<div>o</div>
+		<div>p</div>
+		<div>q</div>
+		<div>l</div>
+		<div>s</div>
+		<div>t</div>
+		<div>v</div>
+		<div>w</div>
+		<div>x</div>
+		<div>y</div>
+		<div>a1</div>
+		<div>b2</div>
+		<div>c3</div>
+		<div>d4</div>
+		<div>e5</div>
+		<div>f6</div>
+		<div>g7</div>
+		<div>h8</div>
+		<div>i9</div>
+		<div>j10</div>
+		<div>k11</div>
+		<div>l12</div>
+		
+		
+	</div>
+</body>
+</html>

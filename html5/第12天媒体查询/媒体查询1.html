@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" media="screen and (max-width:500px)" href="媒体查询a.css">
+	<title>媒体查询1</title>
+	<style>
+    /*  body{
+      	background-color: #ccc;
+      	color: yellow;
+      }*/
+      /*媒体查询：用来做兼容多个终端的响应式布局。
+      取值范围：max-width:最大不超过（小于等于）
+               min-width：最小不超过（大于等于）
+      多个媒体查询同时满足，样式不同是叠加，相同是替换。
+
+
+      引入方式：1.style引入（写在style里）
+               2.link引入(媒体查询写在Link标签内，用media属性)*/
+      @media screen and (max-width: 1000px) and (min-width: 500px){
+      	body{
+      		background-color: red;
+      		color: black;
+      	}
+      }
+    /*  @media screen and (max-width: 800px){
+      	body{
+      		background-color: pink;
+      	}
+      }*/
+	</style>
+</head>
+<body>
+	123
+</body>
+</html>

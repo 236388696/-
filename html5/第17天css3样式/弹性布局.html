@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>弹性布局</title>
+		<style>
+		body,html,.all,.all div{
+			height: 100%;
+		}
+		
+		.all{
+				/*声明要对其子元素进行弹性布局*/
+				display: -webkit-box;
+		    }
+
+		.div1{
+			width: 150px;
+			background-color: red;
+			}
+			
+			
+		.div2{
+		     background-color: yellow;
+		     
+		     /*分配剩余空间
+		     剩余空间分配比例可以写好几个div来分配比例，4的话，就是4分之1的比例；*/
+		     -webkit-box-flex: 1;
+		     -moz-box-flex: 1;
+		     -ms-box-flex: 1;
+		     box-flex: 1;	
+			}
+			
+		.div3{
+			width: 200px;
+			background-color: green;
+		}	
+		</style>
+	</head>
+	<body>
+		<div class="all">
+			<div class="div1"></div>
+			<div class="div2"></div>
+			<div class="div3"></div>
+
+		</div>
+	</body>
+</html>

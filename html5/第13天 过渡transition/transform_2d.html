@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>transform</title>
+	<style>
+      div{
+      	width: 100px;
+      	height: 100px;
+      	margin: 200px;
+      	background-color: red;
+      	-webkit-transition: all 1s ease 0s;
+        -o-transition: all 1s ease 0s;
+        transition: all 1s ease 0s;
+   
+   /*transform-origin:基点
+    1.可以为方位值（left、right、top、bottom）
+    2.可以用百分比
+    3.可以为固定像素值;*/
+       /* -webkit-transform-origin: left top;
+        	-moz-transform-origin: left top;
+        	-ms-transform-origin: left top;
+        	-o-transform-origin: left top;
+        	transform-origin: left top;	*/
+
+   /* 
+    transform:变换（移动、旋转、缩放、倾斜等）;
+       （1）rotate：绕着z轴进行旋转，方向顺时针。*/
+
+      }
+      
+   /*   div:hover{
+      	-webkit-transform: rotate(65deg);
+      	-ms-transform: rotate(65deg);
+      	-o-transform: rotate(65deg);
+      	transform: rotate(65deg);*/
+
+
+
+    /*（2）translate:移动
+        括号里两个值（x,y)
+        x正值为x轴正方向移动，负值为x轴负方向
+        y正值为y轴负方向移动，负值为y轴正方向;   
+      	-webkit-transform: translate(-350px,-50px);
+      	-ms-transform: translate(-350px,-50px);
+      	-o-transform: translate(-350px,-50px);
+      	transform: translate(-350px,-50px);
+
+      	   -webkit-transform: translateY(100px);
+      	   -ms-transform: translateY(100px);
+      	   -o-transform: translateY(100px);
+      	   transform: translateY(100px);
+        */
+       
+        /* (3)scale:缩放
+         括号里两个值（x，y）为该坐标的缩放倍数，可以为小数（0.几为缩小）
+         也可以为负数;
+           -webkit-transform: scale(2,3);
+            -ms-transform: scale(2,3);
+            -o-transform: scale(2,3);
+            transform: scale(2,3); 
+         
+         X轴缩放倍数
+           -webkit-transform: sceleX(3);
+           -ms-transform: sceleX(3);
+           -o-transform: sceleX(3);
+           transform: sceleX(3);
+
+         y轴缩放倍数
+           -webkit-transform: sceleY(3);
+           -ms-transform: sceleY(3);
+           -o-transform: sceleY(3);
+           transform: sceleY(3);
+         */
+
+        /* skew:倾斜;
+        skewX是朝向x轴负方向倾斜；
+        skewy是朝向y轴正方向倾斜；
+         -webkit-transform: skewY(30deg);
+         -ms-transform: skewY(30deg);
+         -o-transform: skewY(30deg);
+         transform: skewY(30deg);
+        */
+
+        
+        /*
+        先移动后旋转，先旋转后移动
+        -webkit-transform: translate(100px,100px)rotate(180deg); 
+         transform: translate(100px,100px) rotate(180deg);
+        -o-transform: translate(100px,100px) rotate(180deg);
+        transform: translate(100px,100px) rotate(180deg);*/
+
+
+
+      }
+	</style>
+</head>
+<body>
+	<div></div>
+</body>
+</html>

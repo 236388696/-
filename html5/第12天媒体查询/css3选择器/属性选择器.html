@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>属性选择器</title>
+	<style>
+	/*属性选择器1:匹配带有指定属性的所有元素;*/
+        [class]{
+        	/*color: red;*/
+        }
+
+    /*属性选择器2:
+    匹配带有指定属性和指定属性值的所有元素*/
+        [href="###"]{
+        	/*color: blue;*/
+        }
+
+
+    /*属性选择器3:
+      匹配属性值中包含指定词汇的元素
+      ps：词汇必需是独立的，用空格分开;*/
+        [class~="abc"]{
+        	/*color: yellow;*/
+
+        }
+
+    
+    /*属性选择器4:匹配带有以指定单词开头的
+    属性值的元素;
+    ps：单词用“－”区分*/
+       [href|="#"]{ 
+         /*color: red;*/
+       }
+
+
+    /*属性选择器5:匹配以指定字符开头的属性值的元素；
+    ps：字符不需要区分*/
+       [href^="#"]{
+       	 /*color:orange;*/
+       }
+   
+    
+    /*属性选择器6:匹配以指定字符结尾的属性值的元素；
+    ps：字符不需要区分*/
+       [href$="##"]{
+         /*color: pink;*/
+       }
+
+   
+  /*  属性选择器7:匹配属性值包含指定值的所有元素;*/
+       [href*="a"]{
+       	 color: skyblue;
+       }
+	</style>
+</head>
+<body>
+	<div class="div1">div1</div>
+	<a class="abc" href="abc###">a1</a>
+	<a class="abc_#" href="##123#">a2</a>
+	<a class="# abc"href="#abc##">a3</a>
+	<form action="">form1</form>
+	<form  class="form2" action="">form2</form>
+</body>
+</html>

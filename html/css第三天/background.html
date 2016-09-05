@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>背景颜色</title>
+	<style>
+      .div1{
+      	width: 1000px;
+      	height: 1000px;
+
+      	/*背景颜色：1.英文单词 2.16进制 3.rgb/rgba */
+      	background-color: red;
+        
+        /*背景图片：url（） 小括号内为图片地址*/
+      	background-image: url(nv.jpg);
+
+
+      	/*背景平铺：no-repeat不平铺
+      	 repeat-x横向平铺
+      	 repeat-y纵向平铺 */
+      	background-repeat: no-repeat;
+
+      	/*背景大小：px值、百分比*/
+      	background-size: 100% 100%;
+
+        /*背景位置：px、 百分比(剩余空间的百分比)、具体方位(right、left、center、top、bottom)*/
+      	background-position: center center;
+
+      }
+      body{
+          height: 1000px;
+      	  background-image: url(nv.jpg);
+          background-repeat: no-repeat;
+
+          /*背景是否跟随页面移动：scroll默认值跟随、fixed不跟随*/
+          background-attachment: fixed;
+          
+          /*类型转换*/
+          display: inline-block;
+      }
+	</style>
+</head>
+<body>
+	<!-- <div class="div1"></div> -->
+	<div>hello world</div>
+	<div>hello world</div>
+	<div>hello world</div>
+	<div>hello world</div>
+	<div>hello world</div>
+	<div>hello world</div>
+	<div>hello world</div>
+	<div>hello world</div>
+	<div>hello world</div>
+</body>
+</html>

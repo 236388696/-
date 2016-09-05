@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>映纷视觉响应式</title>
+	<style>
+	html{
+		font-size: 10px;
+	}
+	.all div{
+		font-size: 2rem;
+	}
+	 .all{
+	 	/*1280_960*/
+       	 width: 75%;
+       	 margin: 50px auto;
+       	 background-color: #ccc;
+       	 min-width: 640px;
+       }
+       .all img{
+       	/*300_960*/
+       	width: 31.25%;
+       	
+       }
+       .all img:nth-child(3n+2){
+       	/*30_960*/
+       	margin: 25px 3.125%;
+       	margin-bottom:0px; 
+       }
+       @media screen and (max-width: 640px){
+       	.all{
+       		min-width: 320px;
+       		width: 100%;
+      	}
+        html{
+				font-size: 8px;
+			}
+       }
+       @media screen and (max-width: 640px){
+         .all img{
+         	/*221_480*/
+       	 width: 46.04166%;
+       	 }
+       	 .all img:nth-child(3n+2){
+       	 	margin: 0
+       	 }
+       	 .all img:nth-child(2n+1){
+       	 	/*35_480*/
+       	 	margin-left:7.29166% ;
+       	 	margin-top: 20px;
+       	 }
+       	}
+
+	</style>
+</head>
+<body>
+	<div class="all">
+		<img src="17.jpg" alt=""><img src="18.jpg" alt=""><img src="19.jpg" alt=""><img src="20.jpg" alt=""><img src="21.jpg" alt=""><img src="22.jpg" alt=""><img src="23.jpg" alt=""><img src="24.jpg" alt=""><img src="25.jpg" alt=""><img src="17.jpg" alt=""><img src="18.jpg" alt=""><img src="19.jpg" alt=""><img src="20.jpg" alt=""><img src="21.jpg" alt=""><img src="22.jpg" alt=""><img src="23.jpg" alt=""><img src="24.jpg" alt=""><img src="25.jpg" alt="">
+		<div>华为开拓未来</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>3.倒影</title>
+		<style>
+			img{
+				position: absolute;
+				left: 50%;
+				top:50%;
+				margin-left: -372px;
+				margin-top:-372px;
+				/*box-reflect倒影:
+				1.倒影方向(必写);
+				  above上、below下、left左、right右
+				2.倒影间距(必写);
+			    3.倒影渐变(选写);*/
+				-webkit-box-reflect:below 20px -webkit-linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.1));
+			}
+		</style>
+	</head>
+	<body>
+		<img src="img/14.jpg"/>
+	</body>
+</html>

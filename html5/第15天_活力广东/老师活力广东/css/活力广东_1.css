@@ -1,0 +1,88 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+body,html{
+	height: 100%;
+}
+.all{
+	height: 100%;
+}
+.bg{
+	width: 100%;
+	height: 100%;
+}
+.content{
+	position: absolute;
+	left:0;
+	top:0;
+	width: 100%;
+	height: 100%;
+	/*background-color: gray;*/
+}
+.top{
+	width: 1092px;
+	margin: 0 auto;
+	padding-top: 100px;
+	/*background-color: red;*/
+}
+.middle{
+	width: 904px;
+	height: 426px;
+	margin: 20px auto;
+	overflow: hidden;
+	/*background-color: yellow;*/
+}
+.middle a{
+	display: inline-block;
+	height: 140px;
+	width: 100%;
+}
+.middle img{
+	width: 100%;
+	height: 100%;
+}
+
+.left,.right{
+	float: left;
+}
+.col1,.col2{
+	float:left ;
+}
+.left .col1{
+	width: 278px;
+	
+}
+.left .col2{
+	width: 162px;
+	margin-left: 15px;
+}
+
+.right .col1{
+	width: 162px;
+	margin-left: 2px;
+
+}
+.right .col2{
+	width: 262px;
+	margin-left: 2px;
+}
+.ani1{
+	-webkit-animation: bounceIn 1s;
+	-o-animation: bounceIn 1s;
+	animation: bounceIn 1s;
+}
+.ani2{
+	-webkit-animation: shake 1s;
+	-o-animation: shake 1s;
+	animation: shake 1s;
+}
+.middle img:hover{
+	-webkit-animation: bounce 1s;
+	-o-animation: bounce 1s;
+	animation: bounce 1s;
+}
+.bottom{
+	padding-top: 80px;
+	text-align: center;
+}

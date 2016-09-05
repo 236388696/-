@@ -1,0 +1,48 @@
+.dtu{
+	width: 1800px;
+	height: 2500px;
+	
+}
+.xtu div{
+   width: 80px;
+   height: 80px;
+   border: 1px solid black;
+   float: left;
+    margin-right:50px; 
+ 
+}
+.xtu{
+	  text-align: center;
+	  margin-top:20px;
+	  margin-left: 580px; 
+	  padding: 50px;
+}
+.xtu p{
+	padding-top: 12px;
+}
+.xtu div:hover{
+	background-color: skyblue;
+}
+.dtu{
+	width: 1400px;
+	height: 2500px;
+	padding-top:60px; 
+}
+.left{
+	width: 800px;
+	height: 2000px;
+	overflow: hidden;
+	margin-left:280px; 
+	float: left;
+}
+.left_tu img{
+	margin-top:20px; 
+}
+.right{
+	width: 200px;
+	height: 800px;
+	float: left;
+	margin-left:50px; 
+	padding-top:30px; 
+	
+}

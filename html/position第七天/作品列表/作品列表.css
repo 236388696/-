@@ -1,0 +1,65 @@
+.dtu{
+	width: 1800px;
+	height: 2500px;
+	border:1px solid black;
+}
+.center{
+	overflow: hidden;
+}
+.xtu div{
+   width: 80px;
+   height: 80px;
+   border: 1px solid black;
+   float: left;
+   margin-right:50px; 
+ 
+}
+.xtu{
+	  text-align: center;
+	  margin-top:10px;
+	  margin-left: 580px; 
+	  padding: 50px;
+	  overflow: hidden;
+}
+.xtu p{
+	padding-top: 12px;
+}
+.center2{
+	width: 1000px;
+	overflow: hidden;
+}
+.leftlen{
+	margin: 0 auto;
+	position: absolute;
+    left:200px;
+    
+}
+.center2 img{
+	width: 230px;
+	height: 150px;
+	border: 1px solid black;
+	margin: 0px;
+}
+.len1{
+	float: left;
+	margin-left: 20px;
+	margin-top:50px; 
+	position: relative;
+}
+.tu1{
+	width: 230px;
+	height: 150px;
+	background-color: skyblue;
+	position: absolute;
+	top: 1px;
+	left: 1px;
+	opacity: 0;
+}
+.tu1 p{
+	color: black;
+	text-align: center;
+	padding-top: 50px;
+}
+.tu1:hover{
+	opacity: 1;
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>outline</title>
+		<style>
+		@font-face {
+			font-family:"小羊体";
+			src: url(Xingkai副本.ttc);
+		}
+			a{
+			   font-family:"小羊体";	
+			   text-decoration: none;
+			}
+			
+			/*focus伪类:当元素被激活时使用
+			  (激活：点击或tab选中)*/
+			a:focus {
+				/*外轮廓,当元素被激活时起到提示作用，用法与border相同 */
+				outline:1px solid red;
+			}
+			input{
+				outline: none;
+			}
+		</style>
+	</head>
+	<body>
+		<a href="###">我是小羊</a>
+		<a href="###">我还是小羊</a>
+		<input type="text" name="" id=""  value="" />
+	</body>
+</html>

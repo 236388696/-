@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>xhtml与html之间的差别</title>
+	<style>
+      .top{
+      	 width: 400px;
+         margin: 0 auto;
+
+      }
+      .a{
+      	margin-left:20px; 
+      }
+      .b{
+      	font-size: 12px;
+      }
+      .b a{
+      	color: #BD2D30;
+      }
+      li{
+      	font-size: 12px;
+      	line-height: 20px;
+      }
+      .c,.e,.g{
+      	font-size: 13px;
+      }
+      .d,.f,.h{
+      	background-color: #F5F5F5;
+        border: 1px dotted black;
+      }
+      .d,.f,.h p{
+      	 font-size: 12px;
+      	
+      }
+      .h1,.h9{
+          margin-left:15px; 
+      }
+      .h2,.h3,.h7,.h8{
+      	margin-left:30px; 
+      }
+      .h4{
+      	margin-left:50px; 
+      }
+      .h5,.h6{
+      	margin-left:60px; 
+      }
+	</style>
+</head>
+<body>
+	<div>
+		<h1 class="top">XHTML 与 HTML 之间的差异</h1>
+	</div>
+	 <hr>
+	<div class="a">
+	 <input type="button" value="&lt;上一节">&nbsp;&nbsp;&nbsp;
+	 <input type="button" value="下一节&gt;">
+	</div>
+	<hr>
+	<h5>通过开始编写严格的 HTML，你可以为 XHTML 做好准备。</h5>
+	<hr>
+	<h4>如何为 XHTML 做好准备</h4>
+	<div class="b">
+	  <p>XHTML 与 HTML 4.01 标准没有太多的不同。</p>
+	  <p>所以将你的代码升级至 4.01 是个不错的开始。我们的完整的 《<a href="http://w3c.com">HTML 4.01 参考手册</a>》会帮助你做到这一点。</p>
+	  <p>另外，你应该马上使用小写字母编写HTML代码，同时绝不要养成忽略类似 </p> 标签的坏习惯。</p>
+	  <p>祝您可以愉快地编码！</p>
+	</div>
+	<hr>
+	<h4>最主要的不同：</h4>
+	 <ul>
+	 	<li>XHTML 元素必须被正确地嵌套。</li>
+	 	<li>XHTML 元素必须被关闭。</li>
+	 	<li>标签名必须用小写字母。</li>
+	 	<li>XHTML 文档必须拥有根元素。</li>
+	 </ul>
+	<hr>
+	<h4>元素必须被正确地嵌套</h4>
+	<div class="c">
+	   <p>在 HTML 中，某些元素可以像这样彼此不正确地嵌套：</p>
+	</div>
+	<div class="d">
+		<p>&lt;b&gt;&lt;i&gt;This text is bold and italic <span style="color:blue">&lt;/b&gt;</span>&lt;i&gt;</p>
+	</div>
+	<div class="e">
+		<p>在 XHTML 中，所有的元素必须像这样彼此正确地嵌套：</p>
+	</div>
+	<div class="f">
+		<p>&lt;b&gt;&lt;i&gt;This text is bold and italic<span style="color:blue">&lt;/i&gt;</span>&lt;b&gt;</p>
+	</div>
+	<div class="g">
+	   <p><span style="color:orange;">提示：</span>在嵌套列表中一个容易犯的错误，是忘记内部列表必须位于 li 元素中，就像下面这样：</p>
+       <p>这是错误的：</p>
+ 
+	</div>
+	<div class="h">
+		<p class="h1">&lt;ul&gt;</p>
+  <p class="h2">&lt;li&gt;Coffee&lt;/li&gt;</p>
+  <p class="h3">&lt;li&gt;Tea</p>
+    <p class="h4">&lt;ul&gt;</p>
+      <p class="h5">&lt;li&gt;Black tea&lt;/li&gt;</p>
+      <p class="h6">&lt;li&gt;Green tea&lt;/li&gt;</p>
+   <p class="h7"> &lt;/ul&gt;</p>
+ <p class="h8"> &lt;li&gt;Milk&lt;/li&gt;</p>
+<p class="h9">&lt;/ul&gt;</p>
+	</div>
+
+</body>
+</html>

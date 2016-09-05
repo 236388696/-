@@ -1,0 +1,133 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+.header{
+	border-bottom:1px solid #ebebeb; 
+}
+.h_top {
+	border-bottom: 1px solid gray;
+}
+.h_top img{
+   width: 101px;
+   /* 居中对齐*/
+   vertical-align: middle;
+
+}
+.h_top{
+	padding: 10px;
+	border-bottom:1px solid #ebebeb; 
+}
+.h_top .input1{
+	width: 540px;
+	height: 34px;
+}
+.h_top .input2{
+    background-color: #3385ff;
+    width: 100px;
+    height: 38px;
+    border: none;
+    color: white;
+    font-size: 14px;
+}
+.h_top,.h_text{
+	display: inline-block;
+}
+.h_text{
+	width: 1130px;
+	text-align: right;
+}
+.h_text a{
+	font-size:13px;
+	font: black; 
+	margin-right:20px; 
+}
+/*content*/
+.c_top{
+	background-color: #f8f8f8;
+   /*与左边距离：父子关系用padding, 兄弟关系用margin*/
+	padding-left:121px;
+}
+.c_top a {
+	text-align: center;
+	display: inline-block;
+	height: 38px;
+	width: 54px;
+	line-height: 38px;
+	text-decoration: none;
+	color: #666; 
+	font-size: 14px;
+	font-weight:bold; 
+}
+.c_top a:hover{
+	border-bottom:3px solid #38f; 
+	color: #323232;
+}
+.cm_text1,.cm_text2{
+	display: inline-block;
+}
+.c_middle{
+	width: 640px;
+	margin-left:121px; 
+
+}
+.cm_top{
+	padding-top: 20px;
+}
+.cm_text1{
+	font-size: 12px;
+	color: #999;
+}
+.cm_text2{
+	width: 350px;
+	text-align: right;
+}
+.cm_text2 a {
+	text-decoration: none;
+	font-size:12px;
+	color: #888; 
+}
+.cm_bottom{
+	font-size:13px;
+	border: 1px solid #f3f3f3;
+	padding-bottom:13px; 
+}
+.recommend{
+	color: #666;
+	
+}
+.cm_bottom a{
+	margin-left:15px; 
+}
+.cb_left{
+	width: 540px;
+	padding:10px 121px; 
+	border-top: 1px solid #e1e1e1;
+	
+}
+.a1{
+	color: red;
+}
+.banner{
+	margin-bottom:10px; 
+}
+.information{
+	display: inline-block;
+	vertical-align: top;
+}
+.cb_left,.cb_right{
+	display: inline-block;
+}
+.cb_right{
+	vertical-align: top;
+	padding-left: 20px;
+}
+.cb_right a{
+	display: inline-block;
+	width: 294px;
+	text-align: right;
+}
+.row div{
+	width: 75px;
+	height: 140px;
+}

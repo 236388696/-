@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	<!-- 1.标签 -->
+	结构来分：单标签和双标签（有无闭标签和是否可以嵌套）
+	属性来分：行标签和块标签
+	～行标签特点：
+	（1）在一行显示
+	（2）不能设置宽高和纵向margin
+	（3）内容撑开宽高
+	（4）只能嵌套行标签（a标签不能被行标签嵌套）
+	span、a、img、strong、em、input
+	ps：img和input标签可以设置宽高和纵向margin
+
+	～块标签特点：
+	（1）独占一行
+	（2）可以设置宽高和纵向magin
+	（3）宽度百分百
+	（4）可以任意嵌套（p标签不能嵌套块标签）
+	div、h1-h6、ul、ol、li、p、form、hr、
+	～特殊标签：
+	table、tr、th、td、br
+
+	组合使用的标签：
+	form>input、table>tr>th\td、select>option、ol\ul>li、
+
+	<!-- 2.form表单 -->
+	action：提交的地址
+
+	input:
+	（1）text文本框
+	（2）password密码框
+	（3）submit提交表单
+	（4）radio单选（单选项name相同）
+	（5）checkbox多选（name相同）
+	（6）button按钮
+	（7）reset重置
+	（8）file上传
+
+	<!-- 3.css引入方式： -->
+	（1）外部引入：
+	优点：
+		1.一个css控制多个页面
+		2.易改版，便于维护
+		3.减少代码量，代码简洁
+		4.易于分工合作
+	缺点：
+		1.相对于单个页面有垃圾代码
+		2.会对服务器造成压力
+	应用场景：
+		访问量小的页面、
+
+	（2）头部引入：
+	优点：
+		1.速度快
+		2.没有请求压力
+		3.相对于外部引入单页代码量少
+	缺点：
+		1.不易改版维护
+		2.代码较乱，不易于前后台沟通
+	应用场景：
+		访问量较大页面（主页、活动页面）
+
+	（3）标签内引入
+	优点：
+		1.优先级最高
+	缺点：
+		1.多余代码多
+		2.没有代码提示
+		3.不易于改版维护
+	应用场景：
+		配合js使用
+
+	<!-- 4.css选择器 -->
+	（1）标签名选择器
+	（2）类选择器：（.）
+	（3）id选择器：（＃）
+	（4）后代\派生选择器（“空格”）
+	（5）组合选择器
+	（6）群组选择器（,）
+	（7）伪类：（:hover）
+	ps：只能修改下级元素样式
+	（8）全局选择器：（*）用来做初始化
+
+	命名规范：
+	（1）由数字、字母、_组成
+	（2）数字不能开头
+	（3）不能与系统关键字重名
+	（4）见名知义
+	（5）驼峰命名法
+
+	<!-- 5.选择器优先级 -->
+	标签内引入：style
+	id＝100
+	class＝10
+	标签名＝1
+	ps：
+	（1）瘦死骆驼比马大（100个1也比不过一个10）
+	（2）当优先级相同时，后面样式覆盖前面样式
+
+	<!-- 6.css基础样式 -->
+	~font:字体
+	（1）font-family：字体
+	（2）font-size：字体大小（px／em／rem）
+	（3）font-style：字体风格（normal默认、italic斜体、oblique倾斜）
+	（4）font-weight：字体粗细（1.bold加粗700、bolder更粗、lighter更细、normal默认400。2.number：0-900）
+	（5）color：字体颜色
+	1.英文单词
+	2.16进制（＃xxx）
+	3.rgb（red、green、blue）
+	4.rgba（red、green、blue、alpha）
+
+	~text:文本
+	（1）text-align:横向对齐方式
+		（left、center、right）
+	（2）text-indent:首行缩进(px\em)
+	（3）text-decoration:文本修饰线（1.none无／2.underline下划线／3.overline上划线／4.line-through删除线）
+	（4）line-height:行间距（一般用于单行纵向居中）
+	（5）vertical-align:(top\middle\bottom不建议使用，一般只用于table模式下的纵向居中)
+	（6）word-spacing:字间距（只能识别空格）
+	（7）letter-spacing:字符间距
+
+	～background背景
+	（1）background-color:背景颜色（1.颜色单词。2.＃＋16进制。3.rgb）
+	（2）background-image:url();背景图片
+	（3）background-repeat:平铺（1.repeat。2.no-repeat。3.repeat-x横向平铺。4.repeat-y纵向平铺）
+	（4）background-position:背景位置（两个3中写法：px\百分比\top、bottom、left、right、center）
+	（5）background-attachment:图片滚动（两个值：1.scroll跟随页面。2.fixed定位在窗口）
+
+	<!-- 7.盒模型 -->
+	margin
+	padding
+	(top\left\right\bottom)
+	兄弟之间用margin，父子之间用padding
+
+	标准模式盒模型计算方式：content＋padding＋border＋margin
+	怪异模式盒模型计算方式：content＋margin
+	强制进入怪异模式的方法：box-sizing:border-box;
+
+	盒模型让块元素横向距中：
+	margin: 0 auto;
+	注意：被设置距中的元素必须具有宽度
+
+	border:边框
+	border-width\style\color
+	border-left\right\top\bottom-width\style\color
+
+	display:转换
+	（1）inline转换为行元素
+	（2）block转换为块元素
+	（3）inline-block转换为行块元素
+	（4）table\table-cell转换为table元素（主要用于纵向距中，与vertical-align一起使用）
+	（5）none:隐藏（不占页面内容大小，作为元素隐藏和显示的切换）
+	
+	<!-- 8.float浮动布局 -->
+	left左浮动、right右浮动
+	（1）左浮动以浮动元素右边为基准，如果放不下则以下边为基准
+	（2）右浮动以浮动元素左边为基准，如果放不下则以下边为基准
+
+	特点：
+	（1）不在文本流
+	（2）内容撑开宽高
+	（3）可以设置宽高margin、padding
+	（4）在一行显示
+	（5）可以清除默认间隙
+	（6）所有元素都可以浮动
+
+	浮动之后需要清除浮动，清除浮动方法：
+	（1）bfc;加给浮动元素父级
+	子级所有元素都要浮动
+		让父级成为bfc的方式：
+		1.float不为none
+		2.overflow不为visible
+		3.display为table-cell\table-caption\inline-block
+		4.position不为static\relative
+	（2）clear:both;加给浮动元素下一个兄弟级元素，如果没有则加一个空元素进行清除浮动
+
+	<!-- 9.position定位布局 -->
+	(1)fixed:“一直”相对于窗口进行定位
+	特点：
+		1.不在文本流
+		2.内容撑开宽高
+		3.可以设置宽高和margin、padding
+	应用场景：
+		应用于一直相对于窗口进行定位的元素（导航栏、广告）
+
+	(2)absolute绝对定位:相对于祖辈级最近的position元素进行定位，如果没有则相对于窗口进行定位。
+	特点：
+		1.不在文本流
+		2.内容撑开宽高
+		3.可以设置宽高和margin、padding
+	应用场景：
+		应用于重叠布局，与其它定位配合使用（一般与relative进行配合）
+
+	(3)relative相对定位:相对于自身进行定位
+	特点：
+		1.在文本流，但是样式会发生重叠
+		2.宽高和行块标签特点默认（该啥样还啥样）
+		3.在没有设置left、top、bottom、right值的情况下，与没设置position无差别。
+	应用场景：
+		1.偶尔可以进行微调（在不影响布局情况下）
+		2.与absolute配合使用，给其父级设置，作为absolute的定位基准。
+
+	定位通过left、top、bottom、right进行定位调整，其意思为距离四个边的距离（除relative外）
+	（px、百分比）
+
+	z-index:
+	浮动元素堆叠顺序，值大的在上面，可以为负数。
+	ps：父子级元素定位时，如果父级生效，则子级不生效。如果父级不生效，则子级生效。
+
+	opacity: 透明度
+	取值范围0-1
+	注意：子级会继承该透明度。
+
+</body>
+</html>

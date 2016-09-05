@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>边框</title>
+	<style>
+      .div1{
+      	width: 100px;
+      	height: 100px;
+      	border: 1px solid red;
+
+        /*border: 宽度、类型、颜色*/
+      	border-width: 5px;
+
+      	/*类型：solid实线、dotted虚线(点虚线)、dashed虚线(线)、double双实线 */
+      	border-style: double;
+
+        /*颜色*/
+      	border-color:red; 
+
+        /*四个值：left、right、bottom、top */
+      	border-left: 1px solid blue;
+      	}
+
+      .div2{
+         width: 200px;
+         height: 200px;
+      	border-left:solid red;
+      	border-right:dotted blue; 
+      	border-top: dashed green;
+      	border-bottom: double yellow;
+      	margin-top: 50px;
+      }
+
+      
+	</style>
+</head>
+<body>
+	<div class="div1"></div>
+	<div class="div2"></div>
+	
+</body>
+</html>

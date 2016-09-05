@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>后代选择器</title>
+	<style>
+       .father .a{
+       	    width: 100px;
+       	    height: 100px;
+       	    background-color: red;
+       	    border: 1px solid green;
+       }
+	</style>
+</head>
+<body>
+	<!-- 后代选择器：祖辈级＋空格＋.后代级 -->
+	<div class="father">
+		<div>1</div>
+		<div>2</div>
+		<div>3</div>
+		<p class="a">pppppp</p>
+		
+	</div>
+	<div class="a">我是外面的div</div>
+	
+</body>
+</html>

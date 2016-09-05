@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>稳定布局</title>
+	<style>
+	   .header{
+		overflow: hidden;
+	    }
+       .header div{
+       	width: 100px;
+       	height: 100px;
+       	background-color: green;
+       	float: left;
+       }
+       .top{
+       	width: 350px;
+       	height: 150px;
+       	background-color: red;
+       }
+       .m_left{
+       	width: 100px;
+       	height: 150px;
+       	background-color: pink;
+       	float: left;
+       }
+       .m_right{
+       	width: 250px;
+       	height: 150px;
+       	background-color: skyblue;
+       	float: left;
+       }
+       .middle{
+       	overflow: hidden;
+       }
+       .bottom{
+       	width: 350px;
+       	height: 100px;
+       	background-color: orange;
+       }
+       .c_right div{
+       	width: 150px;
+       	height: 200px;
+       	background-color: yellow;
+       	/*float: left;*/
+       }
+       .c_left,.c_right{
+       	float: left;
+       }
+       .footer{
+       	width: 500px;
+       	height: 100px;
+       	background-color: blue;
+       }
+       .content{
+       	overflow: hidden;
+       }
+	</style>
+</head>
+<body>
+	<div class="all">
+		<div class="header">
+			<div>1</div>
+			<div>2</div>
+			<div>3</div>
+			<div>4</div>
+			<div>5</div>
+		</div>
+		<div class="content">
+			<div class="c_left">
+				<div class="top">6</div>
+				<div class="middle">
+					<div class="m_left">8</div>
+					<div class="m_right">9</div>
+				</div>
+				<div class="bottom">11</div>
+			</div>
+			<div class="c_right">
+				<div class="cr_top">7</div>
+				<div class="cr_bottom">10</div>
+			</div>
+		</div>
+		<div class="footer">12</div>
+	</div>
+</body>
+</html>

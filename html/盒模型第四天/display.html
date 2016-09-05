@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>块和行元素转换</title>
+	<style>
+    div{
+    	width: 100px;
+    	height: 100px;
+    	background-color: red;
+    	display: inline;
+
+    	/*display: 
+    	(1)inline-block:
+    	 把元素转换为行块元素 display: inline-block;
+    	(2)inline:把元素转换为行元素;
+    	(3)block: 把元素转换为块元素
+    	(4)none：隐藏（不占页面的内容，完全的隐藏掉了），一般用于显示隐藏，配合js使用，设置其他值就会显示出来*/
+      }
+     span{
+     	width: 100px;
+     	height: 100px;
+     	background-color: green;
+     	display: block;
+     }
+
+	</style>
+</head>
+<body>
+	 <div>123</div>
+	 <div>123</div>
+	 <div>123</div>
+	 <span>我是span</span>
+</body>
+</html>

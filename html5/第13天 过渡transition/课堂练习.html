@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>练习</title>
+	<style>
+	 body,html{
+	 	height: 100%;
+	 }
+	 
+	 body{
+	 	 -webkit-perspective: 10000px;
+	  	 -moz-perspective: 10000px;
+	  	 -ms-perspective: 10000px;
+	  	 perspective: 10000px;
+
+	  	 -webkit-transform-style: preserve-3d;
+          -moz-transform-style: perserve-3d;
+          -ms-transform-style: perserve-3d;
+          transform-style: perserve-3d;
+
+	 }
+	 .all{
+	 	
+	 	-webkit-transform-style: preserve-3d;
+		-moz-transform-style: preserve-3d;
+		-ms-transform-style: preserve-3d;
+		transform-style: preserve-3d;
+         -webkit-transition: all 3s;
+         -o-transition: all 3s;
+         transition: all 3s;
+         height: 100px;
+         width: 100px;
+         position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-left:-50px;
+        margin-top: -50px;
+
+        margin: 50% 50%;
+	 }
+	 .all div{
+	 	width: 100px;
+       	height: 100px;
+       	position: absolute;
+       	left: 0;
+       	top: 0;
+	 }
+	 .all:hover{
+	 	-webkit-transform: rotateY(2000deg); 
+         -ms-transform: rotateY(2000deg) ;
+         -o-transform: rotateY(2000deg) ;
+         transform: rotateY(2000deg) ;
+
+	 }
+
+     .all div:nth-child(1){
+        -webkit-transform: translateZ(400px);
+         -ms-transform: translateZ(400px);
+         -o-transform: translateZ(400px);
+         transform: translateZ(400px);
+
+         background-color: red;
+       }
+       .all div:nth-child(2){
+          -webkit-transform: rotateY(30deg) translateZ(400px); 
+         -ms-transform: rotateY(30deg) translateZ(400px) ;
+         -o-transform: rotateY(30deg) translateZ(400px) ;
+         transform: rotateY(30deg) translateZ(400px) ;
+         background-color: #B353F8 ;
+         
+       }
+       .all div:nth-child(3){
+          -webkit-transform: rotateY(60deg) translateZ(400px) ;
+         -ms-transform: rotateY(60deg) translateZ(400px); 
+         -o-transform: rotateY(60deg) translateZ(400px); 
+         transform: rotateY(60deg) translateZ(400px) ;
+         background-color: blue ;
+         
+       }
+       .all div:nth-child(4){
+          -webkit-transform: rotateY(90deg) translateZ(400px) ;
+         -ms-transform: rotateY(90deg) translateZ(400px) ;
+         -o-transform: rotateY(90deg) translateZ(400px) ;
+         transform: rotateY(90deg) translateZ(400px) ;
+         background-color: yellow ;
+        
+       }
+       .all div:nth-child(5){
+          -webkit-transform: rotateY(120deg) translateZ(400px) ;
+         -ms-transform: rotateY(120deg) translateZ(400px); 
+         -o-transform: rotateY(120deg) translateZ(400px) ;
+         transform: rotateY(120deg) translateZ(400px) ;
+         background-color: #4BFFFE ;
+       
+       }
+       .all div:nth-child(6){
+          -webkit-transform: rotateY(150deg) translateZ(400px) ;
+         -ms-transform: rotateY(150deg) translateZ(400px) ;
+         -o-transform: rotateY(150deg) translateZ(400px) ;
+         transform: rotateY(150deg) translateZ(400px) ;
+         background-color: skyblue ;
+         
+       }
+       .all div:nth-child(7){
+          -webkit-transform: rotateY(180deg) translateZ(400px) ;
+         -ms-transform: rotateY(180deg) translateZ(400px) ;
+         -o-transform: rotateY(180deg) translateZ(400px) ;
+         transform: rotateY(180deg) translateZ(400px) ;
+         background-color: green ;
+        
+       }
+       .all div:nth-child(8){
+          -webkit-transform: rotateY(210deg) translateZ(400px) ;
+         -ms-transform: rotateY(210deg) translateZ(400px) ;
+         -o-transform: rotateY(210deg) translateZ(400px);
+         transform: rotateY(210deg) translateZ(400px);
+         background-color: orange ;
+       
+       }
+       .all div:nth-child(9){
+          -webkit-transform: rotateY(240deg) translateZ(400px) ;
+         -ms-transform: rotateY(240deg) translateZ(400px) ;
+         -o-transform: rotateY(240deg) translateZ(400px) ;
+         transform: rotateY(240deg) translateZ(400px) ;
+         background-color: gray ;
+         
+       }
+       .all div:nth-child(10){
+          -webkit-transform: rotateY(270deg) translateZ(400px) ;
+         -ms-transform: rotateY(270deg) translateZ(400px) ;
+         -o-transform: rotateY(270deg) translateZ(400px) ;
+         transform: rotateY(270deg) translateZ(400px) ;
+         background-color: blue ;
+         
+       }
+       .all div:nth-child(11){
+          -webkit-transform: rotateY(300deg) translateZ(400px) ;
+         -ms-transform: rotateY(300deg) translateZ(400px) ;
+         -o-transform: rotateY(300deg) translateZ(400px) ;
+         transform: rotateY(300deg) translateZ(400px) ;
+         background-color: pink ;
+        
+       }
+       .all div:nth-child(12){
+          -webkit-transform: rotateY(330deg) translateZ(400px) ;
+         -ms-transform: rotateY(330deg) translateZ(400px) ;
+         -o-transform: rotateY(330deg) translateZ(400px) ;
+         transform: rotateY(330deg) translateZ(400px);
+         background-color: brown;
+        
+       }
+       
+      
+
+       
+
+
+        
+
+       
+	</style>
+</head>
+<body>
+	<div class="all">
+		<div>1</div>
+		<div>2</div>
+		<div>3</div>
+		<div>4</div>
+		<div>5</div>
+		<div>6</div>
+		<div>7</div>
+		<div>8</div>
+		<div>9</div>
+		<div>10</div>
+		<div>11</div>
+		<div>12</div>
+	</div>
+</body>
+</html>

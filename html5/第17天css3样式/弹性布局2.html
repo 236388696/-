@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>弹性布局2</title>
+		<style>
+			html,body,.all{
+				height: 100%;
+			}
+			.all{
+				display: -webkit-box;
+				/*box-orient子元素的排列方式
+				1.horizontal横向(默认);
+				2.vertical纵向*/
+				-webkit-box-orient: vertical;
+				-moz-box-orient: vertical;
+				-ms-box-orient: vertical;
+				box-orient: vertical;
+				
+				
+				
+				/*子元素的排列顺序
+				1.normal默认
+				2.reverse倒序排列*/
+			    -webkit-box-direction: reverse;
+				-moz-box-direction:reverse ;
+				-ms-box-direction:reverse reverse;
+				box-direction: reverse;
+			}
+			.div1{
+				/*子元素分配空间*/
+				-webkit-box-flex:1;
+				-moz-box-flex:1;
+				-ms-box-flex:1;
+				box-flex:1;
+				background-color: mediumvioletred;
+			}
+			.div2{
+				-webkit-box-flex:1;
+				-moz-box-flex:1;
+				-ms-box-flex:1;
+				box-flex:1;
+				background-color: yellowgreen;
+			}
+			.div3{
+				-webkit-box-flex:1;
+				-moz-box-flex:1;
+				-ms-box-flex:1;
+				box-flex:1;
+				background-color: deepskyblue;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="all">
+			<div class="div1"></div>
+			<div class="div2"></div>
+			<div class="div3"></div>
+		</div>
+	</body>
+</html>
