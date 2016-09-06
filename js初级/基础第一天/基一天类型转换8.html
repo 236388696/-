@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+	//强势转换(显示转换)
+			var a="123";
+			//Number转换为数字类型
+			a=Number(a);
+             
+           
+            var b=2;
+            //String转换为字符串类型
+            b=String(b);
+        alert("a+b的和为:"+(a+b));
+        
+
+            var c="123";
+            //parseInt转换为整型
+            c=parseInt(c);
+        alert("a+c的和为:"+(a+c));   
+        
+        
+            var d="12.6";
+		//   d=parseInt(d);
+            //转换为浮点（小数点）类型
+            d=parseFloat(d);
+        alert("a+d的和为:"+(a+d));  
+         
+         
+    //隐式转换
+        var studentName=123;
+        //1.字符串拼接，字符串+,把后面自动转换成字符串类型进行拼接
+        console.log(typeof ("234"+studentName));
+        console.log("234"+studentName);
+        //2.在字符串前加＋／—，相当于对字符串取正负操作，会自动转换为number类型
+        console.log(+"234"+studentName);
+        console.log(-"234"+studentName);
+        console.log(studentName+(+"234"));
+         
+           
+         
+			
+			
+		</script>
+	</body>
+</html>

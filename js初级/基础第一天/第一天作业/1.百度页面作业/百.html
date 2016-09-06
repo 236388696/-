@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		.top{
+			width: 500px;
+			height: 250px;
+			float: right;
+			overflow: hidden;
+		}
+			.top a{
+                color: black;
+				float: left;
+				margin-right: 15px;
+			}
+			.gengduo{
+				width: 60px;
+				height: 20px;
+				border: 1px solid gainsboro;
+				background-color:dodgerblue;
+				color: white;
+				position: absolute;
+				right:20px;
+				top: 10px;
+				margin-right: 15px;
+				
+			}
+			.logo{
+				position: absolute;
+				top:200px;
+				left: 600px;
+			}
+			.kuang{
+				position: absolute;
+				top: 400px;
+				left: 600px;
+			}
+			.type{
+				width: 600px;
+				height: 36px;
+			}
+			.baidu{
+				width: 100px;
+				height: 40px;
+				background-color: dodgerblue;
+				color: white;
+			}
+			.bottom{
+				position: absolute;
+				top: 700px;
+				left: 600px;
+			}
+			.all{
+				width: 80px;
+				height: 120px;
+				text-align: center;
+				position: absolute;
+				top: 8px;
+				right: 80px;
+				
+			}
+			#box{
+				width: 80px;
+				height:140px;
+				border: 1px solid gray;
+				/*display:none;*/
+			}
+			#box a{
+				text-decoration: none;
+				color: black;
+			}
+			#box p{
+				height: 18px;
+				line-height: 18px;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="top">
+			<a href="###">糯米</a>
+			<a href="###">新闻</a>
+			<a href="###">hao123</a>
+			<a href="###">地图</a>
+			<a href="###">视频</a>
+			<a href="###">贴吧</a>
+			<a class="shezhi" href="###">登录</a>
+			<div id="all" class="all">
+		        <a id="setting" href="###">设置</a>
+		        <div id="box">
+		         	<p><a href="###">搜索</a></p>
+		         	<p><a href="###">高级</a></p>
+		         	<p><a href="###">关闭</a></p>
+		         	<p><a href="###">历史</a></p>
+		        </div>
+		    </div>
+			<input class="gengduo" type="submit" value="更多产品"/>
+		</div>
+		<div class="center">
+			<div class="logo"><img src="百度.png"/></div>
+			<div class="kuang">
+			    <input class="type" type="type" name="k" id="" value="" /><input class="baidu" type="submit" name="" id="" value="百度一下" />
+			</div>
+		</div>
+		<div class="bottom">
+			<img src="百度底部.png" alt="" />
+		</div>
+		<script type="text/javascript">
+          	var setting =document.getElementById("setting");
+		    var box=document.getElementById("box");
+		    var ps=document.getElementsByTagName("p");
+            var ass=document.querySelectorAll("#box a");
+            var all=document.getElementById("all");
+
+			all.onmouseover = function(){
+           	   box.style.display="block";
+           }
+            all.onmouseout = function(){
+              	box.style.display="none";
+           }
+            ps[0].onmouseover=function(){
+           	ps[0].style.backgroundColor="skyblue";
+           	ass[0].style.color="white";
+           }
+           ps[0].onmouseout=function(){
+           	ps[0].style.backgroundColor="";
+           	ps[0].style.Color="";
+           }
+           ps[1].onmouseover=function(){
+           	ps[1].style.backgroundColor="skyblue";
+           	ass[1].style.color="white";
+           }
+           ps[1].onmouseout=function(){
+           	ps[1].style.backgroundColor="";
+           	ps[1].style.Color="";
+           }
+           ps[2].onmouseover=function(){
+           	ps[2].style.backgroundColor="skyblue";
+           	ass[2].style.color="white";
+           }
+           ps[2].onmouseout=function(){
+           	ps[2].style.backgroundColor="";
+           	ps[2].style.Color="";
+           }
+           ps[3].onmouseover=function(){
+           	ps[3].style.backgroundColor="skyblue";
+           	ass[3].style.color="white";
+           }
+           ps[3].onmouseout=function(){
+           	ps[3].style.backgroundColor="";
+           	ps[3].style.Color="";
+           }
+			
+		</script>
+	</body>
+</html>

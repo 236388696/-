@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#div1{
+				width: 200px;
+				height: 200px;
+				background-color: aquamarine;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1"></div>
+		<div class="all">
+			<a href="###" >1</a>
+			<a href="###" name="ab">2</a>
+			<a href="###" name="ab">3</a>
+		</div>
+		<div class="all"></div>
+		    <a href="###">3</a>
+		<script type="text/javascript">
+	//获取单个元素：
+		    //通过id名获取元素
+			var abc=document.getElementById("div1");
+			//通过选择器获取元素:如果选择器为多个元素，则获取到首个该元素
+			var acd=document.querySelector("body #div1");
+			console.log(acd);
+			
+	//获取多个元素：
+	        //通过标签名 获取多个元素
+	        var def=document.getElementsByTagName("a");
+	        console.log(def);
+	        //通过选择器获取多个元素
+	        var fds=document.querySelectorAll(".all a");
+	        console.log(fds);
+	        //通过class属性获取多个元素
+	        var qwe=document.getElementsByClassName("all");
+	        console.log(qwe);
+	        //通过name属性获取多个元素
+	        var ww=document.getElementsByName("ab");
+	        console.log(ww);
+	        
+		</script>
+	</body>
+</html>

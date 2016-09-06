@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>引入方式</title>
+		<!--外部引入，应用场景：大型项目可维护性强-->
+		<script src="hellojs.js" type="text/javascript" charset="utf-8"></script>
+		<!--(1)内部引入的头部引入：预先加载，运行速度快(window.onload当页面加载完成之后再执行)，没有src属性-->
+		<!--<script type="text/javascript">
+			alert("hello js");
+		</script>-->
+	</head>
+	<body>
+		<!--(2)body内引入-->
+		<script type="text/javascript">
+			alert("hello body");
+		</script>
+	</body>
+</html>

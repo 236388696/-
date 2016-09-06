@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#div1{
+				width: 200px;
+				height: 200px;
+				background-color: aquamarine;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1"></div>
+		<script type="text/javascript">
+			div1=document.getElementById("div1");
+			//div1元素的点击事件
+			div1.onclick=function(){
+			   div1.style.width="300px";
+			   div1.style.height="300px";
+			   div1.style.backgroundColor="pink";
+			}
+			
+			//div1元素的鼠标移入事件
+			div1.onmouseover=function(){
+				div1.style.width="500px";
+				div1.style.height="500px";
+				div1.style.backgroundColor="orange";
+			}
+			
+			//div1元素的鼠标移出事件
+			div1.onmouseout=function(){
+				div1.style.borderRadius="100px";
+				div1.style.backgroundColor="black";
+				
+			}
+		</script>
+	</body>
+</html>
