@@ -9,11 +9,12 @@
 			height: 250px;
 			float: right;
 			overflow: hidden;
+			
 		}
 			.top a{
                 color: black;
-				float: left;
-				margin-right: 15px;
+				/*float: left;*/
+				padding: 5px;
 			}
 			.gengduo{
 				width: 60px;
@@ -22,9 +23,9 @@
 				background-color:dodgerblue;
 				color: white;
 				position: absolute;
-				right:20px;
+				right:0px;
 				top: 10px;
-				margin-right: 15px;
+				margin-right: 10px;
 				
 			}
 			.logo{
@@ -53,28 +54,38 @@
 				left: 600px;
 			}
 			.all{
-				width: 80px;
+				width: 60px;
 				height: 120px;
 				text-align: center;
 				position: absolute;
-				top: 8px;
-				right: 80px;
+				top: 7px;
+				right:100px;
 				
 			}
 			#box{
 				width: 80px;
-				height:140px;
+				height:120px;
 				border: 1px solid gray;
-				/*display:none;*/
+				display:none;
+				margin-top: 10px;
 			}
 			#box a{
 				text-decoration: none;
 				color: black;
 			}
-			#box p{
-				height: 18px;
-				line-height: 18px;
+			#box div{
+				height: 15px;
+				line-height: 15px;
+				padding-top: 15px;
 			}
+			.box2{
+				position: absolute;
+				top: 90px;
+				right: 10px;
+				display: none;
+				height: 100%;
+			}
+			
 			
 		</style>
 	</head>
@@ -86,17 +97,26 @@
 			<a href="###">地图</a>
 			<a href="###">视频</a>
 			<a href="###">贴吧</a>
-			<a class="shezhi" href="###">登录</a>
-			<div id="all" class="all">
-		        <a id="setting" href="###">设置</a>
-		        <div id="box">
-		         	<p><a href="###">搜索</a></p>
-		         	<p><a href="###">高级</a></p>
-		         	<p><a href="###">关闭</a></p>
-		         	<p><a href="###">历史</a></p>
-		        </div>
-		    </div>
+			<a href="###">登录</a>
+		</div> 	
+		<div id="all" class="all">
+	        <a id="setting" href="###">设置</a>
+	        <div id="box">
+	         	<div><a href="###">搜索设置</a></div>
+	         	<div><a href="###">高级搜索</a></div>
+	         	<div><a href="###">关闭预测</a></div>
+	         	<div><a href="###">搜索历史</a></div>
+	        </div>
+	    </div>
+		<div class="you">
 			<input class="gengduo" type="submit" value="更多产品"/>
+			<div class="box2">
+				<div class="img1"><img src="../img/1.png"/></div>
+				<div class="img1"><img src="../img/2.png"/></div>
+				<div class="img1"><img src="../img/3.png"/></div>
+				<div class="img1"><img src="../img/4.png"/></div>
+				<div class="img1"><img src="../img/5.png"/></div>
+			</div>
 		</div>
 		<div class="center">
 			<div class="logo"><img src="百度.png"/></div>
@@ -110,9 +130,12 @@
 		<script type="text/javascript">
           	var setting =document.getElementById("setting");
 		    var box=document.getElementById("box");
-		    var ps=document.getElementsByTagName("p");
+		    var ps=document.querySelectorAll("#box div");
             var ass=document.querySelectorAll("#box a");
             var all=document.getElementById("all");
+            var gengduo=document.getElementsByClassName("gengduo");
+            var box2=document.getElementsByClassName("box2");
+            
 
 			all.onmouseover = function(){
            	   box.style.display="block";
@@ -121,37 +144,59 @@
               	box.style.display="none";
            }
             ps[0].onmouseover=function(){
-           	ps[0].style.backgroundColor="skyblue";
+           	ps[0].style.backgroundColor="dodgerblue";
            	ass[0].style.color="white";
            }
            ps[0].onmouseout=function(){
            	ps[0].style.backgroundColor="";
-           	ps[0].style.Color="";
+           	ass[0].style.color="black";
            }
            ps[1].onmouseover=function(){
-           	ps[1].style.backgroundColor="skyblue";
+           	ps[1].style.backgroundColor="dodgerblue";
            	ass[1].style.color="white";
            }
            ps[1].onmouseout=function(){
            	ps[1].style.backgroundColor="";
-           	ps[1].style.Color="";
+           	ps[1].style.color="";
+           	ass[1].style.color="black";
            }
            ps[2].onmouseover=function(){
-           	ps[2].style.backgroundColor="skyblue";
+           	ps[2].style.backgroundColor="dodgerblue";
            	ass[2].style.color="white";
            }
            ps[2].onmouseout=function(){
            	ps[2].style.backgroundColor="";
-           	ps[2].style.Color="";
+           	ps[2].style.color="";
+           	ass[2].style.color="black";
            }
            ps[3].onmouseover=function(){
-           	ps[3].style.backgroundColor="skyblue";
+           	ps[3].style.backgroundColor="dodgerblue";
            	ass[3].style.color="white";
            }
            ps[3].onmouseout=function(){
            	ps[3].style.backgroundColor="";
-           	ps[3].style.Color="";
+           	ps[3].style.color="";
+           	ass[3].style.color="black";
            }
+           
+            gengduo[0].onmouseover=function(){
+           	  box2[0].style.display="block"
+           	  gengduo[0].style.color="black";
+           	  gengduo[0].style.backgroundColor="#F2F3F4";
+           	   gengduo[0].style.width="80px";
+           	   gengduo[0].style.height="80px";
+           	   
+           }
+           gengduo[0].onmouseout=function(){
+           	  box2[0].style.display="";
+           	  gengduo[0].style.display="block";
+           	  gengduo[0].style.color="white";
+           	  gengduo[0].style.backgroundColor="dodgerblue";
+           	   gengduo[0].style.width="60px";
+           	   gengduo[0].style.height="20px";
+           	 
+           }
+          
 			
 		</script>
 	</body>

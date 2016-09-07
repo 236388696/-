@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+		//多分支语句：switch和case后面可以是常量、变量、表达式:通过条件语句与case值进行全等匹配，匹配成功则执行该case后的语句，直到执行到break或结束为止，如果，所有case值都无法匹配，则执行default的语句
+		
+			var num = parseFloat(prompt());
+			switch(num) {
+				case 101:
+					alert("你好，这里是保安部");
+//					break;
+				case 202:
+					alert("你好，这里是财务部");
+					break;
+				case 303:
+				case 304:
+					alert("你好，这里是美女部");
+					break;
+				case 404:
+					alert("你好，这里是蓝鸥");
+					break;
+				default:
+					alert("你输入错了")
+                    break;
+			}
+		</script>
+	</body>
+
+</html>

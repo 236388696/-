@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		    body{
+		    	  height: 500px;
+		    }
+			.div1{
+				width: 100px;
+				height: 100px;
+				background-color: aquamarine;
+				border: 1px solid yellow;
+				border-radius:50px ;
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				margin: auto;
+			}
+			.active{
+				width: 200px;
+				height: 200px;
+				background-color: silver;
+				border-radius: 20px;
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				margin: auto;
+				transition: all 1s; 
+			}
+		</style>
+	</head>
+	<body>
+		<div class="div1"></div>
+		<script type="text/javascript">
+			var div1=document.getElementsByClassName("div1");
+			div1[0].onclick=function(){
+//				div1[0].style.width="200px";
+//				div1[0].style.height="300px";
+//				div1[0].style.borderRadius="20px";
+//				div1[0].style.backgroundColor="orange";
+                div1[0].className="active";
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#div1{
+				width: 200px;
+				height: 200px;
+				border: 1px solid indigo;
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" name="" id="" value="显示" />
+		<div id="div1"></div>
+		<script type="text/javascript">
+			var input1=document.getElementsByTagName("input");
+			var div1=document.getElementById("div1");
+//			    var cc="er";
+//			input1[0].onclick=function(){
+//				if(cc=="er"){
+//					input1[0].value="显示";
+//					div1.style.display="block";
+//					cc="ee";
+//				}else(cc=="ee"){
+//					input1[0].value="隐藏";
+//				div1.style.display="none";
+//				cc="er";
+//				}
+//			}
+			
+//          var index=0;
+//          input1[0].onclick=function(){
+//          	    index+=1;
+//          	    if(index%2==1){
+//          	    input1[0].value="隐藏";
+//          	    div1.style.display="block";
+//          	    }else{
+//          	    	input1[0].value="显示";
+//				div1.style.display="none";
+//          	    }
+//          	    
+//          	    
+//          }
+            
+//          var aa=false;
+//          		input1[0].onclick=function(){
+//				if(aa==false){
+//					input1[0].value="隐藏";
+//				div1.style.display="block";
+//				aa=true;
+//				}else{
+//					input1[0].value="显示";
+//					div1.style.display="none";
+//				    aa=false;
+//				}
+//			}
+
+
+            var index=0;
+            input1[0].onclick=function(){
+            	    if(!index){
+            	    input1[0].value="隐藏";
+            	    div1.style.display="block";
+            	    }else{
+            	    	input1[0].value="显示";
+				div1.style.display="none";
+            	    }
+            	    index=!index;
+            	    
+            }
+            
+//          div1.style[a]=b;
+
+
+
+           
+
+		</script>
+	</body>
+</html>

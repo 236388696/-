@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+//			逻辑运算符: &&与   ||或   !非	
+        //与：一假即假，同真即真(优先级第二)
+        //或：一真即真，同假即假(优先级第三)
+        //非：取反(优先级最高)
+        //优先级: 非>与>或 ,想让谁优先级最高，加括号就可以了
+       	var a=10;
+       	var b=20;
+       	var c=30;
+       	console.log(!a);
+       	console.log(!a>c);
+       	console.log(!a<c);
+//     	if(!(a>c)&&b>a){
+//     		alert("为真")
+//     	}
+       	if(a<c&&b<a||c>b){
+       		alert("为真");
+       	}
+       	
+		</script>
+	</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+		//预先加载，不执行，等页面都加载完毕，再执行
+		window.onload=function(){
+			var div1=document.getElementById("div1");
+			 alert(div1);
+			 div1.style.height="100px";
+			 div1.style.backgroundColor="skyblue";
+			 
+			var input1=document.getElementsByTagName("input");
+			input1[0].onclick=function(){
+				input1[0].value="abc";
+			}
+		}
+			
+		</script>
+	</head>
+	<body>
+		<div id="div1" class="div1"></div>
+		<input type="" name="" id="input1" value="123" />
+		
+	</body>
+</html>

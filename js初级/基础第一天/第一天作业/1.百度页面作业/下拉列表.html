@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.all{
+				width: 100px;
+				margin: 0 auto;
+				text-align: center;
+			}
+		   .box a{
+				display: inline-block;
+				width: 100%;
+				text-decoration: none;
+				color: black;
+				padding: 10px 0;
+			}
+			.boxFa{
+				padding-top: 10px;
+	            display: none;
+			}
+			.box{
+				border: 1px solid darkgray;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="all">
+			<a href="###" id="settings">设置</a>
+			<div class="boxFa" id="boxFa">
+				<div class="box">
+					<a id="a1" href="###">搜索设置</a>
+					<a id="a2"href="###">高级设置</a>
+					<a id="a3"href="###">关闭预测</a>
+					<a id="a4"href="###">搜索历史</a>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var settings=document.getElementById("settings");
+			var boxFa=document.getElementsByClassName("boxFa");
+			var as=document.querySelectorAll(".box a");
+			var a1=document.getElementById("a1");
+			var a2=document.getElementById("a2");
+			var a3=document.getElementById("a3");
+			var a4=document.getElementById("a4");
+			console.log(as);
+			settings.onmouseover=function(){
+				boxFa[0].style.display="block";
+			}
+			settings.onmouseout=function(){
+				boxFa[0].style.display="";
+			}
+			boxFa[0].onmouseover=function(){
+				boxFa[0].style.display="block";
+			}
+			boxFa[0].onmouseout=function(){
+				boxFa[0].style.display="";
+			}
+			a1.onmouseover=function(){
+				a1.style.backgroundColor="dodgerblue";
+				a1.style.color="white";
+			}
+			a1.onmouseout=function(){
+				a1.style.backgroundColor="";
+				a1.style.color="";
+			}
+			a2.onmouseover=function(){
+				a2.style.backgroundColor="dodgerblue";
+				a2.style.color="white";
+			}
+			a2.onmouseout=function(){
+				a2.style.backgroundColor="";
+				a2.style.color="";
+			}
+			a3.onmouseover=function(){
+				a3.style.backgroundColor="dodgerblue";
+				a3.style.color="white";
+			}
+			a3.onmouseout=function(){
+				a3.style.backgroundColor="";
+				a3.style.color="";
+			}
+			a4.onmouseover=function(){
+				a4.style.backgroundColor="dodgerblue";
+				a4.style.color="white";
+			}
+			a4.onmouseout=function(){
+				a4.style.backgroundColor="";
+				a4.style.color="";
+			}
+			
+			
+		</script>
+	</body>
+</html>
