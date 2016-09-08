@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<a href="###">1</a>
+		<a href="###">2</a>
+		<a href="###">3</a>
+		<a href="###">4</a>
+		<a href="###">5</a>
+		<input id="btn" type="button" value="变"/>
+		<script type="text/javascript">
+		//一下这三个标签IE8不兼容
+//			document.querySelector();
+//			document.querySelectorAll();
+//			document.getElementsByClassName();
+         var btn=document.getElementById("btn");
+         var aa=document.getElementsByTagName("a");
+         btn.onclick=function(){
+         	//遍历aa获取到的所有标签
+//       	for (var i=0;i<aa.length;i++) {
+//       		aa[i].style.backgroundColor="turquoise";
+//       		aa[i].style.width="35px";
+//       		aa[i].style.height="35px";
+//       		aa[i].style.display="inline-block";
+//       	}
+//       	
+//       }
+
+
+        for (var i=0;i<aa.length;i++) {
+        	    aa[i].onmouseover=function(){
+        	   	//this永远指向事件或函数的拥有者
+        	   	this.style.backgroundColor="yellow";
+        	   }
+        }
+
+    
+		</script>
+	</body>
+</html>

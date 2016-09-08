@@ -4,18 +4,54 @@
 		<meta charset="UTF-8">
 		<title></title>
 		<style type="text/css">
-			.div1{
-				width: 100px;
-				height: 100px;
-				background-color: orange;
-			}
+			
 		</style>
 	</head>
 	<body>
+		<select id="sel">
+			<option value="">请选择</option>
+            <option value="1">颜色</option>
+			<option value="2">宽度</option>
+			<option value="3">高度</option>
+		</select>
 		<input type="submit" name="" id="" value="显示" />
-		<div class="div1"></div>
+ 		<div id="div1" value=""></div>
 		<script type="text/javascript">
-			
-		</script>
+			var input1 = document.getElementsByTagName("input");
+			var div1 = document.getElementById("div1");
+		    var selObj = document.getElementById("sel");
+			 selObj.onchange = function() {
+				    var aa = prompt();
+			 		console.log(this.value);
+			 		console.log(aa);
+
+					switch (this.value) {
+			 			case '1':
+			 				div1.style.backgroundColor = aa;
+
+			 				break;
+			 			case '2':
+			 				div1.style.width = aa + "px";
+
+							break;
+			 			case '3':
+							div1.style.height = aa + "px";
+
+			 				break;
+			 		}
+
+			 	}
+				input1[0].onclick=function(){
+					var aa=prompt();
+				    var bb=prompt();
+				    var cc=prompt();
+					div1.style.backgroundColor=aa;
+					div1.style.width=bb+"px";
+					div1.style.height=cc+"px";
+					div1.style.display="block";
+				}
+
+			</script>
+		
 	</body>
 </html>

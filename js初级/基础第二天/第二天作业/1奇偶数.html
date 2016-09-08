@@ -7,15 +7,19 @@
 	<body>
 		<script type="text/javascript">
 //		2。 给定一个整数, 判断奇偶, 并alert“ 某某是奇数” 或者“ 某某是偶数”. 
-//			var a=prompt();
-//				if(a%2==0){
-//					alert("a是偶数")
-//				}else{
-//					alert("a是奇数");
-//				}
-//				
-
-			
+			var a=prompt();
+	        a=Number(a);
+	        if(isNaN(a)){
+	        	    alert("这不是一个数");
+	        	 }else{
+	        	 	if(a%2==0){
+					alert("a是偶数")
+				}else{
+					alert("a是奇数");
+				}
+	        	 } 
+	        	 
+	       
 	
 
 //3。 给定一个数字, 判断符号。 如果大于 0, 输出“ 正数”;如果小于0输 出“ 负数”;如果等于 0, 输出“ 0”.			
@@ -70,17 +74,25 @@
 
 //8。 给定三个数, alert出中间值(即第二大值)
           var a=8;
-          var b=4;
+          var b=12;
           var c=6;
         if(a>b&&a<c){
           alert("a是中间值")         	
-        }
-        else if(b<c&&a<b){
+        }else if(b<c&&a<b){
         	   alert("b是中间值")
+        }else {
+             	alert("c是中间值")
         }
-        else if(a>c&&b<c){
-        	   alert("c是中间值");
-        }
+        	   
+        
+
+//       if(a>c&&a<b||a<c&&a>b){
+//       	alert(a);
+//       }else if(b>c&&b<a||b<c&&b>a){
+//       	alert(b);
+//       }else{
+//       	alert(c);
+//       }
           
 			
 			

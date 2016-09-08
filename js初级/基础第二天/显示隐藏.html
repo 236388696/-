@@ -59,18 +59,34 @@
 //			}
 
 
-            var index=0;
-            input1[0].onclick=function(){
-            	    if(!index){
-            	    input1[0].value="隐藏";
-            	    div1.style.display="block";
-            	    }else{
-            	    	input1[0].value="显示";
+//          var index=0;
+//          input1[0].onclick=function(){
+//          	    if(!index){
+//          	    input1[0].value="隐藏";
+//          	    div1.style.display="block";
+//          	    }else{
+//          	    	input1[0].value="显示";
+//				div1.style.display="none";
+//          	    }
+//          	    index=!index;
+//          	    
+//          }
+
+
+
+	
+			var aa=false;
+			input1[0].onclick=function(){
+				if(!aa){
+				input1[0].value="隐藏";
+				div1.style.display="block";
+				}else{
+				input1[0].value="显示";
 				div1.style.display="none";
-            	    }
-            	    index=!index;
-            	    
-            }
+				 
+				}
+				aa=!aa;	
+			}
             
 //          div1.style[a]=b;
 

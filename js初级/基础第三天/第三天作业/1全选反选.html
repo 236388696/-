@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="checkbox" class="xuan"/>
+		<input type="button" name="btn1" id="btn1" value="全选" />
+		<input type="button" id="btn2" value="反选" />
+		<input type="checkbox" class="xuanze"/>
+		<input type="checkbox" class="xuanze"/>
+		<input type="checkbox" class="xuanze"/>
+		<input type="checkbox" class="xuanze"/>
+		<input type="checkbox" class="xuanze"/>
+		<input type="checkbox" class="xuanze"/>
+		<script type="text/javascript">
+			var btn1=document.getElementById("btn1");
+			var btn2=document.getElementById("btn2");
+			var xuan=document.getElementsByClassName("xuan");
+			var xuanze=document.getElementsByClassName("xuanze");
+			btn2.onclick=function(){
+				for (var i=0;i<xuanze.length;i++) {
+//					xuanze[i].checked=true;
+					if(xuanze[i].checked==true){
+						xuanze[i].checked=false;
+					}else if(xuanze[i].checked==false){
+						xuanze[i].checked=true;
+					}
+				}
+			}
+			btn1.onclick=function(){
+				for (var i=0;i<xuanze.length;i++) {
+					xuanze[i].checked=true;
+					xuan[0].checked=true;
+					
+				}
+			}
+			
+		</script>
+		
+	</body>
+</html>
