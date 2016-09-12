@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			var arr = [4, 8, 22, 13, 6, 1];
+
+			//			  i j<   length=6;
+			//			  0 5
+			//			  1 4
+			//			  2 3
+			//			  3 2
+			//			  2 1
+			//			  
+			for(var i = 0; i < arr.length - 1; i++) {
+				for(var j = 0; j < arr.length - i - 1; j++) {
+					if(arr[j] > arr[j + 1]) {
+						var num = arr[j];
+						arr[j] = arr[j + 1];
+						arr[j + 1] = num;
+					}
+				}
+			}
+			console.log(arr);
+		</script>
+	</body>
+
+</html>

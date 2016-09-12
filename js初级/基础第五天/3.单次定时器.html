@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" name="" id="btn" value="" />
+		<script type="text/javascript">
+//		单次定时器:
+//		    1.定时器执行函数
+//          2.定时器执行时间
+        
+		var timer=setTimeout(function(){
+				alert("起床");
+			},1000);
+		var btn=document.getElementById("btn");
+		btn.onclick=function(){
+			//清除单次定时器
+			clearInterval(timer);
+		}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div id="all">
+			<input id="inputAll" type="checkbox" />
+			<input type="button" id="btn1" value="全选" />
+			<input type="button" id="btn2" value="反选" />
+			<input type="checkbox" class="inputs" />
+			<input type="checkbox" class="inputs" />
+			<input type="checkbox" class="inputs" />
+			<input type="checkbox" class="inputs" />
+			<input type="checkbox" class="inputs" />
+			<input type="checkbox" class="inputs" />
+		</div>
+		<script type="text/javascript">
+			var inputAll = document.getElementById("inputAll");
+			var btn1 = document.getElementById("btn1");
+			var btn2 = document.getElementById("btn2");
+			var inputs = document.getElementsByClassName("inputs");
+			var all = document.getElementById("all");
+			btn1.onclick = function() {
+				for(var i = 0; i < inputs.length;i++) {
+					inputs[i].checked = true;
+				}
+			}
+			btn2.onclick = function() {
+					for(var i = 0; i < inputs.length; i++) {
+						inputs[i].checked = !inputs[i].checked;
+					}
+				}
+				//计数器
+			//计数器，储存为true的数量	
+			var trueCount = 0;
+			//当点击任何东西的时候,都需要进行一次判断,判断checked为true的个数
+			all.onclick = function() {
+				//遍历inputs
+				for(var i = 0; i < inputs.length; i++) {
+					//每有一个属性为true的inputs,计数器+1;
+					if(inputs[i].checked == true) {
+						trueCount++; //trueCount+=1;
+					}
+					//判断计数器的值是够等于所有inputs的数量，相等即checked都为true;不等即有不为true;让全选checked做相应改变
+					if(trueCount === inputs.length) {
+						//							alert("亮");
+						inputAll.checked = true;
+					} else {
+						inputAll.checked = false;
+					}
+				}
+				//每次计算完毕，都要把计数器清0，才能下次计算
+				trueCount = 0;
+			}
+		</script>
+	</body>
+
+</html>

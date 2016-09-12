@@ -6,13 +6,11 @@
 	</head>
 	<body>
 		<script type="text/javascript">
-		//三目运算符
-		    var b=15;
-		    var c=10;
-			// var a=c>b?c-b:b-c;
-            var a=c>b?c-b:c==b?"相等":b-c;
-			alert(a);
-			　
+		eval():将字符串 变成可执行代码(去掉双引号)
+			var a="alert('lsx')";
+//			eval(a);
+			var b="2+3";
+			alert(eval(b));
 		</script>
 	</body>
 </html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var arr=new Array(1,"q",3,8,7,12,45);
+			//push：在数组最后插入元素，可插入多个元素
+			arr.push(123,5);
+			
+			//unshift:在数组前面插入元素，可插入多个元素
+			arr.unshift("asd",22);
+			
+			//pop：弹出数组最后一个元素，可用变量接收弹出元素
+//			arr.pop();
+//			var aaa=arr.pop();
+//			alert(aaa);
+			
+			
+			//shift:弹出数组第一个元素，可用变量接收弹出元素
+//			var bbb=arr.shift();
+
+
+            //splice:删除元素；
+            //第一个参数代表从哪个位置开始删除,第二个代表删掉多少个数元素(默认删完为止)
+//          arr.splice(3,2);
+            
+            //第一个参数代表从哪个位置开始删除，第二个代表删掉多少盒数组元素，第三个代表代表从第一个参数位置插入元素
+            arr.splice(0,2,58,45);
+            console.log(arr);
+
+
+
+            var arr2=[1,2,3,4,"w"];
+//          concat数组拼接：将两个数组拼接成一个新的数组
+            var arr3=arr.concat(arr2,"wer");
+            var arr4=["egre"];
+            var arr4=arr4.concat(arr2,arr4);
+//          join:把数组元素以字符隔开,返回值为字符串
+            var arrstr=arr.join("二天")
+            
+            console.log(arrstr);
+            
+			
+			
+		</script>
+	</body>
+</html>

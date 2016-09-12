@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="div1">10</div>
+		<script type="text/javascript">
+//		循环定时器:
+//		1.定时器执行函数
+//		2.定时器执行时间间隔
+		
+//		var count=3;
+//			var timer=setInterval(function(){
+//				count--;
+//				if(count<0){
+//					清除定时器:
+//					clearInterval(timer);
+//				}else{
+//					alert("起来了");
+//				}
+//				
+//			},3000);
+//			
+			
+			
+//			var count=3;
+//			var timer= setInterval(function(){
+//				if(count<=0){
+////					清除定时器
+//					clearInterval(timer);
+//				}else{
+//					alert("起来了");
+//				}
+//				count--;
+//			},3000);
+
+
+//      var div1=document.getElementById("div1");
+//    	var count=10;
+//		var timer=setInterval(function(){
+//				count--;
+//				if(count<0){
+//					div1.innerHTML="baozha";
+////					清除定时器
+//					clearInterval(timer);
+//				}else{
+//				div1.innerHTML=count;	
+//				}
+//			},1000);
+			
+			
+			var div1=document.getElementById("div1");
+      	var count=10;
+		var timer=setInterval(function(){
+				count=count-0.01;
+				if(count<0){
+					div1.innerHTML="baozha";
+//					清除定时器
+					clearInterval(timer);
+				}else{
+				div1.innerHTML=count.toFixed(2);	
+				}
+			},1000);
+			
+		</script>
+	</body>
+</html>

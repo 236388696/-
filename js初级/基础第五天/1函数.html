@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+	    //	函数定义: 封装起来可重复使用的代码块
+	    //  声明函数的关键字：function
+	    //  函数的组成：
+//	        			关键字function  函数名字  (参数){
+//	        				可重复执行的特定功能代码块
+//                       返回值return
+//	        			}
+
+
+        
+ //声明函数的第一种方式：无参数无返回值
+        function sayHello(){
+       	    alert("hello world");
+        }
+        //函数调用：函数名(参数)；
+        sayHello();
+        
+        
+ //声明函数的第二种方法：有参数无返回值
+        function sayHello2(name){
+        		console.log("hello world,I'm"+name);
+        }
+        var a="氯气";
+        sayHello2(a);
+        
+        
+        //输出两个数的最大值：
+        function aNum(min,max){
+       		console.log(min>max?min:max)
+        }
+        aNum(7,12);
+        
+//声明函数的第三种方法：无参数无返回值
+        function index(){
+        	    var a=3;
+        	    var b=4;
+        		return a>b?a:b;
+        }
+        console.log(index());
+        
+        
+//声明函数的第四种方法：有参数有返回值
+        function addNum(num1,num2){
+        	 	return num1+num2;
+        }
+        console.log(addNum(4,54));
+        
+        
+   
+    function chu(num1,num2){
+//  	isNaN判断是否为数字,是数字返回false,不是数字返回true;
+    	if(isNaN(num1)||isNaN(num2)||num2===0){
+    		return "错误";
+    		  	
+    	}else{
+    		return num1/num2;
+    	}
+    }
+    console.log(chu(4,0));
+
+  
+  
+    function cheng(num1,num2){
+    	return num1*num2;
+    }
+    console.log(cheng(2,5));
+    
+    
+    
+    function jian(num1,num2){
+    	return num1%num2;
+    }
+    console.log (jian(-5,-3));
+  
+		</script>
+	</body>
+</html>

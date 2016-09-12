@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+//			声明数组:new可以省略不写
+
+//			(1)使用Array构造函数进行声明
+           //声明一个数组
+			var arr=new Array();
+			
+			//声明一个长度为5的数组
+			var arr2=new Array(5);
+			
+			//声明了一个数组元素为1，2，3，4，8，9的数组
+//			var arr3=new Array(1,2,3,4,8,9);''
+            var arr3=new Array("饿","a","d");
+			console.log(arr3[0]);
+			
+			
+//			(2)使用数组字面量表示
+            //空数字
+             var arr5=[];
+             //声明数组元素为"e","r","d",1,2的数组
+             var arr6=["e","r",3,5,2,"d",1,2];
+             console.log(arr6);
+             
+             //数组取值和赋值
+             //取值：数组de下标/地址是从0开始的。
+             //数组最后一个元素的地址为"数组长度－1"；
+             var a =arr6[0];
+             console.log(a);
+             
+             //赋值
+             arr6[0]="123";
+             console.log(arr6);
+			
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div {
+				width: 200px;
+				height: 200px;
+				background-color: #ccc;
+				font-size: 100px;
+				text-align: center;
+				line-height: 200px;
+				display: none;
+			}
+			
+			.show {
+				display: block;
+			}
+			
+			.current {
+				background-color: skyblue;
+			}
+		</style>
+	</head>
+
+	<body>
+		<input name="0" class="current" type="button" value="A" />
+		<input name="1" type="button" value="B" />
+		<input name="2" type="button" value="C" />
+		<div  class="show">A</div>
+		<div>B</div>
+		<div>C</div>
+		
+
+		<script type="text/javascript">
+			var btn = document.getElementsByTagName("input");
+			var div1 = document.getElementsByTagName("div");
+		
+			for(var i = 0; i < btn.length; i++) {
+				btn[i].onclick = function() {
+					for(var j = 0; j < btn.length; j++) {
+						btn[j].className = "";
+						div1[j].className = "";
+						if(btn[j] == this) {
+							btn[j].className = "current";
+							div1[j].className = "show";
+//							div1[j].innerHTML="<p>"+25236+"</p>";
+			
+						}
+					}
+				}
+				
+			}
+			
+			
+			
+			
+//			for(var i = 0; i < btn.length; i++){
+//			btn[i].abc = i;
+//			btn[i].onclick = function(){
+//				for(var j = 0; j < btn.length; j++){
+//					btn[j].className = "";
+//					div1[j].className = "";
+//				}
+//				this.className = "current";
+//				div1[this.abc].className = "show";
+//			}
+//		}
+        
+        //给每一个btn添加点击事件
+//      for (var i=0;i<btn.length;i++) {
+//      	    btn[i].onclick=function(){
+//      	    	    for (var j=0;j<btn.length;j++) {
+//      	    	    		btn[j].className="";
+//      	    	    		div1[j].className="";
+//      	    	    }
+//      	    		this.className="current";
+//      	    		div1[this.name].className="show";
+//      	    }
+//      } 
+
+
+
+//      for (var i=0;i<btn.length;i++) {
+//      	    btn[i].onclick=function(){
+//      	    	    for (var j=0;j<btn.length;j++) {
+//      	    	    		btn[j].className="";
+//      	    	    		div1[j].className="";
+//      	    	    		if(this==btn[j]){
+//      	    	    			btn[j].className="current";
+//      	    	    			div1[j].className="show";
+//      	    	    		}
+//      	    	    }
+//      	    		div1[this.name].className="show";
+//      	    }
+//      } 
+        
+			
+		</script>
+	</body>
+
+</html>

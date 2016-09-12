@@ -3,14 +3,24 @@
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
+		<style type="text/css">
+			div{
+				display: inline-block;
+				padding: 10px;
+				border: 1px solid white;
+				background-color: #000000;
+				color: white;
+				
+			}
+		</style>
 	</head>
 	<body>
-		<div class="div1"></div>
 	</body>
 	  <script type="text/javascript">
 	  	  for (var i=1;i<10;i++) {
-	  	  	for (var j=1;j<10;j++) {
-	  	  	document.write(i+"*"+j+"="+i*j);	
+	  	  	for (var j=1;j<=i;j++) {
+	  	  	document.write("<div>"+i+"*"+j+"="+i*j+"</div>");	
+//          document.write(i+"*"+j+"="+i*j);
 	  	  	}
 	  	  	document.write("</br>");
 	  	  }

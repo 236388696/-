@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		
+         var arr=new Array();
+//
+//  while (arr.length <= 7) {
+//  	var rand = Math.floor(Math.random() * 36)
+//  	if(arr.indexOf(rand)==-1){
+//  		  arr.push(rand);
+//
+//  	}
+//
+//  }
+//	console.log(arr);
+
+    while (arr.length !=6) {
+		var rand = Math.floor(Math.random() * 36)
+		var temp = true;
+		for (var i =0; i< arr.length ;  i++) {
+			if(rand==arr[i]){
+		       temp = false;
+		       break;
+    			}
+    		}
+	    	if(temp){
+	    		arr.push(rand);
+	    	}
+  
+    }
+console.log(arr)
+             
+             
+             
+		</script>
+	</body>
+</html>
+
+
+
