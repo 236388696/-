@@ -8,27 +8,30 @@
 		<script type="text/javascript">
 		//3个数取中间值的函数
 //			function maxnum(num1,num2,num3){
-//				
-//				return (num1+num2+num3)-(num1>num2&&num1>num3?num1:num2>num3?num2:num3)-;
+////				return (num1+num2+num3)-(num1>num2&&num1>num3?num1:num2>num3?num2:num3)-(num1<num2&&num1<num3?num1:num2<num3?num2:num3);
+//         
 //			}
-//			console.log(maxnum(5,6,7));
+//			console.log(maxnum(1,20,7));
+
+            function(a,b,c){
+            	return num=a>b?(b>c?b:(a<c?a:c)):(b<c?b:(a<c?a:c));
+            }
+            console.log(20,6,5);
+
+
 			
 			
-		//从1到n的和的函数
-		
-			var sum=0;
+//		//从1到n的和的函数
+		var sum=0;
 			function add(n){
 				for (var i=1;i<=n;i++) {
-					
-					sum=sum+i;
-					console.log(sum);
-					return n+sum;
-					console.log(sum);
-					
+//					console.log(sum);
+					sum+=i;
+//					console.log(sum);
 				}
+				return sum;
 			}
-			
-//			console.log(add(10));
+			console.log(add(15));
 		</script>
 	</body>
 </html>

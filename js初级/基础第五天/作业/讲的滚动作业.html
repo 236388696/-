@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	<input type="button" name="btn" id="btn" value="再来一注" />
+	<div id="div1"></div>
+	<script type="text/javascript">
+		function getID(id){
+			return document.getElementById(id);
+		}
+		function rand(min,max){
+			return Math.floor(Math.random()*(max+1-min)+min);
+		}
+		var btn = getID("btn");
+		var div1 = getID("div1");
+		var timer = null;
+		
+		rollAni();
+		btn.onclick = function (){
+			rollAni();
+		}
+		
+//		随机彩票
+		function rand_caipiao(){
+			var arr = [];
+			while(arr.length != 7){
+				var randNum = rand(1,35);
+				if(arr.indexOf(randNum) == -1){
+					arr.push(randNum);
+				}
+			}
+			return arr;
+		}
+//		滚动动画
+		function rollAni(){
+			var times = 100;
+			clearInterval(timer);
+			timer = setInterval(function(){
+				if(times <= 0){
+					clearInterval(timer);
+				}else{
+					div1.innerHTML = rand_caipiao();
+				}
+				times--;
+			},10);
+		}
+	</script>
+</body>
+</html>

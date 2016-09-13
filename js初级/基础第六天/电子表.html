@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				background-color: black;
+			}
+			div{
+				font-size: 30px;
+				color: white;
+				margin-top:25%;
+				margin-left: 25%;
+			}
+		</style>
+		
+	</head>
+	<body>
+		<div id="div1"></div>
+		<script type="text/javascript">
+		
+		var div1=document.getElementById("div1");
+		
+			
+			var timer = setInterval(function(){
+				var newDate=new Date();
+				
+				var year=newDate.getFullYear();
+				var month=newDate.getMonth()+1;
+				var day=newDate.getDay();
+				var hours=newDate.getHours();
+				var min=newDate.getMinutes();
+				var sec=newDate.getSeconds();
+				div1.innerHTML=year+"年"  +month+"月"+  day +"日"+  hours +"时"+  min+"分"+ sec +"秒";
+			},1000);
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div id="div1"></div>
+		<input type="button" name="input1" id="input1" value="来一注" />
+		<script type="text/javascript">
+			var input1 = document.getElementById("input1");
+			var div1 = document.getElementById("div1");
+			var arr = new Array();
+			var timer = null;
+			input1.onclick = function() {
+				var num = 0;
+				clearInterval(timer);
+				var timer = setInterval(function() {
+					arr = [];
+					var child = "";
+					while(arr.length != 6) {
+						var rand = Math.floor(Math.random() * 36)
+						var temp = true;
+						for(var i = 0; i < arr.length; i++) {
+							if(rand == arr[i]) {
+								temp = false;
+								break;
+							}
+						}
+						if(temp) {
+							arr.push(rand);
+							child += "<span>" + rand + "</span>   ";
+
+						}
+					}
+					div1.innerHTML = child;
+					num++;
+					if(num == 10) {
+						clearInterval(timer);
+					}
+				}, 100);
+			}
+		</script>
+	</body>
+
+</html>

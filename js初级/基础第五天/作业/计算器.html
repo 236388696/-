@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	<input id="screen" type="text" value="0"/>
+	<input id="clear" type="button" value="C" />
+	<br />
+	<input class="nums" type="button" value="0" />
+	<input class="nums" type="button" value="1" />
+	<input class="nums" type="button" value="2"/>
+	<input class="nums" type="button" value="3" />
+	<input class="nums" type="button" value="4"/>
+	<br />
+	<input class="nums" type="button" value="5"/>
+	<input class="nums" type="button" value="6"/>
+	<input class="nums" type="button" value="7"/>
+	<input class="nums" type="button" value="8"/>
+	<input class="nums" type="button" value="9"/>
+	<br />
+	<input class="symbols" type="button" value="+"/>
+	<input class="symbols" type="button" value="-"/>
+	<input class="symbols" type="button" value="*"/>
+	<input class="symbols" type="button" value="/"/>
+	<input class="symbols" type="button" value="%"/>
+	
+	<input id="result" type="button" value="="/>
+	<script type="text/javascript">
+		function getID(id){
+			return document.getElementById(id);
+		}
+		function getCN(className){
+			return document.getElementsByClassName(className);
+		}
+		//计算器屏幕
+		var myScreen = getID("screen");
+		//清除按钮
+		var myClear = getID("clear");
+		//等于号按钮
+		var myResult = getID("result");
+		
+		//所有的数字按钮
+		var nums = getCN("nums");
+		//所有的运算符按钮
+		var symbols = getCN("symbols");
+		
+		//用来保存第一个数
+		var num1 = 0;
+		//用来保存点击哪个运算符
+		var mySymbol = "";
+		//用来保存第二个数
+		var num2 = 0;
+		//用来存储第几次点击等于号
+		var clickCount = 0;
+		//用来判断有没有点击过运算符
+		var isSymbols = false;
+		
+		//点击清除按钮
+		myClear.onclick = function(){
+			myScreen.value = 0;
+			clickCount=0;
+			isSymbols=false;
+		}
+		
+		//遍历所有的数字按钮
+		for(var i = 0; i < nums.length; i++){
+			//给每个数字添加点击事件
+			nums[i].onclick = function(){
+				if(isSymbols){
+					myScreen.value = this.value;
+					//把第二次点击过变为false
+					isSymbols = false;
+				}
+				
+				//点击数字时，如果屏幕是0 或者 是点击过运算符的话
+				else if(myScreen.value == 0){
+					//新输入的数字值，覆盖屏幕值
+					myScreen.value = this.value;
+				}else{
+					//否则，屏幕值进行拼接
+					myScreen.value += this.value;
+				}
+				//每次点击数字，都保存一次num2；
+				num2=myScreen.value;
+				clickCount=0;
+//				console.log(num2);
+			}
+		}
+		
+		//遍历所有的运算符
+		for(var i = 0; i < symbols.length; i++){
+			//给每个运算符加一个点击事件
+			symbols[i].onclick = function(){
+				//保存当前屏幕的value值给第一个数
+				num1 = myScreen.value;
+				//保存当前点击的运算符
+				mySymbol = this.value;
+				//告诉计算器，我已经点击过了运算符
+				isSymbols = true;
+			}
+		}
+	
+		//点击等于号
+		myResult.onclick = function(){
+			
+			//每点击一次进行一次＋＋
+			clickCount++;
+			myScreen.value = eval(num1 + mySymbol +num2*clickCount);
+		}
+	</script>
+</body>
+</html>
