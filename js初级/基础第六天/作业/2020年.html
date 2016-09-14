@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	<div id="div1"></div>
+	<script type="text/javascript">
+		var div1 = document.getElementById("div1");
+		function juli(){
+			var nowTime = new Date();
+			var weilai = new Date(2020,1,1);
+			var chaTime = weilai.getTime() - nowTime.getTime();
+			chaTime = chaTime / 1000;
+			var day = Math.floor(chaTime / (3600*24));
+			chaTime = chaTime % (3600*24);
+			var hour = Math.floor(chaTime / 3600);
+			chaTime = chaTime % 3600;
+			var min = Math.floor(chaTime / 60);
+			var second = Math.floor(chaTime % 60);
+			
+			div1.innerHTML = "距离2020年还差"+day+"天"+hour+"时"+min+"分"+second+"秒";
+		
+		}
+		juli();
+		var timer = setInterval(function(){
+			juli();
+		},1000);
+	</script>
+</body>
+</html>
