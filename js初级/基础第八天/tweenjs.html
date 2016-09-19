@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#div1{
+				width: 100px;
+				height: 100px;
+				background-color: aquamarine;
+			}
+		</style>
+		<script src="js/tween.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="div1"></div>
+		<script type="text/javascript">
+			var div1=document.getElementById("div1");
+			
+			//当前步数
+			var t=0;
+			
+			//动画运行的起点：初始状态
+			var b=div1.offsetWidth;
+			
+		
+			var endPos=300;//终点
+			//动画运动的变化量(终点－起点)
+			var c=endPos-b;
+			
+			//到达终点的总步数
+			var d=100;
+			
+			var timer=setInterval(function(){
+				if(t>=d){
+					
+					clearInterval(timer);
+				}else{
+					t++;
+					div1.style.width=Tween.Back.easeInOut(t,b,c,d)+"px";
+				}
+			},10);
+			
+		</script>
+	</body>
+</html>

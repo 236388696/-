@@ -8,50 +8,37 @@
 
 	<body>
 		<script type="text/javascript">
+			//输出数 求几位数
+			//		function re(num){
+			//			var count=1;
+			//			while(num>=10){
+			//				num=Math.floor(num/10);
+			//				count++;
+			//			}
+			//			return count;
+			//		}
+			//		alert(re(50));
+
+
+
+
+
 			//闰年：可以被4整除但不能被100整除，或者能被400整除
-
-			function run(year, month, day) {
-				//				if((year % 4 == 0 && year % 100 != 0)||(year%400==0)){
-				swtich((year % 4 == 0) && year % 100 != 0 || (year % 400 == 0)) {
-						case 1:
-							sum = 0;
-							break;
-							case 2:
-								sum = 31;
-							break;
-							case 3: sum = 59;
-							break;
-							case 4: sum = 90;
-							break;
-							case 5: sum = 120;
-							break;
-						case 6:
-							sum = 151;
-							break;
-							case 7: sum = 181;
-							break;
-						case 8:
-							sum = 212;
-							break;
-						case 9:
-							sum = 243;
-							break;
-						case 10:
-							sum = 273;
-							break;
-							case11: sum = 304;
-							break;
-							case12: sum = 334;
-							break;
-							return sum;
-						default:
-							console.log("平年");
-							break;
-					}
-					//				}
-
+			function whatDays(year, month, day) {
+				var monthArr = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+				var resultDays = 0;
+				//闰年
+				if((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {
+					monthArr[1] = 29;
+				}
+				for(var i = 0; i < month - 1; i++) {
+					resultDays += monthArr[i];
+				}
+				return resultDays + day;
 			}
-			console.log(run(2010, 1, 20));
+			alert(whatDays(2016, 3, 10));
+			
+			.
 		</script>
 	</body>
 

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#div1{
+				width: 100px;
+				height: 100px;
+				background-color: thistle;
+				border: 2px solid greenyellow;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1"></div>
+		<script type="text/javascript">
+		    var div1=document.getElementById("div1");
+		    var timer=null;
+		    var speed=11;
+			div1.onclick=function(){
+//				console.log(div1.style.width);只可更改不可以读(获取不到)
+				clearInterval(timer);
+				timer=setInterval(function(){
+					console.log(div1.offsetWidth);
+					if(div1.offsetWidth>=500){
+						div1.style.width="300px";
+						clearInterval(timer);
+					}else{
+						var w=div1.offsetWidth+speed;
+						//offsetWidth:只可以获取，不可以写
+						div1.style.width=w+"px";
+						//div1.style.width可以写，获取不到
+					}
+				},100);
+			}
+			//offsetWidth:获取元素可见宽度(width+padding+border),可读不可以写
+			console.log(div1.offsetWidth);
+			
+			//clienWidth:获取元素内容宽度(width+padding);
+			console.log(div1.clientWidth);
+			
+			//想控制动画的运动速率：(1)循环定时器时间(越小动画运动越圆滑)  (2)运动速度speed(越大越快，控制动画快慢) 
+			//定时器定义全局变量，先清除再使用
+ 		</script>
+	</body>
+</html>

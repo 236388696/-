@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+			margin: 0;
+			padding: 0;
+		}
+		#all{
+			width: 800px;
+			height: 600px;
+			border: 2px solid tomato;
+		}
+		#div1{
+			width: 50px;
+			height: 50px;
+			background-color: aquamarine;
+			position: absolute;
+		}
+		
+		</style>
+		
+	</head>
+	<body>
+		<div id="all">
+			<div id="div1"></div>
+		</div>
+		<script type="text/javascript">
+			var alls=document.getElementById("all");
+			var div1=document.getElementById("div1");
+			var maxwidth=alls.clientWidth-div1.offsetWidth;
+			var maxheight=alls.clientHeight-div1.offsetHeight;
+			var timer=null;
+			var wi=true;
+			var he=true;
+			var speed=10;
+			console.log(maxwidth);
+			timer=setInterval(function(){
+  				if(div1.offsetLeft<maxwidth&&wi==true){
+  					div1.style.left=div1.offsetLeft+speed+"px";
+  					
+				}else {
+					wi=false;
+					div1.style.left=div1.offsetLeft-speed+"px";
+					if(div1.offsetLeft<=0){
+						wi=true;
+					}
+				}
+				
+				if(div1.offsetTop<maxheight&&he==true){
+  					div1.style.top=div1.offsetTop+speed+"px";
+  					
+				}else {
+					he=false;
+					div1.style.top=div1.offsetTop-speed+"px";
+					if(div1.offsetTop<=0){
+						he=true;
+					}
+				}
+
+				
+			},40);
+			
+  				
+		
+		
+	
+			
+		
+			
+		</script>
+	</body>
+</html>

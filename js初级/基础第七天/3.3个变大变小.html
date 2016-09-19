@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#div1{
+				width: 100px;
+				height: 100px;
+				background-color: turquoise;
+			}
+			#div2{
+				width: 100px;
+				height: 100px;
+				background-color: lightgray;
+			}
+			#div3{
+				width: 100px;
+				height: 100px;
+				background-color: thistle;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1"></div>
+		<div id="div2"></div>
+		<div id="div3"></div>
+		<script type="text/javascript">
+			var div1=document.getElementById("div1");
+			var div2=document.getElementById("div2");
+			var div3=document.getElementById("div3");
+			var divs=document.getElementsByTagName("div");
+			var speed=20;
+			var timer=null;
+			var timer2=null;
+			var timer3=null;
+			
+			for (var i=0;i<divs.length;i++) {
+				divs[i].timer=null;
+				divs[i].onmouseover=function(){
+					qwe(this);
+				}
+				divs[i].onmouseout=function(){
+					asd(this);
+				}
+				
+			}
+			
+			
+			function qwe(sei){
+				clearInterval(sei.timer);
+					sei.timer=setInterval(function(){
+						if(sei.offsetWidth>=500){
+							clearInterval(timer);
+						}else{
+							var w=sei.offsetWidth+speed;
+							sei.style.width=w+"px";
+						}
+					},10)
+				
+			}
+			function asd(sei){
+				clearInterval(sei.timer);
+					sei.timer=setInterval(function(){
+					if(sei.offsetWidth<=100){
+							clearInterval(timer);
+						}else{
+							var w=sei.offsetWidth-speed;
+							sei.style.width=w+"px";
+						}
+					},10)
+				
+			}
+
+//			div1.onmouseover=function(){
+//				clearInterval(timer);
+//				 timer=setInterval(function(){
+//					if(div1.offsetWidth>=500){
+//						//offsetWidth:可获取不可以写
+//						clearInterval(timer);
+//					}else{
+//						var w=div1.offsetWidth+speed;
+//						//div1.style.width:可以写不可以获取
+//						div1.style.width=w+"px";
+//					}
+//				},10);
+//				div1.onmouseout=function(){
+//				clearInterval(timer);
+//				 timer=setInterval(function(){
+//					if(div1.offsetWidth<=100){
+//						//offsetWidth:可获取不可以写
+//						clearInterval(timer);
+//					}else{
+//						var w=div1.offsetWidth-speed;
+//						//div1.style.width:可以写不可以获取
+//						div1.style.width=w+"px";
+//					}
+//				},10);
+//				
+//				
+//			}
+//				
+//			}
+//			
+//			
+//			div2.onmouseover=function(){
+//				clearInterval(timer2);
+//				 timer2=setInterval(function(){
+//					if(div2.offsetWidth>=500){
+//						//offsetWidth:可获取不可以写
+//						clearInterval(timer2);
+//					}else{
+//						var w=div2.offsetWidth+speed;
+//						//div1.style.width:可以写不可以获取
+//						div2.style.width=w+"px";
+//					}
+//				},10);
+//				div2.onmouseout=function(){
+//				clearInterval(timer2);
+//				 timer2=setInterval(function(){
+//					if(div2.offsetWidth<=100){
+//						//offsetWidth:可获取不可以写
+//						clearInterval(timer2);
+//					}else{
+//						var w=div2.offsetWidth-speed;
+//						//div1.style.width:可以写不可以获取
+//						div2.style.width=w+"px";
+//					}
+//				},10);
+//				
+//				
+//			}
+//				
+//			}
+//			
+//			div3.onmouseover=function(){
+//				clearInterval(timer3);
+//				 timer3=setInterval(function(){
+//					if(div3.offsetWidth>=500){
+//						//offsetWidth:可获取不可以写
+//						clearInterval(timer3);
+//					}else{
+//						var w=div3.offsetWidth+speed;
+//						//div1.style.width:可以写不可以获取
+//						div3.style.width=w+"px";
+//					}
+//				},10);
+//				div3.onmouseout=function(){
+//				clearInterval(timer3);
+//				 timer3=setInterval(function(){
+//					if(div3.offsetWidth<=100){
+//						//offsetWidth:可获取不可以写
+//						clearInterval(timer3);
+//					}else{
+//						var w=div3.offsetWidth-speed;
+//						//div1.style.width:可以写不可以获取
+//						div3.style.width=w+"px";
+//					}
+//				},10);
+//			}
+//				
+//			}
+			
+			
+		</script>
+	</body>
+</html>

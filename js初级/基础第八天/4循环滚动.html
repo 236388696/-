@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#wrap {
+				width:400px;
+				margin: 0 auto;
+				border: 1px solid red;
+				height: 113px;
+				position: relative;
+				/*overflow: hidden;*/
+			}
+			
+			#middle {
+				width: 99999px;
+				height: 113px;
+			}
+			
+			#middle img {
+				float: left;
+				width: 200px;
+				position: absolute;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="wrap">
+			<div id="middle">
+				<img style="left: 0" src="img/1.jpg" alt="" />
+				<img style="left: 200px" src="img/2.jpg" alt="" />
+				<img style="left: 400px" src="img/3.jpg" alt="" />
+			</div>
+		</div>
+		<script type="text/javascript">
+			var imgs=document.querySelectorAll("img");
+			var speed=1;
+			var timer=setInterval(function(){
+				for (var i=0;i<imgs.length;i++) {
+					//所有图片一起跑
+				imgs[i].style.left=imgs[i].offsetLeft-speed+"px";
+				//如果到达看不到的地方时，换位置
+				if(imgs[i].offsetLeft<=-imgs[i].offsetWidth){
+					imgs[i].style.left=(imgs.length-1)*imgs[i].offsetWidth+"px";
+					
+				}
+			}
+			},10)
+			
+		</script>
+	</body>
+</html>

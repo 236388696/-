@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.screen{
+				width: 800px;
+				height: 450px;
+				position: relative;
+				margin: 0 auto;
+				/*border: 3px solid aqua;*/
+				/*超出隐藏*/
+				overflow: hidden;
+			}
+			.imgFa{
+				width: 2400px;
+				position: absolute;
+				left: 0;
+				top: 0;
+				overflow: hidden;
+				/*transition: all 1s;*/
+			}
+			.imgFa img{
+				width: 800px;
+				float: left;
+				
+			}
+			.btn{
+				position: absolute;
+				background-color: aqua;
+				bottom: 0;
+				right: 0;
+			}
+			.last{
+				right: 100px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="all">
+			<div class="screen">
+				<div class="imgFa">
+					<img src="img/1.jpg" alt="" />
+					<img src="img/2.jpg" alt="" />
+					<img src="img/3.jpg" alt="" />
+				</div>
+				<div class="last btn">《</div>
+				<div class="next btn">》</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var imgFa=document.querySelector(".imgFa");
+			var screenDiv=document.querySelector(".screen");
+			var lastBtn=document.querySelector(".last");
+			var nextBtn=document.querySelector(".next");
+			
+			//用来判断当前位置
+			var index=0;
+			var autotimer=null;
+			var timer=null;
+			//每次移动的终点
+			var endPos=0;
+			
+			function nextRoll(){
+				var speed=10;
+				index++;
+				//如果移动到最后一个，则返回到第一个
+				if(index>2){
+					index=0;
+					//返回第一个，改变方向
+					speed=-speed;
+				}else if(imgFa.offsetLeft<endPos){
+					speed=-speed;
+				}else if(imgFa.offsetLeft>endPos){
+					speed=10;
+				}
+				//每次移动的终点
+			    endPos=-index*screenDiv.offsetWidth;
+				
+				//定时器
+				clearInterval(timer);
+				timer=setInterval(function(){
+					if(imgFa.offsetLeft==endPos){
+						clearInterval(timer);
+					}else{
+						imgFa.style.left=imgFa.offsetLeft-speed+"px";
+					}
+				},1)
+				
+				//transition
+//				imgFa.style.left=endPos+"px";
+				
+				
+			}
+			autoRoll();
+			function autoRoll(){
+				clearInterval(autotimer);
+				autotimer=setInterval(function(){
+				nextRoll();
+			},2000);
+			}
+			
+			
+			
+			
+			
+			//点击下一张按钮
+			nextBtn.onclick=function(){
+				clearInterval(autotimer);
+				nextRoll();
+			}
+			
+			//点击上一张按钮
+			lastBtn.onclick=function(){
+				var speed=10;
+				index--;
+				if(index<0){
+					index=2;
+					speed=-speed
+				}
+				endPos=-index*screenDiv.offsetWidth;
+				clearInterval(timer);
+				timer=setInterval(function(){
+					if(imgFa.offsetLeft==endPos){
+						clearInterval(timer);
+					}else{
+						imgFa.style.left=imgFa.offsetLeft+speed+"px";
+					}
+				},1)
+			}
+			
+			
+			//鼠标移入大框的时候，不再继续自动滚动
+			screenDiv.onmouseover=function(){
+				clearInterval(autotimer);
+			}
+			
+			//鼠标移出大框的时候，继续自动滚动
+			screenDiv.onmouseout=function(){
+				autoRoll();
+			}
+			
+			
+		</script>
+	</body>
+</html>

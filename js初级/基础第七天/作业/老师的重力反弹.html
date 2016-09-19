@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#all{
+			width: 100px;
+			height: 100px;
+			border: 20px solid red;
+			resize: both;
+			overflow: hidden;
+			position: relative;
+			left: 0;
+			top: 0;
+		}
+		#div1{
+			width: 50px;
+			height: 10px;
+			background-color: green;
+			position: absolute;
+		}
+	</style>
+</head>
+<body>
+	<div id="all">
+		<div id="div1"></div>
+	</div>
+	<script type="text/javascript">
+		var div1 = document.getElementById("div1");
+		var all = document.getElementById("all");
+		
+		var hSpeed = 10;
+		var vSpeed = 10;
+		var timer = null;
+		changeHV();
+		function changeHV(){
+			timer = setInterval(function(){
+				if(div1.offsetLeft > all.clientWidth - div1.offsetWidth || div1.offsetLeft < 0){
+					hSpeed = -hSpeed;
+				}
+				if(div1.offsetTop > all.clientHeight - div1.offsetHeight || div1.offsetTop < 0){
+					vSpeed = -vSpeed;
+				}
+				div1.style.left = div1.offsetLeft + hSpeed + "px";
+				div1.style.top = div1.offsetTop + vSpeed + "px";
+			},10);
+		}
+	</script>
+</body>
+</html>
