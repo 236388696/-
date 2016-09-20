@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div id="div1" name="abc">
+			wert
+			<p id="p1">p1</p>
+		</div>
+		<script type="text/javascript">
+    		//DOM:Document Object Model(文档对象模型)
+	    //1-12类型节点组成Dom树：需要掌握1，2，3，9；每个节点都是Node对象，都有一些Node属性
+	    //(1)Document类型(文档类型、根节点类型)，nodeType：9； nodeName：#document； nodeValue:null；
+	        var doc = document.nodeType;
+			console.log(doc);
+			
+		//(2)Element	类型(元素类型、标签节点)：nodeType：1； nodeName：标签名； nodeValue:null；
+			var div1=document.getElementById("div1");
+			var p1=div1.getElementsByTagName("p1");
+			console.log(p1);
+			
+	    //(3)attributes类型(元素的属性) nodeType：2； nodeName：属性名； nodeValue:属性值；
+	    		var att=div1.attributes.id;
+	    		console.log(att.nodeType,att.nodeName,att.nodeValue);
+	    		
+	    		
+	     //(4)Text类型(文本类型) nodeType：3； nodeName：#text； nodeValue:节点文本内容(包括空格和回车)；	
+	        var textNode=div1.firstChild;
+	        console.log(textNode.nodeType,textNode.nodeName,textNode.nodeValue);
+			
+			
+		</script>
+
+	</body>
+
+</html>

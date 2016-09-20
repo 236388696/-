@@ -54,6 +54,7 @@
 			</div>
 		</div>
 		<script type="text/javascript">
+		    var all=document.querySelector(".all");
 			var imgFa=document.querySelector(".imgFa");
 			var screenDiv=document.querySelector(".screen");
 			var lastBtn=document.querySelector(".last");
@@ -136,12 +137,12 @@
 			
 			
 			//鼠标移入大框的时候，不再继续自动滚动
-			screenDiv.onmouseover=function(){
+			all.onmouseover=function(){
 				clearInterval(autotimer);
 			}
 			
 			//鼠标移出大框的时候，继续自动滚动
-			screenDiv.onmouseout=function(){
+			all.onmouseout=function(){
 				autoRoll();
 			}
 			

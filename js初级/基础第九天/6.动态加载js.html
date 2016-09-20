@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href=""/>
+	</head>
+	<body>
+		<input type="button" name="btn" id="btn" value="加载" />
+		<script type="text/javascript">
+			var btn=document.getElementById("btn");
+			var newScript=document.createElement("script");
+			newScript.setAttribute("type","text/javascript");
+				newScript.setAttribute("charset","utf-8");
+				newScript.setAttribute("src","js/动态加载js.js");
+			btn.onclick=function(){
+				document.body.appendChild(newScript);
+			}
+		</script>
+		<!--<script src="js/动态加载js.js" type="text/javascript" charset="utf-8"></script>-->
+	</body>
+</html>

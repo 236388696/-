@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#div1{
+				width: 300px;
+				height: 500px;
+				border: 2px solid orange;
+			
+			}
+			#div1 input{
+				width: 280px;
+				height: 50px;
+				border: 1px solid aqua;
+				margin-top: 10px;
+				margin-left: 10px;
+	
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1"></div>
+		<script type="text/javascript">
+			var div1=document.getElementById("div1");
+			var guo =document.createElement("input");
+			var sheng=document.createElement("input");
+			var shi=document.createElement("input");
+			var qu=document.createElement("input");
+			
+			
+			guo.value="国家";
+			sheng.value="省份";
+			shi.value="城市";
+			qu.value="区域";
+			
+			div1.appendChild(guo);
+//			guo.innerHTML="yangshi";
+			div1.onclick=function(){
+				if(sheng.parentNode!=div1){
+					div1.appendChild(sheng);
+				}
+				
+			
+			}
+			sheng.onclick=function(){
+				div1.appendChild(shi);
+			
+			}
+			shi.onclick=function(){
+				div1.appendChild(qu);
+			
+			}
+			
+			
+		</script>
+	</body>
+</html>

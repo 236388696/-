@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#div1{
+				width: 200px;
+				height: 200px;
+				background-color: aquamarine;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1">
+			<a href="">1</a>
+			<a href="">2</a>
+			<a href="">3</a>
+		</div>
+		<script type="text/javascript">
+			var div1=document.getElementById("div1");
+			//setAttribute设置元素的id属性的值为active
+			div1.setAttribute("id","active");
+			//如果设置的属性，元素中没有的话，则添加上
+			div1.setAttribute("href","ccc");
+			div1.getAttribute("id");
+			//getAttribute获取元素的属性的值
+			var divID=div1.getAttribute("id");
+			console.log("divID");
+			
+			//removeAttribute移除属性
+			div1.removeAttribute("href");
+		</script>
+	</body>
+</html>

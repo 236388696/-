@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#div1 div{
+				width: 100px;
+				height: 100px;
+				background-color: aquamarine;
+			}
+			p{
+				height: 50px;
+				background-color: orange;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1"></div>
+		<script type="text/javascript">
+		var div1=document.getElementById("div1");
+			//新增节点
+			//(1)新增element类型节点
+			var newEle1=document.createElement("div");
+			var newEle2=document.createElement("p");
+			
+			//(1)新增text类型节点
+			var newTxt=document.createTextNode("456");
+			//appendChild：向div1的末尾插入子节点
+			div1.appendChild(newEle1);
+			div1.appendChild(newEle2);
+			newEle1.appendChild(newTxt);
+//			newEle1.innerHTML="789";
+
+            //insertBefore:向节点之前插入节点:newEle2插在newEle1前面
+            //注意：div1是newEle1的直系父子，隔一层就不好使了
+//          div1.insertBefore(newEle2,newEle1);
+//          document.body.insertBefore(newEle2,newEle1);//newEle1是body的孙子级的，所以不好用，只能是直系子集
+
+            //replaceChild:替换节点(把newEle1替换为newEle2)后面替换前面；
+//          div1.replaceChild(newEle2,newEle1);
+
+            
+            //removeChild:从div1中把newEle2移除
+            div1.removeChild(newEle2);
+            
+            //remove:移除当前节点
+            div1.remove();
+
+		</script>
+	</body>
+</html>

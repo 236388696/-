@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			.screen {
+				width: 800px;
+				height: 450px;
+				position: relative;
+				margin: 0 auto;
+				/*border: 3px solid aqua;*/
+				/*超出隐藏*/
+				overflow: hidden;
+			}
+			
+			.imgFa {
+				width: 2400px;
+				position: absolute;
+				left: 0;
+				top: 0;
+				overflow: hidden;
+				/*transition: all 1s;*/
+			}
+			
+			.imgFa img {
+				width: 800px;
+				float: left;
+			}
+			.btn{
+				position: absolute;
+				background-color: aqua;
+				bottom: 0;
+				right: 0;
+			}
+			.last{
+				right: 100px;
+			}
+			.numsBtn {
+				text-align: center;
+			}
+			
+			.numsBtn a {
+				display: inline-block;
+				width: 15px;
+				height: 15px;
+				background-color: greenyellow;
+				border-radius: 20px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="all">
+			<div class="screen">
+				<div class="imgFa">
+					<img src="img/1.jpg" alt="" />
+					<img src="img/2.jpg" alt="" />
+					<img src="img/3.jpg" alt="" />
+				</div>
+				<div class="last btn">《</div>
+				<div class="next btn">》</div>
+			</div>
+			<div class="numsBtn">
+				<a style="background-color: red; " href="###"></a>
+				<a href="###"></a>
+				<a href="###"></a>
+			</div>
+		</div>
+		<script src="js/tween.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var imgFa = document.querySelector(".imgFa");
+			var screenDiv = document.querySelector(".screen");
+			var lastBtn = document.querySelector(".last");
+			var nextBtn = document.querySelector(".next");
+			var numsBtn = document.querySelectorAll(".numsBtn a");
+			var all = document.querySelector(".all");
+
+			var index=0;
+			var endPos=0;
+			var timer=null;
+			var autotimer=null;
+			var speed=0;
+			
+			autoRoll();
+			//单次向下滚动
+			function nextRoll(){
+				index++;
+				if(index>2){
+					index=0;
+				}
+				endPos=-index*screenDiv.offsetWidth;
+				//起点
+				var t=0;
+				//起点位置
+				var b=imgFa.offsetLeft;
+				var c=endPos-b;
+				var d=100;
+				clearInterval(timer);
+				timer=setInterval(function(){
+					if(t==d){
+						clearInterval(timer);
+					}else{
+						t++;
+						imgFa.style.left=Tween.Linear(t,b,c,d)+"px";
+					}
+				},10)
+			}
+			
+			function autoRoll(){
+				clearInterval(autotimer);
+				autotimer=setInterval(function(){
+					nextRoll();
+				},2000)
+			}
+			
+			
+			
+			
+			
+		</script>
+	</body>
+
+</html>

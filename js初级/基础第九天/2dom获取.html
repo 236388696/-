@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="div1">
+			<p>1</p>
+			<p>2</p>
+			<p>3</p>
+			252
+		</div>
+		<script type="text/javascript">
+			var div1=document.getElementById("div1");
+			//(1)获取节点下的所有子节点
+			var ps=div1.childNodes;
+			console.log(ps[0].nodeName);
+			
+			//(2)获取节点下的所有Element节点
+			ps=div1.children;
+			console.log(ps.length);
+			
+			//(3)获取父节点
+			ps=div1.parentNode;
+			console.log(ps);
+			
+			//(4)获取下一个兄弟节点
+			px=div1.childNodes;
+			console.log(px[1].nextSibling);
+			
+			//(5)获取下一个element兄弟节点
+			console.log(px[1].nextElementSibling);
+			
+			//(6)获取上一个兄弟节点
+			console.log(px[1].previousSibling);
+			
+			//(7)获取上一个element兄弟节点
+			console.log(px[2].previousElementSibling);
+			
+			//(8)获取第一个子节点
+			ps=div1.firstChild;
+			console.log(ps);
+			
+			//(9)获取第一个element类型子节点
+			ps=div1.firstElementChild;
+			console.log(ps);
+			
+			//(10)获取最后一个子节点
+			ps=div1.lastChild;
+			console.log(ps);
+			
+			//(11)获取最后一个element类型子节点
+			ps=div1.lastElementChild;
+			console.log(ps);
+			
+			//方法：判断节点里是否有子节点
+			ps=div1.childNodes;
+			console.log(div1.hasChildNodes());
+			
+			
+			
+		</script>
+	</body>
+</html>
