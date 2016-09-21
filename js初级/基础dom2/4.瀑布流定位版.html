@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<title>Document</title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			html,
+			body {
+				width: 100%;
+				height: 100%;
+				/*background-color: black;*/
+				
+			}
+			
+			#flow {
+				position: relative;
+				margin: 0 auto;
+				list-style: none;
+			}
+			
+			#flow li {
+				position: absolute;
+				width: 190px;
+				padding: 10px;
+				border: 1px solid black;
+				overflow: hidden;
+				transition: all 1s;
+				/*box-sizing: border-box;*/
+			}
+			
+			#flow li img {
+				width: 100%;
+				border: 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<ul id="flow"></ul>
+		<script type="text/javascript">
+			var flower = document.getElementById("flow");
+			var lis = document.getElementsByTagName("li");
+			var marginRight = 20; //li右边的宽度加10，而不是margin加10
+			var marginTop = 10;
+			var liWidth = 0;
+			var eleCount = 20;
+			createAll();
+
+			function createAll() {
+				//先把所有的li和img加到ul里面
+				for(var i = 0; i < eleCount; i++) {
+					var newLi = document.createElement("li");
+					var newImg = document.createElement("img");
+					newImg.setAttribute("src", "img/" + i + ".jpg");
+					newLi.appendChild(newImg);
+					flower.appendChild(newLi);
+					newLi.style.opacity=0;
+				}
+			}
+			//当页面所有元素加载完毕，再开始砌墙。未加载完毕时，高度不准确
+			window.onload = function() {
+				setWall();
+			}
+
+			//砌墙
+			function setWall() {
+				//获取列数
+				var cols = getCols();
+				var saveHeight = [];
+				//先铺第一排
+				for(var i = 0; i < cols; i++) {
+					//把第一排的高度存到saveHeight数组里
+					saveHeight[i] = lis[i].offsetHeight;
+					lis[i].style.top = "0px";
+					lis[i].style.left = i * liWidth + "px";
+					lis[i].style.opacity=1;
+
+				}
+
+				//铺剩下的所有的
+				for(var i = cols; i < eleCount; i++) {
+					//获取到数组saveHeight最小高度的下标
+					var minHeightIndex = getMinHeightIndex(saveHeight);
+					lis[i].style.top = saveHeight[minHeightIndex] + marginTop + "px";
+					lis[i].style.left = minHeightIndex * liWidth + "px";
+					lis[i].style.opacity=1;
+					//把数组里最小高度更新为加上新li后的高度
+					saveHeight[minHeightIndex] = saveHeight[minHeightIndex] + marginTop + lis[i].offsetHeight;
+
+				}
+			}
+			//获取一个数组里最小值
+			function getMinHeightIndex(arr) {
+				var min = arr[0];
+				var index = 0;
+				for(var i = 0; i < arr.length; i++) {
+					if(min > arr[i]) {
+						min = arr[i];
+						index = i;
+					}
+				}
+				return index;
+			}
+
+			//获取列数
+			function getCols() {
+				//获取body的总宽度
+				var bodyWidth = document.body.offsetWidth;
+				//一个li的宽度
+				liWidth = lis[0].offsetWidth + marginRight;
+				//列数＝总宽度／一个li的宽度
+				var cols = Math.floor(bodyWidth / liWidth);
+
+				//外框的宽度＝列数*一个li的宽度－右边的间距
+				flower.style.width = cols * liWidth - marginRight + "px";
+				return cols;
+
+			}
+			//当浏览器尺寸发生变化的时候，重新砌墙
+			window.onresize=function(){
+				setWall();
+			}
+			
+			document.onscroll=function(){
+				//页面偏移量＋可见高度＝
+				if(document.body.scrollTop+document.documentElement.clientHeight>=document.body.clientHeight){
+					createAll();
+					setWall();
+				}
+			}
+		</script>
+
+	</body>
+
+</html>

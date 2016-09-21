@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#wrap {
+				width: 800px;
+				border: 1px solid black;
+				margin: 0 auto;
+				overflow: hidden;
+			}
+			
+			#wrap ul {
+				list-style: none;
+				float: left;
+				width: 200px;
+				padding: 10px;
+				box-sizing: border-box;
+			}
+			
+			#wrap li {
+				background-color: turquoise;
+				color: tomato;
+				font-size: 60px;
+				margin-bottom: 10px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="wrap">
+			<ul></ul>
+			<ul></ul>
+			<ul></ul>
+			<ul></ul>
+		</div>
+		<script type="text/javascript">
+			var wrapDiv=document.getElementById("wrap");
+			var uls=wrapDiv.getElementsByTagName("ul");
+			function rand(min,max){
+				return Math.floor(Math.random()*(max-min+1)+min);
+			}
+			//定义生成的数量
+			var liCount=20;
+			for(var i=0;i<liCount;i++){
+				//新建li元素节点
+				var newLi=document.createElement("li");
+				//给其设置高度为100-300随机
+				newLi.style.height=rand(100,300)+"px";
+				newLi.innerHTML=i;
+				
+				
+				
+				//定义用来装ul高度的数组uls[i].offsetHeight
+				var saveHeight=[];
+				for(var j=0;j<uls.length;j++){
+					saveHeight[j]=uls[j].offsetHeight;
+				}
+				
+				//定义最小高度和最小高度的下标
+				var minHeight=saveHeight[0];
+				var minIndex=0;
+				
+                //通过比较，找到高度最小的ul和对应的下标
+				for (var j=1;j<saveHeight.length;j++) {
+					if(minHeight>saveHeight[j]){
+						minHeight=saveHeight[j];
+						minIndex=j;
+					}
+				}
+				//把新创建的节点li，放到高度最小的ul里面
+				uls[minIndex].appendChild(newLi);
+			}
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

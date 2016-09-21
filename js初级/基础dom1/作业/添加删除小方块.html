@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.all{
+				width: 500px;
+				height: 550px;
+				border: 1px solid red;
+				overflow: hidden;
+			}
+			.div1{
+				width: 100px;
+				height: 100px;
+				background-color: aquamarine;
+				margin: 5px;
+				text-align: center;     
+                line-height: 100px;
+                float: left;
+                
+			}
+			span{
+				color: gray;
+				font-size: 50px;
+			}
+			.ccc{
+				width: 100px;
+				height: 100px;
+				/*background-color:thistle;*/
+				margin: 5px;
+				text-align: center;     
+                line-height: 100px;
+                float: left;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="all">
+			<div class="div1"><span>+</span></div>
+		</div>
+		<script type="text/javascript">
+			var all=document.getElementsByClassName("all")[0];
+			var div1=document.getElementsByClassName("div1")[0];
+			function rand(min,max){
+				return Math.floor(Math.random()*(max-min+1)+min);
+			}
+			var index=0;
+			div1.onclick=function(){
+				index++;
+				var div2=document.createElement("div");
+				div2.setAttribute("class","ccc")
+				div2.style.backgroundColor="rgb("+rand(0,255)+","+rand(0,255)+","+rand(0,255)+")";
+				
+
+				if(index>=20){
+					index--;
+				}else{
+					all.insertBefore(div2,div1);
+				}
+			}
+			
+			
+		</script>
+	</body>
+</html>

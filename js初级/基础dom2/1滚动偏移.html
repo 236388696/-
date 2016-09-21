@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+				height: 3333px;
+				background-color: thistle;
+			}
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript">
+		
+		
+		    //兼容ie
+			var rollHeight1=document.documentElement.scrollTop;
+				console.log(rollHeight1);
+			//兼容谷歌和火狐和苹果等主流浏览器版本
+			var rollHeight2=document.body.scrollTop;
+				console.log(rollHeight2);
+			var rollHeight3=window.pageYOffset;
+				console.log(rollHeight3);
+			
+			//浏览器兼容哪个取哪个
+			var rollHeight=document.body.scrollTop||document.documentElement.scrollTop;
+				console.log(rollHeight);
+			
+			
+			//页面整体高度
+			var bodyHeight1=document.documentElement.scrollHeight;
+				console.log(bodyHeight1);
+			
+			//body总高度
+			var bodyHeight2=document.body.clientHeight;;
+				console.log(bodyHeight2);
+			
+			//页面可见高度
+			var bodyHeight3=document.documentElement.clientHeight;;
+				console.log(bodyHeight3);
+				
+			
+			//判断到没到底
+			var timer=setInterval(function(){
+				//获取滑动纵向偏移量
+				var rolltop=document.body.scrollTop||document.documentElement.scrollTop;
+				//获取当前页面的高度
+				var nowScreenHeight=document.documentElement.clientHeight; 
+				//获取body总高度
+				var bodyHeight=document.body.clientHeight;
+				if(rolltop+nowScreenHeight==bodyHeight){
+//	            if(rolltop==bodyHeight-nowScreenHeight){
+					console.log("到底了");
+				}
+			},200);
+			
+		</script>
+	</body>
+</html>
