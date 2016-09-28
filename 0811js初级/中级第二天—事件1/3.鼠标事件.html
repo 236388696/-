@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		div{
+			width: 200px;
+			height: 200px;
+			background-color: aquamarine;
+		}
+			
+		</style>
+	</head>
+	<body>
+		<div id="div1"></div>
+		<script type="text/javascript">
+		var div1=document.getElementById("div1");
+		//按键的执行顺序:down、up、click
+		//鼠标左键和滑轮点击时，触发的事件
+			document.onclick=function(){
+//				console.log("onclick")
+			}
+			//鼠标左中右键按下时，触发的事件
+			document.onmousedown=function(){
+//				console.log("onmousedown");
+			}
+			//当鼠标松开时，触发的事件
+			document.onmouseup=function(){
+				console.log("onmouseup");
+			}
+			
+			//当鼠标双击的时候，触发的事件
+			document.ondblclick=function(){
+				console.log("dblclick");
+			}
+			
+			//鼠标移入的时候，触发的事件
+			document.onmouseenter=function(){
+				console.log("onmouseenter");
+			}
+			
+			document.onmouseover=function(){
+				console.log("onmouseover");
+			}
+
+            //鼠标移出的时候，触发的事件
+            div1.onmouseout=function(){
+            	console.log("onmouseout");
+            }
+            
+            div1.onmouseleave=function(){
+            	 	console.log("onmouseleave");
+            }
+            
+            
+            //当鼠标在上面移动的时候，触发的事件
+            div1.onmousemove=function(){
+            	console.log("onmousemove");
+            }
+            
+            
+		</script>
+	</body>
+</html>

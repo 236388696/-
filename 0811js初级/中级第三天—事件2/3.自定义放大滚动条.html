@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			.all {
+				width: 300px;
+				height: 20px;
+				background-color: #ccc;
+				position: relative;
+				margin: 0 auto;
+			}
+			
+			.scroll {
+				width: 20px;
+				height: 20px;
+				background-color: red;
+				position: absolute;
+			}
+			
+			#div1 {
+				width: 0;
+				height: 0;
+				background-color: black;
+				margin: 0 auto;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="all">
+			<div class="scroll"></div>
+		</div>
+		<div id="div1"></div>
+		<script type="text/javascript">
+			var all = document.getElementsByClassName("all")[0];
+			var scroll = document.getElementsByClassName("scroll")[0];
+			var div1 = document.getElementById("div1");
+			//div1的最大宽度和高度
+			var maxWidth=500;
+			var minHeight=500;
+
+			scroll.onmousedown = function(ev) {
+				var e = ev || window.event;
+				//获取按下时的鼠标位置
+				var mouseX = e.clientX;
+				//获取按下时的小块位置
+				var scrollX = scroll.offsetLeft;
+
+				document.onmousemove = function(ev) {
+					var e = ev || window.event;
+					//实时获取鼠标位置
+					var nowMouseX = e.clientX;
+					//偏移量
+					var pianyiX = nowMouseX - mouseX;
+					//终点位置=起点位置+偏移量
+					var endPosX = scrollX + pianyiX;
+
+					//判断两边的边界
+					if(endPosX < 0) {
+						endPosX = 0;
+					} else if(endPosX > all.clientWidth - scroll.offsetWidth) {
+						endPosX = all.clientWidth - scroll.offsetWidth;
+					}
+
+					scroll.style.left = endPosX + "px";
+                     //比例=移动的位置／可移动的总距离
+					var bili = endPosX/(all.clientWidth - scroll.offsetWidth);
+                    div1.style.width=maxWidth*bili+"px";
+                    div1.style.height=minHeight*bili+"px";
+				}
+				document.onmouseup = function() {
+					document.onmousemove = function() {
+						return false;
+						//				    	event.preventDefault();
+					}
+				}
+
+			}
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.min {
+				width: 350px;
+				height: 350px;
+				border: 1px solid black;
+				float: left;
+				position: relative;
+				margin-left: 100px;
+			}
+			
+			.max {
+				width: 350px;
+				height: 350px;
+				float: left;
+				border: 1px solid black;
+				display: none;
+				position: relative;
+				overflow: hidden;
+			}
+			
+			.max img {
+				position: absolute;
+			}
+			
+			.fd {
+				display: none;
+				width: 153px;
+				height: 153px;
+				position: absolute;
+				left: 0;
+				top: 0;
+				opacity: 0.3;
+				background-color: black;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="min">
+			<img src="img/1.jpg" alt="" />
+			<!--蒙板-->
+			<div class="fd"></div>
+		</div>
+		<div class="max">
+			<img src="img/2.jpg" alt="" />
+		</div>
+		<script type="text/javascript">
+			//布局比例：蒙板的大小/左边div的大小＝右边div的大小/大图的大小
+			//运算比例：蒙板的移动位置／可移动的最大位置＝-(大图的移动位置/大图可移动最大位置)
+			function qs(csss) {
+				return document.querySelector(csss);
+			}
+			var leftDiv = qs(".min");
+			var rightDiv = qs(".max");
+			var fd = qs(".fd");
+			var bigImg = qs(".max img");
+
+			leftDiv.onmouseenter = function() {
+				fd.style.display = "block";
+				rightDiv.style.display = "block";
+			}
+			leftDiv.onmouseleave = function() {
+					fd.style.display = "none";
+					rightDiv.style.display = "none";
+				}
+				//鼠标在小框上滑动
+			leftDiv.onmousemove = function(ev) {
+				var e = ev || window.event;
+				//获取鼠标的位置
+				var mouseX = e.clientX;
+				var mouseY = e.clientY;
+				//移动的x值
+				var moveX = mouseX - (fd.offsetWidth / 2) - leftDiv.offsetLeft;
+				if(moveX < 0) {
+					moveX = 0;
+				} else if(moveX > leftDiv.clientWidth - fd.offsetWidth) {
+					moveX = leftDiv.clientWidth - fd.offsetWidth;
+				}
+
+				var moveY = mouseY - (fd.offsetHeight / 2) - leftDiv.offsetTop;
+				if(moveY < 0) {
+					moveY = 0;
+				} else if(moveY > leftDiv.clientHeight - fd.offsetHeight) {
+					moveY = leftDiv.clientHeight - fd.offsetHeight;
+				}
+				fd.style.left = moveX + "px";
+				fd.style.top = moveY + "px";
+
+				//获取比例
+				var biliX = moveX / (leftDiv.clientWidth - fd.offsetWidth);
+				var biliY = moveY / (leftDiv.clientHeight - fd.offsetHeight);
+				//通过比例设置大图的位置
+				bigImg.style.left = -biliX * (bigImg.clientWidth - rightDiv.offsetWidth) + "px";
+				bigImg.style.top = -biliY * (bigImg.clientHeight - rightDiv.offsetHeight) + "px";
+
+			}
+		</script>
+	</body>
+
+</html>

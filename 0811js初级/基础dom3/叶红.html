@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			html,
+			body {
+				height: 100%;
+				font-family: "times new roman";
+			}
+			
+			body {
+				font-size: 12px;
+			}
+			
+			#wrap {
+				width: 100%;
+				max-width: 780px;
+				height: 100%;
+				background-image: url(img/game_bg.jpg);
+				background-size: 100% 100%;
+				margin: 0 auto;
+				position: relative;
+			}
+			
+			#wrap p {
+				position: absolute;
+				color: white;
+				top: 2.786666667%;
+				left: 18.75%;
+				font-size: 2.2rem;
+				line-height: 2rem;
+			}
+			
+			#time {
+				width: 56.7625%;
+				height: 3.364%;
+				position: absolute;
+				top: 13.73%;
+				left: 19.375%;
+				overflow: hidden;
+				border-radius: 20px;
+			}
+			
+			#time img {
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			
+			#wrap>a {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				background-color: red;
+				color: white;
+				text-decoration: none;
+				width: 30%;
+				height: 30px;
+				margin-left: -15%;
+				margin-top: -15px;
+				border-radius: 15px;
+				text-align: center;
+				line-height: 30px;
+				font-size: 1.2rem;
+			}
+			
+			#wrap>span {
+				position: absolute;
+				bottom: 0;
+				left: 50%;
+				width: 100%;
+				text-align: center;
+				margin-left: -50%;
+				line-height: 30px;
+				font-size: 1.2rem;
+			}
+			
+			.greyWolf {
+				width: 21.05%;
+				height: 11.04167%;
+				position: absolute;
+				overflow: hidden;
+			}
+			
+			.greyWolf>img {
+				width: 100%;
+				height: 100%;
+				border: 0;
+			}
+			#flush{
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background-color: rgba(0,0,0,.5);
+				text-align: center;
+				display: none;
+			}
+			#flush>p{
+				width: 35%;
+				position: absolute;
+				top: 35%;
+				left: 50%;
+				margin-left: -17.5%;
+				line-height: 2.5rem;
+				font-size: 2.2rem;
+				color: white;
+				background-color: gray;
+				box-shadow: 0 0 5px 0 gray, 0 0 5px 0 gray, 0 0 5px 0 gray, 0 0 5px 0 gray, 0 0 5px 0 gray;
+			}
+			#flush>a{
+				display: inline-block;
+				margin-top: 68%;
+				background-color: red;
+				color: white;
+				font-size: 3rem;
+				text-decoration: none;
+				border-radius: 10px;
+				padding: 10px 20px;
+			}
+			#exp{
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background-color: rgba(0,0,0,.5);
+				display: none;
+			}
+			h1{
+				position: absolute;
+				top: 30%;
+				left: 0;
+				right: 0;
+				font-size: 3.2rem;
+				color: white;
+				width: 50%;
+				margin: 0 auto;
+			}
+			#exp>p{
+				font-size: 2rem;
+			}
+			#exp>p:nth-of-type(1){
+				position: absolute;
+				top: 43%;
+			}
+			#exp>p:nth-last-of-type(1){
+				position: absolute;
+				top: 50%;
+			}
+			#exp span{
+				margin-left: 25%;
+				margin-top: 5%;
+				display: inline-block;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="wrap">
+			<p>0</p>
+			<div id="time"><img src="img/progress.png" alt="" /></div>
+			<a href="#">开始游戏</a>
+			<span id="howtoplay">游戏规则</span>
+			<div class="gW"></div>
+			<div id="flush">
+				<p>游戏结束</p>
+				<a href="http://127.0.0.1:8020/%E5%8F%B6%E7%BA%A2/4.DOM/4.%E9%94%85%E6%89%93%E7%81%B0%E5%A4%AA%E7%8B%BC/%E9%94%85%E6%89%93%E7%81%B0%E5%A4%AA%E7%8B%BC.html">重新开始</a>
+			</div>
+			<div id="exp">
+				<h1>游戏说明</h1>
+				<p>游戏时间：60秒</p>
+				<p>
+					加分：打到灰太狼加10分；<br />
+					<span>打到小辉辉减10分。</span>
+				</p>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var oWrap = document.getElementById("wrap");
+			var oTime = document.getElementById("time");
+			var oImg = document.querySelector("#time>img");
+			var oA = document.querySelector("#wrap>a");
+			var oP = document.querySelector("#wrap>p");
+			var oDiv = document.querySelector(".gW");
+			var oFlush = document.getElementById("flush");
+			var oSpan = document.getElementById("howtoplay");
+			var oExp = document.getElementById("exp");
+			var pstTop = [31, 37, 41, 47, 51.5, 53.5, 64.5, 68.5, 69];
+			var pstLeft = [36.54, 64.54, 11.54, 38.54, 68.54, 11, 43, 15, 71];
+			var timer = null;
+			var timer2 = null;
+			var init = 0;
+			function ImgLeft() {
+				clearInterval(timer);
+				var speed = 0;
+				timer = setInterval(function() {
+					var variate = oTime.offsetWidth / 3000;
+					speed += variate;
+					if (speed >= 0.98) {
+						oImg.style.left = oImg.offsetLeft - speed + "px";
+						speed = 0;
+					}
+					if (oImg.offsetLeft <= -oTime.offsetWidth) {
+						clearInterval(timer);
+						oDiv.innerHTML = "";
+						oFlush.style.display = "block";
+						clearInterval(timer2);
+					}
+				}, 20);
+			}
+
+			function changeImg() {
+				clearInterval(timer2);
+				var newImg = new Image();
+				var p = null;
+				var num = Math.floor(Math.random() * 2)
+				if (num == 0) {
+					p = "h";
+				} else {
+					p = "x";
+				}
+				oDiv.className = "greyWolf";
+				oDiv.appendChild(newImg);
+				var num = Math.floor(Math.random() * 9);
+				oDiv.style.top = pstTop[num] + "%";
+				oDiv.style.left = pstLeft[num] + "%";
+				var i = 0;
+				var j = 0;
+				timer2 = setInterval(function() {
+					if (j < 6) {
+						newImg.src = "img/" + p + i + ".png";
+						i++;
+					} else if (j < 12) {
+						i--;
+						newImg.src = "img/" + p + i + ".png";
+					} else {
+						oDiv.removeChild(newImg);
+						clearInterval(timer2);
+						changeImg();
+					}
+					j++;
+				}, 150);
+				var click = true;
+				newImg.onclick = function(){
+					if (click) {
+						click = false;
+						if (p == "h") {
+							init += 10;
+						} else{
+							init -= 10;
+							if (init < 0) {
+								init = 0;
+							}
+						}
+						oP.innerHTML = init;
+						clearInterval(timer2);
+						clearInterval(timer);
+						var k = 6;
+						timer = setInterval(function(){
+							if (k < 10) {
+								newImg.src = "img/" + p + k + ".png";
+								k++;
+							} else{
+								oDiv.removeChild(newImg);
+								clearInterval(timer);
+								changeImg();
+							}
+						},150);
+					}
+				}
+			}
+			oA.onclick = function() {
+				oA.style.display = "none";
+				oSpan.style.display = "none";
+				init = 0;
+				oP.innerHTML = 0;
+				clearInterval(timer);
+				changeImg();
+				ImgLeft();
+			}
+			oSpan.onclick = function(){
+				oExp.style.display = "block";
+			}
+			oExp.onclick = function(){
+				this.style.display = "none";
+			}
+		</script>
+	</body>
+
+</html>

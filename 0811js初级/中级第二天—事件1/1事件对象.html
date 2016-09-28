@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				height: 1000px;
+				background-color: aquamarine;
+			}
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript">
+		//当事件触发的时候，系统给事件传递的一个参数对象,这个事件对象里，包含着该对象的所有属性、方法；ie传递事件对象的方式是widow.event
+			document.onmouseover=function(ev){
+				//声明事件对象，兼容ie版
+				var e=ev||window.event;
+			}
+		
+		</script>
+	</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.div1 {
+				width: 100px;
+				height: 100px;
+				border-radius: 100px;
+				background-color: aquamarine;
+				position: absolute;
+				/*小手*/
+				/*cursor: pointer;*/
+			}
+		</style>
+	</head>
+	<div class="div1"></div>
+
+	<body>
+		<script type="text/javascript">
+			var div1 = document.querySelector(".div1");
+			//当鼠标按到div1身上的时候
+			div1.onmousedown = function(ev) {
+				//获取事件对象
+				var e = ev || window.event;
+				//获取按下时，鼠标的位置
+				var mouseX = e.clientX;
+				var mouseY = e.clientY;
+				//获取按下时，div1的位置
+				var divX = div1.offsetLeft;
+				var divY = div1.offsetTop;
+
+				document.onmousemove = function(ev) {
+					//获取事件对象
+					var e = ev || window.event;
+					//实时获取鼠标的坐标
+					var nowMouseX=e.clientX;
+					var nowMouseY=e.clientY;
+					
+					//算出移动的偏移量
+					var pianyiX=nowMouseX-mouseX;
+					var pianyiY=nowMouseY-mouseY;
+					
+					//通过鼠标移动的偏移量，让div位置也根据这个偏移量进行偏移
+					div1.style.left=divX+pianyiX+"px";
+					div1.style.top=divY+pianyiY+"px";
+				}
+				div1.onmouseup=function(){
+					document.onmousemove=function(){
+						return false;
+//						event.preventDefault();
+					}
+				}
+				
+			}
+		</script>
+	</body>
+
+</html>

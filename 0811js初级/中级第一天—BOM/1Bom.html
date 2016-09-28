@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//获取浏览器的位置ie、google、safari主流浏览器
+			console.log(window.screenLeft,window.screenTop);
+			//（不兼容ie用这个获取）
+			console.log(window.screenX,window.screenY);
+			
+			
+			
+			//浏览器窗口内部的高度,ie8不兼容
+			console.log(window.innerWidth,window.innerHeight);
+			//浏览器窗口内部的高度 IE8兼容
+			console.log(document.documentElement.clientWidth,document.documentElement.clientHeight);
+			
+			document.onclick=function(){
+				//弹出新窗口
+				window.open("http://www.taobao.com","","width=300,height=500,top=800px,left=100px,toolbar=yes,menubar=yes,resizable=yes");
+				window.close();
+			}
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

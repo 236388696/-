@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		//鼠标右键
+			document.oncontextmenu=function(){
+				console.log("右键");
+				//阻止默认事件
+//				return false;
+				event.preventDefault();
+			}
+			
+			//如果想取消事件，让其置为null
+//			document.onclick=function(){
+//				document.oncontextmenu=null;
+//			}
+		</script>
+	</body>
+</html>

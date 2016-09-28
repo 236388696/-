@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#all {
+				width: 400px;
+				height: 400px;
+				background-color: red;
+			}
+			
+			#div1 {
+				width: 200px;
+				height: 200px;
+				background-color: black;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="all">
+			<div id="div1"></div>
+		</div>
+		<script type="text/javascript">
+			//事件冒泡：父级子集有相同事件，执行顺序从内到外，子集会向父级传递事件
+			var all = document.getElementById("all");
+			var div1 = document.getElementById("div1");
+			//阻止冒泡传递：
+			//				 (1)事件对象.cancelBubble=true;
+			//				 (2)事件对象.stopPropagation();
+			div1.onclick = function() {
+				alert("div1");
+			}
+			all.onclick = function(ev) {
+				alert("all");
+				var e = ev || window.event;
+				//兼容ie,谷歌，欧鹏,火狐
+				e.cancelBubble = true;
+				//最开始主要兼容火狐，但是不兼容ie
+				//                           e.stopPropagation();
+			}
+			document.onclick = function() {
+					alert("document");
+				}
+//
+//			all.onmouseenter = function() {
+//				alert("all come")
+//			}
+//
+//			all.onmouseleave = function() {
+//				alert("all bye")
+//			}
+//
+//			div1.onmouseenter = function() {
+//				alert("div1 come")
+//			}
+//
+//			div1.onmouseleave = function() {
+//				alert("div1 come")
+//			}
+		</script>
+	</body>
+
+</html>

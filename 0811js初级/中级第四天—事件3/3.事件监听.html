@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#div1{
+				width: 100px;
+				height: 100px;
+				background-color: aquamarine;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1"></div>
+		<script type="text/javascript">
+		var div1=document.getElementById("div1");
+		//addEventListener:添加事件监听
+		//参数1:事件名字(不带on!!!);
+		//参数2:事件执行函数
+		//参数3:事件流(false冒泡，true捕获，不写默认为false)
+		//可以多次添加同一事件的事件监听，而不会冲突和覆盖,监听事件都会发生
+		
+		//ie下 :参数为前两个
+		//添加事件监听：attachEnevt();
+		//移除事件监听：detachEvent():
+		
+		div1.addEventListener("mouseover",function(){
+			div1.style.backgroundColor="yellow";
+			alert("mouseover1");
+		},false);
+		
+		
+		div1.addEventListener("mouseout",mmouseOut,false);
+		function mmouseOut(){
+			div1.style.backgroundColor="";
+		}
+		
+		div1.addEventListener("mouseover",function(){
+			div1.style.backgroundColor="blue";
+				alert("mouseover2");
+		},false);
+		
+		div1.removeEventListener("mouseout",mmouseOut,false);
+
+
+//      div1.onclick=function(){
+//      	alert("click");
+//      }
+//      div1.onclick=function(){
+//      	alert("clickclick");
+//      }
+       
+		</script>
+	</body>
+</html>

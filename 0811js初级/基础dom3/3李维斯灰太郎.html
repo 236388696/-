@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+		<style type="text/css">
+			#all {
+				width: 320px;
+				height: 480px;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%, -80%);
+			}
+			
+			#blood {
+				position: absolute;
+				left: 63px;
+				top: 66px;
+			}
+			
+			#score {
+				position: absolute;
+				font-size: 24px;
+				color: white;
+				left: 63px;
+				top: 13px;
+			}
+			
+			#space1 {
+				position: absolute;
+				left: 100px;
+				top: 115px;
+			}
+			
+			#space2 {
+				position: absolute;
+				left: 100px;
+				top: 193px;
+			}
+			
+			#space3 {
+				position: absolute;
+				left: 120px;
+				top: 275px;
+			}
+			
+			#space4 {
+				position: absolute;
+				left: 18px;
+				top: 160px;
+			}
+			
+			#space5 {
+				position: absolute;
+				left: 18px;
+				top: 220px;
+			}
+			
+			#space6 {
+				position: absolute;
+				left: 28px;
+				top: 295px;
+			}
+			
+			#space7 {
+				position: absolute;
+				left: 185px;
+				top: 143px;
+			}
+			
+			#space8 {
+				position: absolute;
+				left: 200px;
+				top: 213px;
+			}
+			
+			#space9 {
+				position: absolute;
+				left: 205px;
+				top: 295px;
+			}
+			
+			.space {}
+		</style>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+
+	<body>
+		<div id="all">
+			<img src="img/game_bg.jpg" alt="" id="game" />
+			<img src="img/progress.png" alt="" id="blood" />
+			<img src="img/h0.png" alt="" id="space1" class="space" />
+			<img src="img/h0.png" alt="" id="space2" class="space" />
+			<img src="img/h0.png" alt="" id="space3" class="space" />
+			<img src="img/h0.png" alt="" id="space4" class="space" />
+			<img src="img/h0.png" alt="" id="space5" class="space" />
+			<img src="img/h0.png" alt="" id="space6" class="space" />
+			<img src="img/h0.png" alt="" id="space7" class="space" />
+			<img src="img/h0.png" alt="" id="space8" class="space" />
+			<img src="img/h0.png" alt="" id="space9" class="space" />
+
+			<span id="score">0</span>
+		</div>
+
+		<script type="text/javascript">
+			var blood = document.getElementById("blood");
+			var space = document.getElementsByClassName("space");
+			var j = 0;
+
+			abc();
+
+			function abc(abc) {
+				for(i = 0; i < space.length; i++) {
+                 bcd(i);
+
+				}
+                 }
+				function bcd(bcd) {
+					if(j < 5) {
+						j++;
+						cde(bcd,j);
+
+					}
+
+				}
+               
+               function cde(a,b){
+               	var timer = setInterval(function() {
+							space[a].setAttribute("src", "img/h" + b + ".png");
+							console.log(b);
+						}, 1000);
+               }
+               
+				function def() {
+					var timer3 = setInterval(function() {
+						blood.style.width = blood.offsetWidth - 4 + "px";
+						blood.style.height = blood.offsetHeight + 10 + "px";
+						if(blood.offsetWidth <= 0) {
+							alert("游戏结束，");
+							clearInterval(timer3);
+						}
+					}, 100);
+				}
+				
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.wrap {
+				width: 500px;
+				height: 400px;
+				border: 1px solid black;
+				position: relative;
+			}
+			
+			.wrap div {
+				width: 50px;
+				height: 50px;
+				background-color: aqua;
+				position: absolute;
+			}
+			
+			.snak {
+				left: 0;
+				top: 0;
+			}
+			
+			.red {
+				left: 300px;
+				top: 200px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="wrap">
+			<div class="snak"></div>
+			<div class="red"></div>
+		</div>
+		<script type="text/javascript">
+			var snake = document.querySelector(".snak");
+			var food = document.querySelector(".red");
+			//拖动
+			snake.onmousedown = function(ev) {
+				var e = ev || window.event;
+				var mouseX = e.clientX;
+				var mouseY = e.clientY;
+				var snakeX = snake.offsetLeft;
+				var snakeY = snake.offsetTop;
+
+				document.onmousemove = function(ev) {
+					var e = ev || window.event;
+					var nowMouseX = e.clientX;
+					var nowMouseY = e.clientY;
+
+					var pianyiX = nowMouseX - mouseX;
+					var pianyiY = nowMouseY - mouseY;
+
+					snake.style.left = snakeX + pianyiX + "px";
+					snake.style.top = snakeY + pianyiY + "px";
+
+					var snakeL = snake.offsetLeft;
+					var snakeT = snake.offsetTop;
+					var snakeW = snake.offsetWidth;
+					var snaleH = snake.offsetHeight;
+
+					var foodL = food.offsetLeft;
+					var foodT = food.offsetTop;
+					var foodW = food.offsetWidth;
+					var foodH = food.offsetHeight;
+
+					var bolLeft = snakeL + snakeW >= foodL;
+					var bolTop = snakeT + snaleH >= foodT;
+					var bolRight = foodL + foodW >= snakeL;
+					var bolBottom = foodT + foodH >= snakeT;
+
+					if(bolLeft && bolTop && bolRight && bolBottom) {
+						food.style.backgroundColor = "black";
+					} else {
+						food.style.backgroundColor = "";
+					}
+
+					document.onmouseup = function() {
+						document.onmousemove = function() {
+							return false;
+						}
+					}
+
+				}
+			}
+		</script>
+	</body>
+
+</html>

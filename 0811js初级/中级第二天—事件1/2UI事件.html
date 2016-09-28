@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<textarea  id="ta" name="" rows="" cols=""></textarea>
+		<script type="text/javascript">
+		var ta=document.getElementById("ta");
+		//当window改变尺寸时，触发的事件
+			window.onresize=function(){
+				console.log(document.documentElement.clientWidth);
+			}
+			
+			//当元素滑动滚动条，触发的事件
+			window.onscroll=function(){
+				console.log(document.body.scrollTop);
+			}
+		</script>
+	</body>
+</html>

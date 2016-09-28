@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		ul,div{
+			width: 100px;
+			height: 20px;
+			background-color: red;
+			color: white;
+			position: absolute;
+		}
+		li{
+			width: 100px;
+			height: 20px;
+			background-color: red;
+			color: white;
+			position: absolute;
+			list-style-type: none;
+		}
+	</style>
+</head>
+<body>
+	<script type="text/javascript">
+		var menuFa;
+		
+		var menu1Num = 4;
+		var menu2Num = 5;
+		
+		var liW = 100;
+		var liH = 20;
+		document.oncontextmenu = function(ev){
+			
+			menuFa = document.createElement("div");
+	
+			removeEle(1,document.body,"DIV");
+			var e = ev || window.event;
+			
+			var menuX = e.clientX;
+			var menuY = e.clientY;
+			
+			menuFa.style.left = menuX + "px";
+			menuFa.style.top = menuY + "px";
+			
+			document.body.appendChild(menuFa);
+			setMenu1();
+
+			
+			return false;
+		}
+		
+		
+		function setMenu1(){
+			for(var i = 0; i < menu1Num; i ++){
+				var menu1Fa = document.createElement("ul");
+				menu1Fa.innerHTML = "菜单" + i;
+				
+				//判断浏览器是否放得下
+				if(menuFa.offsetLeft  + liW > window.innerWidth){
+					menu1Fa.style.left = -liW + "px";
+				}else{
+					menu1Fa.style.left = "0px";
+				}
+				
+				if(menuFa.offsetTop + menu1Num * liH > window.innerHeight){
+					menu1Fa.style.top = -i * liH + "px";
+				}else{
+					menu1Fa.style.top = i * liH + "px";
+				}
+				
+				menuFa.appendChild(menu1Fa);
+				
+				menu1Fa.onmouseenter = function(){
+					setMenu2(this);
+					this.style.backgroundColor = "blue";
+				}
+				menu1Fa.onmouseleave = function(){
+					removeEle(menu2Num,this,"LI");
+					this.style.backgroundColor = "";
+				}
+			}
+		}
+		
+		function setMenu2(ele){
+			for(var i = 0; i < menu2Num; i ++){
+				var menu2Son = document.createElement("li");
+				menu2Son.innerHTML = "子菜单" + i;
+				
+				//判断浏览器是否放得下
+				if(menuFa.offsetLeft  + 2 * liW > window.innerWidth){
+					menu2Son.style.left = -liW + "px";
+				}else{
+					menu2Son.style.left = liW + "px";
+				}
+				
+				if(menuFa.offsetTop + ele.offsetTop + menu2Num * liH > window.innerHeight){
+					menu2Son.style.top = -i * liH  + "px";
+				}else{
+					menu2Son.style.top = i * liH + "px";
+				}
+				ele.appendChild(menu2Son);
+				
+				menu2Son.onmouseenter = function(){
+					this.style.backgroundColor = "blue";
+				}
+				menu2Son.onmouseleave = function(){
+					this.style.backgroundColor = "";
+				}
+			}
+		}
+		function removeEle(nums,fa,who){
+//			console.log(1);
+			if(fa.lastElementChild.nodeName == who){
+				console.log(123);
+				for(var i = 0; i < nums ; i++){
+					fa.removeChild(fa.lastChild);
+				}
+			}
+		}
+		
+		document.onclick = function(){
+			removeEle(1,document.body,"DIV");
+		}
+	</script>
+</body>
+</html>

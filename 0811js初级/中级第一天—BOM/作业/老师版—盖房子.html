@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<style type="text/css">
+		#all {
+			width: 800px;
+			height: 500px;
+			border: 1px solid royalblue;
+			position: relative;
+			margin: 0 auto;
+		}
+		.row {
+			position: absolute;
+			overflow: hidden;
+		}
+		.box {
+			width: 20px;
+			height: 20px;
+			border: 1px solid red;
+			box-sizing: border-box;
+			float: left;
+		}
+	</style>
+</head>
+<body>
+	<div id="all"></div>
+	<script type="text/javascript">
+		var all = document.getElementById("all");
+		
+		//每个小块的高度和宽度
+		var boxH = 20;
+		var boxW = 20;
+		
+		//每行默认20块
+		var boxNum = 20;
+		
+		//移动的定时器
+		var moveTimer = null;
+		//每次移动量
+		var speed = boxW;
+		
+		setRow();
+		//新建一行
+		function setRow(){
+			var newRow = document.createElement("div");
+			newRow.className = "row";
+			
+			//获取加到第几行
+			var allChildLength = all.getElementsByClassName("row").length;
+			
+			console.log(allChildLength);
+			//设置bottom为 行数＊高度
+			newRow.style.bottom = allChildLength * boxH + "px";
+			//设置left
+//			newRow.style.left = (allChildLength?all.lastElementChild.offsetLeft + boxW:0) + "px";
+			
+		//判断是否是第一行
+		if(allChildLength){
+			//如果上一个移动到最左或最右的时候
+			if(all.lastChild.offsetLeft + all.lastChild.offsetWidth == all.clientWidth || all.lastChild.offsetLeft == 0){
+				//不进行(left ＋ 块宽度)的操作
+				newRow.style.left = all.lastElementChild.offsetLeft + "px";
+			}else{
+				//否则，进行(left ＋ 块宽度)的操作
+				//当speed小于0，块右移动，
+				//新生成的位置 ＝ 上一个行的位置 ＋ 块的宽度
+				if(speed < 0){
+					newRow.style.left = all.lastElementChild.offsetLeft + boxW + "px";
+				}
+				//当speed大于0，块左移动
+				//新生成的位置 ＝ 上一个行的位置 － 块的宽度
+				else{
+					newRow.style.left = all.lastElementChild.offsetLeft - boxW + "px";
+				}
+			}
+		}else{
+			newRow.style.left = "0px";
+		}
+			
+			//装小块
+			for(var i = 0; i < boxNum; i++){
+				var newBox = document.createElement("div");
+				newBox.className = "box";
+				//把小块块加进去
+				newRow.appendChild(newBox);
+			}
+			
+			//把整行装进all里
+			all.appendChild(newRow);
+			
+			//动起来
+			moveAni(newRow);
+		}
+		
+		//整行移动动画
+		function moveAni(who){
+			var allWidth = all.clientWidth;
+			//向右移动的最大位置
+			var maxpianyi = allWidth - who.offsetWidth;
+			//向左移动的最大位置
+			var minpianyi = 0;
+			
+			
+//			var isChange = true;
+			//动起来
+			clearInterval(moveTimer);
+			moveTimer = setInterval(function(){
+				
+					if(who.offsetLeft >= maxpianyi || who.offsetLeft <= 0){
+						speed = -speed;
+					}
+				
+				
+				
+				//设置who时时移动
+				who.style.left = who.offsetLeft - speed + "px";
+			},500);
+		}
+		
+		all.onclick = function(){
+			//停止移动
+			clearInterval(moveTimer);
+			
+			var allLastChild = all.lastChild;
+			//判断是否存在上一个兄弟节点
+			if(allLastChild.previousElementSibling){
+				//获取上一个兄弟节点的left值
+				var preLeft = allLastChild.previousElementSibling.offsetLeft;
+				//获取最后一个节点的left值
+				var lastLeft = allLastChild.offsetLeft;
+				
+				//当前行和上一行差多少left
+				var cha = lastLeft - preLeft;
+				//相差多少块
+				var chaBoxNum = Math.abs(cha)/boxW;
+				
+				if(boxNum - chaBoxNum <= 0){
+					alert("gameover");
+				}else{
+					console.log("cb"+chaBoxNum);
+					//删掉相差的块数
+					for(var i = 0; i < chaBoxNum; i++){
+					//删掉
+	allLastChild.removeChild(allLastChild.lastChild);
+					}
+	//				如果差值小于0.说明最后一个元素在上一个元素的左边，先删除，在移动到上一个元素的left位置
+					if(cha < 0){
+						allLastChild.style.left = preLeft + "px";
+					}
+					//更新总块数，以便于下一次生成
+					boxNum -= chaBoxNum;
+	//				boxNum = allLastChild.children.length;
+					console.log(boxNum);
+					
+					//生成新的行
+					setRow();
+				}
+			}
+			//如果不存在兄弟节点，说明第一次创建。直接创建
+			else{
+				setRow();
+			}
+		}
+	</script>
+</body>
+</html>

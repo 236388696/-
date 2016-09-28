@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			body{
+				width: 2000px;
+				height: 2000px;
+			}
+			
+		</style>
+	</head>
+	<body>
+	
+		<script type="text/javascript">
+
+			document.onmousedown=function(ev){
+				var e=ev||window.event;
+				//clientX、clientX表示鼠标指针在窗口的水平和竖直坐标
+				var mouseX=e.clientX;
+				var mouseY=e.clientY;
+				console.log(mouseX,mouseY);
+				
+				//pageX、pageY表示鼠标在页面中水平和竖直的坐标
+				var pageX=e.pageX;
+				var pageY=e.pageY;
+				console.log(pageX,pageY);
+				
+				//screenX、screenY表示鼠标在屏幕中的水平和竖直坐标
+				var screenX=e.screenX;
+				var screenY=e.screenY;
+				console.log(screenX,screenY);
+				
+				
+				
+				
+				
+			}
+		</script>
+	</body>
+</html>

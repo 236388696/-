@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+				<style>
+		#min_wrap{
+			border:1px solid #ccc;
+			position: absolute;
+		}
+			#max_wrap{
+				border:1px solid #ccc;
+				position: absolute;
+				left: 370px;
+				width: 400px;
+				height: 400px;
+				display: none;	
+				overflow: hidden;
+			}
+			#slider{
+				width: 175px;
+				height: 175px;
+				display: none;
+				position: absolute;
+				left: 0;
+				top: 0;
+				background-color: rgba(255,255,0,0.3);
+			}
+			#max_wrap img{
+				position: absolute;
+			}
+	
+		</style>
+	</head>
+	<body>
+			<div id="min_wrap">
+			<img src="img/1.jpg"/>
+			<div id="slider"></div>
+		</div>
+		<div id="max_wrap">
+			<img src="img/2.jpg"/>
+		</div>
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				$("#min_wrap").mousemove(function(ev){
+					$("#max_wrap").show();
+					$("#slider").show();
+					var x = ev.clientX-$("#slider").width()/2-$("#min_wrap").offset().left;
+					var y = ev.clientY-$("#slider").height()/2-$("#min_wrap").offset().top;
+					if(x<=0){
+						x=0;
+					}else if (x >= $("#min_wrap").width()-$("#slider").width()){
+						x = $("#min_wrap").width()-$("#slider").width();
+					}
+					if(y<=0){
+						y=0;
+					}else if (y >= $("#min_wrap").height()-$("#slider").height()){
+						y = $("#min_wrap").height()-$("#slider").height();
+					}
+					$("#slider").css({
+						"top":y,
+						"left":x
+					})
+					
+					var scaleX = x/$("#min_wrap").width();
+					var scaleY = y/$("#min_wrap").height();
+					$("#max_wrap>img").css({
+						"left":-scaleX*($("#max_wrap img").width()),
+						"top":-scaleY*($("#max_wrap img").height())
+					})
+				})
+				$("#max_wrap").mouseout(function(){
+					$("#max_wrap").hide();
+					$("#slider").hide();
+				})
+			})
+		</script>
+	</body>
+</html>

@@ -2,32 +2,31 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>放大镜</title>
+		<title></title>
 		<style type="text/css">
 			#min_wrap{
 				border: 1px solid #ccc;
 				position: absolute;
 			}
 			#max_wrap{
-				border: 1px solid #ccc;
-				width: 400px;
-				height: 400px;
+				border: 1px solid #CCC;
 				position: absolute;
 				left: 370px;
+				top:0;
+				width: 400px;
+				height: 400px;
 				overflow: hidden;
 				display: none;
 			}
-			
 			#slider{
 				width: 175px;
 				height: 175px;
 				position: absolute;
-				left: 0;
-				top: 0;
-				display: none;
 				background-color: rgba(255,255,0,0.3);
+				top: 0;
+				left: 0;
+				display: none;
 			}
-			
 			#max_wrap img{
 				position: absolute;
 			}
@@ -35,70 +34,70 @@
 	</head>
 	<body>
 		<div id="min_wrap">
-			<img src="images/min.jpg" />
+			<img src="img/1.jpg" alt="" />
 			<div id="slider">
+				
+			</div>
+			<div id="max_wrap">
+				<img src="img/2.jpg"/>
 			</div>
 		</div>
-		<div id="max_wrap">
-			<img src="images/max.jpg"/>
-		</div>
-		
 		<script type="text/javascript">
-			var maxWrap = document.querySelector("#max_wrap");
-			var minWrap = document.querySelector("#min_wrap");
-			var slider = document.querySelector("#slider");
+			var maxWrap = document.getElementById("max_wrap");
+			var minWrap = document.getElementById("min_wrap");
+			var slider = document.getElementById("slider");
 			var maxImg = maxWrap.children[0];
-			
-			// 要把鼠标的移入事件加在小图的div上
+			//要把鼠标说的移入事件加在小图的div上
 			minWrap.onmousemove = function(ev){
-				// 显示滑块和大的div
+				//显示滑块和大的div
 				slider.style.display = "block";
 				maxWrap.style.display = "block";
-				
-				var evObj = ev || window.event;
-				
-				// 先获取鼠标点击位置和minWrap的位置
-				var x = evObj.clientX - minWrap.offsetLeft - slider.offsetWidth / 2;
-				var y = evObj.clientY - minWrap.offsetTop - slider.offsetHeight / 2;
-				
-				// 计算滑块移动的最大距离
-				var maxWidth = minWrap.offsetWidth - slider.offsetWidth / 2;
-				var maxHeight = minWrap.offsetHeight - slider.offsetHeight / 2;
-				
-				// 做判断
-				if(x < 0){
+				var evObj = ev||window.event;
+				//先获取鼠标点击位置和minWrap的位置
+				var x = evObj.clientX-minWrap.offsetLeft-slider.offsetWidth/2;
+				var y = evObj.clientY-minWrap.offsetTop-slider.offsetHeight/2;
+				//计算滑块移动的最大距离
+				var maxWidth = minWrap.offsetLeft+minWrap.offsetWidth-slider.offsetWidth/2;
+				var maxHeight = minWrap.offsetTop+minWrap.offsetHeight-slider.offsetHeight/2;
+				//做判断
+				if(x<0){
 					x = 0;
-				} else if(evObj.clientX >= maxWidth){
-					x = maxWidth - slider.offsetWidth / 2;
 				}
-				if(y < 0){
-					y = 0;
-				} else if(evObj.clientY >= maxHeight){
-					y = maxHeight - slider.offsetHeight / 2;
+				else if(x>minWrap.offsetWidth-slider.offsetWidth){
+					x = minWrap.offsetWidth-slider.offsetWidth;
 				}
-				slider.style.left = x + "px";
-				slider.style.top = y + "px";	
-				
+				if(y<0){
+					y=0;
+				}
+				else if(y>minWrap.offsetHeight-slider.offsetHeight){
+					y = minWrap.offsetHeight-slider.offsetHeight;
+				}
+				slider.style.left = x+"px";
+				slider.style.top = y+"px";
 				
 				//计算x和y的比例
-				var scaleX=x/(maxWidth - slider.offsetWidth / 2);
-				var scaleY=y/(maxHeight - slider.offsetHeight / 2);
+//				var scaleX = x/(minWrap.offsetWidth-slider.offsetWidth);
+//				var scaleY = y/(minWrap.offsetHeight-slider.offsetHeight);
+				var scaleX = x/(minWrap.offsetWidth);
+				var scaleY = y/(minWrap.offsetHeight);
 				
-				maxWrap.scrollLeft=scaleX*(maxImg.offsetWidth);
-				maxWrap.scrollTop=scaleY*(maxImg.offsetHeight);
+				maxWrap.scrollLeft = scaleX*(maxImg.offsetWidth);
+				maxWrap.scrollTop = scaleY*(maxImg.offsetHeight);
 				
-				
+			}
+			minWrap.onmouseout = function(){
+				slider.style.display = "";
+				maxWrap.style.display = "";
 			}
 			
-			minWrap.onmouseout=function(){
-				slider.style.display="none";
-				maxWrap.style.display="none";
-			}
+			
 			
 			
 			
 			
 			
 		</script>
+		
+		
 	</body>
 </html>

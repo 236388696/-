@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			ul {
+				width: 100px;
+				height: 20px;
+				background-color: yellowgreen;
+				border: 1px solid yellow;
+				list-style: none;
+			}
+			
+			
+			
+			ul>li {
+				width: 100px;
+				height: 20px;
+				background-color: red;
+				border: 1px solid yellow;
+				list-style: none;
+				line-height: 20px;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<script type="text/javascript">
+			document.oncontextmenu = function(ev) {
+				var e=ev||window.event;
+				var div1 = document.createElement("div");
+			
+			   var menuX=e.clientX;
+			   var menuY=e.clientY;
+			   div1.style.left=menuX+"px";
+			   div1.style.top=menuY +"px";
+			   	document.body.appendChild(div1);
+			   	div1.previousSibling.remove();
+
+				
+				
+				for(var i = 0; i < 4; i++) {
+					var ul = document.createElement("ul");
+					var newul=document.createElement("ul");
+				    ul.innerHTML="列表相"+i;
+					div1.appendChild(ul);
+					ul.appendChild(newul);
+					for (var j=0;j<4;j++) {
+						var li = document.createElement("li");
+					ul.appendChild(li);
+					li.innerHTML="列表相"+j;
+					ul.appendChild(li);
+					
+					
+			}
+				}	
+					
+					
+					
+				
+				
+				ul.onmouseover=function(){
+					return false;
+			}
+					}
+					
+
+					
+					
+				
+				
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.wrap {
+				width: 20px;
+				height: 400px;
+				background-color: #CCCCCC;
+				position: relative;
+				float: left;
+			}
+			
+			.slider {
+				width: 20px;
+				height: 20px;
+				background-color: red;
+				position: absolute;
+				left: 0;
+				top: 0;
+				cursor: pointer;
+			}
+			
+			#div2 {
+				width: 200px;
+				height: 400px;
+				border: 1px solid black;
+				position: relative;
+				overflow: hidden;
+				box-sizing: border-box;
+				float: left;
+			}
+			
+			#div3 {
+				position: absolute;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<!--文本内容-->
+		<div id="div2">
+			<div id="div3">
+				毛泽东著名诗词 　　1、《沁园春·雪》 　　北国风光，千里冰封，万里雪飘。 　　望长城内外，惟馀莽莽；大河上下，顿失滔滔。 　　山舞银蛇，原驰蜡象，欲与天公试比高。 　　须晴日，看红妆素裹，分外妖娆。 　　江山如此多娇，引无数英雄竟折腰。 　　惜秦皇汉武，略输文采； 　　唐宗宋祖，稍逊风骚。 　　一代天骄，成吉思汉，只识弯弓射大雕。 　　俱往矣，数风流人物，还看今朝。 　　2、《采桑子·重阳》 　　生易老天难老，岁岁重阳。 　　今又重阳，战地黄花分外香。 　　一年一度秋风劲，不似春光， 　　胜似春光，寥廓江天万里霜。 　　3、《清平乐·会昌》 　　东方欲晓，莫道君行早。 　　踏遍青山人未老，风景这边独好。 　　会昌城外高峰，颠连直接东溟。 　　战士指看南粤，更加郁郁葱葱。 　　4、《忆秦娥·娄山关》 　　西风烈，长空雁叫霜晨月。 　　霜晨月，马蹄声碎，喇叭声咽。 　　雄关漫道真如铁，而今迈步从头越。 　　从头越，苍山如海，残阳如血。 　　5、《七律·长征》 　　红军不怕远征难，万水千山只等闲。 　　五岭逶迤腾巨浪，乌蒙磅礴走泥丸。 　　金沙水拍云崖暖，大渡桥横铁索寒。 　　更喜岷山千里雪，三军过后尽开颜。 　　6、《沁园春·长沙》 　　独立寒秋，湘江北去，橘子洲头。 　　看万山红遍，层林尽染； 　　漫江碧透，百舸争流。 　　鹰击长空，鱼翔浅底，万物霜天竞自由。 　　怅寥廓，问苍茫大地，谁主沉浮？ 　　携来百侣曾游。忆往昔峥嵘岁月稠。 　　恰同学少年，风华正茂； 　　书生意气，挥斥方遒。 　　指点江山，激扬文字，粪土当年万户侯。 　　曾记否，到中流击水，浪遏飞舟？ 　　7、《七律·人民解放军占领南京》 　　钟山风雨起苍黄，百万雄师过大江。 　　虎距龙盘今胜昔，天翻地覆慨而慷。 　　宜将剩勇追穷寇，不可沽名学霸王。 　　天若有情天亦老，人间正道是沧桑。 　　8、《七律·和柳亚子先生》 　　饮茶粤海未能忘，索句渝州叶正黄。 　　三十一年还旧国，落花时节读华章。 　　牢骚太盛防肠断，风物长宜放眼量。 　　莫道昆明池水浅，观鱼胜过富春江。 　　9、《水调歌头·游泳》 　　才饮长沙水，又食武昌鱼。 　　万里长江横渡，极目楚天舒。 　　不管风吹浪打，胜似闲庭信步。 　　今日得宽馀，子在川上曰：逝者如斯夫！ 　　风樯动，龟蛇静，起宏图。 　　一桥飞架南北，天堑变通途。 　　更立西江石璧，截断巫山云雨，高峡出平湖。 　　神女应无恙，当惊世界殊。 　　10、《蝶恋花·答李淑一》 　　我失骄杨君失柳，杨柳轻飏直上重霄九。 　　问讯吴刚何所有，吴刚捧出桂花酒。 　　寂寞嫦娥舒广袖，万里长空且为忠魂舞。 　　忽报人间曾伏虎，泪飞顿作倾盆雨。 　　11、《七律·到韶山》 　　别梦依稀咒逝川，故园三十二年前。 　　红旗卷起农奴戟，黑手高悬霸主鞭。 　　为有牺牲多壮志，敢教日月换新天。 　　喜看稻菽千重浪，遍地英雄下夕烟。 　　12、《七绝·为李进同志题所摄庐山仙人洞照》 　　暮色苍茫看劲松，乱云飞渡仍从容。 　　天生一个仙人洞，无限风光在险峰。 　　13、《卜算子·咏梅》 　　风雨送春归，飞雪迎春到， 　　已是悬崖百丈冰，犹有花枝俏。 　　俏也不争春，只把春来报。 　　待到山花烂漫时，她在丛中笑。 　　14、《满江红·和郭沫若同志》 　　小小寰球，有几个苍蝇碰壁。 　　嗡嗡叫，几声凄厉，几声抽泣。 　　蚂蚁缘槐夸大国，蚍蜉撼树谈何易。 　　正西风落叶下长安，飞鸣镝。 　　多少事，从来急；天地转，光阴迫。 　　一万年太久，只争朝夕。 　　四海翻腾云水怒，五洲震荡风雷激。 　　要扫除一切害人虫，全无敌。 　　15、《浪淘沙·北戴河） 　　大雨落幽燕，白浪滔天， 　　秦皇岛外打鱼船。 　　一片汪洋都不见，知向谁边？ 　　往事越千年，魏武挥鞭， 　　东临碣石有遗篇。 　　萧瑟秋风今又是，换了人间。 　　16、《西江月·井冈山》 　　山下旌旗在望，山头鼓角相闻。 　　敌军围困万千重，我自岿然不动。 　　早已森严壁垒，更加众志成城。 　　黄洋界上炮声隆，报道敌军宵遁。 　　17、《水调歌头·重上井冈山》 　　久有凌云志，重上井冈山。 　　千里来寻故地，旧貌变新颜。 　　到处莺歌燕舞，更有潺潺流水， 　　高路入云端。 　　过了黄洋界，险处不须看。 　　风雷动，旌旗奋，是人寰， 　　三十八年看过去，弹指一挥间。 　　可上九天揽月，可下五洋捉鳖。 　　谈笑凯歌还，世上无难事，只要肯登攀 ....///
+
+			</div>
+		</div>
+		<div class="wrap">
+			<div class="slider"></div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var wrap = document.querySelector(".wrap"),
+			slider = document.querySelector(".slider"),
+			div2 = document.querySelector("#div2"),
+			div3 = document.querySelector("#div3");
+
+		slider.onmousedown = function(ev) {
+			var e = ev || window.event;
+
+			//初始化按下时鼠标的位置
+			var resetMouseH = e.clientY - slider.offsetTop;
+			document.onmousemove = function(ev) {
+				var e = ev || window.event;
+				//纵向偏移量
+				var moveY = e.clientY - resetMouseH;
+				if(moveY < 0) {
+					moveY = 0
+				} else if(moveY > wrap.clientHeight - slider.offsetHeight) {
+					moveY = wrap.clientHeight - slider.offsetHeight;
+				}
+				slider.style.top = moveY + "px";
+				//计算比例：移动的量／最大的移动的量
+				var bili = moveY / (wrap.clientHeight - slider.offsetHeight);
+				//让文字跟着slider和比例 进行移动
+				div3.style.top = -bili * (div3.offsetHeight-div2.offsetHeight) + "px";
+				//				slider.style.height
+
+			}
+			document.onmouseup = function() {
+				document.onmousemove = function() {
+					return false;
+				}
+			}
+		}
+	</script>
+	</body>
+
+</html>

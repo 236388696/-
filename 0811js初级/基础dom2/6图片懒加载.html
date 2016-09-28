@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			height: 3000px;
+		}
+			img{
+			width: 500px;
+			height: 500px;
+			margin-top: 200px;
+		}
+		</style>
+	</head>
+	<body>
+		<img src="" data-src="../基础dom1/unslider/img/01.jpg"/>
+		<script type="text/javascript">
+		var img1=document.getElementsByTagName("img")[0];
+		document.onscroll=function(){
+			//body纵向偏移量
+			var bodyPianyi=document.body.scrollTop||document.documentElement.scrollTop;
+			var bodyKejian=document.documentElement.clientHeight; 
+				//img1的纵向高度
+				var img1Pianyi=img1.offsetTop;
+				
+	            if(img1Pianyi<=bodyPianyi+bodyKejian){
+	            	var dataSrc=img1.getAttribute("data-src");
+	            	img1.setAttribute("src",dataSrc);
+					console.log("到底了");
+				}
+		}
+			
+		</script>
+	</body>
+</html>
