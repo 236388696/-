@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#wrap {
+				width: 300px;
+				height: 280px;
+				border: 1px solid goldenrod;
+				border-radius: 10px;
+				margin: 100px auto;
+				text-align: center;
+			}
+			
+			.input {
+				width: 260px;
+				height: 30px;
+				border: 1px solid gainsboro;
+				border-radius: 5px;
+			}
+			
+			.user {
+				text-align: center;
+				margin-top: 30px;
+			}
+			
+			.btn {
+				width: 265px;
+				height: 30px;
+				background-color: goldenrod;
+				color: #fff;
+				border: 0px;
+				border-radius: 5px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="wrap">
+			<div class="user">
+				<input class="input" type="text" name="username" id="username" value="" placeholder="请输入用户名" />
+			</div>
+			<div class="user">
+				<input class="input" type="password" name="userpass" id="userpass" value="" placeholder="请输入密码" />
+			</div>
+			<div class="user">
+				<input type="checkbox" name="forget" id="forget" value="" class="check" />
+				<label for="forget">是否记住</label>
+			</div>
+			<div class="user">
+				<input type="button" value="登录" class="btn" id="btn" />
+			</div>
+		</div>
+		<script type="text/javascript">
+		var input1=document.getElementsByTagName("input")[0];
+		var input2=document.getElementsByTagName("input")[1];
+		var input3=document.getElementsByTagName("input")[2];
+		var input4=document.getElementsByTagName("input")[3];
+		var label1=document.getElementsByTagName("label")[0];
+		input3.onfocus=function(){
+			input3.value=window.localStorage.name;
+		}
+		
+			
+			input4.onclick=function(){
+				if(label1.checked==true){
+					window.localStorage["username"]=input1.value;
+				}
+				alert("已经记住");
+			}
+			 for (var i=0;i<window.localStorage.length;i++) {
+             	console.log(window.localStorage.key(i));
+             	var keys=window.localStorage.key(i);
+             	var values=window.localStorage[keys];
+             	console.log((keys+"+"+values));
+             }
+			
+			
+			
+		</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="all">
+			<a href="3_cookie练习2.html">a</a>
+			<a href="3_cookie练习2.html">b</a>
+			<a href="3_cookie练习2.html">c</a>
+		</div>
+		<script type="text/javascript">
+			var aaa = document.getElementsByTagName("a");
+			
+			for(var i = 0; i < aaa.length; i++){
+				aaa[i].onclick = function(){
+					document.cookie = "click=" + this.innerHTML;
+				}
+			}
+		</script>
+	</body>
+</html>

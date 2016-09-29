@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+			div{
+				width: 100px;
+				height: 100px;
+				transition: all 1s linear;
+				text-align: center;
+			}
+			.div1{
+				background-color: pink;
+				position: absolute;
+				bottom: 0;
+				left: 100px;
+			
+			}
+			.div2{
+				background-color: greenyellow;
+				position: absolute;
+				bottom: 0;
+				left: 220px;
+			}
+			.div3{
+				background-color: tomato;
+				position: absolute;
+				bottom: 0;
+				left: 340px;
+			}
+			.div4{
+				background-color: black;
+				position: absolute;
+				bottom: 0;
+				left: 460px;
+				color: wheat;
+			}
+			.div5{
+				background-color: yellow;
+				position: absolute;
+				bottom: 0;
+				left:580px;
+			}
+			.div6{
+				background-color: aqua;
+				position: absolute;
+				bottom: 0;
+				left:700px;
+			}
+			
+			#diva{
+				background-color: rgba(0,0,0,0.4);
+				position: absolute;
+				bottom: 0;
+				left: 100px;
+				font-size: 25px;
+				line-height: 100px;
+			}
+			#divs{
+				background-color: rgba(0,0,0,0.4);
+				position: absolute;
+				bottom: 0;
+				left: 220px;
+				font-size: 25px;
+				line-height: 100px;
+			}
+			#divd{
+				background-color: rgba(0,0,0,0.4);
+				position: absolute;
+				bottom: 0;
+				left: 340px;
+				font-size: 25px;
+				line-height: 100px;
+			}
+			#divj{
+				background-color: rgba(0,0,0,0.4);
+				position: absolute;
+				bottom: 0;
+				left: 460px;
+				color: wheat;
+				font-size: 25px;
+				line-height: 100px;
+			}
+			#divk{
+				background-color: rgba(0,0,0,0.4);
+				position: absolute;
+				bottom: 0;
+				left:580px;
+				font-size: 25px;
+				line-height: 100px;
+			}
+			#divl{
+				background-color:rgba(0,0,0,0.4);
+				position: absolute;
+				bottom: 0;
+				left:700px;
+				font-size: 25px;
+				line-height: 100px;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="div1"></div><div id="diva">A</div>
+		<div class="div2"></div><div id="divs">S</div>
+		<div class="div3"></div><div id="divd">D</div>
+		<div class="div4"></div><div id="divj">J</div>
+		<div class="div5"></div><div id="divk">K</div>
+		<div class="div6"></div><div id="divl">L</div>
+		<script type="text/javascript">
+			var div1=document.getElementsByClassName("div1")[0];
+			var div2=document.getElementsByClassName("div2")[0];
+			var div3=document.getElementsByClassName("div3")[0];
+			var div4=document.getElementsByClassName("div4")[0];
+			var div5=document.getElementsByClassName("div5")[0];
+			var div6=document.getElementsByClassName("div6")[0];
+            document.onkeydown=function(ev){
+				var e=ev||window.event;
+				if(e.keyCode==65){
+					div1.style.height="800px";
+				}else if(e.keyCode==83){
+					div2.style.height="800px";
+				}else if(e.keyCode==68){
+					div3.style.height="800px";
+				}else if(e.keyCode==74){
+					div4.style.height="800px"
+				}else if(e.keyCode==75){
+					div5.style.height="800px"
+				}else if(e.keyCode==76){
+					div6.style.height="800px"
+				}		
+				
+			}
+			document.onkeyup=function(ev){
+				var e=ev||window.event;
+				if(e.keyCode==65){
+					div1.style.height="100px";
+				}else if(e.keyCode==83){
+					div2.style.height="100px";
+				}else if(e.keyCode==68){
+					div3.style.height="100px";
+				}else if(e.keyCode==74){
+					div4.style.height="100px"
+				}else if(e.keyCode==75){
+					div5.style.height="100px"
+				}else if(e.keyCode==76){
+					div6.style.height="100px"
+				}		
+				
+			}
+			
+		</script>
+	</body>
+</html>

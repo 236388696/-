@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.div1{
+				width: 100px;
+				height: 100px;
+				background-color: aquamarine;
+				border-radius:50px;
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="div1"></div>
+		<script type="text/javascript">
+			var div1=document.getElementsByClassName("div1")[0];
+			document.addEventListener("touchstart",function(ev){
+				var t=ev.touches[0];
+				var touchX=t.clientX;
+				var touchY=t.clientY;
+				
+				var pianyiX=div1.offsetLeft;
+				var pianyiY=div1.offsetTop;
+				
+				
+				document.addEventListener("touchmove",function(ev){
+					var t=ev.touches[0];
+					var nowX=t.clientX;
+					var nowY=t.clientY;
+					var changeX=nowX-touchX+pianyiX;
+					var changeY=nowY-touchY+pianyiY;
+					
+					if(changeX<0){
+						changeX=0;
+					}else if(changeX>document.documentElement.clientWidth){
+						changeX=document.documentElement.clientWidth;
+					}
+					if(changeY<0){
+						changeY=0;
+					}else if(changeY>document.documentElement.clientHeight-div1.offsetHeight){
+						changeY=document.documentElement.clientHeight-div1.offsetHeight;
+					}
+					
+					div1.style.left=changeX+"px";
+					div1.style.top=changeY+"px";
+					
+				})
+			},false)
+		</script>
+	</body>
+</html>

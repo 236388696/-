@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			document.addEventListener("mousewheel", gunlun);
+			document.addEventListener("DOMMouseScroll", gunlun);
+
+			function gunlun(ev) {
+				var e = ev || window.event;
+				//通俗版
+				//			if(e.wheelDelta){
+				//				if(e.wheelDelta < 0){
+				//					alert("向下");
+				//				}else{
+				//					alert("向上");
+				//				}
+				//			}else{
+				//				if(e.detail > 0){
+				//					alert("向下");
+				//				}else{
+				//					alert("向上");
+				//				}
+				//			}
+
+				//通俗进阶版
+				//			var updown;
+				//			if(e.wheelDelta){
+				//            updown = e.wheelDelta < 0;
+				//			}else{
+				//            updown = e.detail > 0;
+				//			}
+				//			if(updown){
+				//				alert("向下");
+				//			}else{
+				//				alert("向上");
+				//			}
+
+
+				//三目运算简化版
+				//			var updown = e.wheelDelta ? e.wheelDelta < 0 : e.detail > 0;
+				//			if(updown){
+				//				alert("向下");
+				//			}else{
+				//				alert("向上");
+				//			}
+
+
+				//三目运算符终极版
+				e.wheelDelta ? e.wheelDelta < 0 ? alert("向下") : alert("向上") : e.detail > 0 ? alert("向下") : alert("向上");
+
+			}
+		</script>
+	</body>
+
+</html>

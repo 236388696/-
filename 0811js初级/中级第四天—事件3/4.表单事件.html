@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--method="post" 拼接地址-->
+		<form id="form" action="" method="get">
+			<input id="but1" type="button" value="but1"/>
+			<input id="but2" type="text" value="请输入用户名"/>
+			<input id="sub" type="submit" value="提交"/>
+			
+			
+			<select name="" id="sel">
+				<option value="la1">1</option>
+				<option value="la2">2</option>
+				<option value="la3">3</option>
+				<option value="la4">4</option>
+			</select>
+		</form>
+		<script type="text/javascript">
+			var form=document.getElementById("form");
+			var sub=document.getElementById("sub");
+			var but1=document.getElementById("but1");
+			var but2=document.getElementById("but2");
+			var sel=document.getElementById("sel");
+			//submit提交
+			form.onsubmit=function(){
+				alert("提交成功");
+			}
+			//聚焦时触发的事件
+			but1.onfocus=function(){
+				if(but2.value=="请输入用户名"){
+					but2.value="";
+				}
+				but1.style.backgroundColor="pink";
+			}
+			//失去焦点触发的事件
+			but1.onblur=function(){
+				if(but2.value==""){
+					but2.value="请输入用户名";
+				}
+				but1.style.backgroundColor="";
+			}
+			
+			//比对元素聚焦时和失焦时的value值，改变则触发事件
+			but2.onchange=function(){
+				alert("change");
+			}
+			
+			sel.onchange=function(){
+				alert(sel.value);
+			}
+		</script>
+	</body>
+</html>

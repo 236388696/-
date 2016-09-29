@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--d：域名
+		p:日期
+		e：生命周期session没有周期，不手动删除，永远存在-->
+		<script type="text/javascript">
+		//获取到的是字符串类型,要获取cookie的键和值，需要进行字符串切割
+		console.log(document.cookie);
+//	
+//		
+		var ck=document.cookie;
+		var ckArr=ck.split("; ");
+		console.log(ckArr);
+		//遍历拆分数组中的每一个间值对
+		for(var i=0;i<ckArr.length;i++){
+			ckArr[i]=ckArr[i].split("=");
+			if(ckArr[i][0]=="username1"){
+				console.log(ckArr[i][1]);
+			}
+		}
+		console.log(ckArr);
+		
+		
+		//切割字符串
+		function getCookie(name){
+			//获取cookie(字符串类型)
+			var ck=document.cookie;
+			//字符串拆分，以";"来拆分(分号+空格)
+		    var ckArr=ck.split("; ");
+		console.log(ckArr);
+		//遍历，把获取到的数组元素再以"="进行拆分
+		for(var i=0;i<ckArr.length;i++){
+			ckArr[i]=ckArr[i].split("=");
+			if(ckArr[i][0]=="name"){
+				return (ckArr[i][1]);
+			}
+		}
+		//当没有获取到任何值的时候，返回false
+		return false;
+		}
+		
+		
+		
+//			var str=new String("hello,world,nihao");
+//			var arr=str.split("h");
+//			console.log(arr);
+		</script>
+	</body>
+</html>

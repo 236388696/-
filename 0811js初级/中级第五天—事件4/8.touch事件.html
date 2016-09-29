@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//原生touch：只适用手机端,touch事件只能用事件监听来绑定; 先获取你手指[0],再获取手指的坐标
+//			ontouchstart:
+//			ontouchmove:
+//			ontouchend:
+        
+//        document.addEventListener("touchstart",function(ev){
+//        	//获取一个手指的事件对象
+//        	var t=ev.touches[0];
+//        	//获取手指在屏幕上的坐标
+//        	var touchX=t.clientX;    //var touchX=t.screenX;(screenX带手机屏幕的边框宽度;)
+//        	var touchY=t.clientY;
+//        	console.log(clientX,touchY);
+//        },false);
+          
+          
+//        
+//         document.addEventListener("touchmove",function(ev){
+//        	//获取一个手指的事件对象
+//        	var t=ev.touches[0];
+//        	//获取手指在屏幕上的坐标
+//        	var touchX=t.clientX;
+//        	var touchY=t.clientY;
+//        	console.log(touchX,touchY);
+//        },false);
+
+
+
+
+               document.addEventListener("touchend",function(ev){
+          	//获取一个手指的事件对象
+          	var t=ev.changedTouches[0];
+          	//获取手指在屏幕上的坐标
+          	var touchX=t.clientX;
+          	var touchY=t.clientY;
+          	console.log(touchX,touchY);
+          },false);
+
+
+
+
+
+
+
+		</script>
+	</body>
+</html>

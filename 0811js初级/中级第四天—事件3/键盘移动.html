@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+			.div1{
+				width: 100px;
+				height: 100px;
+				background-color: aquamarine;
+				position: absolute;
+				border-right: 10px solid greenyellow;
+				transform: rotate(0deg);
+				transition: all !important 1s linear;  
+			}
+		</style>
+	</head>
+	<body>
+		<div class="div1"></div>
+		<script type="text/javascript">
+			var div1=document.getElementsByClassName("div1")[0];
+			
+			var speed=10;
+			document.onkeydown=function(ev){
+				var e=ev||window.event;
+			if(e.keyCode==37){
+				div1.style.left=div1.offsetLeft-speed+"px";
+				div1.style.transform="rotate(60deg)";
+			}else if(e.keyCode==38){
+				div1.style.top=div1.offsetHeight-speed+"px";
+				div1.style.transform="rotate(120deg)";
+			}else if(e.keyCode==39){
+				div1.style.left=div1.offsetLeft+speed+"px";
+			}else if(e.keyCode==40){
+				div1.style.top=div1.offsetTop+speed+"px";
+			}
+				console.log(e.keyCode);
+			}
+		</script>
+	</body>
+</html>

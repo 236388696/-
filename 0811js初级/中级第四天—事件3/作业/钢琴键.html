@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>钢琴键</title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			
+			#all {
+				width: 500px;
+				margin: 300px auto 0;
+				/*overflow: hidden;*/
+			}
+			#all div{
+				width: 50px;
+				height: 50px;
+				float: left;
+				margin-right: 20px;
+				text-align: center;
+				line-height: 50px;
+				font-weight: bold;
+				position: relative;
+			}
+			
+			#all p{
+				width: 50px;
+				height: 50px;
+				float: left;
+				position: absolute;
+				bottom: 0;
+			}
+			#all span{
+				width: 50px;
+				height: 50px;
+				position: absolute;
+				left: 0;
+				bottom: 0;
+			}
+			.keyA {
+				background: #e51c55;
+			}
+			
+			.keyS {
+				background: #c926a5;
+			}
+			
+			.keyD {
+				background: #9c4bd5;
+			}
+			
+			.keyJ {
+				background: #4f65c3;
+			}
+			
+			.keyK {
+				background: #6ccab7;
+			}
+			.keyL {
+				background: #33CC33;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="all">
+			<div>
+				<p class="keyA"></p>
+				<span class="keyA">A</span>
+				
+			</div>
+			<div>
+				<p class="keyS"></p>
+				<span class="keyS">S</span>
+			</div>
+			<div>
+				<p class="keyD"></p>
+				<span class="keyD">D</span>
+			</div>
+			<div>
+				<p class="keyJ"></p>
+				<span class="keyJ">J</span>
+			</div>
+			<div>
+				<p class="keyK"></p>
+				<span class="keyK">K</span>
+			</div>
+			<div>
+				<p class="keyL"></p>
+				<span class="keyL">L</span>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var keys = document.getElementsByTagName("p");
+			var spans = document.getElementsByTagName("span");
+			var keyCodes = [65, 83, 68, 74, 75,76];
+			var maxHeight = 300;
+			var minHeight = 50;
+			var speed = 1;
+			document.onkeydown = function(ev) {
+				var e = ev || window.event;
+				for(var i = 0; i < keyCodes.length; i++){
+					if(e.keyCode == keyCodes[i]){
+						keys[i].up = false;
+						spans[i].style.backgroundColor = "white";
+						spans[i].style.opacity = 0.5;
+						changeHeight(keys[i]);
+					}
+				}
+			}
+			document.onkeyup = function(ev) {
+				var e = ev || window.event;
+				for(var i = 0; i < keyCodes.length; i++){
+					if(e.keyCode == keyCodes[i]){
+						keys[i].up = true;
+						changeHeight(keys[i]);
+						spans[i].style.backgroundColor = "";
+						spans[i].style.opacity = "";
+					}
+				}
+			}
+			for(var i = 0; i < keys.length; i++){
+					keys[i].timer = null;
+					keys[i].up = false;
+				}
+			function changeHeight(who){
+				clearInterval(who.timer);
+				who.timer = setInterval(function(){
+					var height = who.offsetHeight;
+					if(who.up){
+						if(height <= minHeight){
+							clearInterval(who.timer);
+							who.style.height = minHeight + "px";
+						}else{
+							who.style.height = height - speed + "px";
+						}
+					}else{
+						if(height >= maxHeight){
+							clearInterval(who.timer);
+							who.style.height = maxHeight + "px";
+						}else{
+							who.style.height = height + speed + "px";
+						}
+					}
+				},0.5)
+			}
+		</script>
+	</body>
+</html>

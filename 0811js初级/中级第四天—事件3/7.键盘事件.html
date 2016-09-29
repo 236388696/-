@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			//键盘任意键按下是触发的事件(一直按下可持续触发事件)，会拦截部分系统按键事件，keyCode返回按键的对应 键码值，keyCode值大小写不敏感
+						document.onkeydown=function(ev){
+							var e=ev||window.event;
+							if(e.keyCode==38){
+								alert("上");
+							}
+						}
+						
+						
+			//任意键抬起的时候，触发的事件，跟down一样，只是不可以连续触发
+							document.onkeyup=function(ev){
+							var e=ev||window.event;
+							console.log(e.keyCode);
+							
+						}
+
+			//任意键抬起的时候，触发的事件(一直按下可持续触发事件)，大部分系统默认事件都不会拦截。区分大小写
+//			document.onkeypress = function(ev) {
+//				var e = ev || window.event;
+//				console.log(e.keyCode);
+//			}
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+//			localStorage：本地存储
+//           1.生命周期：在不设置的情况下，必须手动删除，否则会永远存在
+//           2.不需要与服务器进行传值取值
+//           3.容量为5MB
+
+//          增
+             window.localStorage.name="峰峰";
+             window.localStorage["name1"]="cc";
+             window.localStorage.setItem("name3","bingbing");
+             
+//           改
+             window.localStorage.name="feng";
+             
+//           查
+//           console.log( window.localStorage.name);
+//           console.log( window.localStorage["name1"]);
+//           console.log(window.localStorage.getItem("name3"));
+      
+//           删
+             //单个删除
+//           window.localStorage.removeItem("name3");
+//           //整个删除
+//           window.localStorage.clear();
+
+            //遍历
+//          1.forin,target返回key值
+             for (var target in window.localStorage) {
+             	console.log(target);
+             	console.log(window.localStorage[target]);
+             }
+             
+//           2.for循环遍历,<window.localStorage.key();返回key值
+             for (var i=0;i<window.localStorage.length;i++) {
+             	console.log(window.localStorage.key(i));
+             	var keys=window.localStorage.key(i);
+             	var values=window.localStorage[keys];
+             	console.log((keys+"+"+values));
+             }
+            
+
+		</script>
+	</body>
+</html>

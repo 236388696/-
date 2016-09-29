@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		//cookie:本地数据存储
+//		cookie生命周期:本次回话结束(浏览器完全关闭); cookie存储大小为5kb；
+//cookie每次会把数据传给服务器进行处理,然后返回给本地,一般用于登录信息等与服务器交互的功能,添加或修改cookie(除非name值相同,否则没有覆盖机制),删除cookie,把cookie生命周期改为负值,设置为过去的某一时间,或者等生命周期时间到自动删除
+
+			document.cookie="username=xinxin";
+			document.cookie="username1=hao~";
+			document.cookie="username2=lala";
+			document.cookie="username3=aa";
+			
+			//封装方法
+			function setCookie(name,value){
+				return document.cookie=name+"="+value;
+			}
+			
+		</script>
+	</body>
+</html>
