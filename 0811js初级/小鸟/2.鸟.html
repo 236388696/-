@@ -238,15 +238,7 @@
 				<img src="img/down_bird0.png" alt="">
 			</div>
 			<ul id="ductWrap">
-				<!--li是要加水管的样式-->
-				<!--<li style="left:100px">
-				<div class="duct_up">
-					<img src="img/up_pipe.png" alt="">
-				</div>
-				<div class="duct_down">
-					<img src="img/down_pipe.png" alt="">
-				</div>
-			</li> -->
+
 			</ul>
 			<div id="gover">
 				<img src="img/message.jpg" />
@@ -260,11 +252,13 @@
 			var bird = document.getElementById("bird");
 			var menu = document.querySelector("#menu");
 			var ductWrap = document.querySelector("#ductWrap");
-
-			//获取分数
 			var score = document.querySelector("#scoring");
 			var body = document.querySelector("body");
 			var gover = document.getElementById("gover");
+
+			function rand(min, max) {
+				return Math.floor(Math.random() * (max - min + 1) + min);
+			}
 
 			//找到bird里的img，放到bird div里
 			bird.imgObj = bird.querySelector("img");
@@ -276,10 +270,8 @@
 				head.style.display = "none";
 				bird.style.display = "block";
 
-				//给bird加一个初始速度
 				bird.speed = 0;
 				bird.move = setInterval(function() {
-					//小鸟的速度变快可以加这个值
 					bird.speed += 0.5;
 					if(bird.speed > 0) {
 						bird.imgObj.src = "img/down_bird0.png";
@@ -291,23 +283,10 @@
 					}
 					bird.style.top = bird.offsetTop + bird.speed + "px";
 					var ducts = ductWrap.querySelectorAll("div");
-					//				 	 console.log(ducts);
-					//让鸟和这些水管进行碰撞检测
-//					for(var i = 0; i < ducts.length; i++) {
-//						if(rectCrash(bird, ducts[i])) {
-//							alert("Game over!!!");
-//							//清除定时器
-//							clearTimer();
-//
-//							gover.style.display = "block";
-//
-//						}
-//					}
 
 				}, 30);
 
-				//手机端游戏的时候，不能用onclick,因为onclick有30秒延时，所以要用onmousedown
-				document.onmousedown = function(ev) {
+			    document.onmousedown = function(ev) {
 					bird.speed = -7;
 					//把默认事件取消
 					var e = ev || window.event;
@@ -319,7 +298,6 @@
 				var createDuct = null;
 				createDuct = setInterval(function() {
 					var ductLi = document.createElement("li");
-					//高度随机数,想难点，可以改随机数（15，75）
 					var upHeight = rand(20, 75);
 
 					//找到水管起始的距左的偏移量
@@ -336,9 +314,9 @@
 
 					//让水管向前进行移动
 					ductLi.move = setInterval(function() {
-						//				 	console.log(ductLi);
+
 						ductLi.l -= 1;
-						//                  console.log(ductLi.l);
+
 						if(ductLi.l <= -62) {
 							clearInterval(ductLi.move);
 							ductWrap.removeChild(ductLi);
@@ -346,63 +324,23 @@
 							return;
 						} else if(ductLi.l <= -32) {
 							//鸟离开水管
-							//              	  scroeNum++;
 							if(ductLi.addScore) {
 								scroeNum++;
-								//用布尔值来防止分数重复相加
 								ductLi.addScore = false;
 
 							}
 						}
-						//               console.log(ductLi.l);
-						//               console.log(scroeNum);
 
-						//改变分数
-						score.innerHTML = "";
-						var scoreStr = String(scroeNum);
-						for(var i = 0; i < scoreStr.length; i++) {
-							var img = document.createElement("img");
-							img.src = "img/" + scoreStr[i] + ".jpg";
-							score.appendChild(img);
-						}
 
-						ductLi.style.left = ductLi.l + "px";
-
-					}, 10);
-
-				}, 3000);
-
-				//取消冒泡
+                         ductLi.style.left = ductLi.l + "px";
+                     }, 10);
+                 }, 3000);
+                  //取消冒泡
 				evObj.cancelBubble = true;
 
 			}
 
-			//随机函数
-			function rand(min, max) {
-				return Math.floor(Math.random() * (max - min + 1) + min);
-			}
-
-			//碰撞函数
-//			function rectCrash(obj1, obj2) {
-//				var t1 = obj1.offsetTop;
-//				var b1 = t1 + obj1.offsetHeight;
-//				var l1 = obj1.offsetLeft;
-//				var r1 = l1 + obj1.offsetWidth;
-//				var t2 = obj2.offsetTop;
-//				var b2 = t2 + obj2.offsetHeight;
-//				var l2 = obj2.parentNode.offsetLeft;
-//				var r2 = l2 + obj2.offsetWidth;
-//				//找没撞上的,然后else就是撞上的结果
-//				if(b1 < t2 || t1 > b2 || r1 < l2 || l1 > r2) {
-//					return false;
-//				} else {
-//					return true;
-//				}
-//			}
-
-			//清除定时器
 			function clearTimer() {
-				//timer是定时器的id
 				var timer = setTimeout(function() {}, 1);
 				for(var i = 1; i < timer; i++) {
 					clearInterval(i);

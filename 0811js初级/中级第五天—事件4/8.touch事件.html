@@ -11,15 +11,15 @@
 //			ontouchmove:
 //			ontouchend:
         
-//        document.addEventListener("touchstart",function(ev){
-//        	//获取一个手指的事件对象
-//        	var t=ev.touches[0];
-//        	//获取手指在屏幕上的坐标
-//        	var touchX=t.clientX;    //var touchX=t.screenX;(screenX带手机屏幕的边框宽度;)
-//        	var touchY=t.clientY;
-//        	console.log(clientX,touchY);
-//        },false);
-          
+          document.addEventListener("touchstart",function(ev){
+          	//获取一个手指的事件对象
+          	var t=ev.touches[0];
+          	//获取手指在屏幕上的坐标
+          	var touchX=t.clientX;    //var touchX=t.screenX;(screenX带手机屏幕的边框宽度;)
+          	var touchY=t.clientY;
+          	console.log(clientX,touchY);
+          },false);
+       
           
 //        
 //         document.addEventListener("touchmove",function(ev){

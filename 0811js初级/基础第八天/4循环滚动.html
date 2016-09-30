@@ -23,6 +23,7 @@
 				float: left;
 				width: 200px;
 				position: absolute;
+				height: 100%;
 			}
 		</style>
 	</head>
@@ -44,11 +45,12 @@
 				imgs[i].style.left=imgs[i].offsetLeft-speed+"px";
 				//如果到达看不到的地方时，换位置
 				if(imgs[i].offsetLeft<=-imgs[i].offsetWidth){
-					imgs[i].style.left=(imgs.length-1)*imgs[i].offsetWidth+"px";
+					imgs[i].style.left=(imgs.length-1)*imgs[i].offsetWidth+speed+"px";
 					
 				}
 			}
 			},10)
+
 			
 		</script>
 	</body>
