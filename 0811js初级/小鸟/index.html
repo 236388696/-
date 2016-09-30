@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			body,
+			html {
+				width: 100%;
+				height: 100%;
+				background: url(img/bg.jpg)no-repeat;
+				background-size: 100% 100%;
+				overflow: hidden;
+			}
+			
+			.logo {
+				position: absolute;
+				top: 26.986%;
+				left: 13.333%;
+			}
+			
+			.logob {
+				position: absolute;
+				top: 32.9835%;
+				left: 74.6666%;
+				transition: all 0.1s;
+			}
+			
+			.start {
+				position: absolute;
+				top: 59.97%;
+				left: 40%;
+			}
+			
+			.banner {
+				position: absolute;
+				top: 88.455%;
+				left: 0;
+				width: 100000px;
+				/*overflow: hidden;*/
+			}
+			
+			.banner .bottom {
+				position: absolute;
+				width: 200px;
+				height: 18px;
+				float: left;
+			}
+			
+			.uppipe {
+				position: absolute;
+				transition: all 0.1s;
+			}
+			
+			.uppipe .uppipes {
+				background-repeat: repeat-y;
+			}
+			
+			.downpipe {
+				position: absolute;
+				transition: all 0.1s;
+			}
+			
+			.downpipe .downpipes {
+				background-repeat: repeat-y;
+			}
+			
+			.gameover {
+				position: absolute;
+				top: 185px;
+				left: 85px;
+			}
+			
+			.sconds {
+				position: absolute;
+				top: 230px;
+				left: 58px;
+			}
+			
+			.gewei {
+				position: absolute;
+				left: 200px;
+				top: 0;
+				z-index: 99;
+			}
+			
+			.shiwei {
+				position: absolute;
+				left: 171px;
+				top: 0;
+				z-index: 99;
+			}
+			
+			.maths {
+				position: absolute;
+				top: 230px;
+				left: 50px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<img class="logo" src="img/head.jpg" />
+		<img class="logob" src="img/bird0.png" />
+		<img class="start" src="img/start.jpg" />
+		<div class="banner">
+			<img class="bottom" src="img/banner.jpg" />
+			<img class="bottom" style="left: 200px;" src="img/banner.jpg" />
+			<img class="bottom" style="left: 400px;" src="img/banner.jpg" />
+		</div>
+		<img class="gewei" src="img/0.jpg" />
+		<img class="shiwei" src="img/0.jpg" />
+		<script type="text/javascript">
+			function qs(csss) {
+				return document.querySelector(csss);
+			}
+			var logo = qs(".logo");
+			var logob = qs(".logob");
+			var start = qs(".start");
+			var bottom = document.querySelectorAll(".bottom");
+			var banner = qs(".banner");
+			var timer = null;
+			var timer1 = null;
+			var timer2 = null;
+			var timer3 = null;
+			var timer4 = null;
+			var timer5 = null;
+			var timer6 = null;
+			var timer7 = null;
+			var speed = 11;
+			var height = 20;
+			var a = true;
+			var b = true;
+			var gewei = qs(".gewei");
+			var shiwei = qs(".shiwei");
+			var zxc = 0;
+			var asd = 0;
+
+			//封装一个随机函数
+			function rand(min, max) {
+				return Math.floor(Math.random() * (max + 1 - min) + min);
+			}
+			//点击开始小鸟移到左边，所有logo消失
+			start.addEventListener("touchstart", function() {
+				logob.style.left = 50 + "px";
+				logo.style.display = "none";
+				start.style.display = "none";
+				birddown();
+				addbox();
+
+				timer5 = setInterval(function() {
+					addbox();
+				}, 2000)
+
+			})
+			bottommove();
+			//让banner条动
+			function bottommove() {
+				timer = setInterval(function() {
+					for(var i = 0; i < bottom.length; i++) {
+						//所有图片一起跑
+						bottom[i].style.left = bottom[i].offsetLeft - speed + "px";
+						//如果达到看不到的地方时，换位置
+						if(bottom[i].offsetLeft <= -bottom[i].offsetWidth) {
+							bottom[i].style.left = (bottom.length - 1) * bottom[i].offsetWidth + "px";
+						}
+					}
+				}, 50)
+			}
+			//让鸟向下移动
+			function birddown() {
+				clearInterval(timer1);
+				timer1 = setInterval(function() {
+					logob.style.top = logob.offsetTop + height + "px";
+					logob.src = "img/down_bird" + rand(0, 1) + ".png";
+				}, 10)
+			}
+			document.addEventListener("touchstart", function(ev) {
+				var t = ev.touches[0];
+				clearInterval(timer1);
+				clearInterval(timer2);
+				timer2 = setInterval(function() {
+					logob.style.top = logob.offsetTop - height + "px";
+					logob.src = "img/up_bird" + rand(0, 1) + ".png";
+				}, 10)
+			})
+			document.addEventListener("touchend", function(ev) {
+				var t = ev.touches[0];
+				clearInterval(timer2);
+				birddown();
+			}, 10)
+			document.oncontextmenu = function() {
+				document.oncontextmenu = function() {
+					return false;
+				}
+			}
+
+			function addbox() {
+				var mmm = true;
+
+				var birdW = logob.offsetWidth;
+				var birdH = logob.offsetHeight;
+				var uppipe = document.createElement("div");
+				uppipe.setAttribute("class", "uppipe");
+				uppipe.style.top = "0";
+				uppipe.style.left = "400px";
+				var uppipes = document.createElement("div");
+				uppipes.setAttribute("class", "uppipes");
+				uppipes.style.height = rand(100, 250) + "px";
+				uppipe.appendChild(uppipes);
+				uppipes.style.background = "url(img/up_mod.png)";
+				var uppipeimg = document.createElement("img");
+				uppipeimg.setAttribute("class", "uppipeimg");
+				uppipeimg.src = "img/up_pipe.png";
+				uppipe.appendChild(uppipeimg);
+				document.body.appendChild(uppipe);
+				var downpipe = document.createElement("div");
+				downpipe.setAttribute("class", "downpipe");
+				downpipe.style.bottom = "0";
+				downpipe.style.left = "400px";
+				var downpipes = document.createElement("div");
+				downpipes.setAttribute("class", "downpipes");
+				downpipes.style.height = document.body.clientHeight - 250 - uppipes.offsetHeight + "px";
+				downpipe.appendChild(downpipes);
+				downpipes.style.background = "url(img/down_mod.png)";
+				var downpipeimg = document.createElement("img");
+				downpipeimg.setAttribute("class", "downpipeimg");
+				downpipeimg.src = "img/down_pipe.png";
+				downpipeimg.style.marginBottom = "-10px";
+				downpipe.insertBefore(downpipeimg, downpipes);
+				document.body.appendChild(downpipe);
+				var uppipesL = uppipe.offsetLeft;
+				timer3 = setInterval(function() {
+					uppipe.style.left = uppipe.offsetLeft - speed + "px";
+					downpipe.style.left = uppipe.offsetLeft - speed + "px";
+				}, 1)
+				timer4 = setInterval(function() {
+					var upL = uppipe.offsetLeft;
+					var upW = uppipe.offsetWidth;
+					if(upL < 0 - upW) {
+						uppipe.remove();
+						downpipe.remove();
+					}
+				}, 1)
+				timer6 = setInterval(function() {
+					var birdL = logob.offsetLeft;
+					var birdT = logob.offsetTop;
+					var birdW = logob.offsetWidth;
+					var birdH = logob.offsetHeight;
+					var uppipeL = uppipe.offsetLeft;
+					var uppipeT = uppipe.offsetTop;
+					var uppipeW = uppipe.offsetWidth;
+					var uppipeH = uppipe.offsetHeight;
+					var bolLeft = birdL + birdW >= uppipeL;
+					var bolTop = birdT + birdH >= uppipeT;
+					var bolRight = uppipeL + uppipeW >= birdL;
+					var bolBottom = uppipeT + uppipeH >= birdT;
+					if(mmm && uppipeL < birdL) {
+						zxc++;
+						mmm = false;
+						console.log(zxc);
+						if(zxc < 10) {
+							gewei.src = "img/" + zxc + ".jpg";
+						} else {
+							asd += 1;
+							zxc = 0;
+							gewei.src = "img/" + zxc + ".jpg";
+							shiwei.src = "img/" + asd + ".jpg";
+						}
+					}
+					if(a == true) {
+						if(bolBottom && bolLeft && bolRight && bolTop || logob.offsetTop + 46 >= banner.offsetTop) {
+							a = false;
+							clearInterval(timer);
+							clearInterval(timer1);
+							clearInterval(timer2);
+							clearInterval(timer3);
+							clearInterval(timer4);
+							clearInterval(timer5);
+							clearInterval(timer6);
+							clearInterval(timer7);
+							uppipe.remove();
+							downpipe.remove();
+							logob.remove();
+							var bbb = document.getElementsByClassName("uppipe");
+							var aaa = document.getElementsByClassName("downpipe");
+							aaa[0].remove();
+							bbb[0].remove();
+							var gameover = document.createElement("img");
+							gameover.src = "img/game_over.jpg"
+							gameover.setAttribute("class", "gameover");
+							document.body.appendChild(gameover);
+							var sconds = document.createElement("img");
+							sconds.src = "img/message.jpg";
+							sconds.setAttribute("class", "sconds");
+							document.body.appendChild(sconds);
+
+						}
+					}
+
+				})
+				timer7 = setInterval(function() {
+					var birdL = logob.offsetLeft;
+					var birdT = logob.offsetTop;
+					var downpipeL = downpipe.offsetLeft;
+					var downpipeT = downpipe.offsetTop;
+					var downpipeW = downpipe.offsetWidth;
+					var downpipeH = downpipe.offsetHeight;
+
+					var bollLeft = birdL + birdW >= downpipeL;
+					var bollTop = birdT + birdH >= downpipeT;
+					var bollRight = downpipeL + downpipeW >= birdL;
+					var bollBottom = downpipeT + downpipeH >= birdT;
+					if(b == true) {
+						if(bollBottom && bollLeft && bollRight && bollTop) {
+							b = false;
+							clearInterval(timer);
+							clearInterval(timer1);
+							clearInterval(timer2);
+							clearInterval(timer3);
+							clearInterval(timer4);
+							clearInterval(timer5);
+							clearInterval(timer6);
+							clearInterval(timer7);
+							uppipe.remove();
+							var bbb = document.getElementsByClassName("uppipe");
+							var aaa = document.getElementsByClassName("downpipe");
+							aaa[1].remove();
+							bbb[0].remove();
+							downpipe.remove();
+							logob.remove();
+							var gameover = document.createElement("img");
+							gameover.src = "img/game_over.jpg";
+							gameover.setAttribute("class", "gameover");
+							document.body.appendChild(gameover);
+							var sconds = document.createElement("img");
+							sconds.src = "img/message.jpg";
+							sconds.setAttribute("class", "sconds");
+							document.body.appendChild(sconds);
+						}
+					}
+				})
+
+			}
+		</script>
+	</body>
+
+</html>
