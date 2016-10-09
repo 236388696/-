@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var str="refr dfgjkldr65 fjign ro2 dfjiho9 +246";
+			var arr=[];
+			var str2="";
+			for (var i=0;i<str.length;i++) {
+				if(str[i]>="0"&&str[i]<="9"){
+					arr.push(str[i]);
+				}else{
+					if(str2!=""){
+						arr.push(str2);
+						str2="";
+					}
+				}
+			}
+			if(str2!=""){
+				arr.push(str2);
+					}
+			console.log(arr);
+		</script>
+	</body>
+</html>

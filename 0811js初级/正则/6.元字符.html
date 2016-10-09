@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//元字符
+//			\d:代表所有的数字[0-9]
+//			\w：代表所有的 英文 数字 下划线 ＝ ［0-9A-z_］
+//		    \s:代表空白 空格或tab等
+		    
+		    
+		    //孪生兄弟，代表取反
+//		    \D：[^0-9]
+//		    \W:[^0-9A-z_]
+//		    \S:非空白
+		    
+		    
+//		    \u:匹配中文
+             var str="你好，哈哈哈哈alalall ";
+             //utf-8 
+             var re=/[\u4e00-\u9fa5]+/g;
+		    alert(str.match(re));
+		</script>
+	</body>
+</html>

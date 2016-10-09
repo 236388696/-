@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var str="asfgfgrehynf";
+			//正则表达式：给计算机字符串制定规则，默认大小写敏感
+			//后面加个"i,就不大小写敏感了   第一个参数：正则表达式  第二个参数：正则的属性
+			var re=new RegExp("A","i");
+			
+		    //检验字符串中是否有符合正则的字符串，有返回true,没有返回false   正则的方法是test   字符串的方法是match
+//			alert(re.test(str));
+//			alert(str.search("f"));
+			
+			
+			var re2=/G/i;
+			alert(re2.test(str));
+			
+		</script>
+	</body>
+</html>

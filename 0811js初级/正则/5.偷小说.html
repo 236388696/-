@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<textarea  id="txt1"  name="" rows="20" cols="80"></textarea>
+		<input type="button"  id="btn"  value="发送"/>
+		<textarea  id="txt2"  name="" rows="20" cols="80"></textarea>
+			
+		<script type="text/javascript">
+			var txt1=document.getElementById("txt1");
+			var btn=document.getElementById("btn");
+			var txt2=document.getElementById("txt2");
+			
+			btn.onclick=function(){
+				var str=txt1.value;
+				//".":相当于通配符，匹配所有的字符串
+				var re=/<[^<>]+>/g;
+				txt2.value=str.replace(re,"");
+				
+				
+				
+			}
+			
+			
+			
+		</script>	
+	</body>
+</html>

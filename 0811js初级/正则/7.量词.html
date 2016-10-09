@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//量词：
+//			{n,m}最少n个,最多m个
+//          {n,}最少n个,最多无限个
+//          {,m}最少不限,最多m个
+//          {n}正好n个
+            
+            
+//          +:{1,}，最少是1个，最多无限
+//          *:{0,}不建议使用
+//          ?:{0,1}要么是1个,要么是0个
+            
+             
+            var str="aabvds dsklbbgkjri grdjipbbbhgo rbbbbtjiobbbyijh "
+            var re=/a{2,4}/g;
+            
+            //b是字符串，用逗号隔开
+//          var re=/b?/g;
+            //把所有的b都单个分开，用逗号隔开
+//          var re=/b+?/g;
+             alert(re.test(str));
+             alert(str.match(re));
+		</script>
+	</body>
+</html>

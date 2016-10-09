@@ -42,19 +42,19 @@
 			var divW = div1[i].offsetWidth;
 			var diwH = div1[i].offsetHeight;
 			div1[i].onmouseover=function(){
-//				this.style.width=this.offsetWidth+speed+"px";//this.offsetWidth是实时获取，会无限的变大变小
+//				this.style.width=this.offsetWidth+speed+"px";  //this.offsetWidth是实时获取，会无限的变大变小
                 this.style.width=divW+speed+"px";
 				this.style.height=diwH+speed+"px";
 				
-				this.onmouseout=function(){
-					this.style.width=divW+"px";
-					this.style.height=diwH+"px";
-				}
-			}
-//			div1[i].onmouseout=function(){
+//				this.onmouseout=function(){
 //					this.style.width=divW+"px";
 //					this.style.height=diwH+"px";
 //				}
+			}
+			div1[i].onmouseout=function(){
+					this.style.width=divW+"px";
+					this.style.height=diwH+"px";
+				}
 		}
 		</script>
 	</body>

@@ -39,14 +39,12 @@
 			
 			div.onclick=function(){
 				//temp 就是当前定时器的id，temp的id:5;
-				var temp=setTimeout(function(){},1);
-//					alert(temp);
+				var temp=setTimeout(function(){},6000);
+					alert(temp);
              for(var i=1;i<temp;i++){
-               // clearInterval(i);
-               clearTimeout(i);
-             	
+                  clearInterval(i);
              }
-				
+				 clearTimeout(i);
 			}
 			
 			

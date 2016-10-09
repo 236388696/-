@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+//			[]:代表正则表示的一个区间he范围     
+            //[^0-9]=!取反            
+			var str="aab a-bc bbc ccde acc bbdsf abcvdcd";
+			//a开头，c结束，中间[abc]哪个字母都可以
+//			var re=/a[abc]c/g;
+      
+            //[a-z]:a-z的所有字符
+//          var re=/a[a-z]c/g;
+            
+            //    -的转移字符：/\-/
+            var re=/a[\-]b/g;
+			
+			alert(str.match(re));
+		</script>
+	</body>
+</html>

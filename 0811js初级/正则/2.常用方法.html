@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var str="ue gdfhjosi345 fgdjgio7 fdgjiuo8 fjig9904459 00 +4567";
+			//元字符\d:代表所有的数字0-9；
+			//g:global全局的
+			//+:最少一个，最多不限(一些),匹配看能不能匹配到，匹配不到，就用","隔开，是多个字符串
+//			var re=/\d\d/g;
+			
+			//match:匹配符合正则的首个字符串； 没有的话，返回null；
+//			alert(str.match(re));
+
+
+            //replace替换:将匹配到的正则的字符串替换成“123”   
+            // 区分/c/g和/c+/g的区别
+            var str="ascdfccgtcccc4";
+            var re=/c+/g;
+            alert(str.replace(re,"123"));
+             
+             
+             
+		</script>
+	</body>
+</html>

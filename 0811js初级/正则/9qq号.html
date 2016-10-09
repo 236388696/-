@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		</style>
+	</head>
+	<body>
+		<div>
+			<input type="text" name="" id="txt1" value="" placeholder="请输入QQ号"/><input type="button" name="" id="but1" value="登入" />
+		</div>
+		<input id="txt2" type="button" style="width: 80px;height: 20px;"/>
+		<script type="text/javascript">
+		var txt1=document.getElementById("txt1");
+		var txt2=document.getElementById("txt2");
+		var but1=document.getElementById("but1");
+		
+		
+		but1.onclick=function(){
+			var str=txt1.value;
+			// ^ $:开头和结尾,指定必须以某字符开头或者结尾
+			var re=/^[1-9]\d{4,9}$/;
+			if(re.test(str)){
+				txt2.value="符合"
+			}else{
+				txt2.value="请重新输入"
+			}
+		}
+		</script>
+	</body>
+</html>

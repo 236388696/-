@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		
+		</style>
+	</head>
+	<body>
+		<div>
+			<input type="text" name="" id="txt1" value="" placeholder="请输入ip地址"/><input type="button" name="" id="but1" value="验证" />
+		</div>
+		<br />
+		<input id="txt2" type="button" style="width: 200px;height: 25px;"/>
+		<script type="text/javascript">
+		var txt1=document.getElementById("txt1");
+		var txt2=document.getElementById("txt2");
+		var but1=document.getElementById("but1");
+		
+		
+		but1.onclick=function(){
+			var str=txt1.value;
+			var re = /^([1-9]|[1-9]\d|1\d{2}|2[0-4]\d|25[0-5])(\.([0-9]|[1-9]\d|1\d{2}|2[0-4]\d|25[0-5])){3}$/
+
+			if(re.test(str)){
+				txt2.value="是ip地址"
+			}else{
+				txt2.value="不是ip地址"
+			}
+		}
+		</script>
+	</body>
+</html>

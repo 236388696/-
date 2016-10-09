@@ -199,27 +199,25 @@
 			}
 
 			
-			start.onclick = function(ev) {
-				var evObj = ev || window.event;
+		
 			
-//			start.addEventListener("click",function(ev){
-//				var evObj = ev || window.event;
-				head.style.display = "none";
+			start.addEventListener("touchstart",function(){
+    			    head.style.display = "none";
 				start.style.display = "none";
 				bird.style.display = "block";
-//				birddown();
-		}
-			
-			
-			document.mousedown=function(ev){
-				
-				birdup();
-				clearInterval(timer1);
-			}
-			document.onmouseup = function(ev){
-				
 				birddown();
-			}
+		})
+			
+			
+//			document.mousedown=function(ev){
+//				
+//				birdup();
+//				clearInterval(timer1);
+//			}
+//			document.onmouseup = function(ev){
+//				
+//				birddown();
+//			}
 
 			function birddown() {
 				clearInterval(timer1);
@@ -229,6 +227,11 @@
 				}, 10)
 			}
 
+            document.addEventListener("touchstart",function(ev){
+            	var t=ev.touches[0];
+            	clearInterval(timer1);
+            	clearInterval(timer2);
+            })
 			function birdup() {
 				clearInterval(timer2);
 				timer2 = setInterval(function() {
