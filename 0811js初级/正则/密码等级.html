@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<style type="text/css">
+		li{
+			display: inline-block;
+			width: 20px;
+			height: 5px;
+			border: 1px solid #ccc;
+		}
+		#div1{
+			font-size: 12px;
+			color:#888;
+		}
+	</style>
+</head>
+<body>
+	<input type="text" id="password1" placeholder="请输入密码"/>
+
+		<li id="li1"></li>
+		<li id="li2"></li>
+		<li id="li3"></li>
+<div id="div1"></div>
+	<script type="text/javascript">
+		var txt = document.getElementById("password1");
+		var div1 = document.getElementById("div1");
+		var lis = document.getElementsByTagName("li");
+		
+		var pass1 = false;
+		var pass2 = false;
+		var pass3 = false;
+		
+		var re1 = /^[a-z]\w{5,12}$/i;
+		txt.onfocus = function(){
+			div1.innerHTML = "密码为至少6位,但是不超过13位数字字母下划线组成，首字母位英文";
+			pass1 = false;
+			pass2 = false;
+			pass3 = false;
+		}
+		txt.onblur = function(){
+			if(!re1.test(txt.value)){
+				div1.innerHTML = "输入错误，请重新输入";
+				pass1 = false;
+				pass2 = false;
+				pass3 = false;
+				for(var i = 0; i < lis.length; i++){
+					lis[i].style.background = "";
+				}
+			}else{
+				div1.innerHTML = "可以使用";
+				
+				if(/[a-z]+/i.test(txt.value)){
+					lis[0].style.background = "red";
+					pass1 = true;
+				}
+				if(/[0-9]+/i.test(txt.value) && pass1){
+					lis[1].style.background = "yellow";
+					pass2 = true;
+				}else{
+					lis[1].style.background = "";
+					pass2 = false;
+				}
+				if(/[^\da-z]+/i.test(txt.value) && (pass1 && pass2)){
+					lis[2].style.background = "green";
+					pass3 = true;
+				}
+				else{
+					lis[2].style.background = "";
+					pass3 = false;
+				}
+			
+			}
+			
+		}
+		
+	</script>
+</body>
+</html>

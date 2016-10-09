@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			#wrap{
+				width: 550px;
+				height: 680px;
+				border: 1px solid black;
+				margin: 20px auto;
+			}
+			#div1,#div2,#div3,#div4,#div5{
+				float: left;
+			}
+			#div1{
+				margin-left: 20px;
+				margin-top: 40px;
+			}
+			#div1>p{
+				margin-left: 80px;
+				margin-top: 10px;
+			}
+			#div2{
+				margin-left: 50px;
+				margin-top: 17px;
+			}
+			#div2>p{
+				margin-left: 50px;
+				margin-top: 10px;
+			}
+			#password1{
+				margin-left: 7px;
+			}
+			#div3{
+				margin-left: 18px;
+				margin-top: 17px;
+			}
+			#div3>p{
+				margin-left: 80px;
+				margin-top: 10px;
+			}
+			#password2{
+				margin-left: 7px;
+			}
+			#div4{
+				margin-left: 2px;
+				margin-top: 17px;
+			}
+			#div4>p{
+				margin-left: 98px;
+				margin-top: 17px;
+			}
+			
+			#yzm{
+				margin-left: 7px;
+			}
+			#div5{
+				margin-top: 40px;
+				margin-left: 98px;
+				font-size: 12px;
+			}
+			#user{
+				width: 240px;
+				height: 30px;
+				border: 1px solid gray;
+				border-radius: 5px;
+				margin-left: 10px;
+				font-size: 15px;
+				padding-left: 10px;
+			}
+			#password1,#password2,#yzm{
+				width: 403px;
+				height: 30px;
+				border: 1px solid gray;
+				border-radius: 5px;
+				font-size: 15px;
+			}
+			#submit{
+				width: 120px;
+				height: 40px;
+				background-color: green;
+				border-radius: 5px;
+				color: white;
+				font-size: 20px;
+				display: block;
+				margin-top: 30px;
+			}
+			#submit:hover{
+				border: 1px solid black;
+			}
+			p{
+				font-size: 12px;
+				color: grey;
+			}
+			a{
+				text-decoration: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div id ="wrap">
+			<div id="div1">
+				* 邮件地址<input type="text" name="" id="user" value="" placeholder="建议用手机号注册" />@
+				<select name="">
+				<option value="">163.com</option>
+				<option value="">126.com</option>
+				<option value="">yeah.net</option>
+			</select>
+			<p id="p1">6~18个字符，可使用字母、数字、下划线，需以字母开头</p>
+			</div>
+			<div id="div2">
+				* 密码 <input type="password" name="" id="password1" value="" />
+			<p id="p2">6~16个字符，区分大小写</p>
+			</div>
+			<div id ="div3">
+				* 确认密码 <input type="password" name="" id="password2" value="" />
+			<p id="p3">请再次输入密码</p>
+			</div>
+			<div id ="div4">
+				* 短信验证码 <input type="text" name="yzm" id="yzm" value="" />
+			<p  id="p4">请查收手机短信，并填写短信中的验证码</p>
+			</div>
+			<div id="div5">
+				<input type="checkbox" checked="1" name="" id="b" value="" />同意<a href="###">"服务条款"</a>和<a href="###">"隐私权相关政策"</a>
+				<input type="submit" name="" id="submit" value="立即注册" />
+			</div>
+		</div>
+		
+		
+		
+		
+		<script type="text/javascript">
+			var owrap = document.getElementById("wrap");
+			var ouser = document.getElementById("user");
+			var ouserp = document.getElementById("p1");
+			var opass1 = document.getElementById("password1");
+			var opass1p = document.getElementById("p2");
+			var opass2 = document.getElementById("password2");
+			var opass2p = document.getElementById("p3");
+			var oyzm = document.getElementById("yzm");
+			var oyzmp = document.getElementById("p4");
+			var osubmit = document.getElementById("submit");
+			var ob = document.getElementById("b");
+			var a =1;
+			var b =1;
+			var c =1;
+			var d =1;
+			
+			
+			
+			
+			ouser.onmouseover = function(){
+				ouserp.style.color = "black";
+				this.style.border = "1px solid black";
+		
+				
+			}
+			ouser.onmouseout = function(){
+				if(a==0){
+					ouserp.style.color = "black";
+					this.style.border = "1px solid black";
+				}else{
+					ouserp.style.color = "gray";
+					this.style.border = "1px solid gray";
+					
+					
+				}
+				
+				
+			}
+			opass1.onmouseover = function(){
+				opass1p.style.color = "black";
+				this.style.border = "1px solid black";
+				
+			}
+			opass1.onmouseout = function(){
+				if(b==0){
+					opass1p.style.color = "black";
+					this.style.border = "1px solid black";
+				}else{
+					opass1p.style.color = "gray";
+					this.style.border = "1px solid gray";	
+				}
+				
+				
+			}
+			opass2.onmouseover = function(){
+				opass2p.style.color = "black";
+				this.style.border = "1px solid black";
+			}
+			opass2.onmouseout = function(){
+				if(c==0){
+					opass2p.style.color = "black";
+					this.style.border = "1px solid black";
+				}else{
+					opass2p.style.color = "gray";
+					this.style.border = "1px solid gray";	
+				}
+			
+			}
+			oyzm.onmouseover = function(){
+				oyzmp.style.color = "black";
+				this.style.border = "1px solid black";
+			}
+			oyzm.onmouseout = function(){
+				if(d==0){
+					oyzmp.style.color = "black";
+					this.style.border = "1px solid black";
+				}else{
+					oyzmp.style.color = "gray";
+					this.style.border = "1px solid gray";	
+				}
+				
+			}
+			//创建邮件地址
+			ouser.onfocus = function(){
+				var	ou = /^[a-zA-Z]\w{5,17}/g;
+				ouserp.style.color = "black";
+				this.style.border = "1px solid black";
+				a = 0;
+				ouserp.innerHTML = "6~18个字符，可使用字母、数字、下划线，需以字母开头";
+				
+			ouser.onblur= function(){
+				a = 1;
+					var ou1 = ouser.value;
+					ouserp.style.color = "";
+					this.style.border = "";
+					if(ou.test(ou1)){
+						ouserp.innerHTML = "✅ 恭喜您可以注册";
+					}else if(ou1==""){
+						ouserp.innerHTML = "6~18个字符，可使用字母、数字、下划线，需以字母开头";
+					}
+					else{
+						ouserp.innerHTML = "❗ ️抱歉请注意格式";
+					}
+				}
+			}
+			opass1.onfocus =function(){
+				var	opas1 = /^\w{6,16}/g;
+				opass1p.style.color = "black";
+				this.style.border = "1px solid black";
+				b = 0;
+				opass1p.innerHTML = "6~16个字符，区分大小写";
+				opass1.onblur= function(){
+					b = 1;
+					var op1 = opass1.value;
+					opass1p.style.color = "";
+					this.style.border = "";
+					var op4 = opass2.value;
+					if(op4!="" && op4!=op1){
+						opass2p.innerHTML = "两次密码输入不一样";
+					}
+					if(opas1.test(op1)){
+						opass1p.innerHTML = "✅";
+					}else if(op1==""){
+						opass1p.innerHTML = "6~16个字符，区分大小写";
+					}
+					else{
+						opass1p.innerHTML = "❗ ️抱歉请注意格式";
+					}
+				}
+			}
+			opass2.onfocus =function(){
+				opass2p.style.color = "black";
+				this.style.border = "1px solid black";
+				c = 0;
+				opass2p.innerHTML = "请再次输入密码";
+				opass2.onblur= function(){
+					c = 1;
+					var op2 = opass2.value;
+					var op3 = opass1.value;
+					opass2p.style.color = "";
+					this.style.border = "";
+					if(op2==""&&op3==op2){
+						opass2p.innerHTML = "请再次输入密码";
+					}else if(op2==op3){
+						opass2p.innerHTML = "✅ ";
+					}else{
+						opass2p.innerHTML = "两次密码输入不一样";
+					}
+				}
+			}
+			oyzm.onfocus =function(){
+				oyzmp.style.color = "black";
+				this.style.border = "1px solid black";
+				var	oyz = /^\w{6}$/g;
+				d = 0;
+				oyzmp.innerHTML = "请查收手机短信，并填写短信中的验证码";
+					oyzm.onblur= function(){
+					d = 1;
+					oy1 = oyzm.value;
+					oyzmp.style.color = "";
+					this.style.border = "";
+					if(oy1==""){
+						oyzmp.innerHTML = "请查收手机短信，并填写短信中的验证码";
+					}else if(oyz.test(oy1)){
+						oyzmp.innerHTML = "✅";
+					}
+					else{
+						oyzmp.innerHTML = "❗ 请输入正确的验证码";
+					}
+				}
+			}
+			osubmit.onclick=function(){
+				ou = /^[a-zA-Z]\w{5,17}/g;
+				opas1 = /^\w{6,16}/g;
+				oyz = /^\w{6}$/g;
+				ou1 = ouser.value;
+				op1 = opass1.value;
+				op2 = opass2.value;
+				oy1 = oyzm.value;
+				if(ou.test(ou1)&&opas1.test(op1)&&op2==op1&&oyz.test(oy1)){
+					alert("注册成功");
+				}else{
+					alert("请重新填写提示或未填写部分");
+					
+				}
+			}
+			
+			
+		</script>
+	</body>
+</html>

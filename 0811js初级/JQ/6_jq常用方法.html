@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-2.2.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				//1.attr:操作属性
+				$("#div1").attr("class","div1");
+				alert($("#div1").attr("class"));
+				//2.查找更精确的函数
+//				(1)filter过滤：过滤出来
+//              $("li").filter("[class='li3']").css("background-color","yellowgreen");
+                  //not：与过滤相反
+                $("li").not("[class='li3']").css("background-color","yellowgreen");
+                
+//              (2)has:匹配到含有某个子级元素的元素（匹配到含有span的li）
+                $("li").has("span").css("background-color","red");
+                
+//              (3)find():匹配在某个元素中的find
+                $("ul").find("li.li3").css("background-color","pink");
+                //has和find：has一个是含有某子级的话，返回本身；find找到某子级的话，返回子级
+                
+                //3.index:索引.
+                //返回其在兄弟元素中的位置，从1开始
+                alert($(".li5").index());
+                
+				
+			})
+		</script>
+	</head>
+	<body>
+		<div id="div1">div1</div>
+		<ul>
+		<!--li.li${li$}*5-->
+		<li class="li1">li1</li>
+		<li class="li2">li2<span>123</span></li>
+		<li class="li3">li3</li>
+		<li class="li4">li4</li>
+		<li class="li5">li5</li>
+		</ul>
+	</body>
+</html>

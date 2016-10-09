@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!-- saved from url=(0120)http://127.0.0.1:8020/0811js%E5%88%9D%E7%BA%A7/JQ/4_%E5%8F%96%E5%80%BC%E8%B5%8B%E5%80%BC%E4%B8%80%E4%BD%93%E5%8C%96.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+		<title></title>
+		<script src="./4_%E5%8F%96%E5%80%BC%E8%B5%8B%E5%80%BC%E4%B8%80%E4%BD%93%E5%8C%96_files/jquery-2.2.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+//			js:	var div1=document.getElementById("div1");
+//				//取值
+//				alert(div1.innerHTML);
+//				//赋值
+//				div1.innerHTML="abc";
+				
+//			JQ: 
+                //jq取值
+				$("#div1").html("qwrt");
+				//jq赋值
+				alert($("#div1").html());
+				
+				//css颜色赋值
+				$("#div1").css("background-color","yellow");
+				//css颜色取值：rgb格式
+				alert($("#div1").css("background-color"));
+				
+				//取值赋值需要注意：
+				$("ul li").css("background-color","aquamarine");
+				console.log($("ul li").css("background-color")
+			})
+		</script>
+	</head>
+	<body>
+		<!--div#div1{div1}-->
+		<div id="div1">div1</div>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+		</ul>
+	
+
+</body></html>

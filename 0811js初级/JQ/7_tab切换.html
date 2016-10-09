@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#all div {
+				width: 200px;
+				height: 200px;
+				border: 1px solid black;
+				display: none;
+			}
+			
+			.inputAct {
+				background-color: red;
+			}
+			
+			#all .divAct {
+				display: block;
+			}
+		</style>
+		<script src="js/jquery-2.2.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+//					window.onload=function(){
+//						var all=document.getElementById("all");
+//						var btns=all.getElementsByTagName("input");
+//						var divs=all.getElementsByTagName("div");
+//						for (var i=0;i<btns.length;i++) {
+//						   btns[i].onclick=function(){
+//						   	for (var j=0;j<btns.length;j++) {
+//						   		btns[j].className="";
+//						   		divs[j].className="";
+//						   	}
+//						   	this.className="inputAct";
+//						   	divs[this.index].className="divAct";
+//						   }
+//						}
+//					}
+
+			$(function(){
+				//input前面可以不用加＃all;  但是获取div时，一定要加#all,不然的话#all也是属于div标签里的
+				$("#all input").click(function() {
+					$("#all input").attr("class", "");
+					$("#all div").attr("class", "");
+					$(this).attr("class", "inputAct");
+					$("#all div").eq($(this).index()).attr("class", "divAct");
+
+				});
+			});
+		</script>
+	</head>
+
+	<body>
+		<div id="all">
+			<!--input[type="button" value="$"]*3-->
+			<input class="inputAct" type="button" value="1" />
+			<input type="button" value="2" />
+			<input type="button" value="3" />
+			<!--div{div$}*3-->
+			<div class="divAct">div1</div>
+			<div>div2</div>
+			<div>div3</div>
+
+		</div>
+	</body>
+
+</html>

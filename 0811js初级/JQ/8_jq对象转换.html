@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-2.2.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+//				jQuery和js可以共同使用,但是不能混合使用
+              var div1=document.getElementById("div1");
+              //DOM对象转换成JQ对象
+//            $(div1).html('哈哈哈');
+
+              //JQ对象转换成DOM对象
+              $("#div1")[0].innerHTML="呵呵";
+			})
+		</script>
+	</head>
+	<body>
+		<div id="div1">div1</div>
+	</body>
+</html>

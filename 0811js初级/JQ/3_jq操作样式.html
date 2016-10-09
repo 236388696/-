@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-2.2.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				//设置一种样式
+//				$("#div1").css("background-color","aquamarine");
+//				$("#div1").css("width","100px");
+//				$("#div1").css("height","200px");
+
+
+                //设置多种样式
+//              $("#div1").css({"width":"200px","height":"200px","border":"1px solid red"});
+
+                $("li").css("background-color","orangered");
+                //odd是奇数，从0开始
+                $("li:odd()").css("background-color","yellow");
+                //even是偶数，从0开始,下标0是偶数
+                $("li:even()").css("background-color","greenyellow");
+                //下标
+                $("li").eq(3).css("background-color","gray");
+            
+
+			});
+		</script>
+	</head>
+	<body>
+		<div id="div1">div1</div>
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</body>
+</html>

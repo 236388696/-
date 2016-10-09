@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-2.2.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+//		    //1.文本节点:text只是文本节点   html包括所有标签(里面的属性节点、文本节点)
+//		    //创建
+//		    $("body").text("啦啦啦啦");
+//		    //获取
+//		    alert( $("body").text());
+//		    
+//		    
+//		    //2.属性节点
+//		    //创建
+//		    $("#div1").attr("class","qwer");
+//		    //获取
+//		    alert($("$#div1").attr("class"));
+//		    //删除
+//		     $("#div1").removeAttr("class");
+//		    
+//		    
+//		    
+//		    
+//			//3.元素节点	
+//			//创建
+//			//js
+//			  var ele=document.createElement("div");
+//			//jq  
+//			  //第一种写法
+//			  var div1=$("<div>");
+//			  //第二种写法
+//			  var div1=$("<div></div>")
+//			  //第三种写法：加个id属性
+//			  var div1=$("<div id='div1'>div1</div>");
+//			  
+//			  //从尾部插入节点
+//			//js插入  
+//			  document.body.appendChild(ele);
+//			//jq插入
+//			  $("body").append(div1);
+//			  div1.appendTo($("body"));
+//			  
+//			  //从头部插入节点
+//			  $("body").prepend(div1);
+//			  div1.prependTo($("body"));
+//			  
+//			  
+//			  //从某个元素的位置前后插入节点
+////			  (1)之前插入节点insertBefore
+//            div1.insertBefore($(".li3"));
+//            (2)之后插入节点inserAtter
+//            div1.insertAfter($(".li1"));
+//            
+//            //移除节点
+//            $(".li4").remove();
+//            //清空节点
+//            $(".li1").empty();
+//
+//            
+//            //克隆节点clone:复制节点(里面的所有内容都克隆了)
+//            var li1Clone=$(".li1").clone();
+//            li1Clone.appendTo($("body"));
+//            
+//            //替换节点
+//            $("li").replaceWith("<p>你是p</p>");
+//            $("<p>你是p</p>").replaceAll($("li"));
+
+
+              //包裹节点
+//            (1)wrap:给每一个ul包裹一个标签(给每一个ul外面套一个div)
+//            $("ul").wrap("<div class='asd'></div>");
+//            (2)wrapAll:把匹配到的ul，整个套一个元素节点(给ul标签最外面套一个div)
+//            $("ul").wrapAll("<div class='dfg'></div>");
+//            (3)wrapInner:给每一个ul的整体内容套一个元素节点(给每个ul里套一个div)
+               $("ul").wrapInner("<div class='dfg'></div>");
+              
+            
+              
+              
+               
+     
+			  
+			  
+			  
+			});
+			
+			
+		</script>
+	</head>
+	<body>
+		<div id="div1">div1</div>
+		<ul>
+			<li class="li1">
+				<span>123</span>
+			</li>
+			<li class="li2">li2</li>
+			<li class="li3">li3</li>
+			<li class="li4">li4</li>
+			<li class="li5">li5</li>
+		</ul>
+		<ul></ul>
+	</body>
+</html>

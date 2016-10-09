@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-2.2.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+//		   js:  var divs=document.querySelectorAll("div");
+//				for (var i=0;i<divs.length;i++) {
+//					divs[i].innerHTML="我是divs";
+//				}
+				
+				//jq在获取多个元素的时候，直接赋值可以省略for
+				//标签名选择器：返回就是一个数组
+//				$("div").html("我是div");
+//				console.log($("div"));
+				
+				//id选择器：
+				$("#div2").html("你是div2");
+				
+				//类选择器
+//				$(".box").html("你是box");
+
+				//后代选择器
+				$(".box p").html("你是box里面的p");
+				
+				//组合选择器
+				$("p.box").html("class为box的p");
+				
+				//群组选择器
+			    $("#div2,.box").html("哈哈哈哈哈");
+			    
+			    //伪类选择器
+			    $("li:first").html("我是第一个li");
+			    $("li:last").html("我是最后一个li");
+			    //eq()代表下标，从0开始
+			    $("li:eq(3)").html("我是33333");
+			    $("li").first().html("我是第一个li~~~");
+			    $("li").last().html("我是zui后一个li~~~");
+			    $("li").eq(2).html("我是第三个li~~~");
+			    
+			    //匹配button标签或者type为button的input标签
+			    $(":text").val("我是文本框");
+			    $(":button").val("我是but");
+			    
+			    //属性选择器
+			    $("li[class]").html("我带class");
+			    $("li[class=li3]").html("我是li3");
+			    $("li[class$=1]").html("class名以2结尾的li"); 
+	    
+			    
+	
+			    
+			    
+			    
+			});
+		</script>
+	</head>
+	<body>
+		<div class="box">
+			<p class="box"></p>
+		</div>
+		<div id="div2"></div>
+		<div class="box"></div>
+		<ul>
+			<li class="li1">1</li>
+			<li class="li2">2</li>
+			<li class="li3">3</li>
+			<li>4</li>
+			<li>5</li>
+		</ul>
+		<input type="text" />
+		<input type="button" />
+	</body>
+</html>
