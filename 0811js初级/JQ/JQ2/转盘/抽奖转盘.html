@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>抽奖</title>
+		<script type="text/javascript" src="js/jquery-2.2.3.min.js">
+		</script>
+		<!-- 这里是css部分 -->
+		<style>
+			#bg {
+				width: 650px;
+				height: 600px;
+				margin: 0 auto;
+				background: url(../img/turntable-bg.jpg) no-repeat;
+				position: relative;
+			}
+			
+			img:nth-of-type(1) {
+				position: absolute;
+				z-index: 10;
+				top: 155px;
+				left: 247px;
+			}
+			
+			img:nth-of-type(2) {
+				position: absolute;
+				z-index: 5;
+				top: 60px;
+				left: 116px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!-- 这里是HTML结构部分 -->
+		<div id="bg">
+			<img src="../img/pointer.png" alt="pointer" id="img1">
+			<img src="../img/turntable.png" alt="turntable" id="img2">
+		</div>
+		<!-- 这里是jq部分 -->
+		<script>
+			var oPointer = $("#img1");
+			var oTurntable = $("#img2");
+			var cat = 51.4;
+			var num = 0;
+			var offOn = true;
+			var temp = 0;
+			document.title = "";
+			oPointer.click(function() {
+				if(offOn) {
+
+					offOn = !offOn;
+					ratating();
+				}
+			});
+			function ratating() {
+				var rdm = 0;
+				rdm = Math.floor(Math.random() * (3600 - 360*3 + 1) + 360*3);
+				oTurntable.css({
+					transition: "all 4s",
+					transform: "rotate(" + (rdm + temp) + "deg)"
+				});
+				setTimeout(function() {
+					offOn = !offOn;
+					num = (rdm + temp) % 360;
+					temp += rdm;
+					if(num <= cat * 1) {
+						alert("4999元");
+					} else if(num <= cat * 2) {
+						alert("条50元");
+					} else if(num <= cat * 3) {
+						alert("10元");
+					} else if(num <= cat * 4) {
+						alert("5元");
+					} else if(num <= cat * 5) {
+						alert("免息服务");
+					} else if(num <= cat * 6) {
+						alert("提交白金");
+					} else if(num <= cat * 7) {
+						alert("未中奖");
+					}
+				}, 4000);
+			}
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+			<style type="text/css">
+				*{
+					padding: 0;
+					margin: 0;
+				}
+				.screen{
+					width: 800px;
+					height: 450px;
+					position: relative;
+					margin: 0 auto;
+					/*border: 1px solid red; */
+					overflow: hidden;	
+				}
+				.imgFa{
+					width: 2400px;
+					position: absolute;
+					left: 0;
+					top: 0;
+					overflow: hidden;
+					/*transition: all 1s;*/
+				}
+				.imgFa img{
+					width: 800px;
+					float: left;
+				}
+				.btn{
+					position: absolute;
+					background-color: rgba(0,0,0,0.5);
+					bottom: 0;
+					right: 0;
+					color: #fff;
+					width: 80px;
+					height: 20px;
+					text-align: center;
+					cursor: pointer;
+				}
+				.lastImg{
+					right: 100px;
+				}
+				.numBtn{
+					text-align: center;
+				}
+				.numBtn a{
+					display: inline-block;
+					width: 10px;
+					height: 10px;
+					background-color: #ccc;
+					border-radius: 5px;
+					margin: 5px;
+				}
+			</style>
+	</head>
+	<body>
+		<div class="all">
+			<div class="screen">
+				<div class="imgFa">
+					<img src="img/1.jpg"/>
+					<img src="img/2.jpg" />
+					<img src="img/3.jpg"/>
+				</div>
+				<div class="lastImg btn">lastImg</div>
+				<div class="nextImg btn">nextImg</div>	
+			</div>
+			<div class="numBtn">
+				<a href="###" style="background-color: red;"></a>
+				<a href="###"></a>
+				<a href="###"></a>
+			</div>
+		</div>
+		<script type="text/javascript">
+				var imgFa = document.querySelector(".imgFa");
+				var screenDiv = document.querySelector(".screen");
+				var lastBtn = document.querySelector(".lastImg");
+				var nextBtn = document.querySelector(".nextImg");
+				var all = document.querySelector(".all")
+				var numBtn = document.querySelectorAll(".numBtn a");
+//				var isNext = true;
+				var timer = null;
+				//每次移动的终点
+				var endPos = 0;
+				// 用来判断当前位置
+				var index = 0;
+				var autoTimer = null;
+				
+				function nextRoll(){
+					imgFa.style.left=endPos+"px";
+					var speed = 10;
+					index++;
+					//如果移动到最后一个,返回到第一个
+					if(index >2 ){
+						index = 0;
+						speed = -speed;
+					}else if(imgFa.offsetLeft < endPos){
+						speed = -speed;
+					}else if(imgFa.offsetLeft > endPos){
+						speed = 10;
+					}
+					//终点的位置
+					endPos = -index * screenDiv.offsetWidth;  
+					//transition动画效果
+//					imgFa.style.left = endPos + "px";
+					clearInterval(timer);
+					//js动画效果
+					timer = setInterval(function(){
+						if(imgFa.offsetLeft == endPos){
+							clearInterval(timer);
+						}else{
+							imgFa.style.left = imgFa.offsetLeft - speed + "px";
+						}
+					},1)
+					clearColor(numBtn[index]);
+				}
+				autoRoll();
+				function autoRoll(){
+					imgFa.style.left=endPos+"px";
+					clearInterval(autoTimer);
+					autoTimer = setInterval(function(){
+						nextRoll();
+						clearColor(numBtn[index]);
+					},2000)
+					
+				}
+				//点击下一张的按钮
+				nextBtn.onclick = function(){
+//						clearInterval(autoTimer);
+						nextRoll();
+				};
+				//点击上一张的按钮
+				lastBtn.onclick = function(){
+					imgFa.style.left=endPos+"px";
+					var speed = 10;
+					index--;
+					if(index<0){
+						index = 2;
+						speed = -speed;
+					}
+					endPos = -index * screenDiv.offsetWidth
+						clearInterval(timer);
+						timer = setInterval(function(){
+							if(imgFa.offsetLeft == endPos){
+								clearInterval(timer);
+							}else{
+								imgFa.style.left = imgFa.offsetLeft + speed +"px";
+							}
+						},1)
+						clearColor(numBtn[index]);
+				}
+				
+				for(var i=0;i<numBtn.length;i++){
+					numBtn[i].count = i;
+					numBtn[i].onclick = function(){
+						numClick(this);
+						clearColor(this);
+				}
+				//清除颜色	
+				function clearColor(who){
+	//				把所有按钮的背景颜色清除掉
+						for(var j=0;j<numBtn.length;j++){
+							numBtn[j].style.backgroundColor = "";
+						}
+						who.style.backgroundColor = "red";
+					}
+				}
+				
+				
+				//点击下面的按钮触发函数
+				function numClick(who){
+					imgFa.style.left=endPos+"px";
+					var speed = 10;
+					//点击下面的按钮之前,index和点击按钮的下标进行比较
+					//如果index小于点击按钮的小标, 方向为负(speed为负)
+					//否则speed 为正
+					if(index < who.count){
+						speed = -speed;
+					}
+					//更新位置
+					index = who.count;
+					endPos = -index * screenDiv.offsetWidth; 
+					
+					clearInterval(timer);
+					timer = setInterval(function(){
+						if(imgFa.offsetLeft == endPos){
+							clearInterval(timer);
+						}else{
+							imgFa.style.left = imgFa.offsetLeft + speed + "px"; 
+						}
+					},1)
+				}
+				
+				//鼠标移入大框的时候不在继续自动滚动
+				all.onmouseover = function(){
+					clearInterval(autoTimer);
+				}
+				//鼠标移出大框的时候 继续自动滚动
+				all.onmouseout  = function(){
+					autoRoll();
+				}
+		</script>
+	</body>
+</html>

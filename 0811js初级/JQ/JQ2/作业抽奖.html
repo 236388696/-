@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>抽奖</title>
+		</script>
+		<!-- 这里是css部分 -->
+		<!--2d是rotate:z；x、y没有旋转，只有移动／  3d：x、y旋转，多了个z轴的translate移动-->
+		<style>
+			#bg {
+				width: 650px;
+				height: 600px;
+				margin: 0 auto;
+				background: url(img/turntable-bg.jpg) no-repeat;
+				position: relative;
+			}
+			
+			img:nth-of-type(1) {
+				position: absolute;
+				z-index: 10;
+				top: 155px;
+				left: 247px;
+			}
+			
+			img:nth-of-type(2) {
+				position: absolute;
+				z-index: 5;
+				top: 60px;
+				left: 116px;
+			}
+		</style>
+		<script src="../js/jquery-2.2.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function() {
+				$.fn.extend({
+					"rand":function(min,max){
+						return Math.floor(Math.random()*(max-min+1)+min);
+					}
+				})
+				var timer = null;
+				var count = 5;
+				var speed = 0;
+				var speed2 = 1;
+				$("#img1").click(function() {
+					clearInterval(timer);
+					timer = setInterval(function() {
+					count++;
+						$("#img2").css("transform", "rotate(" + speed + "deg)")
+						speed = speed + speed2;
+						if(speed<=600 && speed >= 300) {
+							if(speed2 <= 5) {
+								speed2 = speed2 + 0.2;
+							}
+						}
+						if(speed> 600) {
+							if(speed2 > 2) {
+								speed2 = speed2 - 1;
+							}
+						}
+
+						if(speed == 800) {
+							clearInterval(timer);
+							count = 5;
+						}
+					    if($("#img2").speed%360==50) {
+							alert("未中奖")
+						} else if($("#img2").speed %360==100) {
+							alert("提高白条")
+						} else if($("#img2").speed %360==150) {
+							alert("免分期")
+						}else if($("#img2").speed %360==100) {
+							alert("提高白条")
+						} else if($("#img2").speed %360==150) {
+							alert("免分期")
+						}else if($("#img2").speed %360==100) {
+							alert("提高白条")
+						} else if($("#img2").speed %360==150) {
+							alert("免分期")
+						}
+					}, 10)
+				})
+			})
+			
+			
+			
+//			$(function(){
+//				$.fn.extend({
+//					"rand": function(min,max){
+//						return Math.floor(Math.random()*(max+1-min)+min);
+//					}
+//				})
+//				var count = 0;
+//				var speed=0;
+//				var speed2 =5;
+//				var timer=null;
+//				$("#img1").click(function(){
+//					var speed3=$().rand(0,360);
+//					clearInterval(timer);
+//					count++;
+//					timer = setInterval(function(){
+//						speed=speed+speed2;
+//						if(speed<=800&&speed>=500){
+//							if(speed2<=10){
+//							speed2=speed2+1}
+//						}
+//						$("#img2").css("transform","rotate("+speed+"deg)")
+//						if(speed>=800){
+//							if(speed2>=7){
+//								speed2=speed2-1}	
+//						}
+//						if (speed>=1080*count) {
+//						speed=speed+speed3;
+//						$("#img2").css("transform","rotate("+speed+"deg)")
+//							clearInterval(timer);
+//							if(speed%360>0&&speed%360<=51){
+//							alert("免单4999元");
+//						} 
+//						if(speed%360>51&&speed%360<=102){
+//							alert("免单50元");
+//						}
+//						if(speed%360>102&&speed%360<=153){
+//							alert("免单10元");
+//						}
+//						if(speed%360>153&&speed%360<=204){
+//							alert("免单5元");
+//						}
+//						if(speed%360>204&&speed%360<=255){
+//							alert("免分期服务费");
+//						}
+//						if(speed%360>251&&speed%360<=306){
+//							alert("提高白条额度");
+//						}
+//						if(speed%360>306&&speed%360<=360){
+//							alert("未中奖");
+//						}	
+//						}
+//					},10);
+//				}); 
+//			});
+		
+		</script>
+		
+	</head>
+
+	<body>
+		<!-- 这里是HTML结构部分 -->
+		<div id="bg">
+			<img src="img/pointer.png" alt="pointer" id="img1">
+			<img src="img/turntable.png" alt="turntable" id="img2">
+		</div>
+	</body>
+
+</html>

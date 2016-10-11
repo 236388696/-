@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+	    .bordery{
+			width: 450px;
+			height: 200px;
+			border: 3px solid red;
+			position: relative;
+		}
+		.cube{
+			width: 50px;
+			height: 50px;
+			background-color: aquamarine;
+			position: absolute;
+			top: 0;
+			left: 10px;
+		}
+	</style>
+	<script src="../js/jquery-2.2.3.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(function(){
+			var speedX = 10;
+			var speedY = 10;
+			setInterval(function(){
+				var cubeX = $("#cube").position().left;
+				var cubeY = $("#cube").position().top;
+				
+				var maxX = $(".bordery").innerWidth() - $("#cube").outerWidth();
+				var maxY = $(".bordery").innerHeight() - $("#cube").outerHeight();
+				if(cubeX >= maxX || cubeX <= 0){
+					speedX = -speedX;
+				}
+				if(cubeY >= maxY || cubeY <= 0){
+					speedY = -speedY;
+				}
+				
+				$("#cube").animate({
+					left: cubeX + speedX,
+					top: cubeY + speedY
+				},1)
+			},20)
+		});
+	</script>
+</head>
+<body>
+	<div class="bordery" id="bordery">
+		<div class="cube" id="cube"></div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#all{
+				width: 200px;
+				height: 200px;
+				border: 5px solid yellow;
+				margin-left: 150px;
+				position: absolute;
+				left: 0;
+			}
+			#div1{
+				width: 50px;
+				height: 50px;
+				background-color: aqua;
+				margin-left: 100px;
+				position: absolute;
+				left: 10px;
+			}
+		</style>
+		<script src="../js/jquery-2.2.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				//需要加position
+				//相对于定位基准的left值(与magin无关)
+				console.log($("#all").position().left);
+				console.log($("#div1").position().left);
+				
+				//元素到页面的距离
+				console.log($("#all").offset().left);
+				console.log($("#div1").offset().left);
+				
+				//clientWdith
+				console.log($("#all").innerWidth());
+				//offsetWidth
+				console.log($("#all").outerWidth());
+			})
+		</script>
+	</head>
+	<body>
+		<div id="all">
+			<div id="div1">div1</div>
+		</div>
+	</body>
+</html>

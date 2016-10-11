@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<title>选字游戏_jq版</title>
+		<script src="js/jquery-2.2.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function() {
+				//万能随机函数
+				$.fn.extend({
+					"rand": function(min, max) {
+						return Math.floor(Math.random() * (max + 1 - min) + min);
+					}
+				});
+				//创建颜色和文字内容的数组
+				var colorArr = ["rgb(255, 0, 0)", "rgb(0, 128, 0)", "rgb(0, 0, 255)", "rgb(255, 255, 0)", "rgb(0, 0, 0)"];
+				var textArr = ["红", "绿", "蓝", "黄", "黑"];
+				//大字随机颜色和内容
+				$.fn.extend({
+					"bigTextRand": function() {
+						$(".text").html(textArr[$().rand(0, 4)]).css("color", colorArr[$().rand(0, 4)]);
+					}
+				});
+				$().bigTextRand();
+				//小字随机颜色和内容
+				$.fn.extend({
+					"smallTextRand": function() {
+						//定义用来装随机到的颜色和文字内容的空数组
+						var smallColorArr = [];
+						var smallTextArr = [];
+						while(smallColorArr.length != 5) {
+							var rColor = colorArr[$().rand(0, 4)];
+							if(smallColorArr.indexOf(rColor) == -1) {
+								smallColorArr.push(rColor);
+							}
+						}
+						while(smallTextArr.length != 5) {
+							var rColor = textArr[$().rand(0, 4)];
+							if(smallTextArr.indexOf(rColor) == -1) {
+								smallTextArr.push(rColor);
+							}
+						}
+						//遍历所有小字
+						for(var i = 0; i < $(".bottomText").length; i++) {
+							//把随机到的字和颜色数组，按顺序赋值给所有小字
+							$(".bottomText").eq(i).html(smallTextArr[i]).css("color", smallColorArr[i]);
+						}
+					}
+				});
+				$().smallTextRand();
+				//小字点击事件
+				var scores = 0;
+				$(".bottomText").click(function() {
+					//判断点击字的下标是否和大字的下标相等，一样则加分，刷新大字小字和颜色，重置时间
+					if(textArr.indexOf($(this).html()) == colorArr.indexOf($(".text").css("color"))) {
+						//加分
+						scores++;
+						$(".score").html(scores);
+						$().bigTextRand();
+						$().smallTextRand();
+					} else {
+						alert("game over!!!您本次的得分为：" + scores);
+						//阻止小字继续点击事件；
+						//						$(".bottomText").click(function(){return false});
+						$(".bottomText").unbind("click");
+					}
+				})
+			});
+		</script>
+		<style type="text/css">
+			.wrap {
+				width: 400px;
+				height: 600px;
+				border: 1px solid black;
+				margin: 0 auto;
+			}
+			
+			.head {
+				width: 100%;
+				height: 50px;
+				/*background-color: yellow;*/
+				overflow: hidden;
+			}
+			
+			.time {
+				float: left;
+				width: 150px;
+				height: 100%;
+				text-align: center;
+				line-height: 50px;
+				font-size: 30px;
+				/*background-color: red;*/
+			}
+			
+			.score {
+				float: right;
+				width: 150px;
+				height: 100%;
+				text-align: center;
+				line-height: 50px;
+				font-size: 30px;
+				/*background-color: red;*/
+			}
+			
+			.middle {
+				width: 100%;
+				height: 450px;
+				/*background-color: #CCCCCC;*/
+			}
+			
+			.text {
+				width: 100%;
+				height: 300px;
+				text-align: center;
+				line-height: 300px;
+				font-size: 200px;
+			}
+			
+			.alert {
+				width: 100%;
+				height: 150px;
+				text-align: center;
+				font-size: 40px;
+			}
+			
+			.bottom {
+				width: 100%;
+				height: 100px;
+			}
+			
+			.bottomText {
+				width: 80px;
+				height: 100%;
+				text-align: center;
+				line-height: 100px;
+				font-size: 70px;
+				float: left;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<div class="wrap">
+			<div class="head">
+				<div class="time">时间：10</div>
+				<div class="score">分数: <span class="scoreSpan">0</span></div>
+			</div>
+			<div class="middle">
+				<div class="text">哈</div>
+				<div class="alert">根据上面的字的颜色从下面选择正确的字，选择正确自动开始</div>
+			</div>
+			<div class="bottom">
+				<div class="bottomText">红</div>
+				<div class="bottomText">绿</div>
+				<div class="bottomText">蓝</div>
+				<div class="bottomText">黄</div>
+				<div class="bottomText">黑</div>
+			</div>
+		</div>
+	</body>
+
+</html>

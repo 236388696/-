@@ -25,32 +25,32 @@
 //			
 			
 		
-		var div1=document.getElementById("div1");
-      	var count=10;
-		var timer=setInterval(function(){
-				count--;
-				if(count<0){
-					div1.innerHTML="爆炸";
-//					清除定时器
-					clearInterval(timer);
-				}else{
-				div1.innerHTML=count;	
-				}
-			},1000);
-			
-			
 //		var div1=document.getElementById("div1");
 //    	var count=10;
 //		var timer=setInterval(function(){
-//				count=count-0.01;
+//				count--;
 //				if(count<0){
-//					div1.innerHTML="baozha";
+//					div1.innerHTML="爆炸";
 ////					清除定时器
 //					clearInterval(timer);
 //				}else{
-//				div1.innerHTML=count.toFixed(2);	
+//				div1.innerHTML=count;	
 //				}
-//			},100);
+//			},1000);
+			
+			
+		var div1=document.getElementById("div1");
+      	var count=10;
+		var timer=setInterval(function(){
+				count=count-0.001;
+				if(count<0){
+					div1.innerHTML="baozha";
+//					清除定时器
+					clearInterval(timer);
+				}else{
+				div1.innerHTML=count.toFixed(3);	
+				}
+			},100);
 			
 		</script>
 	</body>

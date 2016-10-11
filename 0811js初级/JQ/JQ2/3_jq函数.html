@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div {
+				width: 100px;
+				height: 100px;
+				background-color: aquamarine;
+			}
+		</style>
+		<script src="../js/jquery-2.2.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function() {
+				//静态函数
+				//				$.extend()   $.
+				//				 
+				//				$.fn.extend()   $对象.
+
+				//第一种方法
+				//				$.extend({
+				//					"rand":function(min,max){
+				//						return Math.floor(Math.random()*(max-min+1)+min);
+				//					}
+				//				})
+				//				alert($.rand(2,9));
+
+				//给jq对象添加新的方法
+				$.fn.extend({
+					"change": function(w, h) {
+						$(this).click(function() {
+							$(this).animate({
+								width: w,
+								height: h
+
+							})
+						})
+
+					},
+					"move": function() {
+						alert(123);
+					}
+				})
+				$("#div1").change(300, 400);
+				$("#div1").move();
+			})
+		</script>
+	</head>
+
+	<body>
+		<div id="div1"></div>
+	</body>
+
+</html>

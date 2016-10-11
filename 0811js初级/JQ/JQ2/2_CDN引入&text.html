@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#div1 {
+				width: 100px;
+				height: 100px;
+				background-color: yellow;
+				position: absolute;
+				left: 8px;
+				top: 30px;
+			}
+		</style>
+		<script src="../js/jquery-2.2.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function() {
+				$("input[type=button]").click(function() {
+					$("#div1").css({
+						width: 300,
+						height: 300,
+						backgroundColor: "aquamarine"
+					})
+
+					//animate:动画效果，注意：只能做数值改变的动画效果,不能做颜色改变
+					//					$("#div1").animate({
+					//						width:400,
+					//						height:400,
+					//						"background":"red",
+					////						left:200,
+					//                       left:"30%",
+					//						top:200
+					//						
+					//					})
+
+					//             hide/show
+					//hide:向上收缩，同时宽度、高度、内边距、外边距、透明度
+					$("#div1").hide(1000, function() {
+						$("#div1").show(1000, function() {
+							$("#div1").css({
+								backgroundColor: "pink"
+							})
+						});
+					});
+
+					$("div1").toggle(1000, function() {
+						alert("完毕");
+					})
+
+				})
+			})
+		</script>
+	</head>
+
+	<body>
+		<input type="button" value="走你" />
+		<div id="div1">divs</div>
+	</body>
+
+</html>

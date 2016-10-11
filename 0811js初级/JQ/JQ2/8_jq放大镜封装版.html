@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#min_wrap {
+				border: 1px solid #ccc;
+				position: absolute;
+			}
+			
+			#max_wrap {
+				border: 1px solid #ccc;
+				width: 400px;
+				height: 400px;
+				position: absolute;
+				left: 370px;
+				overflow: hidden;
+				display: none;
+			}
+			
+			#slider {
+				width: 175px;
+				height: 175px;
+				position: absolute;
+				left: 0;
+				top: 0;
+				display: none;
+				background-color: rgba(255, 255, 0, 0.3);
+			}
+			
+			#max_wrap img {
+				position: absolute;
+			}
+		</style>
+		<script src="../js/jquery-2.2.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="gg_demo1.0_min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				$.glass("#min_wrap","#slider","#max_wrap","#max_wrap img");
+
+			})
+		</script>
+	</head>
+
+	<body>
+		<div id="min_wrap">
+			<img src="min.jpg" />
+			<div id="slider">
+			</div>
+		</div>
+		<div id="max_wrap">
+			<img src="max.jpg" />
+		</div>
+	</body>
+
+</html>

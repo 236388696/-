@@ -1,57 +1,56 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
-				<script src="js/jquery-2.2.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery-2.2.3.min.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
-//			1.0版本兼容IE678,  2.0以上的版本不兼容IE678   !!!定时器不能用JQ来写，只能用JS原生
-//          jQuery:基于js基础的一个插件 
-//            优势:1.简化代码,提高开发效率    2.不需要考虑兼容性    3.有很多实用的js没有的方法
-             
-//           特点:1.方法函数化
-//                2.链式操作
-//                3.取值赋值一体化
-//                JS写法：   window.onload=function(){
-//                   	
-//                   }
+			//			1.0版本兼容IE678,  2.0以上的版本不兼容IE678   !!!定时器不能用JQ来写，只能用JS原生
+			//          jQuery:基于js基础的一个插件 
+			//            优势:1.简化代码,提高开发效率    2.不需要考虑兼容性    3.有很多实用的js没有的方法
 
-//                JQ写法:  $(document).ready(function(){
-//                  	
-//                  })
-                    
-//                简化写法:
-                        $(function(){
-                    	     //innerHTML=html(); 把innerHTML封装成一个方法
-                    	    // js: var div1=document.getElementById("div1");
-                    	        // div1.innerHTML="我是div1";
-                    	    $("div").html("我是div1");
-                   
+			//           特点:1.方法函数化
+			//                2.链式操作
+			//                3.取值赋值一体化
+			//  window.onload：浏览器加载完毕；    $(function()：文档加载完毕
 
+			//                JS写法：   window.onload=function(){
+			//                   	
+			//                   }
 
+			//                JQ写法:  $(document).ready(function(){
+			//                  	
+			//                  })
 
-                       //value
-                       // js: var input1=document.getElementById("input1");
-                             // input1.value="hello,input1";
-                       $("input").val("byebye,input1");
-                       
-                       
-                       
-                       //onclick
-                       var div1=document.getElementById("div1");
-                    	      div1.onclick=function(){
-                    	      	alert(123);
-                    	      };
-                    	      $("div").click(function(){
-                    	      	alert(456);
-                    	      });
+			//                简化写法:
+			$(function() {
+				//innerHTML=html(); 把innerHTML封装成一个方法
+				// js: var div1=document.getElementById("div1");
+				// div1.innerHTML="我是div1";
+				$("div").html("我是div1");
 
-                     })
+				//value
+				// js: var input1=document.getElementById("input1");
+				// input1.value="hello,input1";
+				$("input").val("byebye,input1");
 
+				//onclick
+				var div1 = document.getElementById("div1");
+				div1.onclick = function() {
+					alert(123);
+				};
+				$("div").click(function() {
+					alert(456);
+				});
+
+			})
 		</script>
 	</head>
+
 	<body>
-        <div id="div1"></div>
-        <input type="text" id="input1" />
+		<div id="div1"></div>
+		<input type="text" id="input1" />
 	</body>
+
 </html>

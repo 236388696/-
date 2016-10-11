@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#min_wrap {
+				border: 1px solid #ccc;
+				position: absolute;
+			}
+			
+			#max_wrap {
+				border: 1px solid #ccc;
+				width: 400px;
+				height: 400px;
+				position: absolute;
+				left: 370px;
+				overflow: hidden;
+				display: none;
+			}
+			
+			#slider {
+				width: 175px;
+				height: 175px;
+				position: absolute;
+				left: 0;
+				top: 0;
+				display: none;
+				background-color: rgba(255, 255, 0, 0.3);
+			}
+			
+			#max_wrap img {
+				position: absolute;
+			}
+		</style>
+		<script src="../js/jquery-2.2.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function() {
+				// 蒙板的位移/蒙板最大的偏移量= -(大img的位移/大img最大的偏移量）
+				$("#min_wrap").mouseover(function() {
+					$("#max_wrap").show();
+					$("#slider").show();
+				})
+
+				$("#min_wrap").mouseout(function() {
+					$("#max_wrap").hide();
+					$("#slider").hide();
+				})
+				$("#min_wrap").mousemove(function(ev) {
+					var sliderX = ev.clientX - $("#slider").width() / 2;
+					var sliderY = ev.clientY - $("#slider").height() / 2;
+
+					var maxX = $("#min_wrap").innerWidth() - $("#slider").outerWidth();
+					var minX = 0;
+					var maxY = $("#min_wrap").innerHeight() - $("#slider").outerHeight();
+					var minY = 0;
+
+					if(sliderX > maxX) {
+						sliderX = maxX
+					} else if(sliderX < minX) {
+						sliderX = minX
+					}
+					if(sliderY > maxY) {
+						sliderY = maxY
+					} else if(sliderY < minY) {
+						sliderY = minY
+					}
+
+					$("#slider").css({
+							left: sliderX,
+							top: sliderY
+						})
+						//小图的比例：小图的位移／最大偏移量
+					var biliX = sliderX / maxX;
+					var biliY = sliderY / maxY;
+
+					$("#max_wrap img").css({
+						//图片的宽度－蒙板的距离
+						left: -($("#max_wrap img").innerWidth() - $("#max_wrap").outerWidth()) * biliX,
+						top: -($("#max_wrap img").innerHeight() - $("#max_wrap").outerHeight()) * biliY
+
+					})
+
+				})
+
+			})
+		</script>
+	</head>
+
+	<body>
+		<div id="min_wrap">
+			<img src="min.jpg" />
+			<div id="slider">
+			</div>
+		</div>
+		<div id="max_wrap">
+			<img src="max.jpg" />
+		</div>
+	</body>
+
+</html>

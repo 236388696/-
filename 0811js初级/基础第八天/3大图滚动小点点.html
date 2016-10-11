@@ -90,6 +90,7 @@
 
             //单次向下滚动
 			function nextRoll() {
+				imgFa.style.left=endPos+"px";
 				var speed = 10;
 				index++;
 				//如果移动到最后一个，则返回到第一个
@@ -137,6 +138,7 @@
 
 			//点击上一张按钮
 			lastBtn.onclick = function() {
+				imgFa.style.left=endPos+"px";
 					var speed = 10;
 					index--;
 					if(index < 0) {
@@ -172,6 +174,7 @@
 
 			//点击下面的按钮触发函数
 			function numsClick(who) {
+				imgFa.style.left=endPos+"px";
 				var speed = 10;
 				//点击下面按钮之前，index和点击按钮的下标进行比较，如果index小于点击按钮下标的话，方向为负(speed为负)；否则speed为正
 				if(index < who.count) {

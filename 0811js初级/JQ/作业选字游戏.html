@@ -95,22 +95,21 @@
 			</div>
 		</div>
 		<script src="js/jquery-2.2.3.min.js" type="text/javascript" charset="utf-8"></script>
-        <script type="text/javascript">
-        $.fn.extend({
-        	"colorRand":function(min,max){
-        		return Math.floor(Math.random()*(max-min+1)+min);
-        	}
-        });
-        
-        //创建颜色和内容的数组
+		<script type="text/javascript">
+			$.fn.extend({
+				"colorRand": function(min, max) {
+					return Math.floor(Math.random() * (max - min + 1) + min);
+				}
+			});
+
+			//创建颜色和内容的数组
 			var colorArr = ["red", "green", "blue", "yellow", "black"];
 			var textArr = ["红", "绿", "蓝", "黄", "黑"];
 			//dazi
-			$(".text").html(textArr[$().colorRand(0,4)]);
-		$(".text").css("color",colorArr[$().colorRand(0,4)]);
-		    console.log(colorArr[$().colorRand(0,4)])
-		    
-		
+			$(".text").html(textArr[$().colorRand(0, 4)]);
+			$(".text").css("color", colorArr[$().colorRand(0, 4)]);
+			console.log(colorArr[$().colorRand(0, 4)])
+
 			//小字随机颜色和内容
 			$.fn.smallTextRand({
 				//定义用来装随机到的颜色和内容的空数组
@@ -134,129 +133,120 @@
 				for(var i = 0; i < smallTexts.length; i++) {
 					//把随机到的字和颜色数组，按顺序赋值给所有的小字
 					//xiaozi
-		  	$(".bottomText").html(textArr[$().colorRand(0,4)]);
-		$(".bottomText").css("color",colorArr[$().colorRand(0,4)]);
+					$(".bottomText").html(textArr[$().colorRand(0, 4)]);
+					$(".bottomText").css("color", colorArr[$().colorRand(0, 4)]);
 				}
-			
-			})
-				
-	
-			
-			
-			
-			
-			
-			
-			
 
-//			//获取元素函数
-//			function qs(cs) {
-//				return document.querySelector(cs);
-//			}
-//
-//			function qsAll(cs) {
-//				return document.querySelectorAll(cs);
-//			}
-//			//大字
-//			var bigText = qs(".text");
-//			//小字
-//			var smallTexts = qsAll(".bottom .bottomText");
-//			var myScore = qs(".scoreSpan");
-//			var myTime = qs(".time");
-//
-//			//当前得分
-//			var scores = 0;
-//			//定义游戏时间定时器
-//			var timer = null;
-//
-//			function rand(min, max) {
-//				return Math.floor(Math.random() * (max - min + 1) + min);
-//			}
-//			//创建颜色和内容的数组
-//			var colorArr = ["red", "green", "blue", "yellow", "black"];
-//			var textArr = ["红", "绿", "蓝", "黄", "黑"];
-//
-//			bigTextRand();
-//			smallTextRand();
-//			//			gameTime();
-//			//大字随机颜色和内容
-//			function bigTextRand() {
-//				var colorRand = rand(0, 4);
-//				var textRand = rand(0, 4);
-//				bigText.style.color = colorArr[colorRand];
-//				//				bigText.style.color=colorArr[rand(0,4)];
-//				bigText.innerHTML = textArr[textRand];
-//			}
-//
-//			//小字随机颜色和内容
-//			function smallTextRand() {
-//				//定义用来装随机到的颜色和内容的空数组
-//				var smallColorArr = [];
-//				var smallTextArr = [];
-//				//随机颜色放到小字颜色数组里
-//				while(smallColorArr.length < 5) {
-//					var rColor = colorArr[rand(0, 4)];
-//					//查重
-//					if(smallColorArr.indexOf(rColor) == -1) {
-//						smallColorArr.push(rColor);
-//					}
-//				}
-//				while(smallTextArr.length < 5) {
-//					var rText = textArr[rand(0, 4)];
-//					if(smallTextArr.indexOf(rText) == -1) {
-//						smallTextArr.push(rText);
-//					}
-//				}
-//				//遍历所有的小字
-//				for(var i = 0; i < smallTexts.length; i++) {
-//					//把随机到的字和颜色数组，按顺序赋值给所有的小字
-//					smallTexts[i].style.color = smallColorArr[i];
-//					smallTexts[i].innerHTML = smallTextArr[i];
-//				}
-//			}
-//
-//			//遍历所有小字，给每一个小字加一个点击事件
-//			for(var i = 0; i < smallTexts.length; i++) {
-//				smallTexts[i].onclick = function() {
-//					//					this.innerHTML==bigText.style.color;
-//					//判断点击字的下标是否和大字的下标相等，一样则加分、刷新大字和颜色、重置时间
-//					if(textArr.indexOf(this.innerHTML) == colorArr.indexOf(bigText.style.color)) {
-//						addScore();
-//						bigTextRand();
-//						smallTextRand();
-//						gameTime();
-//					} else {
-//						alert("游戏结束");
-//					}
-//				}
-//
-//			}
-//			//加分
-//			function addScore() {
-//				//加一分
-//				scores += 1;
-//				//把得分显示出来
-//				myScore.innerHTML = scores;
-//			}
-//
-//			//游戏时间
-//			function gameTime() {
-//				//当前时间
-//				var nowtime = 10;
-//				myTime.innerHTML = "时间：" + nowtime;
-//				//当遇见可重复执行的定时器时，先清除再使用
-//				clearInterval(timer);
-//				timer = setInterval(function() {
-//					if(nowtime <= 0) {
-//						clearInterval(timer);
-//						alert("时间到");
-//					} else {
-//						nowtime--;
-//						myTime.innerHTML = "时间：" + nowtime;
-//					}
-//				}, 1000);
-//
-//			}
+			})
+
+			//			//获取元素函数
+			//			function qs(cs) {
+			//				return document.querySelector(cs);
+			//			}
+			//
+			//			function qsAll(cs) {
+			//				return document.querySelectorAll(cs);
+			//			}
+			//			//大字
+			//			var bigText = qs(".text");
+			//			//小字
+			//			var smallTexts = qsAll(".bottom .bottomText");
+			//			var myScore = qs(".scoreSpan");
+			//			var myTime = qs(".time");
+			//
+			//			//当前得分
+			//			var scores = 0;
+			//			//定义游戏时间定时器
+			//			var timer = null;
+			//
+			//			function rand(min, max) {
+			//				return Math.floor(Math.random() * (max - min + 1) + min);
+			//			}
+			//			//创建颜色和内容的数组
+			//			var colorArr = ["red", "green", "blue", "yellow", "black"];
+			//			var textArr = ["红", "绿", "蓝", "黄", "黑"];
+			//
+			//			bigTextRand();
+			//			smallTextRand();
+			//			//			gameTime();
+			//			//大字随机颜色和内容
+			//			function bigTextRand() {
+			//				var colorRand = rand(0, 4);
+			//				var textRand = rand(0, 4);
+			//				bigText.style.color = colorArr[colorRand];
+			//				//				bigText.style.color=colorArr[rand(0,4)];
+			//				bigText.innerHTML = textArr[textRand];
+			//			}
+			//
+			//			//小字随机颜色和内容
+			//			function smallTextRand() {
+			//				//定义用来装随机到的颜色和内容的空数组
+			//				var smallColorArr = [];
+			//				var smallTextArr = [];
+			//				//随机颜色放到小字颜色数组里
+			//				while(smallColorArr.length < 5) {
+			//					var rColor = colorArr[rand(0, 4)];
+			//					//查重
+			//					if(smallColorArr.indexOf(rColor) == -1) {
+			//						smallColorArr.push(rColor);
+			//					}
+			//				}
+			//				while(smallTextArr.length < 5) {
+			//					var rText = textArr[rand(0, 4)];
+			//					if(smallTextArr.indexOf(rText) == -1) {
+			//						smallTextArr.push(rText);
+			//					}
+			//				}
+			//				//遍历所有的小字
+			//				for(var i = 0; i < smallTexts.length; i++) {
+			//					//把随机到的字和颜色数组，按顺序赋值给所有的小字
+			//					smallTexts[i].style.color = smallColorArr[i];
+			//					smallTexts[i].innerHTML = smallTextArr[i];
+			//				}
+			//			}
+			//
+			//			//遍历所有小字，给每一个小字加一个点击事件
+			//			for(var i = 0; i < smallTexts.length; i++) {
+			//				smallTexts[i].onclick = function() {
+			//					//					this.innerHTML==bigText.style.color;
+			//					//判断点击字的下标是否和大字的下标相等，一样则加分、刷新大字和颜色、重置时间
+			//					if(textArr.indexOf(this.innerHTML) == colorArr.indexOf(bigText.style.color)) {
+			//						addScore();
+			//						bigTextRand();
+			//						smallTextRand();
+			//						gameTime();
+			//					} else {
+			//						alert("游戏结束");
+			//					}
+			//				}
+			//
+			//			}
+			//			//加分
+			//			function addScore() {
+			//				//加一分
+			//				scores += 1;
+			//				//把得分显示出来
+			//				myScore.innerHTML = scores;
+			//			}
+			//
+			//			//游戏时间
+			//			function gameTime() {
+			//				//当前时间
+			//				var nowtime = 10;
+			//				myTime.innerHTML = "时间：" + nowtime;
+			//				//当遇见可重复执行的定时器时，先清除再使用
+			//				clearInterval(timer);
+			//				timer = setInterval(function() {
+			//					if(nowtime <= 0) {
+			//						clearInterval(timer);
+			//						alert("时间到");
+			//					} else {
+			//						nowtime--;
+			//						myTime.innerHTML = "时间：" + nowtime;
+			//					}
+			//				}, 1000);
+			//
+			//			}
 		</script>
 
 	</body>
