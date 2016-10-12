@@ -1,0 +1,31 @@
+.content1,
+.content2,
+.content3,
+.content4,
+.content5 {
+	width: 75%;
+	/*height: 100%;*/
+}
+
+
+.cont2_img,.cont4_img{
+	width: 47%;
+}
+.cont2_img img,.cont4_img img{
+	width: 47%;
+}
+.content3Wrap{
+	width: 52%;
+}
+.cont3_img{
+	width: 100;
+}
+.cont3_img img{
+	width: 46%;
+}
+.cont4_img{
+	width: 31%;
+}
+.cont4_img img{
+	width: 100%;
+}

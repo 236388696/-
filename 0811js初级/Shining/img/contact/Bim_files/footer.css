@@ -1,0 +1,23 @@
+.footerWrap{
+	width: 100%;
+	text-align: center;
+	margin-top: 50px;
+	margin-bottom: 30px;
+}
+.footer2{
+	margin-top: 20px;
+}
+.footer2 a{
+	text-decoration: none;
+}
+.footer2 img{
+	margin-left: 5px;
+	margin-right: 5px;
+}
+.footer3{
+	margin-top: 30px;
+}
+.footer3 span{
+	color: #808080;
+	font-size: 10px;
+}

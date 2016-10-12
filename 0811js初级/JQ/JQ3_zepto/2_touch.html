@@ -17,69 +17,56 @@
 		<script type="text/javascript">
 			$(function() {
 				//触碰tap：没有延迟 
-//				$("#div1").tap(function(){
-//					console.log("tag");
-//				})
-				
-				
-				
+				//				$("#div1").tap(function(){
+				//					console.log("tag");
+				//				})
+
 				//点击：延迟200－300毫秒
-//				$("#div1").click(function() {
-//					console.log("tag");
-//				})
+				//				$("#div1").click(function() {
+				//					console.log("tag");
+				//				})
 
+				//单次触碰:点击一次，点击两次不好用；
+				//延迟750毫秒；在750毫秒之内，没有点击第二次，则判定为单次触碰
+				//             $("#div1").singleTap(function() {
+				//					console.log("点击一次");
+				//				})
 
-               //单次触碰:点击一次，点击两次不好用；
-               //延迟750毫秒；在750毫秒之内，没有点击第二次，则判定为单次触碰
-//             $("#div1").singleTap(function() {
-//					console.log("点击一次");
-//				})
+				//多次触碰：每两次触碰触发一次事件
+				//0-250毫秒以内触碰两次，执行事件
+				//              $("#div1").doubleTap(function() {
+				//					console.log("doubleTap");
+				//				})
 
+				//按住持续触碰
+				//               $("#div1").longTap(function() {
+				//					console.log("longTap");
+				//				})
 
-                //多次触碰：每两次触碰触发一次事件
-                //0-250毫秒以内触碰两次，执行事件
-//              $("#div1").doubleTap(function() {
-//					console.log("doubleTap");
-//				})
-                
-                
-                 //按住持续触碰
-//               $("#div1").longTap(function() {
-//					console.log("longTap");
-//				})
-                 
-                 
-                 
-                //手指滑动
-//              $("#div1").swipe(function(ev){
-//              	   console.log(ev)
-//              })
-                
-                
-                //向下滑动
-//              $("#div1").swipeDown(function(ev){
-//              	   console.log(ev)
-//              })
-                
-                
-                //向上滑动
-//               $("#div1").swipeUp(function(ev){
-//              	   console.log(ev)
-//              })
-                 
-                 
-                //向左滑动
-//               $("#div1").swipeLeft(function(ev){
-//              	   console.log(ev)
-//              })
-                 
-                 
-                 //向右滑动
-                 $("#div1").swipeRight(function(ev){
-                	   console.log(ev)
-                })
+				//手指滑动
+				//              $("#div1").swipe(function(ev){
+				//              	   console.log(ev)
+				//              })
 
- 
+				//向下滑动
+				//              $("#div1").swipeDown(function(ev){
+				//              	   console.log(ev)
+				//              })
+
+				//向上滑动
+				//               $("#div1").swipeUp(function(ev){
+				//              	   console.log(ev)
+				//              })
+
+				//向左滑动
+				//               $("#div1").swipeLeft(function(ev){
+				//              	   console.log(ev)
+				//              })
+
+				//向右滑动
+				$("#div1").swipeRight(function(ev) {
+					console.log(ev)
+				})
 
 			})
 		</script>
