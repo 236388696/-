@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			html,
+			body {
+				width: 100%;
+				height: 100%;
+				/*background-color: greenyellow;*/
+			}
+			
+			#flow {
+				position: relative;
+				margin: auto;
+				background-color: yellow;
+				list-style: none;
+			}
+			
+			#flow li {
+				position: absolute;
+				width: 190px;
+				padding: 10px;
+				border: 1px solid black;
+				overflow: hidden;
+			}
+			
+			#flow li img {
+				width: 100%;
+				border: 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<ul class="flow"></ul>
+	</body>
+	<script type="text/javascript">
+		var flower = document.getElementsByClassName("flow");
+		var lis = document.getElementsByTagName("li");
+		var marginRight = 20;
+		var marginTop = 10;
+		var liWidth = 0;
+		var eleCount = 20;
+
+        createAll();
+		function createAll() {
+			for(var i = 0; i < eleCount; i++) {
+				var newli = document.createElement("li");
+				var newimg = document.createElement("img");
+				newimg.setAttribute("src", "img/" + i ".jpg");
+				newli.appendChild(newimg);
+				flower.appendChild(newli);
+				newli.style.opacity = 0;
+
+			}
+		}
+		window.onload = function() {
+			setWall();
+		}
+
+		
+		function getCols(){
+			var bodyWidth=document.body.offsetWidth;
+			liWidth=lis[0].offsetWidth+marginRight;
+			var cols=Math.floor(bodyWidth/liWidth);
+			flower.style.width=cols*liWidth-marginRight+"px";
+			return cols;
+		}
+		
+		function setWall(){
+			var cols=getCols();
+			var saveHeight=[];
+			for (var i=0;i<cols;i++) {
+				saveHeight[i]=lis[i].offsetHeight;
+				lis[i].style.top="0px";
+				lis[i].style.left=i*width+"px";
+				lis[i].style.opacity=1;
+				
+			}
+			for (var i=cols;i<eleCount;i++) {
+				var minHeightIndex=getMinHeightIndex(saveHeight);
+				lis[i].style.top=saveHeight[minHeightIndex]+marginTop+"px";
+				lis[i].style.left=minHeightIndex*liWidth+"px";
+				lis[i].style.opacity=1;
+				saveHeight[minHeightIndex]=saveHeight[minHeightIndex]+marginTop+lis[i].offsetHeight;
+			}
+		}
+		
+		window.onresize=function(){
+			setWall();
+		}
+	</script>
+
+</html>

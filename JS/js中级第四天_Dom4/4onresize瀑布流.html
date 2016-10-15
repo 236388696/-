@@ -44,7 +44,7 @@
 
 			//布局函数
 			//当我bol为假时，更新的数组
-			function buju(bol) { 
+			function buju(bol) {
 				//获取所有的li用于大小改变时，更新布局
 				var lis = document.getElementsByTagName("li");
 
@@ -55,30 +55,30 @@
 
 				//初始化列高数组
 				var arrH = [];
-				for (var i = 0; i < cols; i++) {
+				for(var i = 0; i < cols; i++) {
 					arrH[i] = 0;
 				}
 
 				//创建或者更新li
-				for (var j = 0; j < 20; j++) {
-                    //优先获取，实在没有，再创建
+				for(var j = 0; j < 20; j++) {
+					//优先获取，实在没有，再创建
 					var li = lis[j] || document.createElement("li");
 					li.innerHTML = j;
 
 					var h = hs[j] || randH(100, 300);
 					li.style.height = h + "px";
-					if (bol) {
+					if(bol) {
 						hs.push(h);
 					}
 
 					//求最短列
 					var minH = arrH[0];
 					var minI = 0;
-					for (var k = 0; k < arrH.length; k++) {
-						if (minH > arrH[k]) {
+					for(var k = 0; k < arrH.length; k++) {
+						if(minH > arrH[k]) {
 							minH = arrH[k];
 							minI = k;
-//							console.log(minI);
+							//							console.log(minI);
 						}
 					}
 
@@ -89,7 +89,7 @@
 					li.style.top = arrH[minI] + "px";
 
 					//第一次页面加载执行的时候，才执行appendChild添加
-					if (bol) {
+					if(bol) {
 						flow.appendChild(li);
 					}
 
@@ -108,4 +108,5 @@
 			}
 		</script>
 	</body>
+
 </html>

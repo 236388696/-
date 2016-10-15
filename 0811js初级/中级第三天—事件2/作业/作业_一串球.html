@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div {
+				width: 50px;
+				height: 50px;
+				background-color: lightgreen;
+				position: absolute;
+				/*left: 0; top: 0;*/
+				border-radius: 25px;
+				/*-webkit-transition: all .2s;
+				-moz-transition: all .2s;
+				-ms-transition: all .2s;
+				-o-transition: all .2s;
+				transition: all .2s;*/
+			}
+		</style>
+	</head>
+
+	<body>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+	</body>
+	<script type="text/javascript">
+		var divs =
+		document.getElementsByTagName("div");
+		document.onmousemove = function(ev) {
+			var evObj = ev || window.event;
+			var x = evObj.clientX;
+			var y = evObj.clientY;
+			// 1 第一个div获取鼠标的位置
+			divs[0].style.left = x + "px";
+			divs[0].style.top = y + "px";
+			// 2 每一个div获取上一个div的位置
+			//(从后向前赋值)
+		for(var i = divs.length - 1; i > 0; i--) {
+			divs[i].style.left = 
+				divs[i - 1].offsetLeft + "px";
+			divs[i].style.top = 
+				divs[i - 1].offsetTop + "px";
+			}
+		}
+//		for(var i = 1; i < divs.length; i++) {
+//		divs[i].style.left = 
+//			divs[i - 1].offsetLeft + "px";
+//		divs[i].style.top = 
+//			divs[i - 1].offsetTop + "px";
+//			}
+//		}
+	</script>
+
+</html>
