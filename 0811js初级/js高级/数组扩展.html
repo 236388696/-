@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script type="text/javascript">
+
+        //求数组中的最大值
+//        Array.prototype.max = function(){
+//            var max = this[0];
+//            for(var i = 1; i < this.length; i++){
+//                max = max > this[i] ? max : this[i];
+//            }
+//            return max;
+//        }
+//        console.log([10,45,97,13,33,7,87].max())
+
+
+        var arr = [1,2,3];
+//        map函数是ES5之后的API , 作用是对数组中的每一个元素进行相同的操作
+//          参数: 回调函数(数组元素,下标)
+        console.log(arr.map(function(T,number){
+            return T+"adsdj";
+        }));
+
+        Array.prototype.d_map = function(fun){
+            var result = [];
+            for(var i = 0; i < this.length; i++){
+               result.push(fun(this[i],i));
+            }
+            return result;
+        }
+        console.log(arr.d_map(function(item,i){
+                return "第"+i+"个元素是" + item;
+        }))
+
+        console.log(arr.filter(function(item,i){
+            return item > 0;
+        }))
+
+        Array.prototype.d_filter = function(fn){
+            var result = [];
+            for(var i = 0; i < this.length; i++){
+                if(fn(this[i]),i){
+                    result.push(this[i]);
+                }
+            }
+            return result;
+        }
+        console.log([1,2,"xx",[1,2]].d_filter(function (item,index) {
+            return typeof item=="string";
+        }))
+
+
+
+//        数组中主要有元素满足条件，就返回true,否则返回false
+        console.log(arr.some(function (item,index) {
+           return item>0;
+        }))
+
+
+ //     数组中所有元素都符合条件，才返回true,只要有一个不满足的就返回false
+        console.log(arr.every(function (item,index) {
+            return item>0;
+        }))
+
+    </script>
+
+</body>
+</html>

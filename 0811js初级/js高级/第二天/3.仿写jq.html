@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</div>
+<ul>
+    <li><a href="">sdf</a></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+
+<script type="text/javascript">
+    function $(arg) {
+        return new JQ(arg);
+    }
+
+//$(function () {
+//    //dom树里加载完成，但是视频、音频没有加载完成
+//})
+//    window.onload=function () {
+//        //window下的所有元素都加载完成
+//    }
+
+
+    function JQ(arg) {
+//        /用来保存原生对象
+       this.elements=[];
+
+        switch (typeof arg){
+            case"string":
+                //选择器
+                this.elements=getEle(arg);
+                break;
+            case "function":
+                //ready函数
+                ready(arg);
+                break;
+            case "object":
+                //原生对象转JQ对象
+                this.elements.push(arg);
+                break;
+        }
+    }
+
+
+
+    //onclick:这种方法永远不会被下面的点击事件覆盖掉
+//    document.addEventListener("click",function () {
+//
+//    },false)
+//
+
+
+    //如果下面再有个onclick事件，就会被覆盖掉
+//    document.onclick=function () {
+//
+//    }
+//    document.onclick=function () {
+//
+//    }
+
+
+
+
+//    window={
+//        addEventListener:function () {
+//
+//        }
+//    }
+    //ready函数和window.onload的区别
+    //ready:DOM加载完成，媒体(图像，音频等）还没有加载
+    //onload:全部加载完成
+    function ready(fn) {
+        //主流浏览器
+        if(window.addEventListener){
+           window.addEventListener("DOMContentLoaded",function () {
+               fn();
+           },false)
+        }else{
+            var script=document.createElement("script");
+            //script的defer这个布尔属性定义该脚本是否会延迟到文档解析完毕后才执行
+            //兼容低版本浏览器
+            script.defer=true;
+            var head=document.getElementsByTagName("head")[0];
+            head.appendChild(script);
+            //onreadystatechange状态改变
+            script.onreadystatechange=function () {
+                //readyState状态
+                if(script.readyState=="complete"){
+                    fn();
+                }
+            }
+        }
+    }
+
+
+
+//    console.log($("   div    "))
+    //根据选择器找原生DOM对象：
+    function  getEle(selector) {
+        //删除字符串中的首尾空格
+        selector = selector.replace(/^\s+|\s+$/g, "");
+        //去除中间多余的空格
+        selector=selector.replace(/\s+/g," ");
+        //根据空格把字符串切割成数组
+        //$("ul li a") =>[ul,li,a]
+        var selectorArr=selector.split(" ");
+//        console.log(selectorArr);
+        var parents=[document];
+        var children=[];
+
+        for(var i=0;i<selectorArr.length;i++){
+            children=[];
+          for(var j=0;j<parents.length ;j++){
+              console.log(parents[j]);
+              if(/^\./.test(selectorArr[i])){
+                  //class选择器
+                  //substr去掉选择器开头的.
+                  console.log("class");
+                  var className=selectorArr[i].substr(1);
+                  var nodes=parents[j].getElementsByClassName(className);
+                  for(var k=0;k<nodes.length;k++){
+                      children.push(nodes[k]);
+                  }
+              }else if(/^#/.test(selectorArr[i])){
+                  //id选择器
+                  //去掉选择器开头的.
+                  console.log("id");
+                  console.log(selectorArr[i]);
+                  var idName=selectorArr[i].substr(1);
+                  var node=parents[j].getElementById(idName);
+                  children.push(node);
+              }else{
+                  //tagName
+                  var nodes = parents[j].getElementsByTagName(selectorArr[i]);
+                  for(var k=0;k<nodes.length;k++){
+                      children.push(nodes[k]);
+                  }
+              }
+          }
+          //通过这一次遍历找出来的所有的自节点作为下一次遍历的父节点
+          parents=children;
+        }
+        return children;
+    }
+    console.log($("ul li a"));
+
+</script>
+</body>
+</html>

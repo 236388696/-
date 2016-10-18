@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script type="text/javascript">
+//        console.log("abcde".toUpperCase());
+//        console.log("LMN".toLowerCase());
+////        首字母大写
+//        String.prototype.up = function(){
+//            var firstLetter = this[0].toUpperCase();
+//            var otherLetters = this.substr(1);
+//            return firstLetter + otherLetters;
+//        }
+//        console.log("qweasf".up());
+//
+//        String.prototype.tf = function(){
+//            var result = "";
+//
+//            for(var i = 0; i < this.length; i++){
+//                var letter = this[i];
+//                if(this[i-1] == "_"){
+//                    letter = letter.toUpperCase();
+//                }
+//                result += letter
+//            }
+//            result = result.replace(/_/g,"");
+//            return result;
+//        }
+//        console.log("asd_eq_qwe".tf());
+////        charCodeAt : 返回所选字符的ASCII吗
+////        参数 : 需要计算ASCII吗字符的下标
+//        console.log("a".charCodeAt(0));
+////        formCharCode : 根据ASCII吗返回对应的字符
+//        console.log(String.fromCharCode(65));
+
+//        自己实现一个字符串全大写的方法
+        String.prototype.DX = function(){
+            var result = "";
+            for(var i = 0; i < this.length; i++){
+                var code = this[i].charCodeAt();
+                var letter = this[i];
+                if(code >= 97 && code<= 122){
+                    letter = String.fromCharCode(code-32);
+                }
+                    result += letter;
+            }
+            return result;
+        }
+        console.log("asdeqqwe".DX());
+    </script>
+</body>
+</html>

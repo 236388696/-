@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script type="text/javascript">
+    //js中基本数据类型有：string,number,undefined,null,Nan,boolean，这些类型都是不可变的
+    //对象：具有相同行为和特征的事物的集合
+    //创建对象有两种方式：
+    // 1.通过Object创建
+//    var obj=new Object();
+    //字面量的形式：只能写一个对象
+    var obj={};
+    //键值对的形式(key,value）
+    var per={
+        //属性
+        name:"李维旭",
+        age:20,
+        //方法
+        sayHi:function () {
+        console.log("hi");
+    }
+    }
+    console.log(per);
+    //获取对象中的属性，可以通过 对象.属性名
+    console.log(per.name);
+    per.sayHi();
+
+
+    //还可以通过  对象["属性名"]
+//    console.log(per["age"]);
+    var str="age"
+    console.log(per[str]);
+
+    //修改对象中的属性
+    per.age=21;
+    //删除属性：delete
+    delete per.age;
+    console.log(per.age);
+
+    var string0="asdfghj";
+    var string1=string0;
+    string1="asjkl";
+    console.log(string0);
+
+    //对象的引用关系，per1和per指向的是同一个对象，所以修改都是修改这个对象本身
+    var per1=per;
+    per1.name="刘胜心";
+    console.log(per.name);
+
+
+
+  //2.构造函数：可以写多个元素
+//    function  Student() {
+//        this.name="梁月";
+//        this.age=50;
+//        this.sayHi=function () {
+//            alert("你好");
+//        }
+////        return this;
+//    }
+//    //js中this的三种不同意义：
+////    1.作为window下的函数，函数中的this代表window对象
+////    2.作为DOM元素的事件函数，函数中的this代表这个DOM元素对象
+////    3. 作为构造函数，this代表对象本身
+//    var stu=new Student();
+//    console.log(stu.name);
+//    stu.sayHi();
+
+
+
+    function  Student(name,age) {
+        this.name=name;
+        this.age=age;
+        this.sayHi=function () {
+            alert("你好");
+        }
+//        return this;
+    }
+    //js中this的三种不同意义：
+    //    1.作为window下的函数，函数中的this代表window对象
+    //    2.作为DOM元素的事件函数，函数中的this代表这个DOM元素对象
+    //    3. 作为构造函数，this代表对象本身
+    var stu=new Student("晾凉",25);
+    console.log(stu.name);
+    stu.sayHi();
+
+
+    //遍历对象中所有的属性和方法
+    for(var prop in stu){
+        console.log(prop);
+//        console.log(stu[i]);
+    }
+    console.log(stu);
+    console.log(stu.__proto__);
+
+    //对象原型
+    //在js中，每个对象都有一个对象原型prototype,对象可以把原型上的所有的属性和方法复制(继承过来）
+    per.__proto__={
+        hobby:"男"
+    }
+//    per.hobby="女"  //(等级高)
+    console.log(per.hobby);
+    console.log(Student.prototype===stu.__proto__);
+
+
+</script>
+</body>
+</html>

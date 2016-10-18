@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+        }
+        .all{
+            width: 800px;
+            margin:0 auto;
+            height: 380px;
+            overflow: hidden;
+            position: relative;
+        }
+        .imgfa{
+            width: 4800px;
+            overflow: hidden;
+            position: absolute;
+            left:0;
+        }
+        .imgfa img{
+            width: 800px;
+            float: left;
+        }
+        .btns{
+            position: absolute;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="all">
+    <div class="imgfa">
+        <img src="seimg/1.jpg" alt="">
+        <img src="seimg/2.jpg" alt="">
+        <img src="seimg/3.jpg" alt="">
+        <img src="seimg/4.jpg" alt="">
+        <img src="seimg/5.jpg" alt="">
+        <img src="seimg/6.jpg" alt="">
+    </div>
+    <div class="btns">
+        <input type="button" value="上一张">
+        <input type="button" value="第一张">
+        <input type="button" value="第二张">
+        <input type="button" value="第三张">
+        <input type="button" value="第四张">
+        <input type="button" value="第五张">
+        <input type="button" value="第六张">
+        <input type="button" value="下一张">
+    </div>
+</div>
+<script src="jquery-1.12.3.js"></script>
+<script type="text/javascript">
+    $(function () {
+        var run = {
+            left:function () {
+                $(".imgfa").animate({
+                    left:$(".imgfa").position().left+800
+                })
+            },
+            right: function () {
+
+                $(".imgfa").animate({
+                    left:$(".imgfa").position().left-800
+                })
+
+            },
+            change:function (index) {
+                $(".imgfa").animate({
+                    left:-index*800
+                })
+            }
+        }
+        $("input").eq(0).on("click",function () {
+            run.left();
+        })
+
+        $("input").eq(7).on("click",function () {
+            run.right();
+
+        })
+        $("input").on("click",function () {
+            if($(this).index() > 0 && $(this).index() < 7){
+                run.change($(this).index()-1);
+            }
+        })
+    })
+</script>
+</body>
+</html>
