@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="canvas" width="500" height="500"></canvas>
+<video src="myvideo.mp4" id="video" autoplay="autoplay" loop="loop"></video>
+<script type="text/javascript">
+    var canvas=document.querySelector("#canvas");
+    var ctx=canvas.getContext("2d");
+
+    var video = document.getElementById("video");
+    //作用类似于image的onload，视频加载完成之后
+    video.oncanplay = function () {
+
+        var a = 0;
+        function drawVideo() {
+            a++;
+//            if(a%10==0){
+                ctx.drawImage(video,0,0,500,500);
+                var imageData = ctx.getImageData(0,0,500,500);
+                var pxs =imageData.data;
+                //反色
+                for(var i = 0; i < pxs.length; i+=4){
+                    var r = pxs[i];
+                    var g = pxs[i+1];
+                    var b = pxs[i+2];
+                    pxs[i] = 255-r;
+                    pxs[i+1] = 255-g;
+                    pxs[i+2] = 255-b;
+                }
+                ctx.putImageData(imageData,0,0);
+
+//            }
+            //根据浏览器刷新频率执行函数
+            window.requestAnimationFrame(drawVideo);
+        }
+        drawVideo();
+    }
+    
+
+</script>
+</body>
+</html>

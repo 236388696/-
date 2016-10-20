@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<canvas id="canvas" width="1600" height="1600"></canvas>
+		<script type="text/javascript">
+			var canvas = document.getElementById("canvas");
+			var ctx = canvas.getContext("2d");
+
+			ctx.fillStyle = "aquamarine";
+			ctx.fillRect(0, 0, 200, 200);
+            
+            //叠加
+			ctx.globalCompositeOperation = "source-out";
+			ctx.beginPath();
+			ctx.fillStyle = "gold";
+			ctx.arc(100, 100, 200, 0, Math.PI * 2, false);
+			ctx.fill();
+		</script>
+	</body>
+
+</html>

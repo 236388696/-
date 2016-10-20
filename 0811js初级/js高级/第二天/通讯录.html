@@ -1,91 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<table>
-    <th>姓名</th>
-    <th>年龄</th>
-    <th>电话</th>
-    <th>操作</th>
-</table>
-<div>
-    姓名：<input type="text" id="username">
-    年龄: <input type="text" id="age">
-    电话：<input type="text" id="tel">
-    性别：<input type="text" id="sex">
-    <input type="button" value="添加" id="addBtn">
-</div>
-<script src="jquery-1.12.3.js"></script>
-  <script type="text/javascript">
-      //talk is cheap,show me the code
-   var contacts=[{name:"李维旭",age:20,tel:"135484565",sex:"男"},
-                 {name:"邵洪斌",age:25,tel:"1354812312",sex:"男"},
-                 {name:"李月",age:22,tel:"1354889",sex:"男"}];
 
-      //根据通讯录画表格
-      function render() {
-          $("table").html( "<th>姓名</th> <th>年龄</th> <th>电话</th> <th>性别</th> <th>操作</th>");
-          //遍历所有联系人
-          for(var i=0;i<contacts.length;i++){
-              var tr=$("<tr></tr>");
-              for(var prop in contacts[i]){
-                  var td=$("<td></td>");
-                  var per=contacts[i];
-                  td.html(per[prop]);
-                  tr.append(td);
-              }
-              tr.append($("<td><a href='###'>删除</a></td>"));
-              $("table").append(tr);
-          }
-      }
-      //第一次根据默认的通讯录显示列表
-      render();
+	<head>
+		<meta charset="UTF-8">
+		<title>Title</title>
+		<style type="text/css">
+			.modify {
+				position: absolute;
+			}
+		</style>
+	</head>
 
-      var contactManager={
-          //添加
-          add:function () {
-              //根据输入内容创建一个新的联系人对象
-              var newPerson={
-                  name:$("#username").val(),
-                  age:$("#age").val(),
-                  tel:$("#tel").val(),
-                  sex:$("#sex").val()
-              }
-              contacts.push(newPerson);
-              //添加完联系人之后，重新绘制表格内容
-              render();
-          },
-          //删除联系人
-          remove:function(index){
-              //splice(下标，一个)
-              contacts.splice(index,1);
-              render();
-          }
-      }
+	<body>
+		<table>
+			<th>姓名</th>
+			<th>年龄</th>
+			<th>电话</th>
+			<th>操作</th>
+		</table>
+		<div>
+			姓名：<input type="text" id="username"> 年龄: <input type="text" id="age"> 电话：
+			<input type="text" id="tel"> 性别：
+			<input type="text" id="sex">
+			<input type="button" value="添加" id="addBtn">
+		</div>
+		<script src="jquery-1.12.3.js"></script>
+		<script type="text/javascript">
+			//talk is cheap,show me the code
+			var contacts = [{
+				name: "李维旭",
+				age: 20,
+				tel: "135484565",
+				sex: "男"
+			}, {
+				name: "邵洪斌",
+				age: 25,
+				tel: "1354812312",
+				sex: "男"
+			}, {
+				name: "李月",
+				age: 22,
+				tel: "1354889",
+				sex: "男"
+			}];
 
+			//二维数组：[[],[]]
+			//根据通讯录画表格
+			function render() {
+				$("table").html("<th>姓名</th> <th>年龄</th> <th>电话</th> <th>性别</th> <th>操作</th>");
+				//遍历所有联系人
+				for(var i = 0; i < contacts.length; i++) {
+					var tr = $("<tr></tr>");
+					for(var prop in contacts[i]) {
+						var td = $("<td></td>");
+						var per = contacts[i];
+						td.html(per[prop]);
+						tr.append(td);
+					}
+					tr.append($("<td><a href='###'>删除</a></td>"));
+					$("table").append(tr);
+				}
+			}
+			//第一次根据默认的通讯录显示列表
+			render();
 
-      $("#addBtn").on("click",function () {
-          contactManager.add();
-      })
-      //删除的是自己同级里的，只有他自己，所以是0
-//      $("a").on("click",function (e) {
-//          var e=e||window.event;
-//          e.preventDefault();
-//          console.log($(this).index());
-//          contactManager.remove($(this).index());
-//      })
+			//通讯录管理器
+			var contactManager = {
+				//添加
+				add: function() {
+					//根据输入内容创建一个新的联系人对象
+					var newPerson = {
+						name: $("#username").val(),
+						age: $("#age").val(),
+						tel: $("#tel").val(),
+						sex: $("#sex").val()
+					}
+					contacts.push(newPerson);
+					//添加完联系人之后，重新绘制表格内容
+					render();
+				},
+				//删除联系人
+				remove: function(index) {
+					//splice(下标，一个)
+					contacts.splice(index, 1);
+					render();
+				},
 
-         $(document).on("click","a",function (e) {
-             var e=e||window.event;
-             e.preventDefault();
-//             console.log($(this).parents("tr").index());
-             contactManager.remove($(this).parents("tr").index());
-         })
+				//修改
+				/*
+				 * @param index要修改的联系人的下标
+				 * @param type要修改的具体某一项(name,tel,sex)
+				 * @param value修改后的值
+				 */
+				modify: function(index, type, value) {
+					var per = contacts[index];
+					per[type] = value;
+					render();
+				}
+			}
 
+			$("#addBtn").on("click", function() {
+					contactManager.add();
+				})
+				//删除的是自己同级里的，只有他自己，所以是0
+				//      $("a").on("click",function (e) {
+				//          var e=e||window.event;
+				//          e.preventDefault();
+				//          console.log($(this).index());
+				//          contactManager.remove($(this).index());
+				//      })
 
-  </script>
-</body>
+			$(document).on("click", "a", function(e) {
+				var e = e || window.event;
+				e.preventDefault();
+				//             console.log($(this).parents("tr").index());
+				contactManager.remove($(this).parents("tr").index());
+			})
+
+			$(document).on("dblclick", "td", function() {
+				$(".modify").remove();
+				var inputText = $("<input class='modify' type='text'/>");
+				inputText.val($(this).html());
+				$("table").append(inputText);
+				inputText.get(0).focus();
+				inputText.css({
+					top: $(this).offset().top,
+					left: $(this).offset().left,
+					width: $(this).width(),
+					height: $(this).height()
+				})
+				var _this = $(this);
+				//按回车保存
+				$(document).on("keydown", function(e) {
+					var e = e || window.event;
+					console.log(e.keyCode);
+					var typeArr = ["name", "age", "tel", "sex"];
+					var type = typeArr[_this.index()];
+					var value = inputText.val();
+					if(e.keyCode == 13) {
+						var index = _this.parents("tr").index();
+						contactManager.modify(index, type, value);
+					}
+				})
+			})
+
+			//			$(document).on("dblclick", "td", function(e) {
+			////				alert(1)
+			//				$(this).remove();
+			//				var td=$(this);
+			//				var newInput=$("<input type='text' style='position:absolute'>");
+			//				newInput.CSS({
+			//					left:$(this).position().left,
+			//					width:$(this).width(),
+			//					
+			//				});
+			//				$("tr").eq($(this).parent("tr").index()).append(newInput);
+			//				newInput.on("blur",function(){
+			//					var inputText=newInput.val();
+			//					$(this).remove();
+			//					td.text(inputText);
+			//				})
+			//
+			//			})
+		</script>
+	</body>
+
 </html>

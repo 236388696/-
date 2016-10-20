@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<canvas id="canvas" width="1200" height="1200"></canvas>
+		<script type="text/javascript">
+			var canvas=document.getElementById("canvas");
+			var ctx=canvas.getContext("2d"); 
+			var img=new Image();
+			img.src="tom.jpeg"
+			img.onload=function(){
+				//三个参数：1.要绘制的图片  2.绘制到画布上的位置x  3.绘制到画布上的位置y
+//				ctx.drawImage(this,50,20)
+            
+            //5个参数：1.绘制的图片  2.绘制到画布上的位置x  3.绘制到画布上的位置y  4.绘制的图片宽度  5.绘制的图片高度
+            ctx.drawImage(this,100,0,500,700); 
+            
+            //9个参数：1.绘制的图片  2.原图上的位置x  3.原图上的位置y  4.从原图截取的大小w  5.从原图截取的大小h  6.在画布上画的位置x    7.在画布上画的位置y    8.图片上的宽度w   9.图片上的高度h
+            ctx.drawImage(this,500,500,200,600,50,0,200,500);
+
+			}
+			
+		</script>
+	</body>
+</html>

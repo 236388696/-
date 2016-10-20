@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="canvas" width="500" height="500">浏览器不支持</canvas>
+		<script type="text/javascript">
+			var canvas=document.getElementById("canvas");
+			var ctx=canvas.getContext("2d");
+			
+			function Line(width,length,color){
+				this.width=width;
+				this.length=length;
+				this.color=color;
+			}
+			
+			Line.prototype.draw=function(endPoint){
+				ctx.beginPath();
+				ctx.strokeStyle=this.color;
+				ctx.lineWidth=this.width;
+				ctx.moveTo(250,250);
+				ctx.lineTo(endPoint.x,endPoint.y);
+				ctx.stroke();
+				
+			}
+//			draw({x:10,y:20});
+			var hourLine=new Line(5,100,"red"),
+			minLine=new Line(3,120,"black"),
+			secondLine=new Line(2,150,"yellow");
+			//时针在1点钟的时候
+			hourLine.draw({
+				x:250+hourLine.length*Math.sin((Math.PI*2/12)*9),
+				y:250-hourLine.length*Math.cos((Math.PI*2/12)*1),
+			})
+			
+		</script>
+	</body>
+</html>

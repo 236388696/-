@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="canvas" width="800" height="800"></canvas>
+		<script type="text/javascript">
+			var canvas=document.querySelector("#canvas");
+			var ctx=canvas.getContext("2d");
+			
+		    //二次贝塞尔曲线：只有终点的控制点
+		    ctx.moveTo(0,500);
+		    //quadraticCurveTo(控制点的坐标，终点的坐标)
+//          ctx.quadraticCurveTo(0,0,500,0);
+//          ctx.stroke();
+            
+            //完整的贝塞尔曲线,两个控制点
+            ctx.beginPath();
+            ctx.moveTo(0,500);
+            ctx.bezierCurveTo(0,0,500,500,500,0);
+            ctx.stroke();
+            
+            
+		</script>
+	</body>
+</html>

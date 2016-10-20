@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<canvas id="canvas" width="1600" height="1600"></canvas>
+		<script type="text/javascript">
+			var canvas = document.getElementById("canvas");
+			var ctx = canvas.getContext("2d");
+			ctx.beginPath();
+			var img1 = new Image();
+			img1.src = "tom.jpeg"
+			//onload:异步概念
+			img1.onload = function() {
+				ctx.drawImage(this,0,0, canvas.width, canvas.height);
+				
+             canvas.onmousemove = function(ev) {
+					ctx.clearRect(0, 0, canvas.width, canvas.height);
+					ctx.drawImage(img1, 0, 0);
+					var evobj = ev || window.event;
+					var x = evobj.clientX;
+					var y = evobj.clientY;
+					//9个参数：1.绘制的图片  2.原图上的位置x  3.原图上的位置y  4.从原图截取的大小w  5.从原图截取的大小h  6.在画布上画的位置x    7.在画布上画的位置y    8.图片上的宽度w   9.图片上的高度h
+           
+					ctx.drawImage(img1, x-25, y-25, 50, 50, x -50, y - 50, 100, 100);
+//					ctx.drawImage(img1, x-50, y-50, 100, 100, x -100, y - 100, 200, 200);
+				}
+
+				ctx.closePath();
+
+			}
+		</script>
+	</body>
+
+</html>

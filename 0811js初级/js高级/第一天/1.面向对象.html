@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script type="text/javascript">
+    //js中基本数据类型有：string,number,undefined,null,Nan,boolean，这些类型都是不可变的
+    //对象：具有相同行为和特征的事物的集合
+    //创建对象有两种方式：
+    // 1.通过Object创建
+//    var obj=new Object();
+    //字面量的形式：只能写一个对象
+    var obj={};
+    //键值对的形式(key,value）
+    var per={
+        //属性
+        name:"李维旭",
+        age:20,
+        //方法
+        sayHi:function () {
+        console.log("hi");
+    }
+    }
+    console.log(per);
+    //获取对象中的属性，可以通过 对象.属性名
+    console.log(per.name);
+    per.sayHi();
+
+
+    //还可以通过  对象["属性名"]
+//    console.log(per["age"]);
+    var str="age"
+    console.log(per[str]);
+
+    //修改对象中的属性
+    per.age=21;
+    //删除属性：delete
+    delete per.age;
+    console.log(per.age);
+
+    var string0="asdfghj";
+    var string1=string0;
+    string1="asjkl";
+    console.log(string0);
+
+    //对象的引用关系，per1和per指向的是同一个对象，所以修改都是修改这个对象本身
+    var per1=per;
+    per1.name="刘胜心";
+    console.log(per.name);
+
+
+
+  //2.构造函数：可以写多个元素
+//    function  Student() {
+//        this.name="梁月";
+//        this.age=50;
+//        this.sayHi=function () {
+//            alert("你好");
+//        }
+////        return this;
+//    }
+//    //js中this的三种不同意义：
+////    1.作为window下的函数，函数中的this代表window对象
+////    2.作为DOM元素的事件函数，函数中的this代表这个DOM元素对象
+////    3. 作为构造函数，this代表对象本身
+//    var stu=new Student();
+//    console.log(stu.name);
+//    stu.sayHi();
+
+
+
+    function  Student(name,age) {
+        this.name=name;
+        this.age=age;
+        this.sayHi=function () {
+            alert("你好");
+        }
+//        return this;
+    }
+    //js中this的三种不同意义：
+    //    1.作为window下的函数，函数中的this代表window对象
+    //    2.作为DOM元素的事件函数，函数中的this代表这个DOM元素对象
+    //    3. 作为构造函数，this代表对象本身
+    var stu=new Student("晾凉",25);
+    console.log(stu.name);
+    stu.sayHi();
+
+
+    //遍历对象中所有的属性和方法
+    for(var prop in stu){
+//        console.log(prop);
+        console.log(stu[prop]);
+    }
+    console.log(stu);
+    console.log(stu.__proto__);
+
+    //对象原型
+    //在js中，每个对象都有一个对象原型prototype,对象可以把原型上的所有的属性和方法复制(继承过来）
+    per.__proto__={
+        hobby:"男"
+    }
+//    per.hobby="女"  //(等级高)
+    console.log(per.hobby);
+    console.log(Student.prototype===stu.__proto__);
+    
+    //传统的面向对象语言，把具有相同行为和特征的事物封装成类，通过类来创建具体的对象。在js中没有类的概念，可以通过构造函数模拟类
+    //1.封装:把事物归类的过程
+    //2.继承：对象可以拥有类中所有的属性和方法，可以通过构造函数模拟继承，通过对象原型模拟继承
+    //3.多态：同一种类的对象，每一个对象都有独特的地方，多种表现形式
+    
+     per.hasOwnProperty();
+     var obj={
+     	name:"封号",
+     	age:20
+     }
+    obj.__proto__={
+    	a:"adsdf"
+    }
+    for (var prop in obj) {
+    	    console.log(prop);
+    	    //判断对象该属性是否是对象本身的，如果来自原型，返回false
+    	    console.log(obj.hasOwnProperty(prop));
+    }
+
+/* var a="age";
+    取值写法：per[a];
+不能写成:per.a 
+*/
+
+    function Person(){
+    	this.name="梁月";
+    	this.agr=20;
+    }
+    //通过call函数改变Person中的this指向，模拟继承，Man中就可以增加了Person中的属性和方法
+    function Man(){
+    	Person.call(this);
+    	this.sex="男";
+    }
+    var man=new Man();
+    console.log(man);
+    function Woman(){
+    	this.sex="女";
+    }
+    
+    function test(a,d,f,h,f){
+    	console.log(this);
+    	console.log(a);
+    }
+    test(2);//window
+    //call改变函数的调用者（参数：第一个是改变之后的调用者，之后是函数的参数）
+    test.call(obj,10,20,30);//obj是调用call函数的调用者
+    
+    //apply的作用和call一样，区别是第二个参数是一个数组，数组中填函数的参数
+    test.apply(obj,[2,4,79])
+
+</script>
+</body>
+</html>

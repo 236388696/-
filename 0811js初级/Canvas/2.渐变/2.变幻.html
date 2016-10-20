@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="canvas" width="800" height="800"></canvas>
+		<script type="text/javascript">
+			var canvas=document.querySelector("#canvas");
+			var ctx=canvas.getContext("2d");
+			
+			ctx.fillStyle="coral";
+			ctx.fillRect(0,0,100,100);
+			
+			//画布的坐标系平移
+			ctx.translate(200,200);
+			ctx.fillRect(0,0,100,100);
+			
+			//旋转画布
+			ctx.rotate(Math.PI/4);
+			ctx.fillRect(0,0,100,100);
+			
+			//scale(x轴放大2倍，y轴缩小0.5倍)
+			ctx.scale(2,0.5);
+			ctx.fillRect(0,0,100,100)
+			
+		</script>
+	</body>
+</html>
