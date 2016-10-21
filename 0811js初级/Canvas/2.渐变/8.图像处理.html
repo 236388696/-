@@ -17,7 +17,7 @@
 		    img.onload=function(){
 		    	ctx.drawImage(this,0,0,500,500);
 		    	var imageData=ctx.getImageData(0,0,500,500);
-//		    	console.log(imageData);
+		    	console.log(imageData);
             var pxs=imageData.data;
             //变黑白色，把每一个像素点的rgb值取出来，平均之后再放回去
             for (var i=0;i<pxs.length;i+=4) {

@@ -38,18 +38,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="2340">
               <caret line="156" column="28" selection-start-line="156" selection-start-column="28" selection-end-line="156" selection-end-column="28" />
-              <folding>
-                <marker date="1476849660000" expanded="true" signature="144:319" ph="//..." />
-                <marker date="1476849660000" expanded="true" signature="372:502" ph="{&quot;name&quot;: &quot;李维旭&quot;...}" />
-                <marker date="1476849660000" expanded="true" signature="602:651" ph="//..." />
-                <marker date="1476849660000" expanded="true" signature="1012:1427" ph="//..." />
-                <marker date="1476849660000" expanded="true" signature="1463:1607" ph="{...}" />
-                <marker date="1476849660000" expanded="true" signature="1542:1578" ph="{...}" />
-                <marker date="1476849660000" expanded="true" signature="1612:1749" ph="//..." />
-                <marker date="1476849660000" expanded="true" signature="1874:1942" ph="{...}" />
-                <marker date="1476849660000" expanded="true" signature="2002:2067" ph="//..." />
-                <marker date="1476849660000" expanded="true" signature="2086:2111" ph="{&quot;hobby&quot;: &quot;男&quot;...}" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -77,9 +66,12 @@
       <file leaf-file-name="通讯录.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js高级/第二天/通讯录.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="30" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="30" />
-              <folding />
+            <state relative-caret-position="210">
+              <caret line="19" column="16" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
+              <folding>
+                <element signature="n#table#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -221,8 +213,8 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -310,11 +302,12 @@
       <workItem from="1476668197975" duration="7012000" />
       <workItem from="1476752320636" duration="27911000" />
       <workItem from="1476953725028" duration="15000" />
+      <workItem from="1477012965221" duration="71000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34970000" />
+    <option name="totallyTimeSpent" value="35041000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -373,20 +366,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js高级/第一天/1.面向对象.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1590">
-          <caret line="106" column="51" selection-start-line="106" selection-start-column="51" selection-end-line="106" selection-end-column="51" />
-          <folding>
-            <marker date="1476849660000" expanded="true" signature="144:319" ph="//..." />
-            <marker date="1476849660000" expanded="true" signature="372:502" ph="{&quot;name&quot;: &quot;李维旭&quot;...}" />
-            <marker date="1476849660000" expanded="true" signature="602:651" ph="//..." />
-            <marker date="1476849660000" expanded="true" signature="1012:1427" ph="//..." />
-            <marker date="1476849660000" expanded="true" signature="1463:1607" ph="{...}" />
-            <marker date="1476849660000" expanded="true" signature="1542:1578" ph="{...}" />
-            <marker date="1476849660000" expanded="true" signature="1612:1749" ph="//..." />
-            <marker date="1476849660000" expanded="true" signature="1874:1942" ph="{...}" />
-            <marker date="1476849660000" expanded="true" signature="2002:2067" ph="//..." />
-            <marker date="1476849660000" expanded="true" signature="2086:2111" ph="{&quot;hobby&quot;: &quot;男&quot;...}" />
-          </folding>
+        <state relative-caret-position="2340">
+          <caret line="156" column="28" selection-start-line="156" selection-start-column="28" selection-end-line="156" selection-end-column="28" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -410,7 +392,53 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#table#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js高级/第二天/3.仿写jq.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2445">
+          <caret line="163" column="30" selection-start-line="163" selection-start-column="30" selection-end-line="163" selection-end-column="30" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js高级/第一天/1.面向对象.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1590">
+          <caret line="106" column="51" selection-start-line="106" selection-start-column="51" selection-end-line="106" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js高级/第一天/字符串扩展.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js高级/第一天/数组扩展.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js高级/第二天/通讯录.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#table#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -445,18 +473,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2340">
           <caret line="156" column="28" selection-start-line="156" selection-start-column="28" selection-end-line="156" selection-end-column="28" />
-          <folding>
-            <marker date="1476849660000" expanded="true" signature="144:319" ph="//..." />
-            <marker date="1476849660000" expanded="true" signature="372:502" ph="{&quot;name&quot;: &quot;李维旭&quot;...}" />
-            <marker date="1476849660000" expanded="true" signature="602:651" ph="//..." />
-            <marker date="1476849660000" expanded="true" signature="1012:1427" ph="//..." />
-            <marker date="1476849660000" expanded="true" signature="1463:1607" ph="{...}" />
-            <marker date="1476849660000" expanded="true" signature="1542:1578" ph="{...}" />
-            <marker date="1476849660000" expanded="true" signature="1612:1749" ph="//..." />
-            <marker date="1476849660000" expanded="true" signature="1874:1942" ph="{...}" />
-            <marker date="1476849660000" expanded="true" signature="2002:2067" ph="//..." />
-            <marker date="1476849660000" expanded="true" signature="2086:2111" ph="{&quot;hobby&quot;: &quot;男&quot;...}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -478,9 +495,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js高级/第二天/通讯录.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="30" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="30" />
-          <folding />
+        <state relative-caret-position="210">
+          <caret line="19" column="16" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
+          <folding>
+            <element signature="n#table#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

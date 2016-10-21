@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Title</title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			#cp1 {
+				width: 20px;
+				height: 20px;
+				border-radius: 10px;
+				background-color: deeppink;
+				position: absolute;
+				top: 160px;
+				left: 10px;
+				z-index: 3;
+			}
+			
+			#cp2 {
+				width: 20px;
+				height: 20px;
+				border-radius: 10px;
+				background-color: aquamarine;
+				position: absolute;
+				top: 460px;
+				left: 310px;
+				z-index: 3;
+			}
+			
+			#canvas {
+				border: 1px solid black;
+				position: absolute;
+				top: 20px;
+				left: 20px;
+				z-index: 1;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="cp1"></div>
+		<div id="cp2"></div>
+		<canvas id="canvas" width="300" height="600"></canvas>
+		<div id="text">cubic-bezier(0,1,1,0)</div>
+		<script type="text/javascript">
+			var canvas = document.querySelector("#canvas");
+			var ctx = canvas.getContext("2d");
+
+			var cp1 = document.getElementById("cp1");
+			var cp2 = document.getElementById("cp2");
+			var text1=document.getElementById("text");
+
+			//画背景
+			function drawBack() {
+				ctx.clearRect(0,0,canvas.width,canvas.height);
+				var gradient = ctx.createLinearGradient(0, 0, 0, 600);
+				gradient.addColorStop(0, "white");
+				gradient.addColorStop(0.5, "#ccc");
+				gradient.addColorStop(1, "white");
+
+				ctx.beginPath();
+				ctx.fillStyle = gradient;
+				ctx.fillRect(0, 0, 300, 600);
+
+				//x轴
+				ctx.beginPath();
+				ctx.moveTo(0, 450);
+				ctx.lineTo(300, 450);
+				ctx.lineWidth = "1";
+				ctx.strokeStyle = "black";
+				ctx.stroke();
+
+				//y轴
+				ctx.beginPath();
+				ctx.moveTo(0, 450);
+				ctx.lineTo(0, 150);
+				ctx.lineWidth = "1";
+				ctx.strokeStyle = "black";
+				ctx.stroke();
+
+				//条纹
+				ctx.fillStyle = "white";
+				for(var i = 150; i < 450; i += 40) {
+					ctx.beginPath();
+					ctx.fillRect(0, i, canvas.width, 20);
+				}
+			}
+			
+
+			//画各种线
+			function drawBezier() {
+				drawBack();
+				
+				ctx.beginPath();
+				ctx.strokeStyle = "black";
+				ctx.lineWidth = 5;
+				ctx.moveTo(0, 450);
+				ctx.bezierCurveTo(cp1.offsetLeft -10, cp1.offsetTop - 10, cp2.offsetLeft - 10, cp2.offsetTop - 10, 300, 150);
+				ctx.stroke();
+
+				//连接第一个控制点
+				ctx.beginPath();
+				ctx.lineWidth = "3";
+				ctx.moveTo(0, 450);
+				ctx.lineTo(cp1.offsetLeft -10, cp1.offsetTop - 10);
+				ctx.stroke();
+
+				//连接第二个控制点
+				ctx.beginPath();
+				ctx.lineWidth = "3";
+				ctx.moveTo(300, 150);
+				ctx.lineTo(cp2.offsetLeft - 10, cp2.offsetTop - 10);
+				ctx.stroke();
+
+			}
+			//文字
+			function drawText(){
+				var p1X=((cp1.offsetLeft-10)/300).toFixed(2);
+				var p1Y=((450-(cp1.offsetTop-10))/300).toFixed(2);
+				var p2X=((cp2.offsetLeft-10)/300).toFixed(2);
+				var p2Y=((450-(cp2.offsetTop-10))/300).toFixed(2);
+				text1.innerHTML="cubic-bezier("+p1X+","+p1Y+","+p2X+","+p2Y+")"
+			}
+			
+			cp1.onmousedown=function(ev){
+				canvas.onmousemove=function(e){
+					var e=e||window.event;
+					//怕鼠标动的时候，选择字
+					e.preventDefault();
+					var x=e.clientX-10;
+					var y=e.clientY-10;
+					//设置边界条件
+					if(x<0){
+						x=0;
+					}
+					if(x>310){
+						x=310;
+					}
+					cp1.style.left=x+"px";
+					cp1.style.top=y+"px";
+					drawBezier();
+					 drawText()
+				}
+				document.onmouseup=function(){
+					canvas.onmousemove=null;
+				}
+				
+			}
+			
+			
+			
+				cp2.onmousedown=function(ev){
+				canvas.onmousemove=function(e){
+					var e=e||window.event;
+					//怕鼠标动的时候，选择字
+					e.preventDefault();
+					var x=e.clientX-10;
+					var y=e.clientY-10;
+					//设置边界条件
+					if(x<10){
+						x=10;
+					}
+					if(x>300){
+						x=300;
+					}
+					cp2.style.left=x+"px";
+					cp2.style.top=y+"px";
+					drawBezier();
+					 drawText()
+				}
+				document.onmouseup=function(){
+					canvas.onmousemove=null;
+				}
+				
+			}
+			
+			
+			//先画背景，后画线
+			drawBack();
+			drawBezier();
+		</script>
+	</body>
+
+</html>

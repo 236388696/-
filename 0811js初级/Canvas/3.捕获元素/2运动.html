@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Title</title>
+	</head>
+
+	<body>
+		<canvas id="canvas" width="500" height="500"></canvas>
+
+		<script type="text/javascript">
+			var canvas = document.querySelector("#canvas");
+			var ctx = canvas.getContext("2d");
+			var rect1 = {
+				x: 0,
+				y: 0,
+				w: 100,
+				h: 100,
+				color:"yellow"
+			}
+
+			var rect2 = {
+				x: 300,
+				y: 300,
+				w: 200,
+				h: 100,
+				color:"gray"
+			}
+			var rects = [rect1, rect2];
+
+			//用来记录当前点击的是那个rect
+			var currentIndex = -1;
+
+			function drawRect() {
+				ctx.clearRect(0, 0, canvas.width, canvas.height);
+				for(var i = 0; i < rects.length; i++) {
+					ctx.beginPath();
+					ctx.fillStyle = rects[i].color;
+					ctx.rect(rects[i].x, rects[i].y, rects[i].w, rects[i].h);
+					ctx.fill();
+					if(arguments.length) {
+						if(ctx.isPointInPath(arguments[0], arguments[1])) {
+							currentIndex = i;
+						}
+					}
+				}
+			}
+			drawRect();
+			canvas.onmousedown = function(e) {
+				var e = e || window.event;
+				var x = e.clientX;
+				var y = e.clientY;
+				drawRect(x, y);
+				if(currentIndex == -1) {
+					return 2;
+				}
+				console.log(currentIndex)
+				var oldX = x - rects[currentIndex].x;
+				var oldY = y - rects[currentIndex].y;
+				canvas.onmousemove = function(e) {
+					var e = e || window.event;
+					rects[currentIndex].x = e.clientX - oldX;
+					rects[currentIndex].y = e.clientY - oldY;
+					drawRect();
+					checkP(rect1, rect2);
+
+				}
+				canvas.onmouseup = function() {
+					canvas.onmousemove = null;
+					currentIndex = -1;
+				}
+			}
+
+			function checkP(obj1, obj2) {
+				//x轴方向最小距离
+				var disX = obj1.w / 2 + obj2.w / 2;
+				//y轴方向最小值
+				var disY = obj1.h / 2 + obj2.h / 2;
+
+				//两个矩形x轴方向实际的中心距离
+				var realX = Math.abs((obj1.x + obj1.w / 2) - (obj2.x + obj2.w / 2));
+				var realY = Math.abs((obj1.y + obj1.h / 2) - (obj2.y + obj2.h / 2));
+
+				if(realX <= disX && realY <= disY) {
+					console.log("碰到了");
+				}
+			}
+		</script>
+	</body>
+
+</html>

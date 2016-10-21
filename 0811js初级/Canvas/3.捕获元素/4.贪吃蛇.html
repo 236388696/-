@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<canvas id="canvas" width="800" height="800"></canvas>
+		<script type="text/javascript">
+			var canvas = document.getElementById("canvas");
+			var ctx = canvas.getContext("2d");
+
+			function rand(min, max) {
+				return Math.floor(Math.random() * (max - min + 1) + min);
+			}
+
+			var snake = {
+				x: 0,
+				y: 0,
+				w: 50,
+				h: 50,
+				color: "red",
+				left: false,
+				right: true,
+				top: false,
+				bottom: false
+
+			}
+			snake.move = function() {
+				if(this.left) {
+					this.x -= this.w;
+				} else if(this.right) {
+					this.x += this.w;
+				} else if(this.top) {
+					this.y -= this.h;
+				} else if(this.bottom) {
+					this.y += this.h;
+				}
+			}
+
+			snake.draw = function() {
+				ctx.beginPath();
+				ctx.fillStyle = this.color;
+				ctx.rect(this.x, this.y, this.w, this.h);
+				ctx.fill();
+			}
+
+			var arr = ["left", "top", "right", "bottom"];
+
+			document.onkeydown = function(ev) {
+				var e = ev || window.event;
+				console.log(e.keyCode);
+				for(var i = 0; i < arr.length; i++) {
+					snake[arr[i]] = false;
+				}
+				snake[arr[e.keyCode - 37]] = true;
+
+				//				switch(e.keyCode) {
+				//					case 37:
+				//						snake.left = true;
+				//						snake.right = false;
+				//						snake.top = false;
+				//						snake.bottom = false;
+				//						break;
+				//					case 38:
+				//						snake.left = false;
+				//						snake.right = false;
+				//						snake.top = true;
+				//						snake.bottom = false;
+				//						break;
+				//					case 39:
+				//						snake.left = false;
+				//						snake.right = true;
+				//						snake.top = false;
+				//						snake.bottom = false;
+				//						break;
+				//					case 40:
+				//						snake.left = false;
+				//						snake.right = false;
+				//						snake.top = false;
+				//						snake.bottom = true;
+				//						break;
+				//					default:
+				//						break;
+				//				}
+			}
+
+			function run() {
+				ctx.clearRect(0, 0, canvas.width, canvas.height);
+				snake.draw();
+				snake.move();
+				window.setTimeout(run, 100);
+			}
+			run();
+		</script>
+	</body>
+
+</html>

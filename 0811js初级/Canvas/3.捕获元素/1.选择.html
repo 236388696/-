@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas" width="800" height="800"></canvas>
+		<script type="text/javascript">
+	    //arguments:是函数内部的一个隐藏数组，里面的元素是这个函数的传入的所有参数
+//      function test(){
+//      	console.log(arguments[2]);
+//      }
+//      test(1,2,"dse");
+
+
+//      function test(){
+//         alert(b);
+//      }
+//      var b=10;
+//      test(10);
+
+
+
+  
+		var canvas=document.querySelector("#canvas");
+		var ctx=canvas.getContext("2d");
+       /* ctx.beginPath();
+        //fillRect和strokeRect没有创建路径
+//      ctx.fillRect(0,0,100,100);
+        ctx.rect(0,0,100,100);
+        ctx.fill();
+        //每次只能判断最后一个路径
+        console.log(ctx.isPointInPath(120,20));
+        
+        
+        
+        ctx.beginPath();
+        ctx.rect(200,200,100,100);
+        ctx.fill();
+        */
+       
+        ctx.beginPath();
+        ctx.lineWidth=5;
+        ctx.fillStyle="red";
+        ctx.rect(500,500,200,100);
+        ctx.fill();
+        ctx.closePath();
+        
+        
+        var rect1={
+        	x:0,
+        	y:0,
+        	w:100,
+        	h:100
+        }
+        
+        
+        var rect2={
+        	x:200,
+        	y:200,
+        	w:100,
+        	h:100
+        }
+        
+        var rects=[rect1,rect2];
+       
+       
+//      document.onclick=function(e){
+//      	var e=e||window.event;
+//      	if(ctx.isPointInPath(e.clientX,e.clientY)){
+//      		alert("点到了");
+//      	}
+//      }
+		function drawRect() {
+		for(var i = 0; i < rects.length; i++) {
+			ctx.beginPath();
+			ctx.rect(rects[i].x, rects[i].y, rects[i].w, rects[i].h);
+			ctx.fill();
+			if(arguments.length > 0) {
+		      if(ctx.isPointInPath(arguments[0],arguments[1])){
+		      	  alert("点中了"+i);
+		      }
+			}
+		}
+		}
+		
+		drawRect();
+		
+		
+		document.onclick = function(e) {
+			var e = e || window.event;
+			ctx.clearRect(0, 0, canvas.width, canvas.height);
+			drawRect(e.clientX,e.clientY);
+		}
+		
+		
+		</script>
+	</body>
+</html>
