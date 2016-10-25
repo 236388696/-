@@ -38,8 +38,7 @@
 				ctx.arc(this.x, this.y,this.r, 0, Math.PI * 2, false);
 				ctx.fill();
 			}
-
-			Ball.prototype.move = function() {
+            Ball.prototype.move = function() {
 					this.x += this.speedX;
 					this.y += this.speedY;
 					if(this.x >= canvas.width - this.r) {
@@ -54,8 +53,6 @@
 					}
 
 				}
-				
-
 			//装小球的数组
 			var balls = [];
 			for(var i = 0; i < 100; i++) {

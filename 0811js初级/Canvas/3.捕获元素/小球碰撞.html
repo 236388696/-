@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="canvas" width="800" height="800">
+    浏览器不支持
+</canvas>
+<script type="text/javascript">
+    var canvas = document.getElementById("canvas");
+    var ctx = canvas.getContext("2d");
+
+    var arc1 = {
+        x:100,
+        y:100,
+        r:80,
+        s:0,
+        end:Math.PI*2,
+        color:"yellow"
+    }
+    var arc2 = {
+        x:300,
+        y:200,
+        r:80,
+        s:0,
+        end:Math.PI*2,
+        color:"pink"
+    }
+    var arcs = [arc1,arc2];
+    var clickIndex = -1;
+    function drawArc() {
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+        for(var i = 0; i < arcs.length; i++){
+            ctx.beginPath();
+            ctx.fillStyle = arcs[i].color;
+            ctx.arc(arcs[i].x,arcs[i].y,arcs[i].r,arcs[i].s,arcs[i].end,false);
+            ctx.fill();
+            if(arguments.length){
+                if(ctx.isPointInPath(arguments[0],arguments[1])){
+                    clickIndex = i;
+                }
+            }
+        }
+    }
+    drawArc();
+    function checkP(obj1,obj2) {
+        var arc1L = obj1.x;
+        var arc1T = obj1.y;
+        var arc2L = obj2.x;
+        var arc2T = obj2.y;
+        var H = Math.abs(arc1L-arc2L);
+        var Z = Math.abs(arc1T-arc2T);
+        var PF = (H*H)+(Z*Z);
+        var minMove = (obj1.r+obj2.r)*(obj1.r+obj2.r);
+        if(PF<=minMove){
+            console.log("碰上了")
+        }else{
+
+        }
+
+    }
+    canvas.onmousedown = function (e) {
+        var e = e||window.event;
+        var x = e.clientX;
+        var y = e.clientY;
+        drawArc(x,y);
+        if (clickIndex == -1){
+            return;
+        }
+        var oldx = x - arcs[clickIndex].x;
+        var oldy = y - arcs[clickIndex].y;
+        canvas.onmousemove = function (e) {
+            var e = e||window.event;
+            arcs[clickIndex].x = e.clientX-oldx;
+            arcs[clickIndex].y = e.clientY-oldy;
+            drawArc();
+            checkP(arc1,arc2);
+        }
+        canvas.onmouseup = function () {
+            canvas.onmousemove = null;
+            clickIndex = -1;
+        }
+    }
+
+
+</script>
+</body>
+</html>

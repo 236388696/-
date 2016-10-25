@@ -1,57 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <style>
-        li{
-            width: 200px;
-            height: 200px;
-            border:1px solid pink;
-            float: left;
-            font-size:50px;
-        }
-    </style>
-</head>
-<body>
-<ul>
-    <li>1</li>
-    <li>2</li>
-    <li>3</li>
-    <li>4</li>
-    <li>5</li>
-</ul>
-<script type="text/javascript">
-    var Oli = document.getElementsByTagName("li");
-    var a = 20 +3;
 
-    fun(1)
-    for(var i=0;i<Oli.length;i++){
-        var x = function(y){
-            y;
-            return function () {
-                alert(y);
-            }
+	<head>
+		<meta charset="UTF-8">
+		<title>Title</title>
+		<style>
+			li {
+				width: 200px;
+				height: 200px;
+				border: 1px solid pink;
+				float: left;
+				font-size: 50px;
+			}
+		</style>
+	</head>
 
-        }
+	<body>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+		</ul>
+		<script type="text/javascript">
+			//  var Oli = document.getElementsByTagName("li");
+			//  var a = 20 +3;
+			//
+			//  fun(1)
+			//  for(var i=0;i<Oli.length;i++){
+			//      var x = function(y){
+			//          y;
+			//          return function () {
+			//              alert(y);
+			//          }
+			//
+			//      }
+			//
+			//      var newFn = x(i);
+			//      Oli[i].onclick = newFn;
+			//  }
+			//  var i = 0;
+			//  Oli[i].onclick = function () {
+			//      alert(i);
+			//  }
+			//
+			//  var i = 1;
+			//  Oli[i].onclick = function () {
+			//      alert(i);
+			//  }
 
-        var newFn = x(i);
-        Oli[i].onclick = newFn;
-    }
-    var i = 0;
-    Oli[i].onclick = function () {
-        alert(i);
-    }
+			var name = "The Window";　　
+			var object = {　　　　
+				name: "My Object",
+				getNameFunc: function() {　
+					alert(this); //object　　　　
+					return function() {　　　　　　　　
+						return this.name;　　　　　
+					};　　　　
+				}
+			};
+			alert(object.getNameFunc()());
+			
+			
+			
 
-    var i = 1;
-    Oli[i].onclick = function () {
-        alert(i);
-    }
+			var per = {
+				name: "a",
+				sayHi: function() {
+					console.log(this); //this是属于per的
+				}
+			}
+			per.sayHi();
+			a.call(per); //改变函数的this指向
+			a.apply(per); //参数撞到数组
+			
 
+			function a() {
+				return this.name;
+			}
+			alert(a);
 
+			//闭包的意义：改变函数的作用域，缺点；占内存
+			var add = function() {
+				var count = 0;
+				return function() {
+					return count += 1;
+				}
+			}();
+			console.log(add()); //1
+			console.log(add()); //2
+			console.log(add()); //3
 
+			var add = function() {
+				var count = 0;
+				return function() {
+					return count += 1;
+				}
+			};
+			console.log(add()()); //1
+			console.log(add()()); //1
+			console.log(add()()); //1
 
+			var add = function() {
+				var count = 0;
+				return function() {
+					return count += 1;
+				}
+			};
+			console.log(add); //区别下两个
+			console.log(add());
+			console.log(add());
+		</script>
+	</body>
 
-</script>
-</body>
 </html>

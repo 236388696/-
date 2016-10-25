@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<canvas id="canvas" width="1000" height="1800"></canvas>
+		<script type="text/javascript">
+			var canvas = document.getElementById("canvas");
+			var ctx = canvas.getContext("2d");
+            //声明一个自变量对象
+			var snake = {
+				x: 0,
+				y: 0,
+				w: 50,
+				h: 50,
+				headColor: "red",
+				bodyColor: "blue",
+				//因为身体的位置是蛇头走过的位置，所以用一个数组记录蛇头走过的位置
+				//positions：[{x:10.,y:10},{x:60.,y:10},]
+				positions: [],
+				//运动方向
+				direction: "right",
+				score: 0
+				//	this.draw=function(){}
+
+			}
+
+			snake.draw = function() {
+				//画蛇头
+				ctx.beginPath();
+				ctx.fillStyle = this.headColor;
+				console.log(this.w);
+				ctx.fillRect(this.x, this.y, this.w, this.h);
+				//身体
+				for(var i = 0; i < this.positions.length; i++) {
+					ctx.beginPath();
+					//body的每一个位置
+					var position = this.positions[i];
+					ctx.fillStyle = this.bodyColor;
+					ctx.fillRect(position.x, position.y, this.w, this.h);
+				}
+
+			}
+			snake.addPosition = function() {
+				this.positions.push({
+						x: this.x,
+						y: this.y
+					})
+					//限制身体的长度
+					//分数每增加一个，身体就长一个，最少有2节身体，所以蛇身体的当前长度是2+分数
+				if(this.positions.length > 2 + this.score) {
+					this.positions.shift();
+				}
+			}
+			snake.move = function() {
+				if(this.direction == "left") {
+					this.x -= this.w;
+				} else if(this.direction == "right") {
+					this.x += this.w;
+				} else if(this.direction == "top") {
+					this.y -= this.h;
+				} else if(this.direction == "bottom") {
+					this.y += this.h;
+				}
+			}
+
+			//给蛇加个吃的方法
+			snake.eat = function() {
+				if(snake.x == food.x && snake.y == food.y) {
+					//分数+1,表示蛇的身体长度也+1
+					this.score++;
+					//吃完，重新生成食物
+					food = new Food();
+					food.setPosition();
+				}
+			}
+
+			function rand(min, max) {
+				return Math.floor(Math.random() * (max - min + 1) + min);
+			}
+
+			//食物   构造函数加方法不能直接.draw   而是要prototype.draw
+			function Food() {
+				this.x = 0;
+				this.y = 0;
+				this.w = 50;
+				this.h = 50;
+				this.color = "rgb(" + rand(0, 255) + "," + rand(0, 255) + "," + rand(0, 255) + ")";
+			}
+			Food.prototype.draw = function() {
+					ctx.beginPath();
+					ctx.fillStyle = this.color;
+					ctx.fillRect(this.x, this.y, this.w, this.h);
+				}
+				//生成食物的位置
+			Food.prototype.setPosition = function() {
+				while(true) {
+					//	var x=rand(0,450/50)*50;
+					var x = rand(0, (canvas.width - this.w) / this.w) * this.w;
+					var y = rand(0, (canvas.height - this.h) / this.h) * this.h;
+					for(var i = 0; i < snake.positions.length; i++) {
+						//检查有没有在蛇身体上的位置冲突
+						var position = snake.positions[i];
+						if(x == position.x && y == position.y) {
+							break; //跳出for循环
+						}
+
+					}
+					if(i == snake.positions.length) {
+						//说明没有冲突，结束white循环
+						this.x = x;
+						this.y = y;
+						break;
+					}
+				}
+			}
+
+			var food = new Food();
+			food.setPosition();
+			//动起来
+			function run() {
+				ctx.clearRect(0, 0, canvas.width, canvas.height);
+				//画蛇
+				snake.draw();
+				//保存蛇身体的位置
+				snake.addPosition();
+				//蛇移动
+				snake.move();
+				//画食物
+				food.draw();
+				//判断吃掉食物
+				snake.eat();
+				setTimeout(run, 500);
+			}
+			run();
+
+			//键盘
+			var directions = ["left", "top", "right", "bottom"];
+			document.onkeydown = function(e) {
+				var e = e || window.event;
+				if(e.keyCode > 36 && e.keyCode < 41) {
+					snake.direction = directions[e.keyCode - 37];
+				}
+			}
+
+			//			var i=0
+			//			for (;i<10;) {
+			//				i++
+			//			}
+			//			alert(i);
+		</script>
+	</body>
+
+</html>

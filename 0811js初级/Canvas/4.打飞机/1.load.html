@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<canvas id="canvas" width="1000" height="1000"></canvas>
+		<script src="loading.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var canvas = document.getElementById("canvas");
+			var ctx = canvas.getContext("2d");
+			canvas.width = document.documentElement.clientWidth;
+			canvas.height = document.documentElement.clientHeight;
+
+			//为了图像使用方便，不用每一个都去起名字，直接用图像的名作为obj对象的属性，为了图片加载用的
+			var obj = {
+				"bg1": "img/bg1.png",
+				"bullet1": "img/bullet1.png",
+				"bullet2": "img/bullet2.png"
+			}
+
+			//			function loading(obj, fun) {
+			//				//表示当前加载完成的图片个数
+			//				var count = 0;
+			//				//imgsObj用来保存加载完成的图片，属性名是图片的名字，属性的值是对应的Image对象, 获取Image对象通过imgsObj1.bg1这种方式
+			//				var imgsObj = {}
+			//					//遍历obj中的所有的属性，每一条属性都是一个图片的src，都可以生成一个image对象
+			//				for(var prop in obj) {
+			//					//	var img=new Image()*3次;
+			//					var img = new Image();
+			//					img.src = obj[prop];
+			//					//img*3.onload事件 ，因为onload函数不会立刻执行，在图片加载完成之后才会执行，所以在onload函数内部只能取到for循环的最后一个值，想要取到for循环每次的prop值，通过函数可以保存下来，a(prop)在函数a的内部就可以取到正确的prop的值
+			//					img.onload = (function(b) {
+			//						return function() {
+			//							//每加载完一张图片，count+1,所有可以用count表示加载的进度
+			//							count++;
+			//							console.log((count / 3).toFixed(2) * 100 + "%");
+			//							console.log(b);
+			//							//b是通过闭包传进来的当前加载完成的那张图片的名字，this是当前加载完成的Image对象
+			//							imgsObj[b] = this;
+			//							//如果当前加载完成的个数等于图片总个数，说明全部加载完成
+			//							if(count == 3) {
+			//								fun(imgsObj);
+			//							}
+			//						}
+			//					})(prop)
+			//				}
+			//			}
+			//调用，传入图片对象参数 
+			loading({
+				"background_2": "img/background_2.png",
+				"bg1": "img/bg1.png",
+				"bomb": "img/bomb.png",
+				"bullet1": "img/bullet1.png",
+				"bullet2": "img/bullet2.png",
+				"enemy1_blowup_1": "img/enemy1_blowup_1.png",
+				"enemy1_blowup_2": "img/enemy1_blowup_2.png",
+				"enemy1_blowup_3": "img/enemy1_blowup_3.png",
+				"enemy1_blowup_4": "img/enemy1_blowup_4.png",
+				"enemy1_fly_1": "img/enemy1_fly_1.png",
+				"enemy2_blowup_1": "img/enemy2_blowup_1.png",
+				"enemy2_blowup_2": "img/enemy2_blowup_2.png",
+				"enemy2_blowup_3": "img/enemy2_blowup_3.png",
+				"enemy2_blowup_4": "img/enemy2_blowup_4.png",
+				"enemy2_blowup_5": "img/enemy2_blowup_5.png",
+				"enemy2_blowup_6": "img/enemy2_blowup_6.png",
+				"enemy2_blowup_7": "img/enemy2_blowup_7.png",
+				"enemy2_fly_1": "img/enemy2_fly_1.png",
+				"enemy2_fly_2": "img/enemy2_fly_2.png",
+				"enemy2_hit_1": "img/enemy2_hit_1.png",
+				"enemy3_blowup_1": "img/enemy3_blowup_1.png",
+				"enemy3_blowup_2": "img/enemy3_blowup_2.png",
+				"enemy3_blowup_3": "img/enemy3_blowup_3.png",
+				"enemy3_blowup_4": "img/enemy3_blowup_4.png",
+				"enemy3_fly_1": "img/enemy3_fly_1.png",
+				"enemy3_hit_1": "img/enemy3_hit_1.png",
+				"enemy3_hit_2": "img/enemy3_hit_2.png",
+				"enemy4_fly_1": "img/enemy4_fly_1.png",
+				"enemy5_fly_1": "img/enemy5_fly_1.png",
+				"gameArts-hd": "img/gameArts-hd.png",
+				"gameArts": "img/gameArts.png",
+				"game_pause": "img/game_pause.png",
+				"game_pause_hl": "img/game_pause_hl.png",
+				"hero_blowup_1": "img/hero_blowup_1.png",
+				"hero_blowup_2": "img/hero_blowup_2.png",
+				"hero_blowup_3": "img/hero_blowup_3.png",
+				"hero_blowup_4": "img/hero_blowup_4.png",
+				"hero_fly_1": "img/hero_fly_1.png",
+				"hero_fly_2": "img/hero_fly_2.png",
+				"loading0": "img/loading0.png",
+				"loading1": "img/loading1.png",
+				"loading2": "img/loading2.png",
+				"loading3": "img/loading3.png"
+			}, function(a) {
+				//图片加载的进度
+				console.log(a);
+			}, main);
+
+			function main(imgObj) {
+				//图片加载完成
+
+				/*************************飞机**************************/
+				var hero = {
+					img: imgObj.hero_fly_1,
+					x: canvas.width / 2 - imgObj.hero_fly_1.width / 2,
+					y: canvas.height - imgObj.hero_fly_1.height - 20,
+					w: imgObj.hero_fly_1.width,
+					h: imgObj.hero_fly_1.height
+				}
+				hero.draw = function() {
+					ctx.drawImage(this.img, this.x, this.y, this.w, this.h);
+				}
+
+				/*************************子弹**************************/
+				//子弹
+				function Bullet() {
+					this.img = imgObj.bullet1;
+					this.w = this.img.width;
+					this.h = this.img.height;
+					this.x = hero.x + hero.w / 2 - this.w / 2
+					this.y = hero.y - this.h;
+					this.speed = 5;
+				}
+				Bullet.prototype.draw = function() {
+					ctx.drawImage(this.img, this.x, this.y, this.w, this.h);
+				}
+				Bullet.prototype.move = function() {
+						//越减，top值越小，就越往上
+						this.y -= this.speed;
+					}
+					//子弹超出屏幕，把它从数组中删除
+				Bullet.prototype.canClear = function() {
+						//					return this.y<=100;
+						return this.y < -this.h;
+					}
+					//用来存放子弹的数组
+				var bullets = [];
+
+				/*************************画布运动**************************/
+				//touchmove开关
+				var canMove = false;
+				var screenY = 0;
+				var time = 0;
+
+				function run() {
+					//画之前先清掉
+					ctx.clearRect(0, 0, canvas.width, canvas.height);
+					screenY++;
+					time++;
+
+					if(screenY == canvas.height) {
+						screenY = 0;
+					}
+					//画背景
+					ctx.drawImage(imgObj["bg1"], 0, screenY - canvas.height, canvas.width, canvas.height);
+					ctx.drawImage(imgObj["bg1"], 0, screenY, canvas.width, canvas.height);
+					//画飞机
+					if(time % 12 == 0) {
+						hero.img = imgObj.hero_fly_1;
+					} else {
+						hero.img = imgObj.hero_fly_2;
+					}
+					hero.draw();
+					//画子弹
+					//屏幕刷新10帧的话，创建一个子弹
+					if(time % 10 == 0) {
+						var bullet = new Bullet();
+						//每创建一个子弹，放到数组里
+						bullets.push(bullet);
+					}
+					for(var i = 0; i < bullets.length; i++) {
+						var bullet = bullets[i];
+						bullet.draw();
+						bullet.move();
+						if(bullet.canClear()) {
+							bullets.splice(i, 1);
+						}
+					}
+					window.requestAnimationFrame(run);
+				}
+				run();
+
+				/*************************绑定touch事件**************************/
+				var oldX, oldY;
+				document.addEventListener("touchstart", function(e) {
+					var touch = e.touches[0];
+					//判断是否点到飞机
+					if(touch.clientX >= hero.x && touch.clientX <= hero.w + hero.x && touch.clientY >= hero.y && touch.clientY <= hero.y + hero.h) {
+						console.log("点到了");
+						canMove = true;
+						oldX = touch.clientX - hero.x;
+						oldY = touch.clientY - hero.y;
+					}
+				}, false);
+				document.addEventListener("touchmove", function(e) {
+					if(canMove) {
+						var touch = e.touches[0];
+						hero.x = touch.clientX - oldX;
+						hero.y = touch.clientY - oldY;
+						if(hero.x <= 0) {
+							hero.x = 0;
+						}
+						if(hero.x >= canvas.width - hero.w) {
+							hero.x = canvas.width - hero.w;
+						}
+						if(hero.y >= canvas.height - hero.h) {
+							hero.y = canvas.height - hero.h;
+						}
+						if(hero.y <= 0) {
+							hero.y = 0;
+						}
+
+					}
+				});
+				document.addEventListener("touchend", function() {
+					canMove = false;
+				})
+
+			}
+			//阻止touchmove默认事件，防止页面可以拖动，如果写到run()方法里，就说明图片如果没有加载完，也可能会拖动
+			document.addEventListener("touchmove", function(e) {
+				e.preventDefault();
+			})
+		</script>
+	</body>
+
+</html>
