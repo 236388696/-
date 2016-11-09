@@ -130,6 +130,7 @@
 					this.x = hero.x + hero.w / 2 - this.w / 2
 					this.y = hero.y - this.h;
 					this.speed = 5;
+					this.power=1;
 				}
 				Bullet.prototype.draw = function() {
 					ctx.drawImage(this.img, this.x, this.y, this.w, this.h);
@@ -158,6 +159,18 @@
 					this.x = rand(0, canvas.width - this.w)
 					this.y = -this.h;
 					this.speed = 1;
+					//飞机类型：1，2，3
+					this.type = 1;
+					//飞机爆炸图片的个数
+					this.count = 4;
+					//表示飞机爆炸图片显示完，飞机应该被删除
+					this.die = false;
+					//表示飞机被子弹打中时
+					this.canDie = false;
+					//表示爆炸动画中当前图片的下标
+					this.currentIndex = 1;
+					//血量
+					this.blood = 1;
 
 				}
 				Enemy.prototype.draw = function() {
@@ -168,6 +181,42 @@
 				}
 				Enemy.prototype.canClear = function() {
 						return this.y >= canvas.height;
+					}
+					//飞机改变类型
+				Enemy.prototype.changeType = function(type) {
+					this.type = type;
+					switch(this.type) {
+						case 1:
+							break;
+						case 2:
+							this.img = imgObj.enemy2_fly_1;
+							this.w = this.img.width;
+							this.h = this.img.height;
+							this.y = -this.h;
+							this.x = rand(0, canvas.width - this.w);
+							this.count = 7;
+							this.blood = 7;
+							break;
+						case 3:
+							this.img = imgObj.enemy3_fly_1;
+							this.w = this.img.width;
+							this.h = this.img.height;
+							this.y = -this.h;
+							this.x = rand(0, canvas.width - this.w);
+							this.count = 4;
+							this.blood = 3;
+							break;
+					}
+				}
+				Enemy.prototype.boom = function() {
+						if(this.canDie) {
+							this.img = imgObj["enemy" + this.type + "_blowup_" + this.currentIndex];
+							this.currentIndex++;
+							if(this.currentIndex == this.count + 1) {
+								this.die = true;
+							}
+						}
+
 					}
 					//用来存放所有的敌机
 				var enemys = [];
@@ -191,9 +240,6 @@
 						return false;
 					}
 				}
-				
-				
-				
 
 				/*************************画布运动**************************/
 				//touchmove开关
@@ -237,34 +283,44 @@
 					}
 					//4.画敌机
 					if(time % 30 == 0) {
-						var enmy = new Enemy();
-						enemys.push(enmy);
+						var enemy = new Enemy();
+						if(time % 7 == 0) {
+							enemy.changeType(2);
+						} else if(time % 50 == 0) {
+							enemy.changeType(3);
+						}
+						enemys.push(enemy);
 					}
 					for(var i = 0; i < enemys.length; i++) {
 						var enemy = enemys[i];
 						enemy.draw();
 						enemy.move();
-						if(enemy.canClear()) {
+						enemy.boom();
+						//两种情况飞机被删除，1.飞机超出屏幕  2.飞机爆炸动画走完
+						if(enemy.canClear() || enemy.die) {
 							//对原数组进行改变，会减一位
 							enemys.splice(i, 1);
 							//敌机从数组中删掉后，数组的长度也会相应的－1，此时数组中后面的对象的下标都会小1，如果不i--的话，后续的下标就会错一位
 							i--;
 						}
 					}
-					
+
 					//5.判断子弹与敌机的碰撞
-					for(var i=0;i<bullets.length;i++){
-						for(var j=0;j<enemys.length;j++){
-							if(checkP(bullets[i],enemys[j])){
-								enemys.splice(j,1);
-								bullets.splice(i,1);
+					for(var i = 0; i < bullets.length; i++) {
+						for(var j = 0; j < enemys.length; j++) {
+							if(checkP(bullets[i], enemys[j])) {
+								enemys[j].blood -= bullets[i].power;
+								//飞机的属性值变成true,开始走动画
+								if(enemys[j].blood == 0) {
+									enemys[j].canDie = true;
+								}
+                             bullets.splice(i, 1);
 								i--;
 								break;
 							}
 						}
 					}
-					
-					
+
 					window.requestAnimationFrame(run);
 				}
 				run();

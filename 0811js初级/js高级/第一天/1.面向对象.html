@@ -92,7 +92,7 @@
     //遍历对象中所有的属性和方法
     for(var prop in stu){
 //        console.log(prop);
-        console.log(stu[prop]);
+//      console.log(stu[prop]);
     }
     console.log(stu);
     console.log(stu.__proto__);
@@ -155,6 +155,27 @@
     
     //apply的作用和call一样，区别是第二个参数是一个数组，数组中填函数的参数
     test.apply(obj,[2,4,79])
+    
+    
+    
+    
+    
+		var c={
+			"name":"图图",
+			age:20
+		}
+		c.b="sdf";
+		console.log(c.b);
+		console.log(c['b']);
+		
+		
+		var aaa=[72,591,21,32,4,7];
+		for (var i=0;i<aaa.length;i++) {
+			for (var index in aaa) {
+			console.log(aaa[2]);
+		}
+		}
+		
 
 </script>
 </body>

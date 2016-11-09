@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<script src="js/jquery-2.2.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<title></title>
+	</head>
+
+	<body>
+		<ul>
+			<!-- (li[key=$]>a)*8 -->
+			<li key="1">
+				<a href="###">遍历</a>
+			</li>
+			<li key="2">
+				<a href="###">遍历</a>
+			</li>
+			<li key="3">
+				<a href="###">遍历</a>
+			</li>
+			<li key="4">
+				<a href="###">遍历</a>
+			</li>
+			<li key="5">
+				<a href="###">遍历</a>
+			</li>
+			<li class="item" key="6">
+				<a href="###">遍历</a>
+			</li>
+			<li key="7">
+				<a href="###">遍历</a>
+			</li>
+			<span><li key="8">
+				<a href="###" id="lasta">遍历</a>
+			</li></span>
+		</ul>
+		<script type="text/javascript">
+		// 为每一个匹配的元素添加一个函数
+		//参数是一个函数，举例如下：
+			$("li").each(function(i) {
+				console.log($(this).attr("key")); //attr 属性的意思
+				console.log("我是第"+i+"个li元素");
+			})
+
+
+           
+             //首先，初始选择位于第6项，初始化堆栈集合只包含这项。调用.nextAll() 后将第7和第8项进入一个集合。最后，调用.addBack() 合并这两个组元素在一起，创建一个jQuery对象，指向所有三个项元素（按照文档中的顺序）：{[<li.item>,<li>,<li> ]}
+			$("li.item").nextAll().addBack().css("background-color", "red");
+
+
+
+
+  
+            //用一个或多个其他对象来扩展一个对象，返回被扩展的对象。 //第二个对象和到第一个里了，第二个对象没变
+			var settings = {
+				val: false,
+				limit: 5,
+				name: "see"
+			};
+			var options = {
+				val: true,
+				name: "me"
+			};
+			$.extend(settings, options);
+			console.log(settings);
+			console.log(options);
+
+
+
+
+            //把一个对象变成 数组
+			var arr2 = $("li").toArray();
+			console.log(arr2);
+
+            
+            
+            
+            //队列 :排队
+			$("#lasta").click(function() {
+				var n = $("li").queue("fx"); //获取li队列,获取li.length
+					("li").text("Queue length is: " + n.length);
+			});
+		
+			
+			
+
+            function runIt() {
+				$("li").show("slow"); //"slow""normal""fast"
+//				$("li").animate({
+//					left: '+=500'
+//				}, 4000);
+				$("li").slideToggle(1000);//切换元素的可见状态 方法在被选元素上进行 slideUp() 和 slideDown() 之间的切换。
+				$("li").slideToggle("fast");
+//				$("li").animate({
+//					left: '-=200'
+//				}, 6500);
+				$("li").hide("slow");
+				$("li").show(1200);//毫秒
+//				$("li").slideUp("fast"); //快速度的将段落滑上
+//				$("li").slideDown("normal");
+			}
+			runIt();
+		</script>
+	</body>
+
+</html>

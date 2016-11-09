@@ -1,89 +1,72 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
 	</head>
+
 	<body>
 		<script type="text/javascript">
-			var a="12 3";
-//			alert(a[2]);
-			
-			
-			//一、字符串类型转换
-			var num=345;
-//			(1)转换字符串第一种方式
-//			num=String(num);
+			var a = "12 3";
+			//			alert(a[2]);
 
-//			(2)第二种方式:括号里的参数是转换成进制 num=num.toString(2);
-			num=num.toString();
+			//一、字符串类型转换
+			var num = 345;
+			//			(1)转换字符串第一种方式
+			//			num=String(num);
+
+			//			(2)第二种方式:括号里的参数是转换成进制 num=num.toString(2);
+			num = num.toString();
 			console.log(num);
-			
+
 			//用String构造函数创建字符串
-			var str=new String("hello hg");
+			var str = new String("hello hg");
 			//返回字符串的某一位，从0开始
 			alert(str.charAt(4));
-            alert(str[4]);
+			alert(str[4]);
 
+			//          查找字符串的某一字符，如果存在，返回其位置，从0开始
+			alert(str.search("g"));
+			//            如果不存在:返回－1；
+			alert(str.search("q"));
 
-//          查找字符串的某一字符，如果存在，返回其位置，从0开始
-//          alert(str.search("g"));
-//            如果不存在:返回－1；
-//          alert(str.search("q"));
-            
-            
-            
-            
-            //二、字符串截取
-//          (1)substring: 起始位置必须填(能取到，不能为负数)，结束位置可以不填(取不到)； 
-//                        如果不写结束位置，则一直到字符串结尾结束
-//          alert(str.substring(1,4));
+			//二、字符串截取
+			//          (1)substring: 起始位置必须填(能取到，不能为负数)，结束位置可以不填(取不到)； 
+			//                        如果不写结束位置，则一直到字符串结尾结束
+			alert(str.substring(1, 4));
 
-//          (2)substr:起始位置(起始位置可以为负数，意思是从后往前差，从－1开始)，截取长度
-//			alert(str.substr(-2,4));
+			//          (2)substr:起始位置(起始位置可以为负数，意思是从后往前差，从－1开始)，截取长度
+			alert(str.substr(-2, 4));
 
+			//          (3)slice:起始位置，结束位置（区间是左闭右开，位置可以为负数，从－1开始）
+			alert(str.slice(-3, -2));
 
-//          (3)slice:起始位置，结束位置（区间是左闭右开，位置可以为负数，从－1开始）
-//          alert(str.slice(-3,-2));
+			//          (4)replace:替换匹配字符
+			//          匹配需要被替换的首个该字符,需要替换的字符
+			//          不写第二个参数，则自动替换为undefined
+			console.log(str.replace("he", "q"));
 
+			//          (5)split：把一个字符串以一个特定字符进行分割，分割成字符串数组
+			//          参数1:分隔符  参数2:规定字符串数组的最大长度,一般不写
+			console.log(str.split("e", 2));
 
-//          (4)replace:替换匹配字符
-//          匹配需要被替换的首个该字符,需要替换的字符
-//          不写第二个参数，则自动替换为undefined
-//          console.log(str.replace("he","q"));
- 
-//          (5)split：把一个字符串以一个特定字符进行分割，分割成字符串数组
-//          参数1:分隔符  参数2:规定字符串数组的最大长度,一般不写
-//          console.log(str.split("e",2));
-            
-            
-//          (6)concat:字符串拼接:讲一个或多个字符串拼接起来,返回一个新的字符串
-            var newStr="hellohello";
-            console.log(str.concat(newStr,"lala"));
-           
+			//          (6)concat:字符串拼接:讲一个或多个字符串拼接起来,返回一个新的字符串
+			var newStr = "hellohello";
+			console.log(str.concat(newStr, "lala"));
 
-             
-            
-            
-            //lastindexOf:数组中查找某元素的方法，从后往前查找
-            //数组中查找某元素的方法：如果有这个数，返回是下标值 ／没有这个数，就是－1
-            var arr=[5,8,6,6,4];
-            var num=6;
-//          alert(arr);
-            if(arr.lastindexOf(num)==-1){
-            	 alert(arr.indexOf(num));
-            	    arr.push(num);
-            	    
-            }
-            alert(arr.lastindexOf(num));
+			//lastindexOf:数组中查找某元素的方法，从后往前查找
+			//数组中查找某元素的方法：如果有这个数，返回是下标值 ／没有这个数，就是－1
+			var arr = [5, 8, 6, 6, 4];
+			var num = 6;
+			//          alert(arr);
+			if(arr.lastindexOf(num) == -1) {
+				alert(arr.indexOf(num));
+				arr.push(num);
 
-
-
-           
-			
-			
-			
-			
+			}
+			alert(arr.lastindexOf(num));
 		</script>
 	</body>
+
 </html>
