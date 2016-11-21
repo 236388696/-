@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	#ul1{
+		width: 600px;
+		border: 1px solid red;
+		/*overflow: hidden;*/
+		position: relative;
+	}
+	#ul1 li{
+		float: left;
+		width: 180px;
+		height: 180px;
+		margin: 10px;
+		list-style: none;
+		background-color: #ccc;
+	}
+	</style>
+</head>
+<body>
+	<ul id="ul1">
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</body>
+<script type="text/javascript">
+//转样式
+var lis=document.getElementById("ul1").children;
+var arr=[];
+for (var i=0; i<lis.length; i++){
+	arr.push({l:lis[i].offsetLeft,t:lis[i].offsetTop});
+}	
+for (var i=0; i<lis.length; i++){
+
+	lis[i].style.position="absolute";
+	lis[i].style.left=arr[i].l+"px";
+	lis[i].style.top=arr[i].t+"px";
+	lis[i].onmouseenter=function (){
+
+		this.style.width="300px";
+		this.style.height="300px";
+	}
+	lis[i].onmouseleave=function (){
+
+		this.style.width="180px";
+		this.style.height="180px";
+	}
+}
+
+
+
+</script>
+</html>

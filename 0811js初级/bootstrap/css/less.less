@@ -1,0 +1,76 @@
+//head >div > a >img{
+//  width: 200px;
+//}
+
+//head >div > a >img a {
+//  width: 100px;
+//}
+
+//head{
+//  div{
+//
+//  }
+//}
+
+//less里支持当行注释，但是编译成css后，当行注释会被删掉
+/* 这是个多行注释 */
+
+
+
+
+//1.自己起的变量名
+@themeColor:#2aabd2;
+@liweiWidth:200px;
+@liweiHeight:30%;
+div{
+  color: @themeColor;
+  width: @liweiWidth;
+  height:@liweiHeight;
+}
+.wrap{
+  color: @themeColor;
+}
+
+
+
+//2.嵌套使用
+div ul li div a img{
+
+}
+
+div{
+  width: @liweiWidth;
+  >ul{
+    color: red;
+    li{
+      font-size: 20px;
+    }
+  }
+  a{
+    //&类似于js里的this
+    &:hover{
+      color: thistle;
+    }
+  }
+}
+
+
+
+//3.函数 mixin
+//默认参数，没有传参的时候使用默认值，传参使用传入的参数
+.sizing(@border:border-box){
+  -webkit-box-sizing: @border;
+  -moz-box-sizing:@border ;
+  box-sizing: @border;
+
+}
+div{
+  .sizing();
+}
+
+
+div{
+  //width: image-width("../2.jpg");
+}
+
+

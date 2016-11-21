@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<div id="warp"></div>
+<div id="div1"><span>TEST文字</span></div>
+<script>
+var ua = navigator.userAgent;
+alert(ua)
+
+
+/*
+var arr = [1,2,43]; 
+var json = {a:6,b:4,c:[1,2,3]}; 
+var str = 'sdfsdf';  
+var json2 = clone(json);  
+alert(json['c']) ;
+function clone(obj){        
+
+    var oNew = new obj.constructor(obj.valueOf());        
+    if(obj.constructor == Object){                
+
+        for(var i in obj){                        
+
+            oNew[i] = obj[i];                        
+            if(typeof(oNew[i]) == 'object'){                                 clone(oNew[i]);                        
+
+            }                
+        }        
+    }        
+    return oNew; 
+} 
+*/
+
+/*
+var oDiv1 = document.getElementById('div1'); 
+var sOut = oDiv1.outerHTML; 
+alert(sOut);
+*/
+/*
+var str = '22两是';  
+alert(getStrlen(str))  ;
+function getStrlen(str){        
+    var json = {len:0};        
+    var re = /[\u4e00-\u9fa5]/;        
+    for (var i = 0; i < str.length; i++) { 
+        if(re.test(str.charAt(i))){ 
+            json['len']++;                
+        }        
+    };        
+    return json['len']+str.length; 
+}
+*/
+/*
+function Person(name){       
+
+    this.name = name; 
+}
+  Person.prototype.showName = function(){  
+    alert(this.name); 
+    //alert(this.job);
+}  
+function Worker(name, job){ 
+    Person.apply(this,arguments) ;      
+    this.job = job; 
+}
+ for(var i in Person.prototype){    
+    Worker.prototype = Person.prototype; 
+} 
+console.log(new Worker('easy', 'coders').showName());
+
+*/
+
+/*
+var str = 'asdfssaaasasasasaa';
+ var json = {};  
+for (var i = 0; i < str.length; i++) {  
+    if(!json[str.charAt(i)]){ 
+        json[str.charAt(i)] = 1;        
+    }else{    
+        json[str.charAt(i)]++;        
+    } 
+}; 
+var iMax = 0; 
+var iIndex = ''; 
+for(var i in json){ 
+    if(json[i]>iMax){ 
+        iMax = json[i]; 
+        iIndex = i;        
+    }
+ } 
+alert('出现次数最多的是:'+iIndex+'出现'+iMax+'次');
+*/
+
+
+
+
+</script>
+</body>
+</html>

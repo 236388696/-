@@ -1,0 +1,26 @@
+/* 这是个多行注释 */
+div {
+  color: #2aabd2;
+  width: 200px;
+  height: 30%;
+}
+.wrap {
+  color: #2aabd2;
+}
+div {
+  width: 200px;
+}
+div > ul {
+  color: red;
+}
+div > ul li {
+  font-size: 20px;
+}
+div a:hover {
+  color: thistle;
+}
+div {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}

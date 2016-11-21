@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+
+        .clear,.clear-all{clear:both;font-size:0;height:0;line-height:0;overflow:hidden}
+        .fix:after,.clearfix:after{clear:both;content:" ";display:block;font-size:0;height:0;visibility:hidden}
+        .fix,.clearfix{*zoom:1}
+    </style>
+</head>
+<body>
+
+<script>
+Array.prototype.unique2 = function(){
+ this.sort(); //先排序
+ var res = [this[0]];
+ for(var i = 1; i < this.length; i++){
+  if(this[i] !== res[res.length - 1]){
+   res.push(this[i]);
+  }
+ }
+ return res;
+}
+var arr1 = [1, 'a', 'a', 'b', 'd', 'e', 'e', 1, 0]
+//alert(arr1.unique2());
+
+var arr = [3,7,9,1,5,10];
+var temp = 0;
+for (var i = 0; i < arr.length; i++){
+    for (var j = 0; j < arr.length - i; j++){
+        if (arr[j] > arr[j + 1]){
+            temp = arr[j + 1];
+            arr[j + 1] = arr[j];
+            arr[j] = temp;
+        }
+    }
+}
+alert(arr);
+
+
+
+
+</script>
+
+</body>
+</html>

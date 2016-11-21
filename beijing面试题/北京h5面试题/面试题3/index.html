@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<canvas id="mycanvas" width="600" height="500">当前浏览器不支持Canvas,请升级浏览器或者使用高版本的其它浏览器</canvas>
+
+<script>
+    var cvs = document.getElementById("mycanvas");
+    //获取上下文（绘制环境）
+    var ctx = cvs.getContext("2d");
+    //注意如果画多条线的时候需要使用beginPath和closePath
+    //开始绘制
+    ctx.beginPath();
+    //设置起点
+    ctx.moveTo(10,10);
+    //设置下一个点
+    ctx.lineTo(200,100);
+    //关闭绘制
+    ctx.closePath();
+    //设置填充
+    ctx.stroke();
+</script>
+
+
+
+
+<script>
+
+
+
+
+
+
+localStorage.setItem("test","北京");
+
+localStorage.getItem("test");
+
+var country = {};
+country.name = "中国";
+country.code = "I001";
+//localStorage.setItem("I001", country);
+//var country1 = localStorage.getItem("I001");
+localStorage.setItem("I001",JSON.stringify(country));
+localStorage.getItem("I001");
+
+
+
+
+
+</script>
+</body>
+</html>
