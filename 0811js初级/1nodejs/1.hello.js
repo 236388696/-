@@ -12,6 +12,7 @@ var b=function (index) {
     console.log(index);
 }
 
+//隐形函数("参数")
 var a=(index) => {
     index++;
     console.log(index);
@@ -24,3 +25,7 @@ a(90);
 
 var x=120;
 console.log(`李威的年龄是${x}`);
+
+
+var y=20;
+console.log(`我的年龄是${y}`);
