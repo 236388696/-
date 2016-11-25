@@ -1,0 +1,1 @@
+function fafa(){return 88}var x=10;x++;var per={name:"zhang",age:20};per.kiss=function(){console.log("weiweiyixiao")},a;

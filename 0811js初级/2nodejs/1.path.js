@@ -3,9 +3,9 @@
  */
 //定义常量
 const path=require("path");
-//打印文件所在目录，终端打不了，因为终端不在当前目录下
+//打印文件夹所在目录，终端打不了，因为终端不在当前目录下
 console.log(__dirname);
-//打印文件夹所在目录
+//打印文件所在目录
 console.log(__filename);
 
 
@@ -29,12 +29,12 @@ console.log(path.join(__dirname,"../1nodejs","bao/1.hello.js"));
 //判断是不是绝对路径，是就是true
 //相对路径，就是false
 console.log(path.isAbsolute("../1nodejs"));
-console.log(path.isAbsolute("__filename"));
+console.log(path.isAbsolute("__filename"))
 //绝对路径就是true
 console.log(path.isAbsolute("/Users/dllo/Documents/LearnJS/0811js初级/2nodejs"));
 
 
-//把一个路径字符串，传承一个对象
+//把一个路径字符串，转成一个对象
 console.log(path.parse("__filename"));
 
 

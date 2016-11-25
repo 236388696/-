@@ -30,7 +30,8 @@ process.stdin.on("data",function (input) {
         //用户名输入正确，接下来输入密码
         var password=users[username];
         if(input===password){
-            process.stdout.write("登录成功");process.exit();
+            process.stdout.write("登录成功");
+            process.exit();
         }else{
             process.stdout.write("密码错误");
         }

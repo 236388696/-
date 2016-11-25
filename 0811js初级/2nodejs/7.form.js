@@ -39,20 +39,42 @@ var server=http.createServer((req,res)=>{
             res.write(result);
             res.end();
             break;
-        case"/login_post":
-            //使用post访问服务器的时候，request会响应data事件，所以需要通过req.on("data",fun)来绑定data事件，获取前端通过post传过来的数据
-            req.on("data",   function (data) {
-               console.log(data.toString());
-                res.end();
-            });
-            //post发送数据结束后，触发end事件
-            req.on("end",()=>{
-                console.log("没有了")
-            });
+        // case"/login_post":
+            // // 使用post访问服务器的时候，request会响应data事件，所以需要通过req.on("data",fun)来绑定data事件，获取前端通过post传过来的数据
+            // req.on("data",   function (data) {
+            //    console.log(data.toString());
+            //     res.end();
+            // });
+            // //post发送数据结束后，触发end事件
+            // req.on("end",()=>{
+            //     console.log("没有了")
+            // });
 
+
+        case"/login_post":
+        //使用post访问服务器的时候，request会响应data事件，所以需要通过req.on("data",fun)来绑定data事件，获取前端通过post传过来的数据
+            if (req.method == "POST") {
+                req.on("data",   function (data) {
+                   //data返回的是一个16进制的数，用toString()解析成字符串格式
+                    var postData =  queryString.parse(data.toString());
+
+                    // console.log(postData.username);
+                    // console.log(postData.password);
+
+                    //再把字符串解析成JSON对象格式
+                    res.write(JSON.stringify(postData));
+
+                    res.end();
+                });
+                //post发送数据结束后，触发end事件
+                req.on("end",()=>{
+                    console.log("没有了")
+                });
+            }
             break;
         default:
             break;
+
     }
 });
-server.listen(8888);
+server.listen(8000);
