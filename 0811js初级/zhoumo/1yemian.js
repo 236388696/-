@@ -32,7 +32,7 @@ app.get("/zhoumo",(req,res)=>{
             throw err
         }
         //用模版render
-        res.render(path.join(__dirname,"1_yemian.ejs"),{
+        res.render(path.join(__dirname,"views/1_yemian.ejs"),{
             images:rows
         })
     })
