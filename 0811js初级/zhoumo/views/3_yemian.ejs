@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body,html,.all{
+            height: 100%;
+            width: 100%;
+        }
+        .top{
+            width: 1400px;
+            height: 120px;
+            border: 1px solid deeppink;
+            margin: 20px;
+            overflow: hidden;
+            border-radius:5px ;
+        }
+        .topimg{
+            padding: 20px;
+        }
+        .input1{
+            margin: 30px;
+            margin-left: 180px;
+            width: 100px;
+            height: 50px;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="all">
+    <form action="/zhou" method="post" enctype="multipart/form-data">
+        <div class="top">
+            <img class="topimg" src="31.png" alt="">
+        </div>
+        <div class="left">
+            <div>标题</div>
+            <input type="text" name="biao">
+            <div>正文</div>
+            <input type="text" name="zheng">
+            <input type="submit" value="提交">
+
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

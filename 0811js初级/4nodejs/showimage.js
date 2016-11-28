@@ -20,7 +20,7 @@ connect.connect();
 //模版引擎设置为 ejs
 app.set("view engine","ejs");
 app.get("/",(req,res)=>{
-   connect.query("SELECT * FROM image where",(err,rows,field)=>{
+   connect.query("SELECT * FROM image ",(err,rows,field)=>{
        if(err){
            throw err;
        }

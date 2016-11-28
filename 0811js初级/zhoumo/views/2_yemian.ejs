@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2ye</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body,html,.all{
+            height: 100%;
+            width: 100%;
+        }
+        .top{
+            width: 1000px;
+            height: 120px;
+            border: 1px solid thistle;
+            margin: 20px;
+            overflow: hidden;
+            border-radius:10px ;
+        }
+        .topimg{
+            float: left;
+            /*padding-left: 50px;*/
+            width: 120px;
+            height: 105px;
+            padding: 5px 50px;
+        }
+        h1{
+            float: left;
+            line-height: 120px;
+        }
+        .input1{
+            margin: 30px  200px;
+            /*margin-left: 200px;*/
+            width: 100px;
+            height: 50px;
+        }
+        .left{
+            width: 780px;
+            height: 400px;
+            border: 1px solid thistle;
+            border-radius:5px ;
+            margin: 20px;
+            text-align: center;
+        }
+        .left img{
+            width: 150px;
+            height: 150px;
+            margin-top: 50px;
+        }
+        .right {
+            width: 200px;
+            height: 400px;
+            margin-left:20px ;
+            border: 1px solid deeppink;
+            border-radius:5px ;
+            position: fixed;
+            top: 165px;
+            left: 800px;
+            margin-bottom: 200px;
+        }
+        .right img{
+            width: 200px;
+            height: 400px;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="all">
+    <div class="top">
+        <img class="topimg" src="<%=zhoumo.path%>" alt="">
+        <h1><%=zhoumo.title%></h1>
+        <input  class="input1" type="submit" value="上传">
+    </div>
+    <div class="content">
+        <div class="left">
+            <img src="<%=zhoumo.img%>" alt=""><h3><%= zhoumo.content%></h3>
+        </div>
+        <div class="right">
+            <img src="../img/guang.png" alt="">
+
+        </div>
+    </div>
+</div>
+

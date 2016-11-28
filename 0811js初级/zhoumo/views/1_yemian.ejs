@@ -4,11 +4,21 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body,html,.all{
+            height: 100%;
+            width: 100%;
+        }
         .top{
             width: 1400px;
             height: 120px;
-            border: 1px solid black;
+            border: 1px solid deeppink;
             margin: 20px;
+            overflow: hidden;
+            border-radius:5px ;
         }
         .topimg{
             float: left;
@@ -16,51 +26,105 @@
         }
         h1{
             float: left;
-            line-height: 60px;
+            line-height: 120px;
         }
         .input1{
             margin: 30px;
-            margin-left: 280px;
-
+            margin-left: 180px;
             width: 100px;
             height: 50px;
         }
-        .left{
-            width: 1000px;
-            height: 200px;
-            border: 1px solid black;
-            margin: 20px;
-            float: left;
+
+        .right {
+            width: 360px;
+            height: 100%;
+            margin-left:20px ;
+            border: 1px solid deeppink;
+            border-radius:5px ;
+            position: fixed;
+            top: 185px;
+            left: 1040px;
+            margin-bottom: 200px;
         }
         .right img{
-            float: left;
-            width: 360px;
-            height: 900px;
-            margin-left:20px ;
+            width: 310px;
+            height: 300px;
+            padding: 20px;
         }
+        .right span{
+          font-family: "Helvetica Neue", Helvetica, Microsoft Yahei, Hiragino Sans GB, WenQuanYi Micro Hei, sans-serif;
+            font-size: larger;
+            display: block;
+            padding: 5px;
+            padding-left: 15px;
+        }
+
+        .left{
+            width: 1000px;
+            /*height: 100%;*/
+            border: 1px solid deeppink;
+            border-radius:5px ;
+            margin: 20px;
+
+        }
+        .heng{
+            width: 900px;
+            height: 120px;
+            border: 1px solid black;
+            margin: 10px;
+            /*overflow: hidden;*/
+            display: table;
+        }
+        .heng .liulan{
+            width: 60px;
+            height: 60px;
+            line-height: 120px;
+            /*border: 1px solid red;*/
+            display: block;
+            line-height: 60px;
+            vertical-align:middle;
+            display: table-cell;
+        }
+        .heng>a span{
+            display: block;
+            font-size:25px;
+            vertical-align:middle;
+            display: table-cell;
+        }
+
+        .left>div img{
+            width: 100px;
+            height: 100px;
+            padding: 10px;
+            vertical-align:middle;
+            display: table-cell;
+        }
+        .heng>a span,.heng .liulan,.left>div img{
+            display: inline-block;
+            margin-left: 100px;
+        }
+
     </style>
 </head>
 <body>
 
-<% images.forEach((item)=>{ %>
-<a href="/image/<%=item.id%>"><img src="<%= item.img %>" alt=""></a>
-<%})%>
-
-
 <div class="all">
     <div class="top">
         <img class="topimg" src="31.png" alt="">
-        <h1>今天更新的老鼠爱上猫的续集</h1>
-        <input  class="input1" type="submit" value="上传">
+        <h1>今天更新的老鼠爱上猫的续集，他们的冒险之旅依然进行中喔</h1>
+        <a href="/zhou"><input  class="input1" type="submit" value="上传"></a>
     </div>
     <div class="left">
-        <form action="#" method="post">
-            <input type="text" name="password">
-            <input type="submit" value="提交">
-        </form>
+        <% zhoumo.forEach((item) =>{%>
+            <div class="heng">
+                <span class="liulan"><%= item.liulan%></span>
+                <a href="/aa/<%=item.id%>"><span><%= item.title%></span></a>
+                <img src="<%= item.img%>" alt="">
+            </div>
+        <%})%>
     </div>
     <div class="right">
-        <img src="../img/mao.png" alt="">
+        <img src="13.jpeg" alt=""><span>故事情节围绕一只常见的家猫汤姆和与它同居一室却难以抓住的老鼠杰瑞展开，汤姆不断地努力驱赶这位讨厌的房客，但似乎注定总是遭到失败。愚笨的追捕者和聪明的猎物都上演着无穷无尽的恶作剧，没有动物世界中恃强凌弱的残酷，只有两个邻居之间的日常琐事和纷争他们的恶作剧非常有趣，不论游戏多么激烈紧张，杰瑞都知道它不会受到任何真正的伤害，而汤姆则总是难免受些皮肉之苦。</span>
     </div>
 </div>
 
