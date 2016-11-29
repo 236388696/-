@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body ng-app>
+<!--ng-model就是value-->
+<select name="" id="" ng-model="name">
+    <option value="weiwei">大卫</option>
+    <option value="xiaoxiao">笑草</option>
+</select>
+<div ng-switch="name">
+    <div ng-switch-when="weiwei">
+        今天出轨的是大卫
+    </div>
+    <div ng-switch-when="xinxin">
+        今天出轨的是校草
+    </div>
+</div>
+<script src="../bower_components/angular/angular.js"></script>
+</body>
+</html>

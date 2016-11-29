@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css">
+</head>
+<body ng-app="myApp">
+<btn>点我点点</btn>
+
+<script src="../bower_components/angular/angular.js"></script>
+<script type="text/javascript">
+    var app=angular.module("myApp",[]);
+    //directive创建指令
+    app.directive("btn",[function () {
+        return{
+            //去掉自定义模版的html标签
+            replace:true,
+            //定义模版内可以填文字
+            transclude:true,
+            //定义模版的内容
+             template:"<button class='btn btn-danger' ng-transclude></button>"
+        }
+    }])
+</script>
+</body>
+</html>

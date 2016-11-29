@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .red{
+            background-color: red;
+        }
+        .yellow{
+            background-color: yellow;
+        }
+        #box{
+            width: 200px;
+            height: 200px;
+            -webkit-transition:background-color 3s;
+            -moz-transition: background-color 3s;
+            -ms-transition: background-color 3s;
+            -o-transition: background-color 3s;
+            transition: background-color 3s;
+        }
+    </style>
+</head>
+<body ng-app="myApp">
+
+ <div ng-controller="ListController">
+     <ul>
+         <!--<li ng-repeat="per in list" ng-class="{red:per.name=='黄为',yellow:false}">{{per.name+per.sex}}</li>-->
+     </ul>
+     <select name="" ng-model="style" id="">
+         <option value="red">red</option>
+         <option value="yellow">yellow</option>
+     </select>
+     <div ng-class="style" id="box"></div>
+ </div>
+
+<script src="../bower_components/angular/angular.js"></script>
+<script type="text/javascript">
+    var  app=angular.module("myApp",[]);
+    app.controller("ListController",['$scope',function ($scope) {
+        $scope.list=[{
+            name:"李为",
+            sex:"xx"
+        }, {
+            name:"张为",
+            sex:"xx"
+        },{
+            name:"刘为",
+            sex:"xx"
+        },{
+            name:"王为",
+            sex:"xx"
+        },{
+            name:"黄为",
+            sex:"xx"
+        },{
+            name:"赵为",
+            sex:"xx"
+        }]
+    }])
+</script>
+</body>
+</html>

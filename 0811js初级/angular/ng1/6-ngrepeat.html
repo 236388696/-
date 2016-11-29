@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body ng-app="myApp">
+    <ul ng-init="arr=[1,2,3]">
+        <li ng-repeat="x in arr"><span>{{$first?"第一行":""}}</span>{{x}}</li>
+    </ul>
+    <ul ng-controller="ListController">
+        <li ng-repeat="(key,value) in list[0]">{{key}}<span>{{value}}</span></li>
+    </ul>
+<script src="../bower_components/angular/angular.js"></script>
+<script type="text/javascript">
+    var app=angular.module('myApp',[]);
+    app.controller("ListController",['$scope',function ($scope) {
+        $scope.list=[{
+            name:"李为",
+            sex:"xx"
+        }, {
+            name:"张为",
+            sex:"xx"
+        },{
+            name:"刘为",
+            sex:"xx"
+        },{
+            name:"王为",
+            sex:"xx"
+        },{
+            name:"黄为",
+            sex:"xx"
+        },{
+            name:"赵为",
+            sex:"xx"
+        }]
+    }])
+</script>
+</body>
+</html>

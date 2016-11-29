@@ -1,0 +1,21 @@
+{
+  "name": "express_news",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "panpanzhuren <236388696@qq.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/236388696/LearnJS",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.1.1",
+    "bootstrap": "^3.3.7"
+  }
+}

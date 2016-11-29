@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body ng-app="myApp">
+<div ng-controller="DaweiController">
+    <h2>{{content}}</h2>
+</div>
+
+<script src="../bower_components/angular/angular.js"></script>
+<script type="text/javascript">
+    var app=angular.module("myApp",[]);
+    //就是ajax
+    app.controller("DaweiController",['$scope','$http',function ($scope,$http) {
+        $http.get("1.json").success(function (data) {
+            console.log(data);
+            $scope.content=data.name;
+        })
+    }])
+
+</script>
+</body>
+</html>

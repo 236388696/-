@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body ng-app ng-init="show=true;a=true">
+<!--和ng-hide的区别
+      ng-hide使用display:none来隐藏对象
+      ng-if会直接删除DOM元素
+-->
+<p ng-if="show">这是大卫</p>
+<p ng-if="a">这是aa</p>
+<input type="button" value="点1" ng-click="show=!show">
+<input type="button" value="点2" ng-click="a=!a">
+
+<script src="../bower_components/angular/angular.js"></script>
+</body>
+</html>

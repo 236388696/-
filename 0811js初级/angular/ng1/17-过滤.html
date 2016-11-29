@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body ng-app>
+<!--以$符号输出-->
+<p>{{123|currency }}</p>
+<input type="text" ng-model="a">
+
+<!--变大写-->
+<p>{{a|uppercase}}</p>
+
+<!--小写-->
+<p>{{a|lowercase}}</p>
+
+<!--从小到达排列-->
+<ul ng-init="arr=[{name:'大卫',age:55},{name:'阿童木',age:15}]">
+    <li ng-repeat="a in arr | orderBy:'age'">{{a.name}}</li>
+</ul>
+
+<script src="../bower_components/angular/angular.js"></script>
+</body>
+</html>

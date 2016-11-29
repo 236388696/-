@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body >
+   <div ng-app="myApp">
+       <div ng-controller="MyController">
+            <p>{{user.name}}</p>
+            <p>{{user.age}}</p>
+            <input type="button" ng-click="do1()" value="点我">
+            <input type="text" ng-model="user.name">
+        </div>
+   </div>
+   <div ng-app="myApp1">
+       <div ng-controller="MyController1">
+           <input type="button" ng-click="do2()" value="do2">
+       </div>
+
+   </div>
+
+<script src="../bower_components/angular/angular.js"></script>
+<script type="text/javascript">
+    //获取ng-app指定的模块
+    //参数1:在html中ng-app的名字
+    //参数2:这个模块使用的依赖，是一个数组，必须要写
+    var app=angular.module("myApp",[]);
+    app.controller("MyController",function ($scope) {
+        //$scope名字固定，表示当前controller中的作用域，通过$scope可以绑定数据或者事件
+        //1.绑定数据
+        $scope.user={
+            name:"李威",
+            age:30
+        }
+
+        //2.绑定事件
+        $scope.do1=function () {
+//            console.log("weiwei")
+            $scope.user.name="阿豪";
+        }
+
+        //3.监听数据的变化
+        $scope.$watch("user.name",function (now,old) {
+            console.log(now);
+            console.log(old);
+        })
+
+
+    })
+
+    var app1=angular.module("myApp1",[]);
+    app1.controller("MyController1",function ($scope) {
+        $scope.do2=function () {
+            console.log("点击了第二个");
+        }
+    })
+
+    //手动开启多个ng-app
+    angular.bootstrap(document.querySelector("[ng-app='myApp1']"),['myApp1']);
+
+</script>
+</body>
+</html>
