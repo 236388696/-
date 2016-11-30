@@ -1,0 +1,60 @@
+.img1:hover{
+	-webkit-transition: all 0.2s linear;
+	-moz-transition: all 0.2s linear;
+	-ms-transition: all 0.2s linear;
+	-o-transition: all 0.2s linear;
+	transition: all 0.2s linear;
+	background: url('../img/English4.png') no-repeat 0 0;
+}
+.img2:hover{
+	-webkit-transition: all 0.2s linear;
+	-moz-transition: all 0.2s linear;
+	-ms-transition: all 0.2s linear;
+	-o-transition: all 0.2s linear;
+	transition: all 0.2s linear;
+	background: url('../img/English4.png') no-repeat -87px 0;
+}
+.img3:hover{
+	-webkit-transition: all 0.2s linear;
+	-moz-transition: all 0.2s linear;
+	-ms-transition: all 0.2s linear;
+	-o-transition: all 0.2s linear;
+	transition: all 0.2s linear;
+	background: url('../img/English4.png') no-repeat -175px 0;
+}
+.img4:hover{
+	-webkit-transition: all 0.2s linear;
+	-moz-transition: all 0.2s linear;
+	-ms-transition: all 0.2s linear;
+	-o-transition: all 0.2s linear;
+	transition: all 0.2s linear;
+	background: url('../img/English4.png') no-repeat -263px 0;
+}
+.page3_box{
+	width: 184px;
+}
+
+.cover_div1{
+	width: 80px;
+	left: 34%;
+}
+.cover_div2{
+	width: 100px;
+	left: 39.3%;
+}
+.cover_div3{
+	width: 120px;
+	left: 45.98%;
+}
+.cover_div4{
+	width: 100px;
+	left: 53.9%;
+}
+.cover_div5{
+	width: 100px;
+	left: 60.55%;
+}
+.cover_div6{
+	width: 110px;
+	left: 67.2%;
+	}

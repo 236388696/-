@@ -9,90 +9,91 @@
         }
     </style>
 </head>
-<body ng-app="TOdoApp" >
-<table border="2"  ng-controller="controller" ng-init="a=true" >
-    <tr >
-        <th><input type="checkbox" ng-click="a=!a" >全选/取消全选</th>
-        <th>名称</th>
-        <th>数量</th>
-        <th>单价</th>
-        <th>价格</th>
-    </tr>
-    <tr ng-repeat="x in todolist">
-        <td><input type="checkbox" ng-checked="a.done" ng-model="a.done" ></td>
-        <td>{{x.title}}</td>
-        <td><input type="text">{{x.count}}<input type="button" value="+"><input type="button" value="-"></td>
-        <td>{{x.dan}}</td>
-        <td>{{x.jia}}</td>
-    </tr>
-
-
-</table>
-
+<body >
+<div ng-app="TOdoApp" ng-controller="myCtrl" ng-init="a=false" >
+    <table border="2"   >
+        <tr >
+            <th><input type="checkbox" ng-click="a=!a" >全选/取消全选</th>
+            <th>名称</th>
+            <th>数量</th>
+            <th>单价</th>
+            <th>价格</th>
+        </tr>
+        <tr ng-repeat="x in todolist">
+            <td><input type="checkbox" ng-checked="x.done;a" ng-model="x.done" ></td>
+            <td>{{x.title}}</td>
+            <td><input type="text">{{x.count}}<input type="button" ng-click="x.count = x.count + 1" value="+">
+                <input type="button" ng-click="x.count = x.count -1" value="-"></td>
+            <td>{{x.dan}}</td>
+            <td>{{x.count*x.dan}}</td>
+        </tr>
+    </table>
+    <p>总价格：{x.count}</p>
+</div>
 <script src="../bower_components/angular/angular.js"></script>
 <script type="text/javascript">
     var app = angular.module("TOdoApp",[]);
-    app.controller("controller",["$scope",function (a) {
+    app.controller("myCtrl",["$scope",function (a) {
         a.todolist = [{
             title:"洗衣机",
             done:false,
-            count:2,
+            count:0,
             dan:900,
-            jia:1800
+            jia:""
         },{
             title:"热水器",
             done:false,
-            count:2,
+            count:0,
             dan:110,
-            jia:220
+            jia:""
         },{
             title:"空调",
             done:false,
-            count:2,
+            count:0,
             dan:116,
-            jia:348
+            jia:""
         },{
             title:"冰箱",
             done:false,
-            count:2,
+            count:0,
             dan:900,
-            jia:1800
+            jia:""
         },{
             title:"电磁炉",
             done:false,
-            count:2,
+            count:0,
             dan:900,
-            jia:1800
+            jia:""
         },{
             title:"被子",
             done:false,
-            count:2,
+            count:0,
             dan:200,
-            jia:400
+            jia:""
         },{
             title:"本子",
             done:false,
-            count:2,
+            count:0,
             dan:400,
-            jia:800
+            jia:""
         },{
             title:"笔",
             done:false,
-            count:2,
+            count:0,
             dan:900,
-            jia:1800
+            jia:""
         },{
             title:"杯子",
             done:false,
-            count:2,
+            count:0,
             dan:900,
-            jia:1800
+            jia:""
         },{
             title:"书",
             done:false,
-            count:2,
+            count:0,
             dan:900,
-            jia:1800
+            jia:""
         }];
     }])
 

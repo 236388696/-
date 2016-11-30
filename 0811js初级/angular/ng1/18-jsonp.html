@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body ng-app="myApp" ng-controller="JSONPController">
+<input type="text" ng-model="q" ng-change="search()">
+<ul>
+    <li ng-repeat="x in list">{{x[0]}}</li>
+</ul>
+
+<script src="../bower_components/angular/angular.js"></script>
+<script type="text/javascript">
+    angular.module("myApp",[]).controller("JSONPController",["$scope","$http",function ($scope,$http) {
+        $scope.q="";
+        $scope.search=function () {
+            $http.jsonp("https://suggest.taobao.com/sug?code=utf-8&q=$scope.q+&_ksTS=1480495483527_1878&callback=JSON_CALLBACK&k=1&area=c2c&bucketid=13").success(function (data) {
+                console.log(data);
+                $scope.list=data.result;
+            })
+        }
+
+    }])
+</script>
+</body>
+</html>
