@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #aaa{
+            width: 100%;
+            height: 1000px;
+            background-color: red;
+        }
+        #bbb{
+            width: 100%;
+            height: 1000px;
+            background-color: yellow;
+        }
+
+        #ccc{
+            width: 100%;
+            height: 1000px;
+            background-color: grey;
+        }
+    </style>
+</head>
+<body ng-app="myApp">
+<a href="#aaa">a页面</a>
+<a href="#bbb">b页面</a>
+<a href="#ccc">c页面</a>
+<!--用来放视图的-->
+<div ng-view></div>
+
+<div id="aaa">aaa</div>
+
+
+
+<div id="bbb">bbb</div>
+
+<div id="ccc">ccc</div>
+
+
+
+</body>
+</html>

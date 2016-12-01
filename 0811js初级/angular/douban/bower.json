@@ -1,0 +1,22 @@
+{
+  "name": "douban",
+  "homepage": "https://github.com/236388696/LearnJS",
+  "authors": [
+    "panpanzhuren <236388696@qq.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "angular": "^1.5.9",
+    "angular-route": "^1.5.9"
+  }
+}

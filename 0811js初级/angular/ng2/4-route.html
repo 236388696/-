@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    </style>
+</head>
+<body ng-app="myApp">
+<a href="#/a">a页面</a>
+<a href="#/b">b页面</a>
+<a href="#/c">c页面</a>
+
+<!--用来放视图的-->
+<div ng-view></div>
+
+
+<script src="../bower_components/angular/angular.js"></script>
+<script src="../bower_components/angular-route/angular-route.js"></script>
+
+<!--模版-->
+<script type="text/ng-template" id="temp">
+<h1>{{name}}</h1>
+
+</script>
+<script type="text/javascript">
+    //引入route模块
+    var app=angular.module("myApp",["ngRoute"]);
+    //配置路由规则
+    app.config(["$routeProvider",function ($routeProvider) {
+        //when是固定写法
+        $routeProvider.when("/a",{
+            templateUrl:"./views/a.html",
+            controller:'AController'
+        }).when("/b",{
+            templateUrl:"temp",
+            controller:'BController'
+        }).when("/c",{
+            templateUrl:"./views/c.html",
+            controller:'CController'
+        }).otherwise({
+            //设置默认页，redirectTo重定向,默认跳到c页面
+            redirectTo:"/c"
+        })
+    }]);
+
+    app.controller("AController",function ($scope) {
+        $scope.name="A大卫哦";
+    })
+    app.controller("BController",function ($scope) {
+        $scope.name="B大卫哦";
+    })
+    app.controller("CController",function ($scope) {
+        $scope.name="C大卫哦";
+    })
+</script>
+</body>
+</html>

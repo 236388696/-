@@ -51,11 +51,11 @@
             <div class="col-md-12 column">
                 <span style="font-size: 30px;">创建新用户</span>
                 <div class="input-group-sm">
-                    姓： <input type="text" class="form-control">
+                    姓： <input type="text" class="form-control" ng-change="gai()" ng-model="a">
                 </div>
 
                 <div class="input-group-sm">
-                    名：<input type="text" class="form-control" >
+                    名：<input type="text" class="form-control" ><p>{{a}}</p>
                 </div>
 
                 <div class="input-group-sm">
@@ -79,36 +79,21 @@
             sName:"山",
             change:false
         },{
-            fName:"黄",
+            fName:"史蒂夫",
             sName:"山",
             change:false
         },{
-            fName:"黑",
+            fName:"史蒂夫",
             sName:"山",
             change:false
         },{
-            fName:"白",
-            sName:"山",
-            change:false
-        },{
-            fName:"紫",
+            fName:"史蒂夫",
             sName:"山",
             change:false
         },];
-        s.add = function () {
-            s.person.push({
-                fName:s.newfName,
-                sName:s.newsName,
-                change:false
-            });
-//            s.newTitle = '';
-        };
-        s.change = function (index) {
-            s.person[index].change = true;
-                if(s.person[index].change){
 
-                }
-        }
+
+
     }])
 </script>
 </body>
