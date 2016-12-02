@@ -15,7 +15,7 @@
     angular.module("myApp",[]).controller("JSONPController",["$scope","$http",function ($scope,$http) {
         $scope.q="";
         $scope.search=function () {
-            $http.jsonp("https://suggest.taobao.com/sug?code=utf-8&q=$scope.q+&_ksTS=1480495483527_1878&callback=JSON_CALLBACK&k=1&area=c2c&bucketid=13").success(function (data) {
+            $http.jsonp("http://localhost/0811/163api/api.php?callback=JSON_CALLBACK&type=live").success(function (data) {
                 console.log(data);
                 $scope.list=data.result;
             })
