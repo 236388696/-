@@ -1,0 +1,18 @@
+<div class="col-xs-12 live_head">
+    <div class="col-xs-12 text-center">
+        <ul class="nav nav-pills" role="tablist">
+            <li role="presentation" class="active"><a href="#/live">热门</a></li>
+            <li role="presentation"><a href="#/live">分类</a></li>
+            <li role="presentation"><a href="#/live">订阅</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="col-xs-12 zhibo">
+    <a href="#/live" class="thumbnail" ng-repeat="lives in live">
+        <img ng-src="{{lives.image}}" alt="...">
+        <p class="zhibo_title">{{lives.roomName}}</p>
+        <p class="zhibo_zb">{{lives.source}}</p>
+        <p class="zhibo_canyu">{{lives.userCount}} 参与</p>
+    </a>
+</div>

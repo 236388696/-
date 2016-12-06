@@ -1,0 +1,53 @@
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">
+            <img ng-src="{{webyi[1].imgsrc}}" width="100%" height="100%"/>
+            <p class="banner_title">{{webyi[1].title}}</p>
+        </div>
+        <div class="swiper-slide">
+            <img ng-src="{{webyi[2].imgsrc}}"  width="100%" height="100%"/>
+            <p class="banner_title">{{webyi[2].title}}</p>
+        </div>
+        <div class="swiper-slide">
+            <img ng-src="{{webyi[3].imgsrc}}"  width="100%" height="100%"/>
+            <p class="banner_title">{{webyi[3].title}}</p>
+        </div>
+        <div class="swiper-slide">
+            <img ng-src="{{webyi[4].imgsrc}}"  width="100%" height="100%"/>
+            <p class="banner_title">{{webyi[4].title}}</p>
+        </div>
+    </div>
+    <div class="swiper-pagination"></div>
+</div>
+<div class="main" style="padding-bottom: 15%">
+    <div class="list-group" ng-repeat="news in currNews">
+        <a  href="#/news" class="list-group-item">
+            <div class="media">
+                <div class="media-left">
+                    <img ng-src="{{news.img}}" alt="...">
+                </div>
+                <div class="media-body">
+                    <p>{{news.title}}</p>
+                </div>
+                <div class="media-right">
+                    <p>置顶</p>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function(){
+        var mySwiper = new Swiper ('.swiper-container', {
+            pagination: '.xgt-pagination',    //导航小圆点
+            paginationClickable: true,        //导航小圆点（可点击）
+            autoplay : 2500,//自动切换的时间间隔（单位ms），不设定该参数slide不会自动切换
+            speed:300,//滑动速度，即slider自动滑动开始到结束的时间（单位ms）
+            effect : 'fade', //动画效果
+            loop: true,        //可循环
+            observer:true,
+            // 如果需要分页器
+            pagination: '.swiper-pagination'
+        })
+    })
+</script>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="test"></div>
+
+<script src="../build/react.js"></script>
+<script src="../build/react-dom.js"></script>
+<script src="../build/browser.min.js"></script>
+
+<script type="text/babel">
+
+    //组件
+    var Hello = React.createClass({
+        //声明组件属性的类型
+        //给组件添加状态
+        //stateh和props的区别
+       // props一般不会被修改，用来保存一些固定的属性，
+       // state可以随意修改，用来表示一些状态
+       getInitialState:function () {
+           return {
+               value:"达尔"
+           }
+       },
+        handleChage:function (e) {
+           //e.target触发事件
+            console.log(e.target);
+          this.setState({
+              value:e.target.value
+          })
+        },
+        render:function () {
+           var value=this.state.value;
+           return <div>
+                <input onChange={this.handleChage} type="text"  value={value}/>
+                <p>{value}</p>
+            </div>
+
+     });
+    ReactDOM.render(
+            <Hello/>,
+            document.getElementById("test")
+    )
+
+</script>
+</body>
+</html>

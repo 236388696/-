@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="test"></div>
+<script type="text/babel">
+    //组件
+    var Hello=React.createClass({
+
+        render:function () {
+            //this.props能获取到组件身上的属性
+            //this.props.children表示组件身上的子节点，没有的时候返回undefine，只有一个返回object,多个才返回数组
+            return <ul>
+                {
+                    /*
+                    this.props.children.map(function (item,index) {
+                        return <li key={index}>{item}</li>
+                    })
+
+                    */
+                // React.Children.map为了解决上面的问题
+                React.Children.map(this.props.children,function(item,index){
+                return <li key={index}>{item}</li>
+
+
+                })
+                }
+                  </ul>
+        }
+    });
+    ReactDOM.render(
+            <Hello>
+                <span>第一个</span>
+                <span>第二个</span>
+            </Hello>,
+            document.getElementById("test")
+    )
+
+</script>
+<script src="../build/react.js"></script>
+<script src="../build/react-dom.js"></script>
+<script src="../build/browser.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">
+            <img ng-src="{{webyi[1].imgsrc}}" width="100%" height="100%"/>
+            <p class="banner_title">{{webyi[1].title}}</p>
+        </div>
+        <div class="swiper-slide">
+            <img ng-src="{{webyi[2].imgsrc}}"  width="100%" height="100%"/>
+            <p class="banner_title">{{webyi[2].title}}</p>
+        </div>
+        <div class="swiper-slide">
+            <img ng-src="{{webyi[3].imgsrc}}"  width="100%" height="100%"/>
+            <p class="banner_title">{{webyi[3].title}}</p>
+        </div>
+        <div class="swiper-slide">
+            <img ng-src="{{webyi[4].imgsrc}}"  width="100%" height="100%"/>
+            <p class="banner_title">{{webyi[4].title}}</p>
+        </div>
+    </div>
+    <div class="swiper-pagination"></div>
+</div>
+<div class="main" style="padding-bottom: 15%">
+    <div class="list-group" ng-repeat="news in currNews">
+        <a  href="#/news" class="list-group-item">
+            <div class="media">
+                <div class="media-left">
+                    <img ng-src="{{news.img}}" alt="...">
+                </div>
+                <div class="media-body">
+                    <p>{{news.title}}</p>
+                </div>
+                <div class="media-right">
+                    <p>置顶</p>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+<script type="text/javascript">
+
+</script>

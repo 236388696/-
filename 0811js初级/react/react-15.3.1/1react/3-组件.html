@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="test"></div>
+<script type="text/babel">
+    //组件
+    var Hello=React.createClass({
+
+        render:function () {
+            //this.props能获取到组件身上的属性
+            return <h1>{this.props.name}天气开始冷了,{this.props.title}</h1>
+        }
+    })
+    ReactDOM.render(
+            <Hello name="大儿子" title="难看"/>,
+            document.getElementById("test")
+    )
+
+</script>
+<script src="../build/react.js"></script>
+<script src="../build/react-dom.js"></script>
+<script src="../build/browser.min.js"></script>
+</body>
+</html>

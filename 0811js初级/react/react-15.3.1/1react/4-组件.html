@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="test"></div>
+<script type="text/babel">
+    //组件
+    var Hello=React.createClass({
+        //propTypes声明组件属性的类型
+        propTypes:{
+           title:React.PropTypes.string.isRequired
+        },
+        //给组件设置初始属性
+        getDefaultProps:function () {
+            return{
+                title:"大儿子"
+            }
+        },
+        render:function () {
+            return <h1>{this.props.title}</h1>
+        }
+    });
+    ReactDOM.render(
+            <Hello title={123}/>,
+            document.getElementById("test")
+    )
+
+</script>
+<script src="../build/react.js"></script>
+<script src="../build/react-dom.js"></script>
+<script src="../build/browser.min.js"></script>
+</body>
+</html>
