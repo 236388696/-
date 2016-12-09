@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+	var arr=[1,2,1,3,2,3,5,6,5];
+
+	var newArr=[];
+
+	for (var i=0; i<arr.length; i++){
+		var bol=true;
+		for (var j=0; j<newArr.length; j++){
+
+			if (arr[i]==newArr[j]){
+				bol=false;
+				break;
+			}
+		}
+		if (bol){
+			newArr.push(arr[i]);
+		}
+	}
+	alert(newArr);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

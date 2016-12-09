@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
 //           <View style={helloStyle.view1}>
 //             <Text>酒店</Text>
 //             {/*加载本地图片*/}
-//             {/*<Image source={require("./1.jpg")}/>*/}
+//             {/*<Image source={require("./one.jpg")}/>*/}
 //             <Image source={{url:'https://gw.alicdn.com/tps/TB1exaOLVXXXXXeXFXXXXXXXXXX-183-129.png?imgtag=avatar'}} style={{width:50,height:50}}/>
 //           </View>
 //           <View>
@@ -236,27 +236,18 @@ const QQStyle=StyleSheet.create({
 
 
 //携程作业
-var XC=require("./xiecheng.js");
-var HelloXC = React.createClass({
-  render:function () {
-    return(
-          <View style={style.container}>
-            <XC/>
-          </View>
-    )
-  }
-});
+// var XC = require("./XC.js");
+// var HelloXC = React.createClass({
+//     render:function () {
+//         return(
+//             <XC />
+//         )
+//     }
+// });
 
-const style = StyleSheet.create({
-  container:{
-    flex:1,
-    backgroundColor:'#ccc',
-  }
-});
+// AppRegistry.registerComponent('Demo', () => HelloXC);
 
 
-
-AppRegistry.registerComponent('Demo', () => HelloXC);
 
 
 //查宽高
@@ -279,6 +270,25 @@ AppRegistry.registerComponent('Demo', () => HelloXC);
 // })
 // AppRegistry.registerComponent('Demo', () => Hello1);
 
+
+// var ScrollViewDemo = require('./ScrollViewDemo');
+// AppRegistry.registerComponent('Demo', () => ScrollViewDemo);
+
+// var ListViewDemo=require('./ListViewDemo');
+// AppRegistry.registerComponent('Demo', () => ListViewDemo);
+
+
+
+// var NavigatorDemo=require('./NavigatorDemo');
+// AppRegistry.registerComponent('Demo', () => NavigatorDemo);
+
+
+// var TabBars=require('./TabBar');
+// AppRegistry.registerComponent('Demo', () => TabBars);
+
+
+var NetEase=require('./NetEase/index');
+AppRegistry.registerComponent('Demo', () => NetEase);
 
 
 
